@@ -1,0 +1,4 @@
+﻿irc_bot.cpp
+Z:\core\app\appseed\aura/primitive/datetime/datetime_file_time.h(103): warning C4018: '>': signed/unsigned mismatch
+z:\core\app\appseed\aura\aura\aura\aura__c.h(10): warning C4018: '<': signed/unsigned mismatch
+
