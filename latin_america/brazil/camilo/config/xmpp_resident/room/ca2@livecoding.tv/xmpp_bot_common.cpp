@@ -187,7 +187,7 @@ string get_text(string & strSpeakText, string strLang, string strId, string strN
    strSpeakText.replace("$name", "");
    strSpeakText = process_text(strSpeakText, strName, strTopic, straParam);
 
-   if (strLang == "en" || strLang == "pt")
+   if (strLang == "en" || strLang == "pt" || strLang == "de" || strLang == "nl")
    {
       strSpeakText.replace(":)", "");
       strSpeakText.replace(":(", "");

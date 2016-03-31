@@ -54,3 +54,9 @@ https://www.livecoding.tv/static/candy-chat/img/emoticons_hd/19_Big_Eyeglasses.p
 https://www.livecoding.tv/static/candy-chat/img/emoticons_hd/17_Shout.png
 \:extremely\:
 https://www.livecoding.tv/static/candy-chat/img/emoticons_hd/49_Extremely.png
+\:rock\:
+https://www.livecoding.tv/static/candy-chat/img/emoticons_hd/36_Rock.png
+\:sleep\:
+https://www.livecoding.tv/static/candy-chat/img/emoticons_hd/53_Sleep.png
+\:sorrow\:
+https://www.livecoding.tv/static/candy-chat/img/emoticons_hd/71_Sorrow.png
