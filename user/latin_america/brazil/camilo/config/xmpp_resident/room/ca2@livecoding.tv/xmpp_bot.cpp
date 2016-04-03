@@ -10,14 +10,18 @@ class this_plugin:
    virtual public ::xmpp_resident::plugin
 {
 public:
+   
 
    this_plugin(::aura::application * papp, object * p) :
       object(papp),
       ::vericard::plugin(papp, dynamic_cast <::vericard::comm *> (p)),
       ::xmpp_resident::plugin(papp, dynamic_cast <::vericard::comm *> (p))
 
-
+#ifdef WINDOWS
 #include "C:\ca2\config\xmpp_resident\room\ca2@livecoding.tv\xmpp_bot_common.cpp"
+#else
+#include "/home/camilo/.ca2/config/xmpp_resident/room/ca2@livecoding.tv/xmpp_bot_common.cpp"
+#endif
 
    };
 
