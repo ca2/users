@@ -29,7 +29,7 @@ msgid " some utility commands:"
 msgtext " ein paar nützliche Befehle:"
  
 msgid "!urbd \"urban dictionary query\"\n!at \"google auto translate\"\n and\n!t \"lang\" \"text to translate from lang\""
-msgtext "!urbd \"örtliche Wörterbuch Abfrage\"\n!bei \"Google automatisch übersetzen\"\n und\n!t \"lang\" \"Text von Sprache übersetzen\""
+msgtext "!urbd \"örtliche Wörterbuch Abfrage\"\n!at \"über Google automatisch übersetzen\"\n und\n!t \"lang\" \"Text von Sprache übersetzen\""
 
 msgid "%name, !rr or !rickroll plays 80s hit Never Gonna Give You Up performed by Rick Astley with ASCII animation."
 msgtext "%name, !rr or !rickroll spielt den 80er Hit Never Gonna Give You Up gesungen von Rick Astley mit ASCII Animation."
