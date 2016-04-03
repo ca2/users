@@ -60,3 +60,7 @@ https://www.livecoding.tv/static/candy-chat/img/emoticons_hd/36_Rock.png
 https://www.livecoding.tv/static/candy-chat/img/emoticons_hd/53_Sleep.png
 \:sorrow\:
 https://www.livecoding.tv/static/candy-chat/img/emoticons_hd/71_Sorrow.png
+\$\)
+https://www.livecoding.tv/static/candy-chat/img/emoticons_hd/Greedy.png
+\:tears\:
+https://www.livecoding.tv/static/candy-chat/img/emoticons_hd/59_Tears.png

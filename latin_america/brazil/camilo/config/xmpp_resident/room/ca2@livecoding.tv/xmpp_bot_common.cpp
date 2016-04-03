@@ -17,8 +17,11 @@ bool _load_text(string strLang)
    auto & m = m_text[strLang];
 
    //::file::path path = "C:\\ca2\\config\\xmpp_resident\\room\\"+ m_pcomm->get_room_id()+"\\xmpp_resident_po\\" + strLang + ".po";
-
-   ::file::path path = "C:\\ca2\\config\\xmpp_resident\\room\\ca2@livecoding.tv\\xmpp_resident_po\\" + strLang + ".po";
+#ifdef WINDOWS
+   	::file::path path = "C:\\ca2\\config\\xmpp_resident\\room\\ca2@livecoding.tv\\xmpp_resident_po\\" + strLang + ".po";
+#else
+	::file::path path = "/home/camilo/.ca2/config/xmpp_resident/room/ca2@livecoding.tv/xmpp_resident_po/" + strLang + ".po";
+#endif
 
    ::file_time ft = get_file_time(path);
 
@@ -100,8 +103,11 @@ string get_country(string strLang, string strCountry)
    strLang.make_upper();
 
    strCountry.make_upper();
-
+#ifdef WINDOWS
    ::file::path path = "C:\\ca2\\config\\xmpp_resident\\room\\ca2@livecoding.tv\\xmpp_resident_country\\" + strLang + ".json";
+#else
+	::file::path path = "/home/camilo/.ca2/config/xmpp_resident/room/ca2@livecoding.tv/xmpp_resident_country/" + strLang + ".json";
+#endif
 
    ::file_time ft = get_file_time(path);
 
@@ -275,6 +281,9 @@ string warn(string strUser)
 bool enable_tts(string strLang)
 {
 
+#ifdef LINUX
+   return false;
+#endif
    if (strLang == "en")
    {
       return true;
@@ -584,6 +593,10 @@ string  tts_lang(string strLang)
    {
       return "cn";
    }
+   else if (strLang == "kr")
+   {
+      return "kr";
+   }
    else
    {
       return "en";
@@ -631,9 +644,25 @@ string  trans_lang(string strLang)
    {
       return "ca";
    }
-   else if (strLang == "hy") // catalan - (catalunha)
+   else if (strLang == "hy") // modern armenian
    {
       return "hy";
+   }
+   else if (strLang == "cn")
+   {
+      return "zh-cn";
+   }
+   else if (strLang == "tw")
+   {
+      return "zh-tw";
+   }
+   else if (strLang == "jp" || strLang == "ja")
+   {
+      return "ja";
+   }
+   else if (strLang == "se" || strLang == "sv")
+   {
+      return "sv";
    }
    else
    {
@@ -851,11 +880,11 @@ string username(string strUser, string strLang)
 }
 void ws() // welcome sound
 {
-   Application.play_audio("C:\\ca2\\audio\\hidden\\welcome.wav");
+   Application.play_audio(m_pcomm->get_base_path() / "audio/hidden/welcome.wav");
 }
 void bye() // welcome sound
 {
-   Application.play_audio("C:\\ca2\\audio\\hidden\\youlater.wav");
+   Application.play_audio(m_pcomm->get_base_path() / "audio/hidden/youlater.wav");
 }
 void auto_translate(string strUser, string strDst, string strText)
 {
@@ -1581,7 +1610,7 @@ string bot_x(string strNameParam, string strUserParam, string strText, string st
    }
    else if(strText == "!playlist")
    {
-      stringa a = ls_names("C:\\ca2\\audio\\element");
+      stringa a = ls_names(m_pcomm->get_base_path() / "audio/element");
       if(a.get_count() > 0)
       {
          str = "Type !play ";
@@ -1622,7 +1651,7 @@ string bot_x(string strNameParam, string strUserParam, string strText, string st
    }
    else
    {
-      stringa a = ls_names("C:\\ca2\\audio\\element");
+      stringa a = ls_names(m_pcomm->get_base_path() / "audio/element");
       str = strText.substr(1);
       bool found = false;
       int i = 0;
@@ -1726,7 +1755,15 @@ string on_bot(string strUser,string strText)
       if (::str::begins_ci(str, "spotify:track:"))
       {
 
+#ifdef WINDOWS
+
          call_async("Z:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", str, "X:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
+
+#else
+
+         call_async("/xcore/stage/x86/app", "\"" + str + "\" : app=app-veriwell/waven build_number=basis version=basis locale=_std schema=_std ", "/xcore/stage/x86/", SW_SHOW, false);
+
+#endif
 
       }
       else
@@ -2044,8 +2081,11 @@ string rr(string strName, string strLang)
    string str;
 
    str = _t("%name, Opening Rick Astley - Never Gonna Give You Up!");
-
+#ifdef WINDOWS
    call_async("Z:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", "Y:\\bergedge\\hi5\\user\\northamerica\\us\\xmetrix\\never_gonna_give_you_up.asciimedia : dont_add_to_playlist", "X:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
+#else
+   call_async("/xcore/stage/x86/app", "/mnt/bergedge/bergedge/hi5/user/northamerica/us/xmetrix/never_gonna_give_you_up.asciimedia : dont_add_to_playlist", "/xcore/stage/x86", SW_SHOW, false);
+#endif
 
    return str;
 
@@ -2066,7 +2106,11 @@ string str;
 
 str = _t("Opening Rick Astley - Never Gonna Give You Up!");
 
-call_async("Z:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", "Y:\\bergedge\\hi5\\user\\northamerica\\us\\xmetrix\\never_gonna_give_you_up.asciimedia : dont_add_to_playlist", "X:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
+#ifdef WINDOWS
+   call_async("Z:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", "Y:\\bergedge\\hi5\\user\\northamerica\\us\\xmetrix\\never_gonna_give_you_up.asciimedia : dont_add_to_playlist", "X:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
+#else
+   call_async("/xcore/stage/x86/app", "/mnt/bergedge/bergedge/hi5/user/northamerica/us/xmetrix/never_gonna_give_you_up.asciimedia : dont_add_to_playlist", "/xcore/stage/x86", SW_SHOW, false);
+#endif
 
 return str;
 
