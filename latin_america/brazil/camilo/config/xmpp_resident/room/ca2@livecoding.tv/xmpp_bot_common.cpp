@@ -1666,7 +1666,7 @@ string bot_x(string strNameParam, string strUserParam, string strText, string st
       }
       if(found == 1)
       {
-         play_sound("C:\\ca2\\audio\\element\\" + str + ".wav");
+         play_sound(m_pcomm->get_base_path() / "audio/element" / str + ".wav");
          return "";
       }
       else
@@ -1750,7 +1750,7 @@ string on_bot(string strUser,string strText)
    }
    else if(strText.get_length() > 6 && ::str::begins(strText,"!play "))
    {
-      stringa a = ls_names("C:\\ca2\\audio\\element");
+      stringa a = ls_names(m_pcomm->get_base_path() / "audio/element");
       string str = strText.substr(6);
       str = str.trimmed();
       
@@ -1782,7 +1782,7 @@ string on_bot(string strUser,string strText)
          }
          if (found)
          {
-            play_sound("C:\\ca2\\audio\\element\\" + str + ".wav");
+            play_sound(m_pcomm->get_base_path() / "audio/element"/ str + ".wav");
             return "";
          }
          else
