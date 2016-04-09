@@ -1,5 +1,5 @@
 ﻿msgid "%name, Some supported commands !help, !about and !want the bot"
-msgtext "%name, Veribot ondersteund de volgende instructies (help, over, beschikbaarheid): !help, !about en !want the bot"
+msgtext "%name, de bot ondersteund de volgende instructies (help, over, beschikbaarheid): !help, !about en !want the bot"
 
 msgid "%name, song not playing or not in record."
 msgtext "%name, nummer wordt niet afgespeeld of is helaas niet beschikbaar."
@@ -158,5 +158,5 @@ msgid "The country of %name is \"%topic\""
 msgtext "Land van %name is %topic"
 
 msgid "%name, you will need Visual Studio 2015 (at least Community Edition), a SVN (Subversion) client and repository access (working e-mail address needed). Talk to Camilo for details."
-msgid ""
+msgid "%name, hiervoor heb je minimaal nodig: Visual Studio 2015 (ten minste Community Edition), een SVN (Subversion) client en toegang tot de ca2 repository (met een geldig e-mail adress). Praat met Camilo voor verdere details."
 
