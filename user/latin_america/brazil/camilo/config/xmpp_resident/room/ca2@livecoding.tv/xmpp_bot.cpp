@@ -10,8 +10,8 @@ class this_plugin:
    virtual public ::xmpp_resident::plugin
 {
 public:
-   
-   
+      
+
    this_plugin(::aura::application * papp, object * p) :
       object(papp),
       ::vericard::plugin(papp, dynamic_cast <::vericard::comm *> (p)),
