@@ -882,6 +882,10 @@ void ws() // welcome sound
 {
    Application.play_audio(m_pcomm->get_base_path() / "audio/hidden/welcome.wav");
 }
+void doorbell() // welcome sound
+{
+   Application.play_audio(m_pcomm->get_base_path() / "audio/hidden/doorbell.wav");
+}
 void bye() // welcome sound
 {
    Application.play_audio(m_pcomm->get_base_path() / "audio/hidden/youlater.wav");
@@ -1877,17 +1881,36 @@ string on_pres(string strUser,string strType)
       }
       else
       {
-         bye();
          if(get_user_data(strUser,"visit_count") <= 4)
          {
 
+            bye();
             strText = _t("Bye %name! :(");
 
          }
          else
          {
 
-            strText = _t("See you %name! :(");
+
+            if (get_user_data(strUser, "back") == 1)
+            {
+               bye();
+
+               set_user_data(strUser, "back", 0);
+
+               strText = _t("See you %name! :(");
+
+            }
+            else
+            {
+
+               return "";
+
+            }
+
+            ::datetime::time now = ::datetime::time::get_current_time();
+
+            set_user_data(strUser, "last_see_you", now.m_time);
 
          }
       }
@@ -1907,9 +1930,9 @@ string on_pres(string strUser,string strType)
       }
       else
       {
-         ws();
          if(get_user_data(strUser,"visit_count") <= 4)
          {
+            doorbell();
             strText = _t("Welcome %name! :) You can type exclamation mark and then press enter to get some help.");
             if(strCountry == "be")
             {
@@ -1926,6 +1949,7 @@ string on_pres(string strUser,string strType)
          }
          else if(get_user_data(strUser,"last_visit") > 60 * 60 * 18 || get_user_data(strUser,"today_visit_count") <= 1)
          {
+            doorbell();
 
             strText = _t("Hi %name! Welcome! What brings you here today?");
 
@@ -1933,7 +1957,39 @@ string on_pres(string strUser,string strType)
          else
          {
 
-            strText = _t("%name is back! :)");
+            ::datetime::time last_see_you;
+
+            last_see_you.m_time = get_user_data(strUser, "last_see_you").int64();
+
+            ::datetime::time now = ::datetime::time::get_current_time();
+
+            if (get_user_data(strUser, "back") == 0)
+            {
+             
+               if (now.m_time - last_see_you.m_time > 8 * 60)  // 1 hour
+               {
+                  ws();
+                  strText = _t("%name is back! :)");
+
+                  set_user_data(strUser, "back", 1);
+
+               }
+               else
+               {
+
+                  set_user_data(strUser, "back", 0);
+
+                  return "";
+
+               }
+
+            }
+            else
+            {
+
+               return "";
+
+            }
 
          }
 
@@ -2075,6 +2131,19 @@ string on_new_followers(stringa & straNew)
 string rr(string strName, string strLang)
 {
 
+   ::datetime::time last_rr;
+
+   ::datetime::time now = ::datetime::time::get_current_time();
+
+   last_rr.m_time = get_user_data("global", "last_rr");
+
+   if (now.m_time - last_rr.m_time < 5 * 60)
+   {
+      
+      return "";
+
+   }
+
    stringa t_straParam;
    string strSpeakText;
 
@@ -2089,6 +2158,8 @@ string rr(string strName, string strLang)
    call_async("/xcore/stage/x86/app", "/mnt/bergedge/bergedge/hi5/user/northamerica/us/xmetrix/never_gonna_give_you_up.asciimedia : dont_add_to_playlist", "/xcore/stage/x86", SW_SHOW, false);
 #endif
 
+   set_user_data("global", "last_rr", now.m_time);
+
    return str;
 
 }
@@ -2097,7 +2168,20 @@ string rr(string strName, string strLang)
 string rr(string strLang)
 {
 
-stringa t_straParam;
+   ::datetime::time last_rr;
+
+   ::datetime::time now = ::datetime::time::get_current_time();
+
+   last_rr.m_time = get_user_data("global", "last_rr");
+
+   if (now.m_time - last_rr.m_time < 3 * 60)
+   {
+
+      return "";
+
+   }
+   
+   stringa t_straParam;
 string strSpeakText;
 
 string strName;
@@ -2114,7 +2198,9 @@ str = _t("Opening Rick Astley - Never Gonna Give You Up!");
    call_async("/xcore/stage/x86/app", "/mnt/bergedge/bergedge/hi5/user/northamerica/us/xmetrix/never_gonna_give_you_up.asciimedia : dont_add_to_playlist", "/xcore/stage/x86", SW_SHOW, false);
 #endif
 
-return str;
+   set_user_data("global", "last_rr", now.m_time);
+
+      return str;
 
 }
 
