@@ -886,7 +886,7 @@ void ws(string strUser) // welcome sound
    ::file::path path = m_pcomm->get_base_path() / "audio/hidden/welcome" / strUser + ".wav";
    if (Application.file().exists(path))
    {
-      Application.play_audio(path);
+      audio_announce(path);
    }
    else
    {
@@ -990,10 +990,7 @@ string bot_x(string strNameParam, string strUserParam, string strText, string st
    }
    else if (strText.CompareNoCase("!ws") == 0 || ::str::begins_eat_ci(strText, "!ws "))
    {
-      if (strUserParam == "ca2")
-      {
-         ws(strOther);
-      }
+      ws(strOther);
    }
    else if (strText.CompareNoCase("!land") == 0 || ::str::begins_eat_ci(strText, "!land "))
    {
@@ -2252,11 +2249,8 @@ string rr(string strName, string strLang)
    string str;
 
    str = _t("%name, Opening Rick Astley - Never Gonna Give You Up!");
-#ifdef WINDOWS
-   call_async("Z:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", "Y:\\bergedge\\hi5\\user\\northamerica\\us\\xmetrix\\never_gonna_give_you_up.asciimedia : dont_add_to_playlist", "X:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
-#else
-   call_async("/xcore/stage/x86/app", "/mnt/bergedge/bergedge/hi5/user/northamerica/us/xmetrix/never_gonna_give_you_up.asciimedia : dont_add_to_playlist", "/xcore/stage/x86", SW_SHOW, false);
-#endif
+
+   audio_announce(hi5_user("xmetrix") / "never_gonna_give_you_up.asciimedia");
 
    set_user_data("global", "last_rr", now.m_time);
 
@@ -2282,25 +2276,21 @@ string rr(string strLang)
    }
    
    stringa t_straParam;
-string strSpeakText;
+   string strSpeakText;
 
-string strName;
+   string strName;
 
-string strTopic;
+   string strTopic;
 
-string str;
+   string str;
 
-str = _t("Opening Rick Astley - Never Gonna Give You Up!");
+   str = _t("Opening Rick Astley - Never Gonna Give You Up!");
 
-#ifdef WINDOWS
-   call_async("Z:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", "Y:\\bergedge\\hi5\\user\\northamerica\\us\\xmetrix\\never_gonna_give_you_up.asciimedia : dont_add_to_playlist", "X:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
-#else
-   call_async("/xcore/stage/x86/app", "/mnt/bergedge/bergedge/hi5/user/northamerica/us/xmetrix/never_gonna_give_you_up.asciimedia : dont_add_to_playlist", "/xcore/stage/x86", SW_SHOW, false);
-#endif
+   audio_announce(hi5_user("xmetrix")/ "never_gonna_give_you_up.asciimedia");
 
    set_user_data("global", "last_rr", now.m_time);
 
-      return str;
+   return str;
 
 }
 

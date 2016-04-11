@@ -6,3 +6,4 @@ c:\ca2\config\xmpp_resident\room\ca2@livecoding.tv\lib1.cpp(73): warning C4566: 
 c:\ca2\config\xmpp_resident\room\ca2@livecoding.tv\lib1.cpp(75): warning C4566: character represented by universal-character-name '\u0105' cannot be represented in the current code page (1252)
 c:\ca2\config\xmpp_resident\room\ca2@livecoding.tv\lib1.cpp(90): warning C4566: character represented by universal-character-name '\u0144' cannot be represented in the current code page (1252)
 
+c:\ca2\config\xmpp_resident\room\ca2@livecoding.tv\lib1.cpp(316) : warning C4715: 'this_plugin::hi5_user': not all control paths return a value
