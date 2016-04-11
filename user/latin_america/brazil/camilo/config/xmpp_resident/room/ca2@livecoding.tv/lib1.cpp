@@ -282,4 +282,35 @@ bool consider_speakable_text(string strText)
 }
 
 
+void audio_announce(string strParam)
+{
 
+#ifdef WINDOWS
+call_async("Z:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", strParam +  " : dont_add_to_playlist", "X:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
+#else
+call_async("/xcore/stage/x86/app", strParam + " : dont_add_to_playlist", "/xcore/stage/x86", SW_SHOW, false);
+#endif
+
+}
+
+::file::path bergedge()
+{
+#ifdef WINDOWS
+   return "Y:\\bergedge";
+#else
+   return "/mnt/bergedge/bergedge";
+#endif
+}
+
+::file::path hi5()
+{
+   return bergedge() / "hi5";
+}
+
+::file::path hi5_user(string strUser)
+{
+   if (strUser == "xmetrix")
+   {
+      return hi5() / "user/northamerica/us/xmetrix";
+   }
+}
