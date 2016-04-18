@@ -1,11 +1,11 @@
 ﻿msgid "%name, Some supported commands !help, !about and !want the bot"
-msgtext "%name,몇 가지 지원 되는 commands !help, !about 과  !want the bot"
+msgtext "%name, Veribot ondersteund de volgende instructies (help, over, beschikbaarheid): !help, !about en !want the bot"
 
 msgid "%name, song not playing or not in record."
-msgtext "%name, 재생되지 않는 노래 또는 녹음되지 않는 노래"
+msgtext "%name, nummer wordt niet afgespeeld of is helaas niet beschikbaar."
 
 msgid "%name, currently playing song is: \"%topic\"."
-msgtext "%name,현재 재생되고 있는 노래는 \"%topic\"."
+msgtext "%name, op dit moment wordt het volgende nummer afgespeeld: \"%topic\"."
 
 msgid "%name, help information is grouped in:\n!help util\n!help info\n!help config\n and\n!help media"
 msgtext "%name, instructies zijn gecategoriseerd in:\n!help util\n!help info\n!help config\n en\n!help media"
@@ -158,5 +158,5 @@ msgid "The country of %name is \"%topic\""
 msgtext "Land van %name is %topic"
 
 msgid "%name, you will need Visual Studio 2015 (at least Community Edition), a SVN (Subversion) client and repository access (working e-mail address needed). Talk to Camilo for details."
-msgid "%name, hiervoor heb je minimaal nodig: Visual Studio 2015 (ten minste Community Edition), een SVN (Subversion) client en toegang tot de ca2 repository (met een geldig e-mail adress). Praat met Camilo voor verdere details."
+msgid ""
 

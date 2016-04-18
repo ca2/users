@@ -783,6 +783,24 @@ string  initial_country_lang(string strCountry)
       return "tw";
 
    }
+   else if (strCountry == "ru")
+   {
+
+      return "ru";
+
+   }
+   else if (strCountry == "pl")
+   {
+
+      return "pl";
+
+   }
+   else if (strCountry == "am")
+   {
+
+      return "hy";
+
+   }
    else
    {
 
@@ -895,11 +913,15 @@ void ws(string strUser) // welcome sound
 }
 void doorbell() // welcome sound
 {
-   Application.play_audio(m_pcomm->get_base_path() / "audio/hidden/doorbell.wav");
+   Application.play_audio(m_pcomm->get_base_path() / "audio/hidden/doorbell.mp3");
 }
 void bye() // welcome sound
 {
    Application.play_audio(m_pcomm->get_base_path() / "audio/hidden/youlater.wav");
+}
+void sound_for_follower() // welcome sound
+{
+   Application.play_audio(m_pcomm->get_base_path() / "audio/hidden/follower.wav");
 }
 void auto_translate(string strUser, string strDst, string strText)
 {
@@ -990,7 +1012,14 @@ string bot_x(string strNameParam, string strUserParam, string strText, string st
    }
    else if (strText.CompareNoCase("!ws") == 0 || ::str::begins_eat_ci(strText, "!ws "))
    {
-      ws(strOther);
+      if (strText.has_char() && strText != "!ws")
+      {
+         ws(strText);
+      }
+      else
+      {
+         ws(strUser);
+      }
    }
    else if (strText.CompareNoCase("!land") == 0 || ::str::begins_eat_ci(strText, "!land "))
    {
@@ -1191,34 +1220,7 @@ string bot_x(string strNameParam, string strUserParam, string strText, string st
 
          straFiltered.quick_sort(NULL, NULL, true);
 
-         if (straFiltered.get_count() <= 0)
-         {
-
-         }
-         else if (cGuest > 0)
-         {
-
-            str += ":\n" + straFiltered.implode(",\n");
-
-         }
-         else if (straFiltered.get_count() == 1)
-         {
-
-            str += ":\n" + straFiltered[0] + ".";
-
-         }
-         else if (straFiltered.get_count() == 2)
-         {
-
-            str += ":\n" + straFiltered[0] + "\n"+l_and(strLang)+"\n" + straFiltered[1];
-
-         }
-         else
-         {
-
-            str += ":\n" + straFiltered.implode(",\n", 0, straFiltered.get_upper_bound()) + "\n" + l_and(strLang) + "\n" + straFiltered[straFiltered.get_upper_bound()];
-
-         }
+         str += straFiltered[0]._008IfImplode(" : ", ", ", " " + l_and(strLang) + " ", cGuest > 0);
 
          if (cGuest > 0)
          {
@@ -1226,7 +1228,8 @@ string bot_x(string strNameParam, string strUserParam, string strText, string st
             if (straFiltered.get_count() > 0)
             {
 
-               str += "\n";
+               //str += "\n";
+               str += " ";
 
             }
 
@@ -1255,45 +1258,23 @@ string bot_x(string strNameParam, string strUserParam, string strText, string st
             if (straBot.get_count() <= 0)
             {
 
-               str += "\n" + _t("and no detected bots.");
+               str += " " + _t("and no detected bots.");
 
             }
             else if (straBot.get_count() == 1)
             {
 
-               str += "\n" + _t("and 1 detected bot");
+               str += " " + _t("and 1 detected bot");
 
             }
             else
             {
 
-               str += "\n" + _t("and %topic detected bots");
+               str += " " + _t("and %topic detected bots");
 
             }
 
-            if (straBot.get_count() <= 0)
-            {
-
-            }
-            else if (straBot.get_count() == 1)
-            {
-
-               str += " :\n" + straBot[0] + ".";
-
-            }
-            else if (straBot.get_count() == 2)
-            {
-
-               str += " :\n" + straBot[0] + "\n" + l_and(strLang) + "\n" + straBot[1];
-
-            }
-            else
-            {
-
-               str += " :\n" + straBot.implode(",\n", 0, straBot.get_upper_bound()) + "\n" + l_and(strLang) + "\n" + straBot[straBot.get_upper_bound()];
-
-            }
-
+            str += straBot[0]._008IfImplode(" : ", ", ", " " + l_and(strLang) + " ");
          }
 
          lspeak(strUser, strLang, str);
@@ -1319,10 +1300,16 @@ string bot_x(string strNameParam, string strUserParam, string strText, string st
          }
       }
       stra.quick_sort(NULL, NULL, true);
-      for (auto & user : stra)
+
+      str = _t("%name, There are %topic live streams");
+
+      if (stra.get_count() > 0)
       {
-         str += user + "\n";
+
+         str += stra._008Implode(", ", " " + l_and(strLang) + " ");
+
       }
+
 #endif
    }
    else if(strText == "!reset!")
@@ -1832,7 +1819,21 @@ string on_bot(string strUser,string strText)
       stringa a = ls_names(m_pcomm->get_base_path() / "audio/element");
       string str = strText.substr(6);
       str = str.trimmed();
-      
+
+      string strServer = System.url().get_server(str);
+      strisize iFind1 = -1;
+      if (((iFind1 = strServer.find_ci("spotify.")) == 0
+         || (iFind1 =strServer.find_ci(".spotify.")) > 0)
+      {
+
+         strsize iFind = str.find_ci("/track/", iFind1);
+         if (iFind > 0)
+         {
+            string strId = str.Mid(iFind + strlen("/track/"));
+            str = "spotify:track:" + strId;
+         }
+
+      }
       if (::str::begins_ci(str, "spotify:track:"))
       {
 
@@ -2103,6 +2104,17 @@ string on_pres(string strUser,string strType)
 
 string on_new_followers(stringa & straNew)
 {
+   int iCount = straNew.get_size();
+   ::fork(get_app(), [=]()
+   {
+
+      for (index i = 0; i < MIN(3, iCount); i++)
+      {
+         sound_for_follower();
+         Sleep(1000);
+      }
+
+   });
 
    string str;
 
