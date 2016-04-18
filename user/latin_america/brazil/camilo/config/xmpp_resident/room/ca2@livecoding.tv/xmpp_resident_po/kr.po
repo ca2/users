@@ -1,5 +1,5 @@
 ﻿msgid "%name, Some supported commands !help, !about and !want the bot"
-msgtext "%name, Veribot ondersteund de volgende instructies (help, over, beschikbaarheid): !help, !about en !want the bot"
+msgtext "%name, Alguns comandos suportados são: !help, !about e !want the bot"
 
 msgid "%name, song not playing or not in record."
 msgtext "%name, nummer wordt niet afgespeeld of is helaas niet beschikbaar."
@@ -17,10 +17,10 @@ msgid " settings commands are:"
 msgtext " instructies voor de instellingen zijn:"
 
 msgid "!setname \"name\"\n!setlang \"country code\"\n and\n!setzone \"time zone\""
-msgtext "!setname \"naam\"\n!setlang \"landcode\"\n en \n!setzone \"tijdzone\""
+msgtext "!setname \"\"\n!setlang \"landcode\"\n en \n!setzone \"tijdzone\""
 
 msgid " multimedia commands are:"
-msgtext " multimedia instructies zijn:"
+msgtext " Os comandos de multimídia são:"
 
 msgid "!rr\n!rickroll\n!say \"text\"\n!playlist\n and\n!play \"sound\""
 msgtext "!rr\n!rickroll\n!say \"tekst\"\n!playlist\n en\n!play \"geluid\""
