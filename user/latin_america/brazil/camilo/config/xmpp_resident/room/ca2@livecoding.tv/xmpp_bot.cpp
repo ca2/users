@@ -1,11 +1,15 @@
 #include "framework.h"
+
 #include "app-core/appseed/xmpp_resident/xmpp_resident.h"
+
 #pragma comment (lib,"vericard.lib" )
 #pragma comment (lib,"xmpp.lib" )
 #pragma comment (lib,"app_core_xmpp_bot.lib" )
 #pragma comment (lib,"app_core_xmpp_client.lib" )
 #pragma comment (lib,"app_core_xmpp_resident.lib" )
+
 #define __XMPP
+
 class this_plugin:
    virtual public ::xmpp_resident::plugin
 {
@@ -29,3 +33,6 @@ public:
    BEG_ONLY_FACT
    CREATE_OBJECT_ENTRY("plugin",this_plugin)
    END_ONLY_FACT
+
+
+
