@@ -295,11 +295,13 @@ call_async("/xcore/stage/x86/app", strParam + " : dont_add_to_playlist", "/xcore
 
 ::file::path bergedge()
 {
+
 #ifdef WINDOWS
    return "Y:\\bergedge";
 #else
    return "/mnt/bergedge/bergedge";
 #endif
+
 }
 
 ::file::path hi5()
@@ -314,3 +316,6 @@ call_async("/xcore/stage/x86/app", strParam + " : dont_add_to_playlist", "/xcore
       return hi5() / "user/northamerica/us/xmetrix";
    }
 }
+
+
+

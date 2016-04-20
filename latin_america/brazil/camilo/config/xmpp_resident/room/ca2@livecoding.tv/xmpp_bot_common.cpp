@@ -3,6 +3,33 @@
    m_straSpecialCommand.add("exclamation mark");
 }
 
+
+
+
+
+/*
+string rr(string strName, string strLang);
+
+
+
+bool is_exclamation(string str);
+
+bool is_vowel(string str);
+
+bool is_consonant(string str);
+
+
+bool consider_speakable_text(string strText);
+
+
+void audio_announce(string strParam);
+
+::file::path bergedge();
+
+::file::path hi5();
+
+::file::path hi5_user(string strUser);*/
+
 stringa m_straSpecialCommand;
 
 #define _t(strText) get_text(strSpeakText, strLang, strText, strName, strTopic, t_straParam)
@@ -1220,7 +1247,7 @@ string bot_x(string strNameParam, string strUserParam, string strText, string st
 
          straFiltered.quick_sort(NULL, NULL, true);
 
-         str += straFiltered[0]._008IfImplode(" : ", ", ", " " + l_and(strLang) + " ", cGuest > 0);
+         str += straFiltered._008IfImplode(" : ", ", ", " " + l_and(strLang) + " ", cGuest > 0);
 
          if (cGuest > 0)
          {
@@ -1274,7 +1301,7 @@ string bot_x(string strNameParam, string strUserParam, string strText, string st
 
             }
 
-            str += straBot[0]._008IfImplode(" : ", ", ", " " + l_and(strLang) + " ");
+            str += straBot._008IfImplode(" : ", ", ", " " + l_and(strLang) + " ");
          }
 
          lspeak(strUser, strLang, str);
@@ -1821,8 +1848,8 @@ string on_bot(string strUser,string strText)
       str = str.trimmed();
 
       string strServer = System.url().get_server(str);
-      strisize iFind1 = -1;
-      if (((iFind1 = strServer.find_ci("spotify.")) == 0
+      strsize iFind1 = -1;
+      if ((iFind1 = strServer.find_ci("spotify.")) == 0
          || (iFind1 =strServer.find_ci(".spotify.")) > 0)
       {
 
@@ -2308,3 +2335,22 @@ string rr(string strLang)
 
 
 #include "lib1.cpp"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

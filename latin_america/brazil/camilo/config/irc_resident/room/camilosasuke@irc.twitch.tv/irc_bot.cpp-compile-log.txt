@@ -1,9 +1,4 @@
-﻿irc_bot.cpp
-Z:\core\app\appseed\aura/primitive/datetime/datetime_file_time.h(103): warning C4018: '>': signed/unsigned mismatch
-z:\core\app\appseed\aura\aura\aura\aura__c.h(10): warning C4018: '<': signed/unsigned mismatch
-c:\ca2\config\xmpp_resident\room\ca2@livecoding.tv\lib1.cpp(71): warning C4566: character represented by universal-character-name '\u0119' cannot be represented in the current code page (1252)
-c:\ca2\config\xmpp_resident\room\ca2@livecoding.tv\lib1.cpp(73): warning C4566: character represented by universal-character-name '\u0119' cannot be represented in the current code page (1252)
-c:\ca2\config\xmpp_resident\room\ca2@livecoding.tv\lib1.cpp(75): warning C4566: character represented by universal-character-name '\u0105' cannot be represented in the current code page (1252)
-c:\ca2\config\xmpp_resident\room\ca2@livecoding.tv\lib1.cpp(90): warning C4566: character represented by universal-character-name '\u0144' cannot be represented in the current code page (1252)
-
-c:\ca2\config\xmpp_resident\room\ca2@livecoding.tv\lib1.cpp(316) : warning C4715: 'this_plugin::hi5_user': not all control paths return a value
+﻿/home/camilo/.ca2/config/irc_resident/room/camilosasuke@irc.twitch.tv/irc_bot.cpp:22:82: fatal error: C:\ca2\config\xmpp_resident\room\ca2@livecoding.tv\xmpp_bot_common.cpp: No such file or directory
+ #include "C:\ca2\config\xmpp_resident\room\ca2@livecoding.tv\xmpp_bot_common.cpp"
+                                                                                  ^
+compilation terminated.
