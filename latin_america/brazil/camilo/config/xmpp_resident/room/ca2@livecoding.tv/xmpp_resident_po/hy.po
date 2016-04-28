@@ -1,17 +1,17 @@
 ﻿msgid "%name, Some supported commands !help, !about and !want the bot"
-msgtext "%name, Որոշ հրահանգներն են՝ !help, !about en !want the bot"
+msgtext "%name, Որոշ հրահանգներն են՝ !help, !about եւ !want the bot"
 
 msgid "%name, song not playing or not in record."
-msgtext "%name, nummer wordt niet afgespeeld of is helaas niet beschikbaar."
+msgtext "%name, այս երգը միացրած չի, կամ playlist-ի մեջ չի։"
 
 msgid "%name, currently playing song is: \"%topic\"."
-msgtext "%name, op dit moment wordt het volgende nummer afgespeeld: \"%topic\"."
+msgtext "%name, այժմ միացրած երաժշտությունը \"%topic\" է։"
 
 msgid "%name, help information is grouped in:\n!help util\n!help info\n!help config\n and\n!help media"
-msgtext "%name, instructies zijn gecategoriseerd in:\n!help util\n!help info\n!help config\n en\n!help media"
+msgtext "%name, help-ի տեսակներն են՝ \n!help util\n!help info\n!help config\n en\n!help media"
 
 msgid "%name, commands help info were grouped in:\n!commands info\n!commands config\n and\n!commands media"
-msgtext "%name, instructies zijn gecategoriseerd in:\n!commands info\n!commands config\n en \n!commands media ";
+msgtext "%name, help info-ի տեսակներն են՝\n!commands info\n!commands config\n en \n!commands media ";
 
 msgid " settings commands are:"
 msgtext " կարգավորումների համար հրահանգներն են՝"
@@ -20,19 +20,19 @@ msgid "!setname \"name\"\n!setlang \"country code\"\n and\n!setzone \"time zone\
 msgtext "!setname \"անուն\"\n!setlang \"քաղաքի կոդը\"\n եւ \n!setzone \"ժամանակի գոտին\""
 
 msgid " multimedia commands are:"
-msgtext " մուլտիմեդիա հրահանգներն են՝"
+msgtext "մուլտիմեդիա հրահանգներն են՝"
 
 msgid "!rr\n!rickroll\n!say \"text\"\n!playlist\n and\n!play \"sound\""
 msgtext "!rr\n!rickroll\n!say \"նախադասություն\"\n!playlist\n եւ\n!play \"ձայն\""
 
 msgid " some utility commands:"
-msgtext " enkele handige instructies zijn:"
+msgtext " որոշ կոմունալ ծրագրերն են՝"
  
 msgid "!urbd \"urban dictionary query\"\n!at \"google auto translate\"\n and\n!t \"lang\" \"text to translate from lang\""
 msgtext "!urbd \"vertaling via Urban Dictionary\"\n!at \"vertaling via Google\"\n en\n!t \"taal\" \"tekst om te vertalen vanuit opgegeven taal\""
 
 msgid "%name, !rr or !rickroll plays 80s hit Never Gonna Give You Up performed by Rick Astley with ASCII animation."
-msgtext "%name, !rr of !rickroll speelt de jaren tachtig hit Never Gonna Give You Up uitgevoerd door Rick Astley met ASCII animatie."
+msgtext "%name, !rr կամ !rickroll խախում է 80-ականների խիտ "Never Gonna Give You Up" (Rick Astley-ի կողմից ASCII անիմացիայի հետ)։"
 
 msgid "%name, Use this command to get special tips"
 msgtext "%name, gebruik deze opdracht om speciale tips te krijgen."
@@ -44,7 +44,7 @@ msgid "%name, ide \"platform\" display information about tools used for developm
 msgtext "%name, ide \"platform\" laat informatie zien over de programma's die gebruikt zijn voor de ontwikkeling van het ca2 framework en de applicaties op dat platform. \"platform\" kan zijn: Windows (Desktop), Linux, MacOS, iOS, Android and WinRT."
           
 msgid "%name, setlang \"language code and/or two-letter country code\" sets user preferred language. The bot speaks to you in selected language, as much as possible."
-msgtext "%name, setlang \"taal- of landcode\" stelt de voorkeurtaal in van de gebruiker. Voor zover het mogelijk is zal de bot u toespreken in de opgegeven taal."
+msgtext "%name, setlang \"լեզվի կոդը\" դնում է քո ուզած լեզուն։ Բոտը կսկսի խոսալ քո հետ քո դրած լեզվով ինչքան որ կարա։"
 
 msgid "%name, use setname command to set better user name, matching nick or name, with desired capitalization and spacing. It can make it better the name pronunciantion by Text-To-Speech."
 msgtext "%name, gebruik setname instructie om een andere gebruikersnaam in te stellen, bijvoorbeeld nickname of naam. Er kan gebruik gemaakt worden van hoofdletters en spaties. Gebruik eventueel spaties om de uitspraak in de text-naar-spraak te optimaliseren."
@@ -101,46 +101,46 @@ msgid "%name, your time zone is set to %topic"
 msgtext "%name, uw tijdzone is ingesteld op %topic"
 
 msgid "%name, your language was set to %topic"
-msgtext "%name, uw taal is ingesteld op %topic"
+msgtext "%name, քո լեզուն դրվեց %topic"
 
 msgid "and your country was set to %topic"
-msgtext "uw land is ingesteld op %topic"
+msgtext "եւ քո երկիրը այժմ %topic -ն է"
 
 msgid "%name , Currently only the client will be made available."
-msgtext "%name, op dit moment kan alleen de client beschikbaar gesteld worden."
+msgtext "%name , op dit moment kan alleen de client beschikbaar gesteld worden."
 
 msgid "No files in the playlist"
 msgtext "Geen bestanden in de afspeellijst."
 
 msgid " gone, uff..."
-msgtext "weg, oeff..."
+msgtext "գնացի, ուֆֆֆֆ..."
          
 msgid "Bye %name! :("
-msgtext "Dag %name! :("
+msgtext "Պակա %name! :("
 
 msgid "See you %name! :("
-msgtext "Tot later %name! :("
+msgtext "Հաջողություն %name! :("
       
 msgid "%name, entered!! (Subset of commands enabled)."
 msgtext "%name, is binnen!! (Subset of commands enabled)."
 
 msgid "%name you are connected!";
-msgtext "%name u bent nu verbonden!";
+msgtext "%name դու կապի մեջ ես";
 
 msgid "Welcome %name! :) You can type exclamation mark and then press enter to get some help."
-msgtext "Welkom %name! :) Type voor instructies een uitroepteken gevolgd door enter."
+msgtext "Ողջյուն %name! :) Դու կարող ես գրել բացականչական նշան, հետո սեղմել \"Enter\" որոշակի օգնություն ստանալու համար"
 
 msgid "Hi %name! Welcome! What brings you here today?"
-msgtext "Բարեւ %name! Ողջույն! Ինչ է բերել քեզ այսօր այստեղ?"
+msgtext "Բարեւ %name! Ինչ է բերել քեզ այսօր այստեղ?"
 
 msgid "%name is back! :)"
 msgtext "%name -ը վերադարձավ! :)"
 
 msgid "You're welcome, %name! Thank you for following!"
-msgtext "Graag gedaan, %name! Bedankt voor het volgen!"
+msgtext "Շնորհակալություն %name ինձ follow տալու համար"
             
 msgid "Opening Rick Roll for you all new followers!!"
-msgtext "Voor alle nieuwe volgers wordt Rick Roll gespeeld!!"
+msgtext "Բացում եմ Rick Roll-ը իմ բոլոր նոր follow-վերների համար"
 
 msgid "Opening Rick Roll for you!!"
 msgtext "Բացում եմ Rick Roll-ը քո համար"
@@ -149,7 +149,7 @@ msgid "%name , Opening Rick Astley - Never Gonna Give You Up!"
 msgtext "%name, aan het afspelen Rick Astley - Never Gonna Give You Up!"
 
 msgid "Opening Rick Astley - Never Gonna Give You Up!"
-msgtext "Afspelen Rick Astley - Never Gonna Give You Up!"
+msgtext "Բացում եմ Rick Astley - Never Gonna Give You Up!"
 
 msgid "The country of %name is unknown"
 msgtext "Land van %name is onbekend."
