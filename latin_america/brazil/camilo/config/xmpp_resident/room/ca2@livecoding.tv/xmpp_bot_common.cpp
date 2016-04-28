@@ -1231,6 +1231,8 @@ string bot_x(string strNameParam, string strUserParam, string strText, string st
                   else
                   {
 
+                     strName = username(strName, strLang);
+
                      straFiltered.add_unique(strName);
 
                   }
