@@ -1,1 +1,1 @@
-﻿g++: error: /xcore/time/intermediate/x86/basis/xmpp_resident//home/camilo/.ca2/config/irc_resident/room/camilosasuke@irc.twitch.tv/irc_bot.o: No such file or directory
+﻿   Creating library Z:\core\time\x64\basis\C_.ca2.config.irc_resident.room.camilosasuke@irc.twitch.tv.irc_bot-6bqdhlrq3e7cmrtt8r7b1gl0nqnkz08fet2w1wq9gbeq3z19ouk4v6z8bdaqb3d6.lib and object Z:\core\time\x64\basis\C_.ca2.config.irc_resident.room.camilosasuke@irc.twitch.tv.irc_bot-6bqdhlrq3e7cmrtt8r7b1gl0nqnkz08fet2w1wq9gbeq3z19ouk4v6z8bdaqb3d6.exp
