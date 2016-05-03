@@ -43,12 +43,7 @@ bool _load_text(string strLang)
 
    auto & m = m_text[strLang];
 
-   //::file::path path = "C:\\ca2\\config\\xmpp_resident\\room\\"+ m_pcomm->get_room_id()+"\\xmpp_resident_po\\" + strLang + ".po";
-#ifdef WINDOWS
-   	::file::path path = "C:\\ca2\\config\\xmpp_resident\\room\\ca2@livecoding.tv\\xmpp_resident_po\\" + strLang + ".po";
-#else
-	::file::path path = "/home/camilo/.ca2/config/xmpp_resident/room/ca2@livecoding.tv/xmpp_resident_po/" + strLang + ".po";
-#endif
+   ::file::path path = ::dir::system() / "config/xmpp_resident/room/ca2@livecoding.tv/xmpp_resident_po" / strLang + ".po";
 
    ::file_time ft = get_file_time(path);
 
@@ -130,11 +125,8 @@ string get_country(string strLang, string strCountry)
    strLang.make_upper();
 
    strCountry.make_upper();
-#ifdef WINDOWS
-   ::file::path path = "C:\\ca2\\config\\xmpp_resident\\room\\ca2@livecoding.tv\\xmpp_resident_country\\" + strLang + ".json";
-#else
-	::file::path path = "/home/camilo/.ca2/config/xmpp_resident/room/ca2@livecoding.tv/xmpp_resident_country/" + strLang + ".json";
-#endif
+
+   ::file::path path = ::dir::system() / "config/xmpp_resident/room/ca2@livecoding.tv/xmpp_resident_country" / strLang + ".json";
 
    ::file_time ft = get_file_time(path);
 
@@ -927,21 +919,35 @@ string username(string strUser, string strLang)
 
 void ws(string strUser) // welcome sound
 {
+   
    strUser.make_lower();
+
    ::file::path path = m_pcomm->get_base_path() / "audio/hidden/welcome" / strUser + ".wav";
+
    if (Application.file().exists(path))
    {
+
       audio_announce(path);
+
    }
    else
    {
+
       Application.play_audio(m_pcomm->get_base_path() / "audio/hidden/welcome.wav");
+
    }
+
 }
+
+
 void doorbell() // welcome sound
 {
+
    Application.play_audio(m_pcomm->get_base_path() / "audio/hidden/doorbell.mp3");
+
 }
+
+
 void bye() // welcome sound
 {
    Application.play_audio(m_pcomm->get_base_path() / "audio/hidden/youlater.wav");
@@ -1064,7 +1070,9 @@ string bot_x(string strNameParam, string strUserParam, string strText, string st
 
          strName = strOtherName;
 
-         strSpeakLang = strOtherLang;
+         strSpeakLang = strLangParam;
+
+         strLang = strLangParam;
 
       }
 
@@ -1092,6 +1100,12 @@ string bot_x(string strNameParam, string strUserParam, string strText, string st
 
       }
 
+      if (strTopic.is_empty())
+      {
+
+         strTopic = strCountry;
+
+      }
 
       if (strTopic.is_empty())
       {
@@ -1868,7 +1882,7 @@ string on_bot(string strUser,string strText)
 
 #ifdef WINDOWS
 
-         call_async("Z:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", str, "X:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
+         call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", str, "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
 
 #else
 

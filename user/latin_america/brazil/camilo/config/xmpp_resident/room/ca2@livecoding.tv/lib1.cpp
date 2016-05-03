@@ -286,7 +286,7 @@ void audio_announce(string strParam)
 {
 
 #ifdef WINDOWS
-call_async("Z:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", strParam +  " : dont_add_to_playlist", "X:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
+call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", strParam +  " : dont_add_to_playlist", "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
 #else
 call_async("/xcore/stage/x86/app", strParam + " : dont_add_to_playlist", "/xcore/stage/x86", SW_SHOW, false);
 #endif
@@ -297,7 +297,7 @@ call_async("/xcore/stage/x86/app", strParam + " : dont_add_to_playlist", "/xcore
 {
 
 #ifdef WINDOWS
-   return "Y:\\bergedge";
+   return "C:\\bergedge";
 #else
    return "/mnt/bergedge/bergedge";
 #endif
