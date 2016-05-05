@@ -969,6 +969,10 @@ void translate(string strUser, string strDst, string strSrc, string strText)
 
 }
 
+void lctv_profile(string strUser, string strProfile)
+{
+   olink(strUser, "https://www.livecoding.tv/" + strProfile + "/");
+}
 
 string bot_x(string strNameParam, string strUserParam, string strText, string strCountry, string strLangParam, string strOther, string strOtherName)
 {
@@ -1562,6 +1566,14 @@ string bot_x(string strNameParam, string strUserParam, string strText, string st
    else if(strText.get_length() > 3 && ::str::begins(strText,"!t ") && strText.substr(5,1) == " ")
    {
       translate(strUser,glang(strText.substr(3,2)),glang(strLang),strText.substr(6));
+   }
+   else if (strText.CompareNoCase("!lctv") == 0)
+   {
+      lctv_profile(strUserParam, strUser);
+   }
+   else if (::str::begins_eat_ci(strText, "!lctv "))
+   {
+      lctv_profile(strUserParam, strText);
    }
    else if(strText == "!getlang")
    {
