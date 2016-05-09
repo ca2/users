@@ -2121,8 +2121,9 @@ string on_bot(string strUser,string strText)
 }
 string on_pres(string strUser,string strType)
 {
-   stringa t_straParam;
-   string strSpeakText;
+
+   int iThreshold = 8;
+
    string strTopic;
    string strCountry = get_user_data(strUser,"country").get_string().lower();
    if(strCountry.is_empty())
@@ -2141,95 +2142,107 @@ string on_pres(string strUser,string strType)
       set_user_data(strUser,"lang",strLang);
    }
    var strName = username(strUser, strLang);
-   var strText;
+   
    if(strType == "unavailable")
    {
 
-      if(spam(strUser))
+
+      ::datetime::time last_back;
+
+      last_back.m_time = get_user_data(strUser, "last_back").int64();
+
+      ::datetime::time now = ::datetime::time::get_current_time();
+
+      set_user_data(strUser, "last_see_you", now.m_time);
+
+      set_user_data(strUser, "back", 0);
+
+      ::fork(get_app(), [=]()
       {
 
-         strText = _t("%name gone, uff...");
+         Sleep(iThreshold * 1000);
 
-      }
-      else if (isbot(strUser))
-      {
-
-         strText = _t("%name was unplugged!");
-
-      }
-      else
-      {
-
-
-         if(get_user_data(strUser,"visit_count") <= 4)
+         if (get_user_data(strUser, "back") == 0)
          {
+   
+            stringa t_straParam;
+            string strSpeakText;
+            string strText;
 
-            
-            if (get_user_data(strUser, "back") == 1)
+            if(get_user_data(strUser, "official_back") == 1)
             {
 
-               bye();
+               set_user_data(strUser, "official_back", 0);
 
-               strText = _t("Bye %name! :(");
-
-            }
-
-         }
-         else
-         {
-
-
-            ::datetime::time last_back;
-
-            last_back.m_time = get_user_data(strUser, "last_back").int64();
-
-            ::datetime::time now = ::datetime::time::get_current_time();
-
-            set_user_data(strUser, "last_see_you", now.m_time);
-
-            if (get_user_data(strUser, "back") == 1)
-            {
-
-               if (now.m_time - last_back.m_time > 8 * 60)  // 1 hour
+               if (spam(strUser))
                {
-               
-                  strText = _t("See you %name! :(");
 
-                  bye();
+                  strText = _t("%name gone, uff...");
+
+               }
+               else if (isbot(strUser))
+               {
+
+                  strText = _t("%name was unplugged!");
 
                }
                else
                {
 
-                  strText = _t("See you %name! :(");
+                  if (get_user_data(strUser, "visit_count") <= 4)
+                  {
 
-                  strText.get_string().replace(":(", "");
+                     bye();
 
-                  bye();
+                     strText = _t("Bye %name! :(");
 
-                  //return "";
+                  }
+                  else
+                  {
+
+                     if (now.m_time - last_back.m_time > 8 * 60)  // 1 hour
+                     {
+
+                        strText = _t("See you %name! :(");
+
+                        bye();
+
+                     }
+                     else
+                     {
+
+                        strText = _t("See you %name! :(");
+
+                        strText.replace(":(", "");
+
+                        bye();
+
+                     }
+
+                  }
+
+                  lspeak(strUser, strLang, strSpeakText);
 
                }
 
             }
-            else
+            else if (now.m_time - last_back.m_time < iThreshold)
             {
 
-               strText = _t("See you %name! :(");
-
-               bye();
-
-               //return "";
+               strText = _t("%name passed by here...");
 
             }
+            
+#ifdef __XMPP
+            ::xmpp::comm * pcomm = dynamic_cast <::xmpp::comm *>(m_pcomm);
+            pcomm->msg(strText);
+#endif
 
          }
 
-         set_user_data(strUser, "back", 0);
+      });
+      return "";
 
-      }
-      lspeak(strUser,strLang, strSpeakText);
-      return strText;
    }
    else
    {
@@ -2244,77 +2257,103 @@ string on_pres(string strUser,string strType)
 
       set_user_data(strUser, "back", 1);
 
-      ::fork(get_app(), [=]()
+//      if (now.m_time - last_see_you.m_time > 8)
       {
 
-         Sleep(1984 + 1951 + 1977);
-
-         if (get_user_data(strUser, "back") == 1)
+         ::fork(get_app(), [=]()
          {
 
-            set_user_data(strUser, "back", 1);
+            Sleep(iThreshold * 1000);
 
-            if(spam(strUser))
-            {
-               strText = strUser + " entered!! (Subset of commands enabled).";
-               return strText;
-            }
-            else if(isbot(strUser))
-            {
-               strText = strName + " you are connected!";
-            }
-            else
+            if (get_user_data(strUser, "back") == 1 && get_user_data(strUser, "official_back") == 0)
             {
 
-               if (get_user_data(strUser, "visit_count") <= 4)
+               set_user_data(strUser, "official_back", 1);
+
+  //             ::datetime::time now = ::datetime::time::get_current_time();
+
+               stringa t_straParam;
+               string strText;
+               string strSpeakText;
+
+               if (spam(strUser))
                {
-                  doorbell();
-                  t_straParam.add(_trans1(welcome_time));
-                  strText = _t("Welcome %name! :) %param1 You can type exclamation mark and then press enter to get some help.");
-                  if (strCountry == "be")
-                  {
-                     strText += "\nYou can choose between \"Nederlands\", \"Deutsch\" and \"Français\" using \"!setlang nl\", \"!setlang de\" or \"!setlang fr\"";
-                  }
-                  else if (strCountry == "ch")
-                  {
-                     strText += "\nYou can choose between \"Deutsch\", \"Français\" and \"Italiano\" using \"!setlang de\", \"!setlang fr\" or \"!setlang it\"";
-                  }
-                  else if (strCountry == "ca")
-                  {
-                     strText += "\nYou can choose between \"Français\" and \"English\" using \"!setlang fr\" or \"!setlang en\"";
-                  }
+                  strText = strUser + " entered!! (Subset of commands enabled).";
                }
-               else if (get_user_data(strUser, "last_visit") > 60 * 60 * 18 || get_user_data(strUser, "today_visit_count") <= 1)
+               else if (isbot(strUser))
                {
-                  doorbell();
-                  t_straParam.add(_trans1(welcome_time));
-
-                  strText = _t("Hi %name! Welcome! %param1 What brings you here today?");
-
-               }
-               else if (get_user_data(strUser, "last_visit") > 60 * 60 * 3)
-               {
-
-                  ws(strUser);
-
-                  t_straParam.add(_trans1(name_welcome_time));
-
-                  strText = _t("%param1! :)");
-
+                  strText = strName + " you are connected!";
                }
                else
                {
 
+                  if (get_user_data(strUser, "visit_count") <= 4)
+                  {
+                     
+                     ws(strUser);
 
-                  if (get_user_data(strUser, "back") == 0)
+                     t_straParam.add(_trans1(welcome_time));
+
+                     strText = _t("Welcome %name! :) %param1 You can type exclamation mark and then press enter to get some help.");
+
+                     if (strCountry == "be")
+                     {
+                        strText += "\nYou can choose between \"Nederlands\", \"Deutsch\" and \"Français\" using \"!setlang nl\", \"!setlang de\" or \"!setlang fr\"";
+                     }
+                     else if (strCountry == "ch")
+                     {
+                        strText += "\nYou can choose between \"Deutsch\", \"Français\" and \"Italiano\" using \"!setlang de\", \"!setlang fr\" or \"!setlang it\"";
+                     }
+                     else if (strCountry == "ca")
+                     {
+                        strText += "\nYou can choose between \"Français\" and \"English\" using \"!setlang fr\" or \"!setlang en\"";
+                     }
+                  }
+                  else if (get_user_data(strUser, "last_visit") > 60 * 60 * 18 || get_user_data(strUser, "today_visit_count") <= 1)
                   {
 
-                     strText = _t("%name is back! :)");
+                     doorbell();
 
-                     if (now.m_time - last_see_you.m_time > 8 * 60)  // 1 hour
+                     t_straParam.add(_trans1(welcome_time));
+
+                     strText = _t("Hi %name! Welcome! %param1 What brings you here today?");
+
+                  }
+                  else if (get_user_data(strUser, "last_visit") > 60 * 60 * 3)
+                  {
+
+                     ws(strUser);
+
+                     t_straParam.add(_trans1(name_welcome_time));
+
+                     strText = _t("%param1! :)");
+
+                  }
+                  else
+                  {
+
+
+                     if (get_user_data(strUser, "back") == 0)
                      {
 
-                        ws(strUser);
+                        strText = _t("%name is back! :)");
+
+                        if (now.m_time - last_see_you.m_time > 8 * 60)  // 1 hour
+                        {
+
+                           ws(strUser);
+
+                        }
+                        else
+                        {
+
+                           doorbell();
+
+                           set_user_data(strUser, "back", 0);
+
+                           //return "";
+
+                        }
 
                      }
                      else
@@ -2322,35 +2361,29 @@ string on_pres(string strUser,string strType)
 
                         doorbell();
 
-                        set_user_data(strUser, "back", 0);
+                        strText = _t("%name is back! :)");
 
                         //return "";
 
                      }
 
                   }
-                  else
-                  {
 
-                     doorbell();
-
-                     strText = _t("%name is back! :)");
-
-                     //return "";
-
-                  }
+                  lspeak(strUser, strLang, strSpeakText);
 
                }
 
+#ifdef __XMPP
+               ::xmpp::comm * pcomm = dynamic_cast <::xmpp::comm *>(m_pcomm);
+               pcomm->msg(strText);
+#endif
             }
 
          });
 
       }
 
-      lspeak(strUser,strLang, strSpeakText);
-
-      return strText;
+      return "";
 
    }
 
