@@ -12,12 +12,13 @@
 
 
 
+
 class this_plugin:
    virtual public ::xmpp_resident::plugin
 {
 public:  
    
-
+      
    
    this_plugin(::aura::application * papp, object * p) :
       object(papp),
@@ -31,8 +32,6 @@ public:
    BEG_ONLY_FACT
    CREATE_OBJECT_ENTRY("plugin",this_plugin)
    END_ONLY_FACT
-
-
 
 
 

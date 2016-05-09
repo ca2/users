@@ -1,3 +1,28 @@
+msgid "Good Morning!"
+msgtext "Bom dia!"
+
+msgid "Good Afternoon!"
+msgtext "Boa tarde!"
+
+msgid "Good Evening!"
+msgtext "Boa tarde!"
+
+msgid "Good Night!"
+msgtext "Boa noite!"
+
+msgid "%name, Good Morning!"
+msgtext "Bom dia %name!"
+
+msgid "%name, Good Afternoon!"
+msgtext "Boa tarde %name!"
+
+msgid "%name, Good Evening!"
+msgtext "Boa tarde %name!"
+
+msgid "%name, Good Night!"
+msgtext "Boa noite %name!"
+
+
 msgid "%name, Some supported commands !help, !about and !want the bot"
 msgtext "%name, Alguns comandos suportados são !help, !about e !want the bot"
 
@@ -127,11 +152,11 @@ msgtext "%name, entrou!! (Sub-conjunto de comandos habilitados)."
 msgid "%name you are connected!";
 msgtext "%name você está conectado!"
 
-msgid "Welcome %name! :) You can type exclamation mark and then press enter to get some help."
-msgtext "Boas vindas, %name! :) Você pode digitar o ponto de exclamação seguido de Enter para obter ajuda."
+msgid "Welcome %name! :) %param1 You can type exclamation mark and then press enter to get some help."
+msgtext "Boas vindas %name! :) %param1 Você pode digitar o ponto de exclamação seguido de Enter para obter ajuda."
 
-msgid "Hi %name! Welcome! What brings you here today?";
-msgtext "Olá %name! Boas vindas! O que te traz aqui hoje?";
+msgid "Hi %name! Welcome! %param1 What brings you here today?";
+msgtext "Olá %name! Boas vindas! %param1 O que te traz aqui hoje?";
 
 msgid "%name is back! :)";
 msgtext "%name está de volta! :)";
