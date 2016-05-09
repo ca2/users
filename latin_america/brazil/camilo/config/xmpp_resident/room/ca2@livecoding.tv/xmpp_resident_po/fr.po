@@ -1,3 +1,28 @@
+msgid "Good Morning!"
+msgtext "Good Morning!"
+
+msgid "Good Afternoon!"
+msgtext "Good Afternoon!"
+
+msgid "Good Evening!"
+msgtext "Good Evening!"
+
+msgid "Good Night!"
+msgtext "Good Night!"
+
+msgid "%name, Good Morning!"
+msgtext "%name, Good Morning!"
+
+msgid "%name, Good Afternoon!"
+msgtext "%name, Good Afternoon!"
+
+msgid "%name, Good Evening!"
+msgtext "%name, Good Evening!"
+
+msgid "%name, Good Night!"
+msgtext "%name, Good Night!"
+
+
 msgid "%name, Some supported commands !help, !about and !vaimepassarobot?"
 msgtext "%name, quelques commandes disponibles !help, !about et !vaimepassarobot?"
 
@@ -127,11 +152,11 @@ msgtext "%name a rejoint!! (Sous-ensemble de commandes activé)."
 msgid "%name you are connected!"
 msgtext "%name tu es connecté!"
 
-msgid "Welcome %name! :) You can type exclamation mark and then press enter to get some help."
-msgtext "Bienvenue %name! :) Tu peux écrire un point d'interrogation puis pressé Entrer pour recevoir de l'aide."
+msgid "Welcome %name! :) %param1 You can type exclamation mark and then press enter to get some help."
+msgtext "Bienvenue %name! :) %param1 Tu peux écrire un point d'interrogation puis pressé Entrer pour recevoir de l'aide."
 
-msgid "Hi %name! Welcome! What brings you here today?"
-msgtext "Hey %name! Bienvenue! Qu'est ce qui t'amène ici aujourd'hui?"
+msgid "Hi %name! Welcome! %param1 What brings you here today?"
+msgtext "Hey %name! Bienvenue! %param1 Qu'est ce qui t'amène ici aujourd'hui?"
 
 msgid "%name is back! :)"
 msgtext "%name est de retour! :)"

@@ -6,7 +6,6 @@
 
 
 
-
 /*
 string rr(string strName, string strLang);
 
@@ -33,6 +32,7 @@ void audio_announce(string strParam);
 stringa m_straSpecialCommand;
 
 #define _t(strText) get_text(strSpeakText, strLang, strText, strName, strTopic, t_straParam)
+#define _trans1(function) function(strUser, strSpeakText, strLang, strName, strTopic, t_straParam)
 
 string_map < string_to_string > m_text;
 
@@ -116,8 +116,144 @@ string_map < string_to_string > m_country;
 
 string_map < file_time > m_ftimeCountry;
 
+string welcome_time(string strUser, string & strSpeakText, string strLang, string strName, string strTopic, stringa t_straParam)
+{
 
 
+
+
+   ::datetime::time now = ::datetime::time::get_current_time();
+
+   string strZoneUser = strUser;
+
+   int iZone = get_user_data(strUser, "time_zone");
+
+   string strZone = get_user_data(strUser, "time_zone_text");
+
+   if (strZone.is_empty())
+   {
+
+      strZone = "UTC";
+
+      if (iZone > 0)
+      {
+
+         strZone += "+";
+
+      }
+      else
+      {
+
+         strZone += "-";
+
+      }
+
+      strZone += ::str::from(abs(iZone));
+
+   }
+
+   now += ::datetime::time_span(0, iZone, 0, 0);
+
+
+
+   if (now.GetGmtHour() >= 6 && now.GetGmtHour() < 12)
+   {
+
+      return _t("Good Morning!");
+
+   }
+   else if (now.GetGmtHour() >= 12 && now.GetGmtHour() < 17)
+   {
+
+      return _t("Good Afternoon!");
+
+   }
+   else if (now.GetGmtHour() >= 17 && now.GetGmtHour() < 19)
+   {
+
+      return _t("Good Evening!");
+
+   }
+   else
+   {
+
+      return _t("Good Night!");
+
+   }
+
+
+
+   
+
+}
+
+string name_welcome_time(string strUser, string & strSpeakText, string strLang, string strName, string strTopic, stringa t_straParam)
+{
+
+
+
+
+   ::datetime::time now = ::datetime::time::get_current_time();
+
+   string strZoneUser = strUser;
+
+   int iZone = get_user_data(strUser, "time_zone");
+
+   string strZone = get_user_data(strUser, "time_zone_text");
+
+   if (strZone.is_empty())
+   {
+
+      strZone = "UTC";
+
+      if (iZone > 0)
+      {
+
+         strZone += "+";
+
+      }
+      else
+      {
+
+         strZone += "-";
+
+      }
+
+      strZone += ::str::from(abs(iZone));
+
+   }
+
+   now += ::datetime::time_span(0, iZone, 0, 0);
+
+
+
+   if (now.GetGmtHour() >= 6 && now.GetGmtHour() < 12)
+   {
+
+      return _t("%name, Good Morning!");
+
+   }
+   else if (now.GetGmtHour() >= 12 && now.GetGmtHour() < 17)
+   {
+
+      return _t("%name, Good Afternoon!");
+
+   }
+   else if (now.GetGmtHour() >= 17 && now.GetGmtHour() < 19)
+   {
+
+      return _t("%name, Good Evening!");
+
+   }
+   else
+   {
+
+      return _t("%name, Good Night!");
+
+   }
+
+
+}
 
 string get_country(string strLang, string strCountry)
 {
@@ -229,43 +365,6 @@ string get_text(string & strSpeakText, string strLang, string strId, string strN
 string process_text(string strText, string strName, string strTopic, stringa straParam)
 {
    int iFind = 0;
-   while (true)
-   {
-      iFind = strText.find_ci("%name", iFind);
-
-      if (iFind < 0)
-         break;
-
-      if (iFind == 0)
-      {
-         strText = strName + strText.Mid(5);
-      }
-      // lazy check, it is not correct way of checking, it may result errors (triple %)
-      else if(strText[iFind - 1] != '%')
-      {
-         strText = strText.Left(iFind) + strName + strText.Mid(iFind + 5);
-      }
-      iFind += 5;
-   }
-   iFind = 0;
-   while (true)
-   {
-      iFind = strText.find_ci("%topic", iFind);
-
-      if (iFind < 0)
-         break;
-
-      if (iFind == 0)
-      {
-         strText = strName + strText.Mid(6);
-      }
-      // lazy check, it is not correct way of checking, it may result errors (triple %)
-      else if (strText[iFind - 1] != '%')
-      {
-         strText = strText.Left(iFind) + strTopic + strText.Mid(iFind + 6);
-      }
-      iFind += 6;
-   }
    string strParamName;
    for (index i = 0; i < straParam.get_size(); i++)
    {
@@ -280,15 +379,53 @@ string process_text(string strText, string strName, string strTopic, stringa str
 
          if (iFind == 0)
          {
-            strText = strName + strText.Mid(strParamName.get_length());
+            strText = straParam[i] + strText.Mid(strParamName.get_length());
          }
          // lazy check, it is not correct way of checking, it may result errors (triple %)
          else if (strText[iFind - 1] != '%')
          {
-            strText = strText.Left(iFind) + strTopic + strText.Mid(strParamName.get_length());
+            strText = strText.Left(iFind) + straParam[i] + strText.Mid(iFind + strParamName.get_length());
          }
-         iFind += 6;
+         iFind += straParam[i].get_length();
       }
+   }
+   iFind = 0;
+   while (true)
+   {
+      iFind = strText.find_ci("%name", iFind);
+
+      if (iFind < 0)
+         break;
+
+      if (iFind == 0)
+      {
+         strText = strName + strText.Mid(5);
+      }
+      // lazy check, it is not correct way of checking, it may result errors (triple %)
+      else if (strText[iFind - 1] != '%')
+      {
+         strText = strText.Left(iFind) + strName + strText.Mid(iFind + 5);
+      }
+      iFind += strName.get_length();
+   }
+   iFind = 0;
+   while (true)
+   {
+      iFind = strText.find_ci("%topic", iFind);
+
+      if (iFind < 0)
+         break;
+
+      if (iFind == 0)
+      {
+         strText = strTopic + strText.Mid(6);
+      }
+      // lazy check, it is not correct way of checking, it may result errors (triple %)
+      else if (strText[iFind - 1] != '%')
+      {
+         strText = strText.Left(iFind) + strTopic + strText.Mid(iFind + 6);
+      }
+      iFind += strTopic.get_length();
    }
    return strText;
 }
@@ -683,6 +820,10 @@ string  trans_lang(string strLang)
    {
       return "sv";
    }
+   else if (strLang == "dk" || strLang == "da")
+   {
+      return "da";
+   }
    else
    {
       return "en";
@@ -818,6 +959,12 @@ string  initial_country_lang(string strCountry)
    {
 
       return "hy";
+
+   }
+   else if (strCountry == "dk")
+   {
+
+      return "dk";
 
    }
    else
@@ -2012,11 +2159,20 @@ string on_pres(string strUser,string strType)
       }
       else
       {
+
+
          if(get_user_data(strUser,"visit_count") <= 4)
          {
 
-            bye();
-            strText = _t("Bye %name! :(");
+            
+            if (get_user_data(strUser, "back") == 1)
+            {
+
+               bye();
+
+               strText = _t("Bye %name! :(");
+
+            }
 
          }
          else
@@ -2034,22 +2190,24 @@ string on_pres(string strUser,string strType)
             if (get_user_data(strUser, "back") == 1)
             {
 
-               strText = _t("See you %name! :(");
-
                if (now.m_time - last_back.m_time > 8 * 60)  // 1 hour
                {
                
-                  bye();
+                  strText = _t("See you %name! :(");
 
-                  set_user_data(strUser, "back", 0);
+                  bye();
 
                }
                else
                {
 
-                  set_user_data(strUser, "back", 1);
+                  strText = _t("See you %name! :(");
 
-                  return "";
+                  strText.get_string().replace(":(", "");
+
+                  bye();
+
+                  //return "";
 
                }
 
@@ -2057,94 +2215,136 @@ string on_pres(string strUser,string strType)
             else
             {
 
-               return "";
+               strText = _t("See you %name! :(");
+
+               bye();
+
+               //return "";
 
             }
 
          }
+
+         set_user_data(strUser, "back", 0);
+
       }
       lspeak(strUser,strLang, strSpeakText);
       return strText;
    }
    else
    {
-      if(spam(strUser))
-      {
-         strText = strUser + " entered!! (Subset of commands enabled).";
-         return strText;
-      }
-      else if(isbot(strUser))
-      {
-         strText = strName + " you are connected!";
-      }
-      else
-      {
-         if(get_user_data(strUser,"visit_count") <= 4)
-         {
-            doorbell();
-            strText = _t("Welcome %name! :) You can type exclamation mark and then press enter to get some help.");
-            if(strCountry == "be")
-            {
-               strText += "\nYou can choose between \"Nederlands\", \"Deutsch\" and \"Français\" using \"!setlang nl\", \"!setlang de\" or \"!setlang fr\"";
-            }
-            else if(strCountry == "ch")
-            {
-               strText += "\nYou can choose between \"Deutsch\", \"Français\" and \"Italiano\" using \"!setlang de\", \"!setlang fr\" or \"!setlang it\"";
-            }
-            else if (strCountry == "ca")
-            {
-               strText += "\nYou can choose between \"Français\" and \"English\" using \"!setlang fr\" or \"!setlang en\"";
-            }
-         }
-         else if(get_user_data(strUser,"last_visit") > 60 * 60 * 18 || get_user_data(strUser,"today_visit_count") <= 1)
-         {
-            doorbell();
 
-            strText = _t("Hi %name! Welcome! What brings you here today?");
+      ::datetime::time last_see_you;
 
-         }
-         else
+      last_see_you.m_time = get_user_data(strUser, "last_see_you").int64();
+
+      ::datetime::time now = ::datetime::time::get_current_time();
+
+      set_user_data(strUser, "last_back", now.m_time);
+
+      set_user_data(strUser, "back", 1);
+
+      ::fork(get_app(), [=]()
+      {
+
+         Sleep(1984 + 1951 + 1977);
+
+         if (get_user_data(strUser, "back") == 1)
          {
 
-            ::datetime::time last_see_you;
+            set_user_data(strUser, "back", 1);
 
-            last_see_you.m_time = get_user_data(strUser, "last_see_you").int64();
-
-            ::datetime::time now = ::datetime::time::get_current_time();
-
-            set_user_data(strUser, "last_back", now.m_time);
-
-            if (get_user_data(strUser, "back") == 0)
+            if(spam(strUser))
+            {
+               strText = strUser + " entered!! (Subset of commands enabled).";
+               return strText;
+            }
+            else if(isbot(strUser))
+            {
+               strText = strName + " you are connected!";
+            }
+            else
             {
 
-               strText = _t("%name is back! :)");
+               if (get_user_data(strUser, "visit_count") <= 4)
+               {
+                  doorbell();
+                  t_straParam.add(_trans1(welcome_time));
+                  strText = _t("Welcome %name! :) %param1 You can type exclamation mark and then press enter to get some help.");
+                  if (strCountry == "be")
+                  {
+                     strText += "\nYou can choose between \"Nederlands\", \"Deutsch\" and \"Français\" using \"!setlang nl\", \"!setlang de\" or \"!setlang fr\"";
+                  }
+                  else if (strCountry == "ch")
+                  {
+                     strText += "\nYou can choose between \"Deutsch\", \"Français\" and \"Italiano\" using \"!setlang de\", \"!setlang fr\" or \"!setlang it\"";
+                  }
+                  else if (strCountry == "ca")
+                  {
+                     strText += "\nYou can choose between \"Français\" and \"English\" using \"!setlang fr\" or \"!setlang en\"";
+                  }
+               }
+               else if (get_user_data(strUser, "last_visit") > 60 * 60 * 18 || get_user_data(strUser, "today_visit_count") <= 1)
+               {
+                  doorbell();
+                  t_straParam.add(_trans1(welcome_time));
 
-               if (now.m_time - last_see_you.m_time > 8 * 60)  // 1 hour
+                  strText = _t("Hi %name! Welcome! %param1 What brings you here today?");
+
+               }
+               else if (get_user_data(strUser, "last_visit") > 60 * 60 * 3)
                {
 
                   ws(strUser);
 
-                  set_user_data(strUser, "back", 1);
+                  t_straParam.add(_trans1(name_welcome_time));
+
+                  strText = _t("%param1! :)");
 
                }
                else
                {
 
-                  set_user_data(strUser, "back", 0);
 
-                  return "";
+                  if (get_user_data(strUser, "back") == 0)
+                  {
+
+                     strText = _t("%name is back! :)");
+
+                     if (now.m_time - last_see_you.m_time > 8 * 60)  // 1 hour
+                     {
+
+                        ws(strUser);
+
+                     }
+                     else
+                     {
+
+                        doorbell();
+
+                        set_user_data(strUser, "back", 0);
+
+                        //return "";
+
+                     }
+
+                  }
+                  else
+                  {
+
+                     doorbell();
+
+                     strText = _t("%name is back! :)");
+
+                     //return "";
+
+                  }
 
                }
 
             }
-            else
-            {
 
-               return "";
-
-            }
-
-         }
+         });
 
       }
 
