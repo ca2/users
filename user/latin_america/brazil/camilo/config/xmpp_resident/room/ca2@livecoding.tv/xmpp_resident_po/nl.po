@@ -186,7 +186,7 @@ msgid "%name, you will need Visual Studio 2015 (at least Community Edition), a S
 msgtext "%name, hiervoor heb je minimaal nodig: Visual Studio 2015 (ten minste Community Edition), een SVN (Subversion) client en toegang tot de ca2 repository (met een geldig e-mail adress). Praat met Camilo voor verdere details."
 
 msgid "%name, it is \"%topic\"
-msgtext "%name, it is \"%topic\"
+msgtext "%name, het is \"%topic\"
 
 msgid "%name, it is \"%topic\" for %param1."
-msgtext "%name, it is \"%topic\" for %param1."
+msgtext "%name, het is \"%topic\" voor %param1."
