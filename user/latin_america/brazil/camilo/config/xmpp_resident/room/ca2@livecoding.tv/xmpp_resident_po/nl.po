@@ -1,27 +1,26 @@
 ﻿msgid "Good Morning!"
-msgtext "Good Morning!"
+msgtext "Goedemorgen!"
 
 msgid "Good Afternoon!"
-msgtext "Good Afternoon!"
+msgtext "Goedemiddag!"
 
 msgid "Good Evening!"
-msgtext "Good Evening!"
+msgtext "Goede avond!"
 
 msgid "Good Night!"
-msgtext "Good Night!"
+msgtext "Goede nacht!"
 
 msgid "%name, Good Morning!"
-msgtext "%name, Good Morning!"
+msgtext "%name, goedemorgen!"
 
 msgid "%name, Good Afternoon!"
-msgtext "%name, Good Afternoon!"
+msgtext "%name, goedemiddag!"
 
 msgid "%name, Good Evening!"
-msgtext "%name, Good Evening!"
+msgtext "%name, goede avond!"
 
 msgid "%name, Good Night!"
-msgtext "%name, Good Night!"
-
+msgtext "%name, goede nacht!"
 
 msgid "%name, Some supported commands !help, !about and !want the bot"
 msgtext "%name, de bot ondersteund de volgende instructies (help, over, beschikbaarheid): !help, !about en !want the bot"
