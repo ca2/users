@@ -124,13 +124,15 @@ bool consider_speakable_text(string strText)
    string str4;
    string str5;
    string str6;
+   string str7;
+   string str8;
 
    int iMax4Vowel = 3;
    int iMax5pVowel = 1;
-   int iMax6Consonant = 1;
+   int iMax8Consonant = 1;
    int iv5p = 0;
    int iv4 = 0;
-   int ic6 = 0;
+   int ic8 = 0;
 
    {
 
@@ -239,6 +241,14 @@ bool consider_speakable_text(string strText)
       {
          str6 = str;
       }
+      else if (i == 6)
+      {
+         str7 = str;
+      }
+      else if (i == 7)
+      {
+         str8 = str;
+      }
       else
       {
 
@@ -258,10 +268,10 @@ bool consider_speakable_text(string strText)
                return false;
             }
          }
-         else if (is_consonant(str1) && is_consonant(str2) && is_consonant(str3) && is_consonant(str4) && is_consonant(str5) && is_consonant(str6))
+         else if (is_consonant(str1) && is_consonant(str2) && is_consonant(str3) && is_consonant(str4) && is_consonant(str5) && is_consonant(str6) && is_consonant(str7) && is_consonant(str8))
          {
-            ic6++;
-            if (ic6 >= iMax6Consonant)
+            ic8++;
+            if (ic8 >= iMax8Consonant)
             {
                return false;
             }
@@ -317,5 +327,27 @@ call_async("/xcore/stage/x86/app", strParam + " : dont_add_to_playlist", "/xcore
    }
 }
 
+
+
+
+double user_time_zone(string strUser)
+{
+
+   var time_zone_text = get_user_data(strUser, "time_zone_text");
+
+   if (time_zone_text.has_char())
+   {
+
+      return time_zone(time_zone_text);
+
+   }
+   else
+   {
+
+      return get_user_data(strUser, "time_zone");
+
+   }
+
+}
 
 

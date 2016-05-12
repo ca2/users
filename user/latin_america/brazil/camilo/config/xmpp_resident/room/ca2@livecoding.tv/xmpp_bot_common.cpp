@@ -3,7 +3,109 @@
    m_straSpecialCommand.add("exclamation mark");
 }
 
+string str_signed(double d)
+{
 
+   if (d > 0.0)
+   {
+
+      return "+" + ::str::from(d);
+
+   }
+   else if (d < 0.0)
+   {
+
+      return ::str::from(d);
+
+   }
+   else
+   {
+
+      return "0.0";
+
+   }
+
+}
+
+string str_signed_int(int i)
+{
+
+   if (i > 0)
+   {
+
+      return "+" + ::str::from(i);
+
+   }
+   else if(i < 0)
+   {
+
+      return ::str::from(i);
+
+   }
+   else
+   {
+
+      return "0";
+
+   }
+
+}
+
+
+bool utc_offset_invalid(double dUTCOffset)
+{
+   
+   return dUTCOffset < -12.0 || dUTCOffset > 14.0;  // don't know (is invalid?)
+
+}
+
+
+string utc_offset_string(double dUTCOffset)
+{
+   
+   if (dUTCOffset == 1000000.0)
+   {
+
+      return "";
+
+   }
+   else if (dUTCOffset == 0.0)
+   {
+      
+      return "UTC";
+
+   }
+   else if (utc_offset_invalid(dUTCOffset))
+   {
+
+      return "(" + str_signed(dUTCOffset) + " : invalid UTC?)";
+
+   }
+   else
+   {
+
+      string strUTCOffset;
+
+      strUTCOffset = "UTC " + str_signed_int(dUTCOffset);
+
+      double dMod = fmod(fabs(dUTCOffset), 1.0);
+
+      if (dMod > 0.0)
+      {
+
+         string strMinutes;
+
+         strMinutes.Format("%02d", (int)(60.0 * dMod));
+
+         strUTCOffset += ":" + strMinutes;
+
+      }
+
+      return strUTCOffset;
+
+   }
+
+}
 
 
 /*
@@ -162,22 +264,16 @@ string welcome_time(string strUser, string & strSpeakText, string strLang, strin
       return _t("Good Morning!");
 
    }
-   else if (now.GetGmtHour() >= 12 && now.GetGmtHour() < 17)
+   else if (now.GetGmtHour() >= 12 && now.GetGmtHour() < 18)
    {
 
       return _t("Good Afternoon!");
 
    }
-   else if (now.GetGmtHour() >= 17 && now.GetGmtHour() < 19)
-   {
-
-      return _t("Good Evening!");
-
-   }
    else
    {
 
-      return _t("Good Night!");
+      return _t("Good Evening!");
 
    }
 
@@ -233,22 +329,16 @@ string name_welcome_time(string strUser, string & strSpeakText, string strLang, 
       return _t("%name, Good Morning!");
 
    }
-   else if (now.GetGmtHour() >= 12 && now.GetGmtHour() < 17)
+   else if (now.GetGmtHour() >= 12 && now.GetGmtHour() < 18)
    {
 
       return _t("%name, Good Afternoon!");
 
    }
-   else if (now.GetGmtHour() >= 17 && now.GetGmtHour() < 19)
-   {
-
-      return _t("%name, Good Evening!");
-
-   }
    else
    {
 
-      return _t("%name, Good Night!");
+      return _t("%name, Good Evening!");
 
    }
 
@@ -342,19 +432,21 @@ string get_text(string & strSpeakText, string strLang, string strId, string strN
 
    string strText = _get_text(strLang, strId);
 
-   strSpeakText = strText;
+   string strNewSpeakText;
 
-   strSpeakText.replace("($name)", "");
-   strSpeakText.replace("$name", "");
-   strSpeakText = process_text(strSpeakText, strName, strTopic, straParam);
+   strNewSpeakText = strText;
+
+   strNewSpeakText.replace("($name)", "");
+   strNewSpeakText.replace("$name", "");
+   strNewSpeakText = process_text(strNewSpeakText, strName, strTopic, straParam);
 
    if (strLang == "en" || strLang == "pt" || strLang == "de" || strLang == "nl")
    {
-      strSpeakText.replace(":)", "");
-      strSpeakText.replace(":(", "");
+      strNewSpeakText.replace(":)", "");
+      strNewSpeakText.replace(":(", "");
    }
 
-
+   strSpeakText = strNewSpeakText;
 
    strText.replace("($name)", "(%name)");
    strText.replace("$name", "%name");
@@ -990,12 +1082,252 @@ string  initial_country_lang(string strCountry)
    }
 
 }
+
+
+// remark: initial does mean "official default" is certainly a rough guess
+string  initial_locality_time_zone(string strCountry, string strLocality)
+{
+
+   if (strCountry == "br")
+   {
+
+      return "brt";
+
+   }
+   else if (strCountry == "ua")
+   {
+
+      return "eest";
+
+   }
+   else if (strCountry == "us")
+   {
+
+      return "pdt";
+
+   }
+   else if (strCountry == "jp")
+   {
+
+      return "jst";
+
+   }
+   else if (strCountry == "de")
+   {
+
+      return "cest";
+
+   }
+   else if (strCountry == "fr")
+   {
+
+      return "cest";
+
+   }
+   else if (strCountry == "pt")
+   {
+
+      return "west";
+
+   }
+   else if (strCountry == "es")
+   {
+
+      return "cest";
+
+   }
+   else if (strCountry == "it")
+   {
+
+      return "cest";
+
+   }
+   else if (strCountry == "ar")
+   {
+
+      return "art";
+
+   }
+   else if (strCountry == "cl")
+   {
+
+      return "clst";
+
+   }
+   else if (strCountry == "uk")
+   {
+
+      return "bst";
+
+   }
+   else if (strCountry == "nl")
+   {
+
+      return "cest";
+
+   }
+   else if (strCountry == "cn")
+   {
+
+      return "cst";
+
+   }
+   else if (strCountry == "tw")
+   {
+
+      return "cst";
+
+   }
+   else if (strCountry == "ru")
+   {
+
+      return "msk";
+
+   }
+   else if (strCountry == "pl")
+   {
+
+      return "cest";
+
+   }
+   else if (strCountry == "am")
+   {
+
+      return "amt";
+
+   }
+   else if (strCountry == "dk")
+   {
+
+      return "cest";
+
+   }
+   else if (strCountry == "se")
+   {
+
+      return "cest";
+
+   }
+   else if (strCountry == "fi")
+   {
+
+      return "eest";
+
+   }
+   else if (strCountry == "ua")
+   {
+
+      return "eest";
+
+   }
+   else if (strCountry == "no")
+   {
+
+      return "cest";
+
+   }
+   else if (strCountry == "no")
+   {
+
+      return "cest";
+
+   }
+   else if (strCountry == "be")
+   {
+
+      return "cest";
+
+   }
+   else if (strCountry == "at")
+   {
+
+      return "cest";
+
+   }
+   else if (strCountry == "lu")
+   {
+
+      return "cest";
+
+   }
+   else if (strCountry == "li")
+   {
+
+      return "cest";
+
+   }
+   else if (strCountry == "ch")
+   {
+
+      return "cest";
+
+   }
+   else if (strCountry == "au")
+   {
+
+      return "aest";
+
+   }
+   else if (strCountry == "nz")
+   {
+
+      return "nzst";
+
+   }
+   else if (strCountry == "kr")
+   {
+
+      return "kst";
+
+   }
+   else if (strCountry == "ph")
+   {
+
+      return "pht";
+
+   }
+   else if (strCountry == "my")
+   {
+
+      return "myt";
+
+   }
+   else if (strCountry == "hk")
+   {
+
+      return "hkt";
+
+   }
+   else if (strCountry == "vn")
+   {
+
+      return "ict";
+
+   }
+   else if (strCountry == "in")
+   {
+
+      return "ist";
+
+   }
+   else
+   {
+
+      return "utc";
+
+   }
+
+}
+
+
+
 double  time_zone(string str)
 {
    str.make_lower();
    //Московское время (UTC+3)
    if(str == "msk")
    {
+
       return 3.0;
 
    }
@@ -1007,14 +1339,139 @@ double  time_zone(string str)
    }
    else if(str == "cet")
    {
+      
       return 1.0;
-   }
 
+   }
+   else if (str == "cest")
+   {
+      
+      return 2.0;
+
+   }
+   else if (str == "eest")
+   {
+
+      return 3.0;
+
+   }
+   else if (str == "pdt")
+   {
+
+      return -7.0;
+
+   }
+   else if (str == "jst")
+   {
+
+      return 9.0;
+
+   }
+   else if (str == "west")
+   {
+
+      return 1.0;
+
+   }
+   else if (str == "art")
+   {
+
+      return -3.0;
+
+   }
+   else if (str == "clst")
+   {
+
+      return -3.0;
+
+   }
+   else if (str == "bst")
+   {
+
+      return 1.0;
+
+   }
+   else if (str == "cst")
+   {
+
+      return 8.0;
+
+   }
+   else if (str == "amt")
+   {
+
+      return 4.0;
+
+   }
+   else if (str == "aest")
+   {
+
+      return 10.0;
+
+   }
+   else if (str == "nzst")
+   {
+
+      return 12.0;
+
+   }
+   else if (str == "kst")
+   {
+
+      return 9.0;
+
+   }
+   else if (str == "pht")
+   {
+
+      return 8.0;
+
+   }
+   else if (str == "myt")
+   {
+
+      return 8.0;
+
+   }
+   else if (str == "hkt")
+   {
+
+      return 8.0;
+
+   }
+   else if (str == "ict")
+   {
+
+      return 7.0;
+
+   }
+   else if(str == "utc")
+   {
+
+      return 0.0;
+
+   }
+   else if (str == "alphatime")
+   {
+
+      return -2.0;
+
+   }
+   else if (str == "ist")
+   {
+
+      return 5.5;
+
+   }
    else
    {
-      return 1000.0; // earth?
+
+      return 1000000.0; // earth?
+
    }
+
 }
+
 string glang(string strLang)
 {
    if(strLang == "en")
@@ -1064,17 +1521,54 @@ string username(string strUser, string strLang)
    return strName;
 }
 
-void ws(string strUser) // welcome sound
+stringa wsa(string strUser)
+{
+
+   stringa stra;
+   
+   ::file::path path;
+
+   index iIndex = 0;
+
+   while (Application.file().exists(path = m_pcomm->get_base_path() / "audio/hidden/welcome" + ::str::from(iIndex++) / strUser + ".wav"))
+   {
+      stra.add(path);
+   }
+
+   return stra;
+
+}
+
+void ws(string strUser, bool bDoorBel) // welcome sound
 {
    
    strUser.make_lower();
 
-   ::file::path path = m_pcomm->get_base_path() / "audio/hidden/welcome" / strUser + ".wav";
+   stringa stra = wsa(strUser);
 
-   if (Application.file().exists(path))
+   if (stra.get_size() > 0)
    {
 
-      audio_announce(path);
+      index iIndex = atoi(file_as_string_dup(m_pcomm->get_base_path() / "audio/hidden/welcome0" / strUser + ".txt"));
+
+      if(iIndex >= stra.get_size())
+      {
+
+         iIndex = 0;
+
+      }  
+
+      audio_announce(stra[iIndex]);
+
+      iIndex++;
+
+      file_put_contents_dup(m_pcomm->get_base_path() / "audio/hidden/welcome0" / strUser + ".txt", ::str::from(iIndex));
+
+   }
+   else if (bDoorBel)
+   {
+
+      doorbell();
 
    }
    else
@@ -1147,11 +1641,11 @@ string bot_x(string strNameParam, string strUserParam, string strText, string st
    if (strOther.has_char() && strOther != strUser)
    {
 
-      strOtherCountry = get_user_data(strOther, "country").get_string().lower();
+      strOtherCountry = get_user_data(strOther, "country_code").get_string().lower();
       if (strOtherCountry.is_empty())
       {
          strOtherCountry = get_lctv_info(strOther, "country_code").get_string().lower();
-         set_user_data(strOther, "country", strOtherCountry);
+         set_user_data(strOther, "country_code", strOtherCountry);
       }
       strOtherLang = lang(get_user_data(strOther, "lang").get_string().lower());
       if (strOther.is_empty())
@@ -1198,11 +1692,11 @@ string bot_x(string strNameParam, string strUserParam, string strText, string st
    {
       if (strText.has_char() && strText != "!ws")
       {
-         ws(strText);
+         ws(strText, false);
       }
       else
       {
-         ws(strUser);
+         ws(strUser, false);
       }
    }
    else if (strText.CompareNoCase("!land") == 0 || ::str::begins_eat_ci(strText, "!land "))
@@ -1216,7 +1710,7 @@ string bot_x(string strNameParam, string strUserParam, string strText, string st
 
       //strSpeakLang = strLangParam;
 
-      if (strOtherName.has_char())
+      if (strOther.has_char())
       {
 
          strName = strOtherName;
@@ -1230,7 +1724,7 @@ string bot_x(string strNameParam, string strUserParam, string strText, string st
       if (strText.CompareNoCase("!land") == 0 || strText.CompareNoCase("!land ") == 0)
       {
 
-         strCountry = get_lctv_info(strUser, "country").get_string().upper();
+         strCountry = get_lctv_info(strUser, "country_code").get_string().upper();
 
       }
       else
@@ -1238,7 +1732,7 @@ string bot_x(string strNameParam, string strUserParam, string strText, string st
 
          strName = strText;
 
-         strCountry = get_lctv_info(strText, "country").get_string().upper();
+         strCountry = get_lctv_info(strText, "country_code").get_string().upper();
 
       }
 
@@ -1508,7 +2002,7 @@ string bot_x(string strNameParam, string strUserParam, string strText, string st
    }
    else if(strText == "!reset!")
    {
-      set_user_data(strUser,"country","");
+      set_user_data(strUser, "country_code","");
       set_user_data(strUser,"lang","");
       set_user_data(strUser,"visit_count","");
       set_user_data(strUser,"last_visit","");
@@ -1706,6 +2200,10 @@ string bot_x(string strNameParam, string strUserParam, string strText, string st
    {
       olink(strUser,"http://www.urbandictionary.com/define.php?term=" + url_encode(strText));
    }
+   else if (strText.get_length() > 7 && ::str::begins_eat(strText, "!urban "))
+   {
+      olink(strUser, "http://www.urbandictionary.com/define.php?term=" + url_encode(strText));
+   }
    else if(strText.get_length() > 4 && ::str::begins(strText,"!at "))
    {
       auto_translate(strUser,glang(strLang),strText.substr(4));
@@ -1753,34 +2251,38 @@ string bot_x(string strNameParam, string strUserParam, string strText, string st
          strZoneUser = strText;
 
       }
-
-      int iZone = get_user_data(strUser, "time_zone");
-
-      string strZone = get_user_data(strUser, "time_zone_text");
-
-      if (strZone.is_empty())
+      else if (strUser != strUserParam)
       {
 
-         strZone = "UTC";
+         strUser = strUserParam;
 
-         if (iZone > 0)
-         {
+         strZoneUser = strOther;
 
-            strZone += "+";
-
-         }
-         else
-         {
-
-            strZone += "-";
-
-         }
-
-         strZone += ::str::from(abs(iZone));
+         strName = strNameParam;
 
       }
 
-      now += ::datetime::time_span(0, iZone, 0, 0);
+      string strTimeZone = get_user_data(strZoneUser, "time_zone");
+
+      if (strTimeZone.is_empty())
+      {
+         string strCountry = get_user_data(strText, "country_code").get_string().lower();
+         if (strCountry.is_empty())
+         {
+            strCountry = get_lctv_info(strText, "country_code").get_string().lower();
+            set_user_data(strText, "country_code", strCountry);
+         }
+         if (strCountry.has_char())
+         {
+            strTimeZone = initial_locality_time_zone(strCountry, get_lctv_info(strText, "city"));
+            set_user_data(strText, "time_zone_text", strTimeZone);
+            set_user_data(strText, "time_zone", time_zone(strTimeZone));
+         }
+      }
+
+      double dUTCOffset = user_time_zone(strZoneUser);
+
+      now += ::datetime::time_span(0, (int) dUTCOffset, (int) (fmod(fabs(dUTCOffset), 1.0) * 60.0), 0);
 
       strTopic = System.datetime().international().get_gmt_date_time(now);
 
@@ -1802,10 +2304,17 @@ string bot_x(string strNameParam, string strUserParam, string strText, string st
    }
    else if(::str::begins_eat(strText,"!setzone "))
    {
+      
       var v = strText;
+
+      double dUTCOffset;
+
       if(v.is_double())
       {
-         set_user_data(strUser,"time_zone",v.get_double());
+
+         dUTCOffset = v.get_double();
+
+         set_user_data(strUser,"time_zone", dUTCOffset);
          set_user_data(strUser,"time_zone_text","");
 
          strTopic = ::str::from(get_user_data(strUser, "time_zone"));
@@ -1815,18 +2324,22 @@ string bot_x(string strNameParam, string strUserParam, string strText, string st
       }
       else
       {
-         double d = time_zone(strText);
-         set_user_data(strUser,"time_zone_text",strText);
-         set_user_data(strUser,"time_zone",d);
+         
+         dUTCOffset = time_zone(strText);
 
-         strTopic = get_user_data(strUser,"time_zone_text");
+         set_user_data(strUser, "time_zone", dUTCOffset);
+         set_user_data(strUser, "time_zone_text", strText);
 
-         str  = _t("%name, your time zone was set to \"%topic\".");
+         strTopic = get_user_data(strUser, "time_zone_text");
 
-         if(time_zone(get_user_data(strUser,"time_zone_text")) > 900.0)
+         strTopic.make_upper();
+
+         str = _t("%name, your time zone was set to %topic.");
+
+         if (dUTCOffset == 1000000.0)
          {
 
-            str += _t(" Actually, it is currently \"Unknown Time Zone\". Yell ca2 on this (or not).");
+            str += _t(" It is unknown time zone. Warn streamer about this.");
 
          }
 
@@ -1835,19 +2348,107 @@ string bot_x(string strNameParam, string strUserParam, string strText, string st
    }
    else if(strText == "!getzone")
    {
+
+   getzone_self:
+
+      double dUTCOffset = user_time_zone(strUser);
+
+      strTopic = utc_offset_string(dUTCOffset);
+
       if(get_user_data(strUser,"time_zone_text").has_char())
       {
-         strTopic = "\"" + get_user_data(strUser, "time_zone_text") + "\" : UTC " + ::str::from(user_time_zone(strUser));
+
+         strTopic = get_user_data(strUser, "time_zone_text").get_string().upper() + " " + strTopic;
+
+      }
+
+      string strTopicUser;
+
+      if (strUserParam == strUser)
+      {
+
+         strTopicUser = strUser;
 
          str = _t("%name, your time zone is set to %topic");
 
       }
       else
       {
-         strTopic = ::str::from(user_time_zone(strUser));
 
-         str = _t("%name, your time zone is set to UTC %topic");
+         strUser = strUserParam;
+
+         strName = strNameParam;
+
+         strLang = strLangParam;
+
+         strSpeakLang = strLang;
+
+         strTopicUser = strOther;
+
+         t_straParam.add(username(strOther, strLang));
+
+         str = _t("%name, %param1 time zone is set to %topic");
+
       }
+
+      if (dUTCOffset == 1000000.0)
+      {
+
+         str += _t(" It is unknown time zone. Warn streamer about this.");
+
+      }
+
+   }
+   else if (::str::begins_eat(strText, "!getzone "))
+   {
+
+      if (strText == strUser)
+      {
+
+         goto getzone_self;
+
+      }
+
+      string strTimeZone = get_user_data(strText, "time_zone");
+
+      if (strTimeZone.is_empty())
+      {
+         string strCountry = get_user_data(strText, "country_code").get_string().lower();
+         if (strCountry.is_empty())
+         {
+            strCountry = get_lctv_info(strText, "country_code").get_string().lower();
+            set_user_data(strText, "country_code", strCountry);
+         }
+         if (strCountry.has_char())
+         {
+            strTimeZone = initial_locality_time_zone(strCountry, get_lctv_info(strText, "city"));
+            set_user_data(strText, "time_zone_text", strTimeZone);
+            set_user_data(strText, "time_zone", time_zone(strTimeZone));
+         }
+      }
+
+      double dUTCOffset = user_time_zone(strText);
+
+      strTopic = utc_offset_string(dUTCOffset);
+
+      t_straParam.add(username(strText, strLang));
+
+      if (get_user_data(strText, "time_zone_text").has_char())
+      {
+
+         strTopic = get_user_data(strText, "time_zone_text").get_string().upper() + " " + strTopic;
+
+      }
+
+      str = _t("%name, %param1 time zone is set to %topic");
+
+      if (dUTCOffset == 1000000.0)
+      {
+
+         str += _t(" It is unknown time zone. Warn streamer about this.");
+
+      }
+
    }
    else if(strText.get_length() == 14 && ::str::begins_eat(strText,"!setlang ") && strText.substr(2,1) == "-")
    {
@@ -1856,14 +2457,24 @@ string bot_x(string strNameParam, string strUserParam, string strText, string st
       strLang = get_user_data(strUser,"lang");
       strSpeakLang = strLang;
       set_user_data(strUser,"lang",strLang);
-      set_user_data(strUser,"country",strText.substr(3,2));
+      set_user_data(strUser, "country_code",strText.substr(3,2));
 
       strTopic = strLang;
+
       strName = username(strUser, strSpeakLang);
 
       str = _t("%name, your language was set to %topic");
 
-      strTopic = ::str::from(get_user_data(strUser, "country"));
+      string strCountry = get_user_data(strUser, "country_code");
+
+      strTopic = get_country(strLang, strCountry);
+
+      if (strTopic.is_empty())
+      {
+
+         strTopic = get_country("en", strCountry);
+
+      }
 
       str += _t(" and your country was set to %topic");
 
@@ -1923,32 +2534,63 @@ string bot_x(string strNameParam, string strUserParam, string strText, string st
    {
       stringa a = ls_names(m_pcomm->get_base_path() / "audio/element");
       str = strText.substr(1);
-      bool found = false;
-      int i = 0;
-      for(; i < a.get_count() && !found; i++)
+      string strServer = System.url().get_server(str);
+      strsize iFind1 = -1;
+      if ((iFind1 = strServer.find_ci("spotify.")) == 0
+         || (iFind1 = strServer.find_ci(".spotify.")) > 0)
       {
-         if(a[i].lower() == str.lower())
+
+         strsize iFind = str.find_ci("/track/", iFind1);
+         if (iFind > 0)
          {
-            found = 1;
+            string strId = str.Mid(iFind + strlen("/track/"));
+            str = "spotify:track:" + strId;
          }
+
       }
-      if(found == 1)
+      if (::str::begins_ci(str, "spotify:track:"))
       {
-         play_sound(m_pcomm->get_base_path() / "audio/element" / str + ".wav");
-         return "";
+
+#ifdef WINDOWS
+
+         call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", str, "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
+
+#else
+
+         call_async("/xcore/stage/x86/app", "\"" + str + "\" : app=app-veriwell/waven build_number=basis version=basis locale=_std schema=_std ", "/xcore/stage/x86/", SW_SHOW, false);
+
+#endif
+
       }
       else
       {
-         str = strText;
-         if (!consider_speakable_text(strText))
+         bool found = false;
+         int i = 0;
+         for (; i < a.get_count() && !found; i++)
          {
-            str = _t("I am not going to say that phrase");
+            if (a[i].lower() == str.lower())
+            {
+               found = true;
+            }
          }
-         if (!lspeak(strUser, strSpeakLang, strSpeakText))
+         if (found)
          {
-            return str;
+            play_sound(m_pcomm->get_base_path() / "audio/element" / str + ".wav");
+            return "";
          }
-         return "";
+         else
+         {
+            str = strText;
+            if (!consider_speakable_text(strText))
+            {
+               str = _t("I am not going to say that phrase");
+            }
+            if (!lspeak(strUser, strSpeakLang, strSpeakText))
+            {
+               return str;
+            }
+            return "";
+         }
       }
    }
    if(str.is_empty())
@@ -1974,17 +2616,24 @@ string on_bot(string strUser,string strText)
    string strSpeakText;
    if(!strText.begins_ci("!") && !m_straSpecialCommand.contains_ci(strText))
       return "";
-   string strCountry = get_user_data(strUser,"country").get_string().lower();
+   string strCountry = get_user_data(strUser,"country_code").get_string().lower();
    if(strCountry.is_empty())
    {
       strCountry = get_lctv_info(strUser,"country_code").get_string().lower();
-      set_user_data(strUser,"country",strCountry);
+      set_user_data(strUser, "country_code",strCountry);
    }
    string strLang = lang(get_user_data(strUser,"lang").get_string().lower());
    if(strLang.is_empty())
    {
       strLang = initial_country_lang(strCountry);
       set_user_data(strUser,"lang",strLang);
+   }
+   string strTimeZone = get_user_data(strUser, "time_zone");
+   if (strTimeZone.is_empty() && strCountry.has_char())
+   {
+      strTimeZone = initial_locality_time_zone(strCountry, get_lctv_info(strUser, "city"));
+      set_user_data(strUser, "time_zone_text", strTimeZone);
+      set_user_data(strUser, "time_zone", time_zone(strTimeZone));
    }
    string strName = username(strUser, strLang);
    if(strText.get_length() > 9 && ::str::begins(strText,"!setname "))
@@ -2115,6 +2764,25 @@ string on_bot(string strUser,string strText)
             str += tokens[i];
          }
          strText = str;
+
+         string strTimeZone = get_user_data(strOther, "time_zone");
+         if (strTimeZone.is_empty())
+         {
+
+            string strCountry = get_user_data(strOther, "country_code").get_string().lower();
+            if (strCountry.is_empty())
+            {
+               strCountry = get_lctv_info(strOther, "country_code").get_string().lower();
+               set_user_data(strOther, "country_code", strCountry);
+            }
+            if (strCountry.has_char())
+            {
+               strTimeZone = initial_locality_time_zone(strCountry, get_lctv_info(strOther, "city"));
+               set_user_data(strOther, "time_zone_text", strTimeZone);
+               set_user_data(strOther, "time_zone", time_zone(strTimeZone));
+            }
+         }
+
       }
    }
    return bot_x(strName,strUser,strText,strCountry,strLang, strOther, strOtherName);
@@ -2122,10 +2790,10 @@ string on_bot(string strUser,string strText)
 string on_pres(string strUser,string strType)
 {
 
-   int iThreshold = 8;
+   int iThreshold = 16;
 
    string strTopic;
-   string strCountry = get_user_data(strUser,"country").get_string().lower();
+   string strCountry = get_user_data(strUser, "country_code").get_string().lower();
    if(strCountry.is_empty())
    {
       strCountry = get_lctv_info(strUser,"country_code").get_string().lower();
@@ -2133,13 +2801,20 @@ string on_pres(string strUser,string strType)
       {
          //strCountry = "be";
       }
-      set_user_data(strUser,"country",strCountry);
+      set_user_data(strUser, "country_code",strCountry);
    }
    string strLang = lang(get_user_data(strUser,"lang").get_string().lower());
    if(strLang.is_empty())
    {
       strLang = initial_country_lang(strCountry);
       set_user_data(strUser,"lang",strLang);
+   }
+   string strTimeZone = get_user_data(strUser, "time_zone");
+   if (strTimeZone.is_empty())
+   {
+      strTimeZone = initial_locality_time_zone(strCountry, get_lctv_info(strUser, "city"));
+      set_user_data(strUser, "time_zone_text", strTimeZone);
+      set_user_data(strUser, "time_zone", time_zone(strTimeZone));
    }
    var strName = username(strUser, strLang);
    
@@ -2149,7 +2824,7 @@ string on_pres(string strUser,string strType)
 
       ::datetime::time last_back;
 
-      last_back.m_time = get_user_data(strUser, "last_back").int64();
+      last_back.m_time = get_user_data(strUser, "last_presence").int64();
 
       ::datetime::time now = ::datetime::time::get_current_time();
 
@@ -2253,7 +2928,7 @@ string on_pres(string strUser,string strType)
 
       ::datetime::time now = ::datetime::time::get_current_time();
 
-      set_user_data(strUser, "last_back", now.m_time);
+      set_user_data(strUser, "last_presence", now.m_time);
 
       set_user_data(strUser, "back", 1);
 
@@ -2290,9 +2965,11 @@ string on_pres(string strUser,string strType)
                   if (get_user_data(strUser, "visit_count") <= 4)
                   {
                      
-                     ws(strUser);
+                     ws(strUser, true);
 
                      t_straParam.add(_trans1(welcome_time));
+
+                     set_user_data(strUser, "last_welcome_time", _trans1(welcome_time));
 
                      strText = _t("Welcome %name! :) %param1 You can type exclamation mark and then press enter to get some help.");
 
@@ -2316,15 +2993,19 @@ string on_pres(string strUser,string strType)
 
                      t_straParam.add(_trans1(welcome_time));
 
+                     set_user_data(strUser, "last_welcome_time", _trans1(welcome_time));
+
                      strText = _t("Hi %name! Welcome! %param1 What brings you here today?");
 
                   }
-                  else if (get_user_data(strUser, "last_visit") > 60 * 60 * 3)
+                  else if (get_user_data(strUser, "last_visit") > 60 * 60 * 3 || get_user_data(strUser, "last_welcome_time") != _trans1(welcome_time))
                   {
 
-                     ws(strUser);
+                     ws(strUser, true);
 
                      t_straParam.add(_trans1(name_welcome_time));
+
+                     set_user_data(strUser, "last_welcome_time", _trans1(welcome_time));
 
                      strText = _t("%param1! :)");
 
@@ -2333,37 +3014,18 @@ string on_pres(string strUser,string strType)
                   {
 
 
-                     if (get_user_data(strUser, "back") == 0)
+                     strText = _t("%name is back! :)");
+
+                     if (now.m_time - last_see_you.m_time > 8 * 60)  // 1 hour
                      {
 
-                        strText = _t("%name is back! :)");
-
-                        if (now.m_time - last_see_you.m_time > 8 * 60)  // 1 hour
-                        {
-
-                           ws(strUser);
-
-                        }
-                        else
-                        {
-
-                           doorbell();
-
-                           set_user_data(strUser, "back", 0);
-
-                           //return "";
-
-                        }
+                        ws(strUser, true);
 
                      }
                      else
                      {
 
                         doorbell();
-
-                        strText = _t("%name is back! :)");
-
-                        //return "";
 
                      }
 
@@ -2418,11 +3080,11 @@ string on_new_followers(stringa & straNew)
       string strLang = lang(get_user_data(strUser,"lang").get_string().lower());
       if(strLang.is_empty())
       {
-         string strCountry = get_user_data(strUser,"country").get_string().lower();
+         string strCountry = get_user_data(strUser, "country_code").get_string().lower();
          if(strCountry.is_empty())
          {
             strCountry = get_lctv_info(strUser,"country_code").get_string().lower();
-            set_user_data(strUser,"country",strCountry);
+            set_user_data(strUser, "country_code",strCountry);
          }
          strLang = initial_country_lang(strCountry);
          set_user_data(strUser,"lang",strLang);
