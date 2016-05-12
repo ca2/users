@@ -5,7 +5,7 @@ msgid "Good Afternoon!"
 msgtext "Boa tarde!"
 
 msgid "Good Evening!"
-msgtext "Boa tarde!"
+msgtext "Boa noite!"
 
 msgid "Good Night!"
 msgtext "Boa noite!"
@@ -17,7 +17,7 @@ msgid "%name, Good Afternoon!"
 msgtext "Boa tarde %name!"
 
 msgid "%name, Good Evening!"
-msgtext "Boa tarde %name!"
+msgtext "Boa noite %name!"
 
 msgid "%name, Good Night!"
 msgtext "Boa noite %name!"

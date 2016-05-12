@@ -175,3 +175,15 @@ msgtext "%name, ouverture de Rick Astley - Never Gonna Give You Up!"
 
 msgid "Opening Rick Astley - Never Gonna Give You Up!"
 msgtext "Ouverture de Rick Astley - Never Gonna Give You Up!"
+
+
+
+msgid "The country of %name is unknown"
+msgtext "The country of %name is unknown"
+
+msgid "The country of %name is \"%topic\""
+msgtext "Le pays de %name est \"%topic\""
+
+msgid "%name, you will need Visual Studio 2015 (at least Community Edition), a SVN (Subversion) client and repository access (working e-mail address needed). Talk to Camilo for details."
+msgtext "%name, you will need Visual Studio 2015 (at least Community Edition), a SVN (Subversion) client and repository access (working e-mail address needed). Talk to Camilo for details."
+
