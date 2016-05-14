@@ -347,7 +347,7 @@ double user_time_zone(string strUser)
    else
    {
 
-      return get_user_data(strUser, "time_zone");
+      return get_user_time_zone(strUser);
 
    }
 
@@ -438,52 +438,6 @@ bool utc_offset_invalid(double dUTCOffset)
 }
 
 
-string utc_offset_string(double dUTCOffset)
-{
-
-   if (dUTCOffset == 1000000.0)
-   {
-
-      return "";
-
-   }
-   else if (dUTCOffset == 0.0)
-   {
-
-      return "UTC";
-
-   }
-   else if (utc_offset_invalid(dUTCOffset))
-   {
-
-      return "(" + str_signed(dUTCOffset) + " : invalid UTC?)";
-
-   }
-   else
-   {
-
-      string strUTCOffset;
-
-      strUTCOffset = "UTC " + str_signed_int(dUTCOffset);
-
-      double dMod = fmod(fabs(dUTCOffset), 1.0);
-
-      if (dMod > 0.0)
-      {
-
-         string strMinutes;
-
-         strMinutes.Format("%02d", (int)(60.0 * dMod));
-
-         strUTCOffset += ":" + strMinutes;
-
-      }
-
-      return strUTCOffset;
-
-   }
-
-}
 
 
 
@@ -599,12 +553,12 @@ string get_user_lang(string strUser)
 
 
 
-string get_user_time_zone(string strZoneUser)
+var get_user_time_zone(string strZoneUser)
 {
 
-   string strTimeZone = get_user_data(strZoneUser, "time_zone");
+   var varTimeZone = get_user_data(strZoneUser, "time_zone");
 
-   if (strTimeZone.is_empty())
+   if (varTimeZone.is_empty())
    {
 
       string strCountry = get_user_country_code(strZoneUser);
@@ -612,17 +566,19 @@ string get_user_time_zone(string strZoneUser)
       if (strCountry.has_char())
       {
 
-         strTimeZone = initial_locality_time_zone(strCountry, get_lctv_info(strZoneUser, "city"));
+         varTimeZone = initial_locality_time_zone(strCountry, get_lctv_info(strZoneUser, "city"));
 
-         set_user_data(strZoneUser, "time_zone_text", strTimeZone);
+         set_user_data(strZoneUser, "time_zone_text", varTimeZone);
 
-         set_user_data(strZoneUser, "time_zone", time_zone(strTimeZone));
+         varTimeZone = time_zone(varTimeZone);
+
+         set_user_data(strZoneUser, "time_zone", varTimeZone);
 
       }
 
    }
 
-   return strTimeZone;
+   return varTimeZone;
 
 }
 

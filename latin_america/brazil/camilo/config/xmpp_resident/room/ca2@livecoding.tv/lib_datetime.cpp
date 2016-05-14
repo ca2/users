@@ -389,3 +389,109 @@ double  time_zone(string str)
 
 }
 
+
+::datetime::time_span user_time_span(string strUser)
+{
+
+   double dUTCOffset = user_time_zone(strUser);
+
+   return ::datetime::time_span(0, (int)dUTCOffset, (int)(fmod(fabs(dUTCOffset), 1.0) * 60.0), 0);
+
+}
+
+string utc_offset_string(double dUTCOffset)
+{
+
+   if (dUTCOffset == 1000000.0)
+   {
+
+      return "";
+
+   }
+   else if (dUTCOffset == 0.0)
+   {
+
+      return "UTC";
+
+   }
+   else if (utc_offset_invalid(dUTCOffset))
+   {
+
+      return "(" + str_signed(dUTCOffset) + " : invalid UTC?)";
+
+   }
+   else
+   {
+
+      string strUTCOffset;
+
+      strUTCOffset = "UTC " + str_signed_int(dUTCOffset);
+
+      double dMod = fmod(fabs(dUTCOffset), 1.0);
+
+      if (dMod > 0.0)
+      {
+
+         string strMinutes;
+
+         strMinutes.Format("%02d", (int)(60.0 * dMod));
+
+         strUTCOffset += ":" + strMinutes;
+
+      }
+
+      return strUTCOffset;
+
+   }
+
+}
+
+
+string user_time_span_text(string strUser)
+{
+
+   return utc_offset_string(user_time_zone(strUser));
+
+}
+
+
+::datetime::time user_time(string strUser)
+{
+
+   return ::datetime::time::get_current_time() + user_time_span(strUser);
+
+}
+
+
+string user_time_text(string strUser, string strLang, bool bTimeZone = false)
+{
+
+   ::datetime::time now = user_time(strUser);
+
+   string strZone;
+
+   if (bTimeZone)
+   {
+
+      strZone = get_user_data(strUser, "time_zone_text");
+
+      if (strZone.has_char())
+      {
+
+         strZone.make_upper();
+
+         strZone += " ";
+
+      }
+
+      strZone += user_time_span_text(strUser);
+
+      strZone = " " + strZone;
+
+   }
+
+   string strSpeakText;
+
+   return System.datetime().international().get_gmt_date_time(now, _t("%Y-%m-%d %H:%M:%S")) + strZone;
+
+}

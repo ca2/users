@@ -249,7 +249,7 @@ string bot_x()
 
          string & strTopic = m_strTopic;
 
-         string & strTopic = ::str::from(straFiltered.get_count() + cGuest);
+         strTopic = ::str::from(straFiltered.get_count() + cGuest);
 
          str = _t("%name, There are %topic online people at chat");
 
@@ -602,15 +602,7 @@ string bot_x()
    else if (about_user("time"))
    {
 
-      ::datetime::time now = ::datetime::time::get_current_time();
-
-      string strTimeZone = get_user_time_zone(strTopicUser);
-
-      double dUTCOffset = user_time_zone(strTopicUser);
-
-      now += ::datetime::time_span(0, (int) dUTCOffset, (int) (fmod(fabs(dUTCOffset), 1.0) * 60.0), 0);
-
-      strTopic = System.datetime().international().get_gmt_date_time(now, _t("%Y-%m-%d %H:%M:%S"));
+      strTopic = user_time_text(strTopicUser, m_strLang);
 
       if (is_about_self())
       {
@@ -694,8 +686,6 @@ string bot_x()
       }
       else
       {
-
-         param1_topic_username();
 
          str = _t("%name, %param1 time zone is set to %topic");
 
