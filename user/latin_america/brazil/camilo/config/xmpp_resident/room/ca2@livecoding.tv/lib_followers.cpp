@@ -1,0 +1,145 @@
+
+
+string on_new_followers(stringa & straNew)
+{
+   int iCount = straNew.get_size();
+   ::fork(get_app(), [=]()
+   {
+
+      for (index i = 0; i < MIN(3, iCount); i++)
+      {
+         sound_for_follower();
+         Sleep(1000);
+      }
+
+   });
+
+   string str;
+
+   stringa straLang;
+
+   string strLastLang;
+
+   bool bSameLang = true;
+
+   for(auto strUser : straNew)
+   {
+
+      string strLang = lang(get_user_data(strUser,"lang").get_string().lower());
+      if(strLang.is_empty())
+      {
+         string strCountry = get_user_data(strUser, "country_code").get_string().lower();
+         if(strCountry.is_empty())
+         {
+            strCountry = get_lctv_info(strUser,"country_code").get_string().lower();
+            set_user_data(strUser, "country_code",strCountry);
+         }
+         strLang = initial_country_lang(strCountry);
+         set_user_data(strUser,"lang",strLang);
+      }
+
+      if(strLastLang.is_empty())
+      {
+
+         strLastLang = strLang;
+
+      }
+
+      if(strLang.get_length() < 2 || strLastLang.get_length() < 2 || strLang.Left(2) != strLastLang.Left(2))
+      {
+
+         bSameLang = false;
+
+      }
+
+      if(strLang == "pt")
+      {
+
+         str += "Te dou Boas Vindas, " + strUser + "! Obrigado por seguir!";
+
+      }
+      else
+      {
+
+         str += "You're welcome, " + strUser + "! Thank you for following!";
+
+      }
+
+      strLastLang = strLang;
+
+   }
+
+   bool bMsg = true;
+
+   if(bSameLang)
+   {
+
+      if(strLastLang == "pt")
+      {
+         if(straNew.get_size() > 1)
+         {
+
+            str += "\nAbrindo o Rick Roll para todos vocês novos seguidores!!\n";
+
+         }
+         else
+         {
+
+            str += "\nAbrindo o Rick Roll para você!\n";
+
+         }
+      }
+      else
+      {
+         bMsg = false;
+      }
+   }
+   else
+   {
+
+      bMsg = false;
+
+   }
+
+   if(!bMsg)
+   {
+      if(straNew.get_size() > 1)
+      {
+
+         str += "\nOpening Rick Roll for you all new followers!!\n";
+
+      }
+      else
+      {
+
+         str += "\nOpening Rick Roll for you!!\n";
+
+      }
+
+      str += rr("en");
+
+      lspeak("","en",str);
+
+   }
+   else
+   {
+
+      str += rr(strLastLang);
+
+      lspeak("",strLastLang,str);
+
+   }
+
+   return str;
+
+}
+
+
+
+
+
+
+
+
+
+
