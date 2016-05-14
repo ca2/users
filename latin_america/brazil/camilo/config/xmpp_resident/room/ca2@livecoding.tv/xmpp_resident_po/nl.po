@@ -175,11 +175,17 @@ msgtext "%name, aan het afspelen Rick Astley - Never Gonna Give You Up!"
 msgid "Opening Rick Astley - Never Gonna Give You Up!"
 msgtext "Afspelen Rick Astley - Never Gonna Give You Up!"
 
-msgid "The country of %name is unknown"
-msgtext "Land van %name is onbekend."
+msgid "%name, your country is unknown"
+msgtext "%name, your country is unknown"
 
-msgid "The country of %name is \"%topic\""
-msgtext "Land van %name is %topic"
+msgid "%name, your country is set to \"%topic\""
+msgtext "%name, your country is set to \"%topic\""
+
+msgid "%name, country of %name is unknown"
+msgtext "%name, Land van %name is onbekend."
+
+msgid "%name, country of %name is \"%topic\""
+msgtext "%name, Land van %name is %topic"
 
 msgid "%name, you will need Visual Studio 2015 (at least Community Edition), a SVN (Subversion) client and repository access (working e-mail address needed). Talk to Camilo for details."
 msgtext "%name, hiervoor heb je minimaal nodig: Visual Studio 2015 (ten minste Community Edition), een SVN (Subversion) client en toegang tot de ca2 repository (met een geldig e-mail adress). Praat met Camilo voor verdere details."
@@ -189,3 +195,18 @@ msgtext "%name, het is \"%topic\""
 
 msgid "%name, it is \"%topic\" for %param1."
 msgtext "%name, het is \"%topic\" voor %param1."
+
+msgid "%Y-%m-%d %H:%M:%S"
+msgtext "%d/%m/%Y %H:%M:%S"
+
+msgid "hour/minutes/seconds"
+msgtext "uur:minuten:seconden"
+
+
+
+msgid "%name, your country code is set to \"%topic\""
+msgtext "%name, your country code is set to \"%topic\""
+
+msgid "%name, country code of %param1 is \"%topic\""
+msgtext "%name, country code of %param1 is \"%topic\""
+

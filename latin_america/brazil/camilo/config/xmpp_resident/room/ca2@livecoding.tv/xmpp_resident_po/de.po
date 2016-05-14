@@ -189,3 +189,11 @@ msgtext "Land von %name ist %topic"
 msgid "%name, you will need Visual Studio 2015 (at least Community Edition), a SVN (Subversion) client and repository access (working e-mail address needed). Talk to Camilo for details."
 msgtext "%name, du brauchst Visual Studio 2015 (am besten die Community Edition), einen SVN (Subversion) Client und Repository Zugriff (eine gültige Emailadresse wird benötigt). Sprich einfach mit Camilo für weitere Details."
 
+msgid "%name, it is \"%topic\""
+msgtext "%name, es ist \"%topic\""
+
+msgid "%name, it is \"%topic\" for %param1."
+msgtext "%name, es ist \"%topic\" für %param1."
+
+msgid "%Y-%m-%d %H:%M:%S"
+msgtext "%d.%m.%Y %H:%M:%S"
