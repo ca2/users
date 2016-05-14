@@ -6,4 +6,5 @@ c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecod
 c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib1.cpp(78): warning C4566: character represented by universal-character-name '\u0105' cannot be represented in the current code page (1252)
 c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib1.cpp(93): warning C4566: character represented by universal-character-name '\u0144' cannot be represented in the current code page (1252)
 c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib_language.cpp(569): warning C4566: character represented by universal-character-name '\u0438' cannot be represented in the current code page (1252)
-c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib1.cpp(331) : warning C4715: 'this_plugin::hi5_user': not all control paths return a value
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib_bot_x.cpp(252): error C2374: 'strTopic': redefinition; multiple initialization
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib_bot_x.cpp(250): note: see declaration of 'strTopic'

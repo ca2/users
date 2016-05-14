@@ -247,7 +247,9 @@ string bot_x()
 
          }
 
-         string strTopic = ::str::from(straFiltered.get_count() + cGuest);
+         string & strTopic = m_strTopic;
+
+         string & strTopic = ::str::from(straFiltered.get_count() + cGuest);
 
          str = _t("%name, There are %topic online people at chat");
 
