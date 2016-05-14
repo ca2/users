@@ -23,6 +23,9 @@ bool is_exclamation(string str)
 
 }
 
+
+
+
 bool is_vowel(string str)
 {
 
@@ -351,3 +354,369 @@ double user_time_zone(string strUser)
 }
 
 
+
+bool set_user_timer(string strName, string strTitle, string strSpec, string strLang)
+{
+#ifdef WINDOWS
+   call_async("C:\\core\\time\\x64\\basis\\app_core_timer.exe", "\"timer://device/"+strSpec+"?user="+System.url().url_encode(strName)+"&title="+System.url().url_encode(strTitle)+"&lang="+System.url().url_encode(strLang)+"&autoclose=1\"", "C:\\core\\time\\x64\\basis\\", SW_SHOW, false);
+#else
+   call_async("/xcore/stage/x86/app", strParam + " : dont_add_to_playlist", "/xcore/stage/x86", SW_SHOW, false);
+#endif
+   return true;
+}
+
+
+
+
+void olink(string strUser, string strUrl)
+{
+   if (spam(strUser))
+   {
+   }
+   else
+   {
+      open_link(strUrl);
+   }
+}
+
+
+
+string str_signed(double d)
+{
+
+   if (d > 0.0)
+   {
+
+      return "+" + ::str::from(d);
+
+   }
+   else if (d < 0.0)
+   {
+
+      return ::str::from(d);
+
+   }
+   else
+   {
+
+      return "0.0";
+
+   }
+
+}
+
+string str_signed_int(int i)
+{
+
+   if (i > 0)
+   {
+
+      return "+" + ::str::from(i);
+
+   }
+   else if (i < 0)
+   {
+
+      return ::str::from(i);
+
+   }
+   else
+   {
+
+      return "0";
+
+   }
+
+}
+
+
+bool utc_offset_invalid(double dUTCOffset)
+{
+
+   return dUTCOffset < -12.0 || dUTCOffset > 14.0;  // don't know (is invalid?)
+
+}
+
+
+string utc_offset_string(double dUTCOffset)
+{
+
+   if (dUTCOffset == 1000000.0)
+   {
+
+      return "";
+
+   }
+   else if (dUTCOffset == 0.0)
+   {
+
+      return "UTC";
+
+   }
+   else if (utc_offset_invalid(dUTCOffset))
+   {
+
+      return "(" + str_signed(dUTCOffset) + " : invalid UTC?)";
+
+   }
+   else
+   {
+
+      string strUTCOffset;
+
+      strUTCOffset = "UTC " + str_signed_int(dUTCOffset);
+
+      double dMod = fmod(fabs(dUTCOffset), 1.0);
+
+      if (dMod > 0.0)
+      {
+
+         string strMinutes;
+
+         strMinutes.Format("%02d", (int)(60.0 * dMod));
+
+         strUTCOffset += ":" + strMinutes;
+
+      }
+
+      return strUTCOffset;
+
+   }
+
+}
+
+
+
+void auto_translate(string strUser, string strDst, string strText)
+{
+   olink(strUser, "https://translate.google.com.br/?hl=&ie=UTF-8&sl=en&tl=sv#auto/" + strDst + "/" + url_encode(strText));
+}
+
+
+void translate(string strUser, string strDst, string strSrc, string strText)
+{
+
+   olink(strUser, "https://translate.google.com.br/?hl=&ie=UTF-8&sl=en&tl=sv#" + strSrc + "/" + strDst + "/" + url_encode(strText));
+
+}
+
+void lctv_profile(string strUser, string strProfile)
+{
+   olink(strUser, "https://www.livecoding.tv/" + strProfile + "/");
+}
+
+
+
+string username(string strUser, string strLang)
+{
+   var strName = get_user_data(strUser, "name." + strLang);
+   if (strName.is_empty())
+   {
+      strName = get_user_data(strUser, "name");
+      if (strName.is_empty())
+      {
+         strName = strUser;
+      }
+   }
+   return strName;
+}
+
+
+
+string param(index i, string str)
+{
+   
+   ASSERT(i >= 1); // One-Based-Index on input
+
+   m_straParam.set_at_grow(i-1, str);
+
+   return param(i);
+
+}
+
+
+string param(index i)
+{
+
+   ASSERT(i >= 1); // One-Based-Index on input
+
+   return m_straParam[i - 1];
+
+}
+
+
+
+
+string get_user_country_code(string strUser, bool bForceUpdate = false)
+{
+
+   string strCountryCode = get_user_data(strUser, "country_code").get_string().lower();
+
+   if (strCountryCode.is_empty() || bForceUpdate)
+   {
+
+      strCountryCode = get_lctv_info(strUser, "country_code").get_string().lower();
+
+      if (strCountryCode.has_char())
+      {
+
+         set_user_data(strCountryCode, "country_code", strCountryCode);
+
+      }
+
+   }
+
+   return strCountryCode;
+
+}
+
+
+
+
+
+string get_user_lang(string strUser)
+{
+
+   string strLang = lang(get_user_data(strUser, "lang").get_string().lower());
+
+   if (strLang.is_empty())
+   {
+
+      strLang = initial_country_lang(get_user_country_code(strUser));
+
+      if (strLang.has_char())
+      {
+
+         set_user_data(strLang, "lang", strLang);
+
+      }
+
+   }
+
+   return strLang;
+
+}
+
+
+
+string get_user_time_zone(string strZoneUser)
+{
+
+   string strTimeZone = get_user_data(strZoneUser, "time_zone");
+
+   if (strTimeZone.is_empty())
+   {
+
+      string strCountry = get_user_country_code(strZoneUser);
+
+      if (strCountry.has_char())
+      {
+
+         strTimeZone = initial_locality_time_zone(strCountry, get_lctv_info(strZoneUser, "city"));
+
+         set_user_data(strZoneUser, "time_zone_text", strTimeZone);
+
+         set_user_data(strZoneUser, "time_zone", time_zone(strTimeZone));
+
+      }
+
+   }
+
+   return strTimeZone;
+
+}
+
+
+bool about_user(string strQuery)
+{
+
+   string strText = m_strText;
+
+   string strQuery1 = "!" + strQuery;
+
+   string strQuery2 = "?" + strQuery;
+
+   if (strText.CompareNoCase(strQuery1) == 0 || ::str::begins_eat_ci(strText, strQuery1 + " ")
+      || strText.CompareNoCase(strQuery2) == 0 || ::str::begins_eat_ci(strText, strQuery2 + " "))
+   {
+
+      if (strText.CompareNoCase(strQuery1) == 0
+         || strText.CompareNoCase(strQuery2) == 0)
+      {
+
+         strText.Empty();
+
+      }
+
+      if (strText == m_strUser || m_strUser == m_strOther || (m_strOther.is_empty() && strText.is_empty()))
+      {
+
+         m_epersonTopic = ::vericard::person_user;
+
+         m_strTopicUser = m_strUser;
+
+      }
+      else
+      {
+
+         m_epersonTopic = ::vericard::person_other;
+
+         if (strText.has_char())
+         {
+
+            m_strTopicUser = strText;
+
+         }
+         else
+         {
+
+            m_strTopicUser = m_strOther;
+
+         }
+
+         param1_topic_username();
+
+      }
+
+      return true;
+      
+   }
+   else
+   {
+
+      return false;
+
+   }
+
+}
+
+bool is_about_self()
+{
+
+   return m_epersonTopic == ::vericard::person_user;
+
+}
+
+
+void param1_topic_username()
+{
+   
+   param(1, username(m_strTopicUser, m_strLang));
+
+}
+
+
+string lotext(string strText)
+{
+   
+   return strText.lower();
+
+}
+
+
+string lotext()
+{
+
+   return lotext(m_strText);
+
+}

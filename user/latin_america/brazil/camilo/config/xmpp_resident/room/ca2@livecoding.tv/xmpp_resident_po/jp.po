@@ -1,4 +1,30 @@
-﻿msgid "%name, Some supported commands !help, !about and !want the bot"
+﻿msgid "Good Morning!"
+msgtext "おはようございます！"
+
+msgid "Good Afternoon!"
+msgtext "こんにちは！"
+
+msgid "Good Evening!"
+msgtext "こんばんは！"
+
+msgid "Good Night!"
+msgtext "おやすみ！"
+
+msgid "%name, Good Morning!"
+msgtext "%nameおはようございます！"
+
+msgid "%name, Good Afternoon!"
+msgtext "%nameこんにちは！"
+
+msgid "%name, Good Evening!"
+msgtext "%nameこんばんは！"
+
+msgid "%name, Good Night!"
+msgtext "%namおやすみ！"
+
+
+
+msgid "%name, Some supported commands !help, !about and !want the bot"
 msgtext "%name, Veribot ondersteund de volgende instructies (help, over, beschikbaarheid): !help, !about en !want the bot"
 
 msgid "%name, song not playing or not in record."
@@ -119,7 +145,7 @@ msgid "Bye %name! :("
 msgtext "Dag %name! :("
 
 msgid "See you %name! :("
-msgtext "%name, じゃあまたね! :("
+msgtext "%nameじゃあまたね！:("
       
 msgid "%name, entered!! (Subset of commands enabled)."
 msgtext "%name, is binnen!! (Subset of commands enabled)."
@@ -127,14 +153,14 @@ msgtext "%name, is binnen!! (Subset of commands enabled)."
 msgid "%name you are connected!";
 msgtext "%name u bent nu verbonden!";
 
-msgid "Welcome %name! :) You can type exclamation mark and then press enter to get some help."
-msgtext "Welkom %name! :) Type voor instructies een uitroepteken gevolgd door enter."
+msgid "Welcome %name! :) %param1 You can type exclamation mark and then press enter to get some help."
+msgtext "%nameようこそ！:)%param1 Type voor instructies een uitroepteken gevolgd door enter."
 
-msgid "Hi %name! Welcome! What brings you here today?"
-msgtext "Hoi %name! Welkom! Wat brengt u hier vandaag?"
+msgid "Hi %name! Welcome! %param1 What brings you here today?"
+msgtext "%nameこんにちは！ようこそ！%param1何今日ここに連れて来ますか？"
 
 msgid "%name is back! :)"
-msgtext "%nameが帰ってきました！ :)"
+msgtext "%nameが帰ってきました！:)"
 
 msgid "You're welcome, %name! Thank you for following!"
 msgtext "Graag gedaan, %name! Bedankt voor het volgen!"

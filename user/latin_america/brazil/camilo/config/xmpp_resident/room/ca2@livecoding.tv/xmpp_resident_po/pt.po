@@ -176,11 +176,17 @@ msgtext "%name , Abrindo Rick Astley - Never Gonna Give You Up!"
 msgid "Opening Rick Astley - Never Gonna Give You Up!";
 msgtext "Abrind Rick Astley - Never Gonna Give You Up!"
 
-msgid "The country of %name is unknown"
-msgtext "O país de %name é desconhecido"
+msgid "%name, your country is unknown"
+msgtext "%name, seu país é desconhecido"
 
-msgid "The country of %name is \"%topic\""
-msgtext "O país de %name é \"%topic\""
+msgid "%name, your country is set to \"%topic\""
+msgtext "%name, seu país está configurado para \"%topic\""
+
+msgid "%name, country of %name is unknown"
+msgtext "%name, o país de %name é desconhecido"
+
+msgid "%name, country of %name is \"%topic\""
+msgtext "%name, o país de %name é \"%topic\""
 
 msgid "%name, you will need Visual Studio 2015 (at least Community Edition), a SVN (Subversion) client and repository access (working e-mail address needed). Talk to Camilo for details."
 msgtext "%name, você precisará do Visual Studio 2015 (pelo menos a Edição Community), um cliente SVN (Subversion) e acesso ao repositório (é necessário um endereço de e-mail que funcione). Fale com o Camilo para detalhes."
@@ -189,3 +195,28 @@ msgtext "%name, você precisará do Visual Studio 2015 (pelo menos a Edição Co
 
 
 
+msgid "%name, it is \"%topic\""
+msgtext "%name, é \"%topic\""z'
+
+msgid "%name, it is \"%topic\" for %param1."
+msgtext "%name, é \"%topic\" para %param1."
+
+msgid "%Y-%m-%d %H:%M:%S"
+msgtext "%d/%m/%Y %H:%M:%S"
+
+
+msgid "%name, your time zone is set to %topic"
+msgtext "%name, seu fuso horário está configurado para %topic"
+
+msgid "%name, %param1 time zone is set to %topic"
+msgtext "%name, o fuso horário de %param1 está configurado para %topic"
+
+
+
+
+
+msgid "%name, your country code is set to \"%topic\""
+msgtext "%name, seu código de país está configurado para \"%topic\""
+
+msgid "%name, country code of %param1 is \"%topic\""
+msgtext "%name, o código de país de %param1 é \"%topic\""

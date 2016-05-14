@@ -15,6 +15,7 @@
 
 
 
+
 class this_plugin:
    virtual public ::xmpp_resident::plugin
 {
@@ -22,15 +23,51 @@ public:
    
 
 
-      
+
+   
+
+   
+
+
+
+
+   
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
    this_plugin(::aura::application * papp, object * p) :
       object(papp),
+      ::vericard::chat_item(papp),
       ::vericard::plugin(papp, dynamic_cast <::vericard::comm *> (p)),
       ::xmpp_resident::plugin(papp, dynamic_cast <::vericard::comm *> (p))
 
 #include "xmpp_bot_common.cpp"
 
 };
+
+
+
+
+
 
    BEG_ONLY_FACT
    CREATE_OBJECT_ENTRY("plugin",this_plugin)
@@ -41,6 +78,9 @@ public:
 
 
 
+
+
+      
 
 
 
