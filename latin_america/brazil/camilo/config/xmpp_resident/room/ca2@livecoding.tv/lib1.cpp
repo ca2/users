@@ -522,6 +522,13 @@ string username(string strUser, string strLang)
 }
 
 
+string param1(string str)
+{
+
+   return param(1, str);
+
+}
+
 
 string param(index i, string str)
 {
