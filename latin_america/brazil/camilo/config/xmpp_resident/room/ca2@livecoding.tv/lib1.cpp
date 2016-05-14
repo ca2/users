@@ -522,13 +522,6 @@ string username(string strUser, string strLang)
 }
 
 
-string param1(string str)
-{
-
-   return param(1, str);
-
-}
-
 
 string param(index i, string str)
 {
@@ -705,10 +698,18 @@ bool is_about_self()
 }
 
 
-void param1_topic_username()
+string param1_topic_username()
 {
    
-   param(1, username(m_strTopicUser, m_strLang));
+   return param1(username(m_strTopicUser, m_strLang));
+
+}
+
+
+string param1(string str)
+{
+
+   return param(1, str);
 
 }
 

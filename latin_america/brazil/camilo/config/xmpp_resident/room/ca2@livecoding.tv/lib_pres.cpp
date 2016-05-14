@@ -1,19 +1,19 @@
 
 string on_pres(string strUser,string strType)
 {
+   
    m_strUser = strUser;
+   
    int iThreshold = 16;
 
-   string strTopic;
+   string & strTopic = m_strTopic;
+
    m_strCountry = get_user_country_code(strUser, true);
+
    m_strLang = get_user_lang(strUser);
-   string strTimeZone = get_user_data(strUser, "time_zone");
-   if (strTimeZone.is_empty())
-   {
-      strTimeZone = initial_locality_time_zone(m_strCountry, get_lctv_info(strUser, "city"));
-      set_user_data(strUser, "time_zone_text", strTimeZone);
-      set_user_data(strUser, "time_zone", time_zone(strTimeZone));
-   }
+
+   string strTimeZone = get_user_time_zone(strUser);
+
    var strName = username(strUser, m_strLang);
    
    if(strType == "unavailable")
@@ -38,6 +38,7 @@ string on_pres(string strUser,string strType)
          if (get_user_data(strUser, "back") == 0)
          {
    
+            stringa t_straParam;
             string strSpeakText;
             string strText;
 
@@ -105,10 +106,7 @@ string on_pres(string strUser,string strType)
 
             }
             
-#ifdef __XMPP
-            ::xmpp::comm * pcomm = dynamic_cast <::xmpp::comm *>(m_pcomm);
-            pcomm->msg(strText);
-#endif
+            m_pcomm->msg(strText);
 
          }
 
@@ -141,6 +139,7 @@ string on_pres(string strUser,string strType)
             {
 
                set_user_data(strUser, "official_back", 1);
+
 
                string strText;
                string strSpeakText;
@@ -229,10 +228,8 @@ string on_pres(string strUser,string strType)
 
                }
 
-#ifdef __XMPP
-               ::xmpp::comm * pcomm = dynamic_cast <::xmpp::comm *>(m_pcomm);
-               pcomm->msg(strText);
-#endif
+               m_pcomm->msg(strText);
+
             }
 
          });
