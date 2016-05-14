@@ -583,40 +583,8 @@ string welcome_time(string & strSpeakText)
 
 
 
-   ::datetime::time now = ::datetime::time::get_current_time();
-
-   string strZoneUser = strUser;
-
-   int iZone = get_user_data(strUser, "time_zone");
-
-   string strZone = get_user_data(strUser, "time_zone_text");
-
-   if (strZone.is_empty())
-   {
-
-      strZone = "UTC";
-
-      if (iZone > 0)
-      {
-
-         strZone += "+";
-
-      }
-      else
-      {
-
-         strZone += "-";
-
-      }
-
-      strZone += ::str::from(abs(iZone));
-
-   }
-
-   now += ::datetime::time_span(0, iZone, 0, 0);
-
-
-
+   ::datetime::time now = user_time(strUser);
+      
    if (now.GetGmtHour() >= 6 && now.GetGmtHour() < 12)
    {
 

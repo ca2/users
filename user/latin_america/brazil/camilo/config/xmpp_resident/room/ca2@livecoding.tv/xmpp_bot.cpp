@@ -10,14 +10,6 @@
 
 #define __XMPP
 
-
-
-
-
-
-
-
-
 class this_plugin:
    virtual public ::xmpp_resident::plugin
 {
@@ -43,6 +35,16 @@ public:
 
 
    
+
+
+
+
+
+
+
+
+
+
 
 
 

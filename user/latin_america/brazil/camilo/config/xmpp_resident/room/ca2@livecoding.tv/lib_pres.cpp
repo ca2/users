@@ -1,6 +1,10 @@
 
 string on_pres(string strUser,string strType)
 {
+
+   m_epersonTopic = ::vericard::person_user;
+
+   m_epersonVocative = ::vericard::person_user;
    
    m_strUser = strUser;
    
@@ -14,7 +18,7 @@ string on_pres(string strUser,string strType)
 
    string strTimeZone = get_user_time_zone(strUser);
 
-   var strName = username(strUser, m_strLang);
+   m_strName = username(strUser, m_strLang);
    
    if(strType == "unavailable")
    {
@@ -38,7 +42,6 @@ string on_pres(string strUser,string strType)
          if (get_user_data(strUser, "back") == 0)
          {
    
-            stringa t_straParam;
             string strSpeakText;
             string strText;
 
@@ -150,7 +153,9 @@ string on_pres(string strUser,string strType)
                }
                else if (isbot(strUser))
                {
-                  strText = strName + " you are connected!";
+                  
+                  strText = m_strName + " you are connected!";
+
                }
                else
                {
