@@ -116,7 +116,7 @@ string on_new_followers(stringa & straNew)
 
       }
 
-      str += rr("en");
+      str += rr("en", true);
 
       lspeak("","en",str);
 
@@ -124,7 +124,7 @@ string on_new_followers(stringa & straNew)
    else
    {
 
-      str += rr(strLastLang);
+      str += rr(strLastLang, true);
 
       lspeak("",strLastLang,str);
 

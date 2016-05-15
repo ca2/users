@@ -137,6 +137,15 @@ msgtext "%name, No momento somente o aplicativo cliente será disponibilizado.";
 msgid "No files in the playlist"
 msgtext "Nenhum arquivo na lista de reprodução."
 
+msgid "%name, There are %topic online people at chat"
+msgtext "%name, Há %topic pessoas online no chat"
+
+msgid "and 1 detected bot"
+msgtext "e 1 bot detectado"
+
+msgid "%name, There are %topic live streams"
+msgtext "%name, Há %topic canais ao vivo"
+
 msgid " gone, uff..."
 msgtext " foi, ufa..."
          
@@ -182,11 +191,11 @@ msgtext "%name, seu país é desconhecido"
 msgid "%name, your country is set to \"%topic\""
 msgtext "%name, seu país está configurado para \"%topic\""
 
-msgid "%name, country of %name is unknown"
-msgtext "%name, o país de %name é desconhecido"
+msgid "%name, country of %param1 is unknown"
+msgtext "%name, o país de %param1 é desconhecido"
 
-msgid "%name, country of %name is \"%topic\""
-msgtext "%name, o país de %name é \"%topic\""
+msgid "%name, country of %param1 is \"%topic\""
+msgtext "%name, o país de %param1 é \"%topic\""
 
 msgid "%name, you will need Visual Studio 2015 (at least Community Edition), a SVN (Subversion) client and repository access (working e-mail address needed). Talk to Camilo for details."
 msgtext "%name, você precisará do Visual Studio 2015 (pelo menos a Edição Community), um cliente SVN (Subversion) e acesso ao repositório (é necessário um endereço de e-mail que funcione). Fale com o Camilo para detalhes."

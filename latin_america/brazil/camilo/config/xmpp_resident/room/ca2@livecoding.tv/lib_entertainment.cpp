@@ -1,59 +1,76 @@
-string rr(string strName, string strLang)
+string rr(string strName, string strLang, bool bForce = false)
 {
 
-   ::datetime::time last_rr;
+   ::datetime::time now;
 
-   ::datetime::time now = ::datetime::time::get_current_time();
-
-   last_rr.m_time = get_user_data("global", "last_rr");
-
-   if (now.m_time - last_rr.m_time < 5 * 60)
+   if (!bForce)
    {
 
-      return "";
+      ::datetime::time last_rr;
+
+      now = ::datetime::time::get_current_time();
+
+      last_rr.m_time = get_user_data("global", "last_rr");
+
+      if (now.m_time - last_rr.m_time < 1 * 60)
+      {
+
+         return "";
+
+      }
 
    }
 
-   stringa t_straParam;
    string strSpeakText;
 
-   string strTopic;
+   string & strTopic = m_strTopic;
+
+   strTopic = strName;
 
    string str;
 
-   str = _t("%name, Opening Rick Astley - Never Gonna Give You Up!");
+   str = _t("%topic, Opening Rick Astley - Never Gonna Give You Up!");
 
    audio_announce(hi5_user("xmetrix") / "never_gonna_give_you_up.asciimedia");
 
-   set_user_data("global", "last_rr", now.m_time);
+   if (!bForce)
+   {
+
+      set_user_data("global", "last_rr", now.m_time);
+
+   }
 
    return str;
 
 }
 
 
-string rr(string strLang)
+string rr(string strLang, bool bForce = false)
 {
 
-   ::datetime::time last_rr;
+   ::datetime::time now;
 
-   ::datetime::time now = ::datetime::time::get_current_time();
-
-   last_rr.m_time = get_user_data("global", "last_rr");
-
-   if (now.m_time - last_rr.m_time < 3 * 60)
+   if (!bForce)
    {
 
-      return "";
+      ::datetime::time last_rr;
+
+      now = ::datetime::time::get_current_time();
+
+      last_rr.m_time = get_user_data("global", "last_rr");
+
+      if (now.m_time - last_rr.m_time < 1 * 60)
+      {
+
+         return "";
+
+      }
 
    }
 
-   stringa t_straParam;
    string strSpeakText;
 
-   string strName;
-
-   string strTopic;
+   string & strTopic = m_strTopic;
 
    string str;
 
@@ -61,7 +78,12 @@ string rr(string strLang)
 
    audio_announce(hi5_user("xmetrix") / "never_gonna_give_you_up.asciimedia");
 
-   set_user_data("global", "last_rr", now.m_time);
+   if (!bForce)
+   {
+
+      set_user_data("global", "last_rr", now.m_time);
+
+   }
 
    return str;
 

@@ -328,6 +328,10 @@ call_async("/xcore/stage/x86/app", strParam + " : dont_add_to_playlist", "/xcore
    {
       return hi5() / "user/northamerica/us/xmetrix";
    }
+   else
+   {
+      return "";
+   }
 }
 
 
@@ -646,6 +650,77 @@ bool about_user(string strQuery)
 
 }
 
+
+bool target_info(string strQuery)
+{
+
+   string strText = m_strText;
+
+   string strQuery1 = "!" + strQuery;
+
+   string strQuery2 = "?" + strQuery;
+
+   if (strText.CompareNoCase(strQuery1) == 0 || ::str::begins_eat_ci(strText, strQuery1 + " ")
+      || strText.CompareNoCase(strQuery2) == 0 || ::str::begins_eat_ci(strText, strQuery2 + " "))
+   {
+
+      if (strText.CompareNoCase(strQuery1) == 0
+         || strText.CompareNoCase(strQuery2) == 0)
+      {
+
+         strText.Empty();
+
+      }
+
+      m_strExtra = strText;
+
+      if (strText == m_strUser || m_strUser == m_strOther || (m_strOther.is_empty() && strText.is_empty()))
+      {
+
+         m_epersonVocative = ::vericard::person_user;
+
+         //m_strTopicUser = m_strUser;
+
+      }
+      else
+      {
+
+         
+
+         if (strText.has_char())
+         {
+
+            //m_strTopicUser = strText;
+
+            m_strOtherName = strText;
+
+         }
+         else if(m_strOtherName.has_char())
+         {
+
+            m_epersonVocative = ::vericard::person_other;
+
+         //   m_strTopicUser = m_strOther;
+
+         }
+
+         //param1_topic_username();
+
+      }
+
+      return true;
+
+   }
+   else
+   {
+
+      return false;
+
+   }
+
+}
+
+
 bool is_about_self()
 {
 
@@ -658,6 +733,48 @@ string param1_topic_username()
 {
    
    return param1(username(m_strTopicUser, m_strLang));
+
+}
+
+
+void defer_vocative(stringa & stra, int iParamCount)
+{
+
+   string str;
+
+   str = stra.implode(" ", iParamCount);
+
+   if (str.has_char())
+   {
+
+      m_strOther = str;
+
+      m_strOtherLang = get_user_lang(str);
+
+      m_strOtherName = username(m_strOther, m_strOtherLang);
+
+      m_epersonVocative = ::vericard::person_other;
+
+   }
+
+}
+
+
+void defer_extra_to_vocative()
+{
+
+   if (m_strExtra.has_char())
+   {
+
+      m_strOther = m_strExtra;
+
+      m_strOtherLang = get_user_lang(m_strExtra);
+
+      m_strOtherName = username(m_strOther, m_strOtherLang);
+
+      m_epersonVocative = ::vericard::person_other;
+
+   }
 
 }
 
@@ -682,5 +799,13 @@ string lotext()
 {
 
    return lotext(m_strText);
+
+}
+
+
+string name()
+{
+   
+   return m_epersonVocative == ::vericard::person_user ? m_strName : m_strOtherName;
 
 }
