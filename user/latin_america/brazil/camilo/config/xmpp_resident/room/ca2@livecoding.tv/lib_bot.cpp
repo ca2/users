@@ -1,6 +1,7 @@
 
 string on_bot(string strUser,string strText)
 {
+   m_strText = strText;
    m_strUser = strUser;
    m_strTopicUser = strUser;
    m_epersonVocative = ::vericard::person_user;
@@ -8,11 +9,52 @@ string on_bot(string strUser,string strText)
    string strTopic;
    stringa t_straParam;
    string strSpeakText;
+
+   {
+
+      string strLang;
+
+      sp(chat_item) pitem = Application.veripack().get_scheduled_speech(strUser, strText, strLang);
+
+      if (pitem.is_set())
+      {
+
+         m_bSpeak = pitem->m_bSpeak;
+
+         m_pcomm->add_chat(this);
+
+         m_epersonTopic = pitem->m_epersonTopic;
+         m_epersonVocative = pitem->m_epersonVocative;
+
+         m_strUser = pitem->m_strUser;
+         m_strName = pitem->m_strName;
+         m_strLang = pitem->m_strLang;
+
+         m_strOther = pitem->m_strOther;
+         m_strOtherName = pitem->m_strOtherName;
+         m_strOtherLang = pitem->m_strOtherLang;
+
+         pitem->m_bSpeak = false;
+
+         pitem.release();
+
+         lspeak(strUser, strLang, strText);
+
+         return "";
+
+      }
+
+   }
+   
    if (!strText.begins_ci("!") && !strText.begins_ci("?") && !m_straSpecialCommand.contains_ci(strText))
    {
+      
       m_pcomm->add_chat(this);
+   
       return "";
+
    }
+
    m_strCountry = get_user_country_code(m_strUser);
    m_strLang = get_user_lang(m_strUser);
    m_strTimeZone = get_user_time_zone(strText);

@@ -34,11 +34,11 @@ string bot_x()
    
    string & strOtherTimerZone = m_strOtherTimeZone;
 
-   string strUser = strUserParam;
+   string & strUser = m_strUser;
    
-   string strName = strNameParam;
+   string & strName = m_strName;
 
-   string strLang = strLangParam;
+   string & strLang = m_strLang;
 
    string strLoText = lotext();
 
@@ -336,10 +336,14 @@ string bot_x()
       }
       stra.quick_sort(NULL, NULL, true);
 
+      strTopic = ::str::from(stra.get_count());
+
       str = _t("%name, There are %topic live streams");
 
       if (stra.get_count() > 0)
       {
+
+         str += " ";
 
          str += stra._008Implode(", ", " " + l_and(strLang) + " ");
 
@@ -363,7 +367,7 @@ string bot_x()
       }
       else
       {
-         str = rr(strName, strLang);
+         str = rr(strName, strLang, strUser == "ca2");
       }
    }
    else if(strText == "!song")
@@ -384,96 +388,141 @@ string bot_x()
 
       }
    }
-   else if(strText == "!help")
+   else if(target_info("help") || target_info("hlp") || target_info("hlep"))
    {
+      
+      string strGroup;
 
-      str = _t("%name, help information is grouped in:\n!help util\n!help info\n!help config\n and\n!help media");
+      stringa stra;
 
-   }
-   else if(::str::begins(strText,"!help "))
-   {
-      string strGroup(strText);
+      stra.add_tokens(m_strExtra, " ", false);
+
+      if (stra.get_count() >= 1)
+      {
+
+         strGroup = stra[0];
+
+      }
+      
       var strC;
+      
       strC = "";
-      ::str::begins_eat(strGroup,"!help ");
+      
+      string strSpeakGroup;
+
+      string strSpeakC;
+
+      int iParamCount = 1;
+
       if(strGroup == "config")
       {
 
+         defer_vocative(stra, iParamCount);
          strGroup = _t(" settings commands are:");
+         strSpeakGroup = strGroup;
          str = _t("!setname \"name\"\n!setlang \"country code\"\n!cc\n!land\n!getlang\nand\n!setzone \"time zone\"");
 
       }
       else if(strGroup == "media")
       {
 
+         defer_vocative(stra, iParamCount);
          strGroup = _t(" multimedia commands are:");
+         strSpeakGroup = strSpeakText;
          str = _t("!rr\n!rickroll\n!say \"text\"\n!playlist\n and\n!play \"sound\"");
 
       }
       else if(strGroup == "util")
       {
+         defer_vocative(stra, iParamCount);
          strGroup = _t(" some utility commands:");
+         strSpeakGroup = strSpeakText;
          str = _t("!urbd \"urban dictionary query\"\n!at \"google auto translate\"\n and\n!t \"lang\" \"text to translate from lang\"");
       }
       else if(strGroup == "rr" || strGroup == "rickroll")
       {
 
+         defer_vocative(stra, iParamCount);
          strC = _t("%name, !rr or !rickroll plays 80s hit Never Gonna Give You Up performed by Rick Astley with ASCII animation.");
+         strSpeakC = strSpeakText;
 
       }
       else if(strGroup == "cmdtips")
       {
 
+         defer_vocative(stra, iParamCount);
          strC = _t("%name, Use this command to get special tips");
+         strSpeakC = strSpeakText;
 
       }
       else if(strGroup == "say")
       {
 
+         defer_vocative(stra, iParamCount);
          strC = _t("%name, say uses Windows Narrator to speak the supplied text.");
+         strSpeakC = strSpeakText;
 
       }
       else if(strGroup == "ide")
       {
 
+         defer_vocative(stra, iParamCount);
          strC = _t("%name, ide \"platform\" display information about tools used for development of ca2 framework and apps at the specified platform. \"platform\" may be: windows (Desktop), linux, macos, ios, android and winrt.");
+         strSpeakC = strSpeakText;
 
       }
       else if(strGroup == "setlang")
       {
 
+         defer_vocative(stra, iParamCount);
          strC = _t("%name, setlang \"language code and/or two-letter country code\" sets user preferred language. The bot speaks to you in selected language, as much as possible.");
+         strSpeakC = strSpeakText;
 
       }
       else if(strGroup == "setname")
       {
 
+         defer_vocative(stra, iParamCount);
          strC = _t("%name, use setname command to set better user name, matching nick or name, with desired capitalization and spacing. It can make it better the name pronunciantion by Text-To-Speech.");
+         strSpeakC = strSpeakText;
 
       }
-      else
+      else if(strGroup == "info")
       {
 
+         defer_vocative(stra, iParamCount);
          strGroup = _t(" information retrieval commands are:");
+         strSpeakGroup = strSpeakText;
          str = _t("!ide \"platform\"\n!help \"command\"\n!cmdtips\n!about\n!want the bot\nand\n!credits");
 
       }
+      else
+      {
+
+         defer_extra_to_vocative();
+         strC = _t("%name, help information is grouped in:\n!help util\n!help info\n!help config\n and\n!help media");
+         strSpeakC = strSpeakText;
+
+      }
+
 
       if(strC.is_empty())
       {
-         if(strLang == "pt")
-         {
-            str = strName + ", " + strGroup + "\n" + str;
-         }
-         else
-         {
-            str = strName + ", " + strGroup + "\n" + str;
-         }
+      
+         str = name() + ", " + strGroup + "\n" + str;
+
+         strSpeakText = name() + ", " + strSpeakGroup + "\n" + strSpeakText;
+
       }
       else
       {
+
          str = strC;
+
+         strSpeakText = strSpeakC;
+
       }
+
    }
    else if(strText.CompareNoCase("!ide windows") == 0)
    {
@@ -819,19 +868,48 @@ string bot_x()
    {
       return "";
    }
+   
+   bool bSpeakable = true;
+
    if (!consider_speakable_text(strText))
    {
+      
       str = _t("I am not going to say that phrase.");
+
+      bSpeakable = false;
+
    }
+
+   if (bSpeakable)
+   {
+
+      m_bSpeak = true;
+
+   }
+
+   m_strResponse = str;
 
    m_pcomm->add_chat(this);
 
-   if(!lspeak(strUser, m_strLang, strSpeakText))
+   if (str.has_char())
    {
+
+      m_pcomm->msg(str);
+
+      Application.veripack().schedule_speech(strUser, m_strLang, strSpeakText, this);
+
+   }
+   else
+   {
+
+      if (!lspeak(strUser, m_strLang, strSpeakText))
+      {
+
+      }
 
    }
 
-   return str;
+   return "";
 
 }
 
