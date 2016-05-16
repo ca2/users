@@ -1,22 +1,8 @@
-�resident : fuel,  ein paar nützliche Befehle:
-!urbd "örtliche Wörterbuch Abfrage"
-!at "über Google automatisch übersetzen"
- und
-!t "lang" "Text von Sprache übersetzen"0resident : Danza Kuduro - by DJ Caribe Dance Mixca2 : !hlep util fuel�resident : fuel,  ein paar nützliche Befehle:
-!urbd "örtliche Wörterbuch Abfrage"
-!at "über Google automatisch übersetzen"
- und
-!t "lang" "Text von Sprache übersetzen"ca2 : !hlep util fuel�resident : fuel,  ein paar nützliche Befehle:
-!urbd "örtliche Wörterbuch Abfrage"
-!at "über Google automatisch übersetzen"
- und
-!t "lang" "Text von Sprache übersetzen"resident : Sax - by Fleur Eastca2 : !hlep util fuel�resident : fuel,  ein paar nützliche Befehle:
-!urbd "örtliche Wörterbuch Abfrage"
-!at "über Google automatisch übersetzen"
- und
-!t "lang" "Text von Sprache übersetzen"ca2 : !hlep util cleverchuckca2 : !hlep util cleverchuck�resident : cleverchuck,  some utility commands:
-!urbd "urban dictionary query"
-!at "google auto translate"
+	ca2 : !rr>resident : ca2, Opening Rick Astley - Never Gonna Give You Up!epryka : !say My name is Cattynikerays : Mudou o Máquina?nikerays : a Maquina7nikerays : Nunca vi que vc usava Ubuntu, ou é Virtual?�!livecodingtv_support : You can  now share and announce your stream to your Facebook friends
+http://blog.livecoding.tv/2016/04/13/guide-for-facebook-stream/
+
+Use  some of these tools to make your channel your channel look awesome
+http://blog.livecoding.tv/2016/04/13/tools-for-live-streams/Gcatherinacortega : i wonder when they will announce android app winnersRcatherinacortega : no, what i wonder about is how many people actually finished itfuel : im interested too!sjpablo : Camilo finished or not?fuel : i think nofuel : but it doesnt matterfuel : it is just a fun projectsjpablo : the cat is here! :]9radmir2015 : hello, music player, too, is written by you?	ca2 : yes8radmir2015 : you decided to completely switch to Ubuntu?ca2 : noca2 : just porting to Ubuntugle auto translate"
  and
 !t "lang" "text to translate from lang"ca2 : !hlep util cleverchuck�resident : cleverchuck,  some utility commands:
 !urbd "urban dictionary query"

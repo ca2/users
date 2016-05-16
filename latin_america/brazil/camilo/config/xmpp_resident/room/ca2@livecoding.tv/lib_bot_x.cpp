@@ -643,10 +643,12 @@ string bot_x()
    }
    else if (::str::begins_eat(strText, "!weather"))
    {
+#ifdef WINDOWS
 #include "C:\\sensitive\\sensitive\\seed\\openweather.txt"
       property_set set;
       set["raw_http"] = true;
       str = Application.http().get("http://api.openweathermap.org/data/2.5/weather?q=Curitiba,br&APPID=" + string(pszId), set);
+#endif
    }
    else if (about_user("time"))
    {

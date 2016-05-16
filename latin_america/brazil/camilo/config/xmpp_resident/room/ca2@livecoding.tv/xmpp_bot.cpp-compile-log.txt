@@ -1,8 +1,6 @@
-﻿xmpp_bot.cpp
-C:\core\app\appseed\aura/primitive/datetime/datetime_file_time.h(103): warning C4018: '>': signed/unsigned mismatch
-c:\core\app\appseed\aura\aura\aura\aura__c.h(10): warning C4018: '<': signed/unsigned mismatch
-c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib1.cpp(74): warning C4566: character represented by universal-character-name '\u0119' cannot be represented in the current code page (1252)
-c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib1.cpp(76): warning C4566: character represented by universal-character-name '\u0119' cannot be represented in the current code page (1252)
-c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib1.cpp(78): warning C4566: character represented by universal-character-name '\u0105' cannot be represented in the current code page (1252)
-c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib1.cpp(93): warning C4566: character represented by universal-character-name '\u0144' cannot be represented in the current code page (1252)
-c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib_language.cpp(569): warning C4566: character represented by universal-character-name '\u0438' cannot be represented in the current code page (1252)
+﻿In file included from /home/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/xmpp_bot_common.cpp:26:0,
+                 from /home/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/xmpp_bot.cpp:99:
+/home/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/lib1.cpp: In member function ‘bool this_plugin::set_user_timer(string, string, string, string)’:
+/home/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/lib1.cpp:367:39: error: ‘strParam’ was not declared in this scope
+    call_async("/xcore/stage/x86/app", strParam + " : dont_add_to_playlist", "/xcore/stage/x86", SW_SHOW, false);
+                                       ^
