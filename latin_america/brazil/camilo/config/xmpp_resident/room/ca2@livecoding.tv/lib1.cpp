@@ -301,7 +301,7 @@ void audio_announce(string strParam)
 #ifdef WINDOWS
 call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", strParam +  " : dont_add_to_playlist", "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
 #else
-call_async("/xcore/stage/x86/app", strParam + " : dont_add_to_playlist", "/xcore/stage/x86", SW_SHOW, false);
+call_async("/xcore/stage/x86/app", strParam + " :  build_number=basis locale=_std schema=_std dont_add_to_playlist", "/xcore/stage/x86", SW_SHOW, false);
 #endif
 
 }
@@ -312,7 +312,7 @@ call_async("/xcore/stage/x86/app", strParam + " : dont_add_to_playlist", "/xcore
 #ifdef WINDOWS
    return "C:\\bergedge";
 #else
-   return "/mnt/bergedge/bergedge";
+   return "/bergedge";
 #endif
 
 }
@@ -364,7 +364,7 @@ bool set_user_timer(string strName, string strTitle, string strSpec, string strL
 #ifdef WINDOWS
    call_async("C:\\core\\time\\x64\\basis\\app_core_timer.exe", "\"timer://device/"+strSpec+"?user="+System.url().url_encode(strName)+"&title="+System.url().url_encode(strTitle)+"&lang="+System.url().url_encode(strLang)+"&autoclose=1\"", "C:\\core\\time\\x64\\basis\\", SW_SHOW, false);
 #else
-   call_async("/xcore/stage/x86/app", strParam + " : dont_add_to_playlist", "/xcore/stage/x86", SW_SHOW, false);
+   call_async("/xcore/stage/x86/app", "\"timer://device/"+strSpec+"?user="+System.url().url_encode(strName)+"&title="+System.url().url_encode(strTitle)+"&lang="+System.url().url_encode(strLang)+"&autoclose=1\" : app=app-core/timer build_number=basis locale=_std schema=_std", "/xcore/stage/x86", SW_SHOW, false);
 #endif
    return true;
 }
