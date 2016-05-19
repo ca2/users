@@ -189,6 +189,7 @@ string on_bot(string strUser,string strText)
          strText = str;
 
          m_strOtherCountry = get_user_country_code(m_strOther);
+         m_strOtherLang = get_user_lang(m_strOther);
          m_strOtherTimeZone = get_user_time_zone(m_strOther);
          if (m_strOtherTimeZone.is_empty())
          {
