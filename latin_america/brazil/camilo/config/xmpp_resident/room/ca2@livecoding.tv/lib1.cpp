@@ -702,7 +702,7 @@ bool target_info(string strQuery)
             m_strOtherName = strText;
 
          }
-         else if(m_strOtherName.has_char())
+         else if(m_strOther.has_char())
          {
 
             m_epersonVocative = ::vericard::person_other;
