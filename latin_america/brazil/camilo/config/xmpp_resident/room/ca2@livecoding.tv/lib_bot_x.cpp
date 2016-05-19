@@ -404,6 +404,8 @@ string bot_x()
 
       }
       
+      strGroup.make_lower();
+      
       var strC;
       
       strC = "";
@@ -524,54 +526,100 @@ string bot_x()
       }
 
    }
-   else if(strText.CompareNoCase("!ide windows") == 0)
+   else if(target_info("ide"))
    {
+      
+      string strGroup;
+      
+      stringa stra;
+      
+      stra.add_tokens(m_strExtra, " ", false);
+      
+      if (stra.get_count() >= 1)
+      {
+         
+         strGroup = stra[0];
+         
+      }
+      
+      strGroup.make_lower();
+      
+      int iParamCount = 1;
+      
+      if(strGroup == "windows")
+      {
+         
+         defer_vocative(stra, iParamCount);
+         
+         str = _t("%name, For Windows Desktop Software Development, ca2 uses Visual Studio 2015 Community Edition, SmartSVN, TortoiseSVN and WinMerge.");
+         
+      }
+      else if(strGroup == "linux") == 0)
+      {
 
-      str = _t("%name, For Windows Desktop Software Development, ca2 uses Visual Studio 2015 Community Edition, SmartSVN, TortoiseSVN and WinMerge.");
+         strTopic = "16.04";
+         
+         defer_vocative(stra, iParamCount);
+
+         str = _t("%name, For Linux Software Development, ca2 uses Ubuntu %topic, Code::Blocks and SmartSVN.");
+
+      }
+      else if(strGroup == "macos")
+      {
+
+         strTopic = "El Capitan";
+
+         defer_vocative(stra, iParamCount);
+      
+         str = _t("%name, At MacOS, ca2 uses Mac OS %topic, XCode and SmartSVN.");
+
+      }
+      else if(strGroup == "ios")
+      {
+
+         defer_vocative(stra, iParamCount);
+         
+         str = _t("%name, for iOS development, ca2 uses Mac OS X El Capitan, XCode, SmartSVN, XCode iOS simulator and trying to convince co-founder to borrow iOS device.");
+
+      }
+      else if(strGroup == "android")
+      {
+         
+         defer_vocative(stra, iParamCount);
+         
+         str = _t("%name, for Android development, ca2 uses Windows with Hyper-V, Visual Studio 2015 Community Edition, SmartSVN, TortoiseSVN, WinMerge, Visual Studio Emulator for Android and Galaxy Tab 3 (Door Prize for co-founder, gift for me, help for ca2 developers and users).");
+
+      }
+      else if(strGroup == "winrt")
+      {
+
+         defer_vocative(stra, iParamCount);
+      
+         str = _t("%name, for Windows Store App development, ca2 uses Windows, Visual Studio 2015 Community Edition, SmartSVN, TortoiseSVN and WinMerge.");
+         
+      }
+      else
+      {
+         
+         defer_extra_to_vocative();
+         
+         strC = _t("%name, ide \"platform\" display information about tools used for development of ca2 framework and apps at the specified platform. \"platform\" may be: windows (Desktop), linux, macos, ios, android and winrt.");
+         
+      }
 
    }
-   else if(strText.CompareNoCase("!ide linux") == 0)
+   else if(target_info("cmdtips"))
    {
-
-      strTopic = "15.10";
-
-      str = _t("%name, For Linux Software Development, ca2 uses Ubuntu %topic, Code::Blocks and SmartSVN.");
-
-   }
-   else if(strText.CompareNoCase("!ide macos") == 0)
-   {
-
-      strTopic = "El Capitan";
-
-      str = _t("%name, At MacOS, ca2 uses Mac OS %topic, XCode and SmartSVN.");
-
-   }
-   else if(strText.CompareNoCase("!ide ios") == 0)
-   {
-
-      str = _t("%name, for iOS development, ca2 uses Mac OS X El Capitan, XCode, SmartSVN, XCode iOS simulator and trying to convince co-founder to borrow iOS device.");
-
-   }
-   else if(strText.CompareNoCase("!ide android") == 0)
-   {
-
-      str = _t("%name, for Android development, ca2 uses Windows with Hyper-V, Visual Studio 2015 Community Edition, SmartSVN, TortoiseSVN, WinMerge, Visual Studio Emulator for Android and Galaxy Tab 3 (Door Prize for co-founder, gift for me, help for ca2 developers and users).");
-
-   }
-   else if(strText.CompareNoCase("!ide winrt") == 0)
-   {
-
-      str = _t("%name, for Windows Store App development, ca2 uses Windows, Visual Studio 2015 Community Edition, SmartSVN, TortoiseSVN and WinMerge.");
-
-   }
-   else if(strText.CompareNoCase("!cmdtips") == 0)
-   {
+      
+      defer_extra_to_vocative();
 
       str = _t("%name, For the exclamation mark, if an existing command is not found, an audio clip is played from !playlist. If a corresponding audio clip is not found, the text is played like in !say <text>");
 
    }
-   else if(strText.CompareNoCase("!about") == 0)
+   else if(target_info("about"))
    {
+       
+      defer_extra_to_vocative();
 
       str = _t("%name, ca2 is an all-purpose multi-platform framework and set of libraries written in C++ language to help developers create great apps for users.");
 
