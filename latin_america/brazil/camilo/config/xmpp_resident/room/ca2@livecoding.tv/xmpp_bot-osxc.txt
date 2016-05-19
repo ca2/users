@@ -14804,7 +14804,7 @@ In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/met
 /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app-core/appseed/xmpp_client/xmpp_client_im_stream_view.h:222:20: note: overridden virtual function is here
       virtual bool on_initialize_client(::xmpp_client::client * pclient);
                    ^
-In file included from /Users/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/xmpp_bot.cpp:103:
+In file included from /Users/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/xmpp_bot.cpp:104:
 In file included from /Users/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/xmpp_bot_common.cpp:26:
 /Users/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/lib1.cpp:149:18: warning: implicit conversion loses integer precision: 'strsize' (aka 'long long') to 'int' [-Wshorten-64-to-32]
          iFind = strText.find_ci(str);
@@ -14812,12 +14812,12 @@ In file included from /Users/camilo/.ca2/appdata/system/config/xmpp_resident/roo
 /Users/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/lib1.cpp:178:21: warning: implicit conversion loses integer precision: 'strsize' (aka 'long long') to 'int' [-Wshorten-64-to-32]
             iFind = strText.find_ci(str, iFind);
                   ~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~
-In file included from /Users/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/xmpp_bot.cpp:103:
+In file included from /Users/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/xmpp_bot.cpp:104:
 In file included from /Users/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/xmpp_bot_common.cpp:28:
 /Users/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/lib_entertainment.cpp:73:13: warning: unused variable 'strTopic' [-Wunused-variable]
    string & strTopic = m_strTopic;
             ^
-In file included from /Users/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/xmpp_bot.cpp:103:
+In file included from /Users/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/xmpp_bot.cpp:104:
 In file included from /Users/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/xmpp_bot_common.cpp:29:
 /Users/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/lib_language.cpp:578:13: warning: unused variable 'strTopic' [-Wunused-variable]
    string & strTopic = m_strTopic;
@@ -14843,12 +14843,12 @@ In file included from /Users/camilo/.ca2/appdata/system/config/xmpp_resident/roo
 /Users/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/lib_language.cpp:881:15: warning: implicit conversion loses integer precision: 'strsize' (aka 'long long') to 'int' [-Wshorten-64-to-32]
       iFind = strText.find_ci("ca2", iFind);
             ~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-In file included from /Users/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/xmpp_bot.cpp:103:
+In file included from /Users/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/xmpp_bot.cpp:104:
 In file included from /Users/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/xmpp_bot_common.cpp:33:
 /Users/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/lib_followers.cpp:5:17: warning: implicit conversion loses integer precision: '::count' (aka 'long long') to 'int' [-Wshorten-64-to-32]
    int iCount = straNew.get_size();
        ~~~~~~   ^~~~~~~~~~~~~~~~~~
-In file included from /Users/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/xmpp_bot.cpp:103:
+In file included from /Users/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/xmpp_bot.cpp:104:
 In file included from /Users/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/xmpp_bot_common.cpp:35:
 /Users/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/lib_bot_x.cpp:194:14: warning: unused variable 'iAddUp' [-Wunused-variable]
          int iAddUp = 0;
@@ -14856,36 +14856,12 @@ In file included from /Users/camilo/.ca2/appdata/system/config/xmpp_resident/roo
 /Users/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/lib_bot_x.cpp:196:14: warning: unused variable 'iAddUpBot' [-Wunused-variable]
          int iAddUpBot = 0;
              ^
-/Users/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/lib_bot_x.cpp:19:13: warning: unused variable 'strNameParam' [-Wunused-variable]
-   string & strNameParam = m_strName;
-            ^
-/Users/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/lib_bot_x.cpp:21:13: warning: unused variable 'strCountry' [-Wunused-variable]
-   string & strCountry = m_strCountry;
-            ^
-/Users/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/lib_bot_x.cpp:23:13: warning: unused variable 'strLangParam' [-Wunused-variable]
-   string & strLangParam = m_strLang;
-            ^
-/Users/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/lib_bot_x.cpp:25:13: warning: unused variable 'strTimeZone' [-Wunused-variable]
-   string & strTimeZone = m_strTimeZone;
-            ^
-/Users/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/lib_bot_x.cpp:27:13: warning: unused variable 'strOther' [-Wunused-variable]
-   string & strOther = m_strOther;
-            ^
-/Users/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/lib_bot_x.cpp:29:13: warning: unused variable 'strOtherName' [-Wunused-variable]
-   string & strOtherName = m_strOtherName;
-            ^
-/Users/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/lib_bot_x.cpp:31:13: warning: unused variable 'strOtherCountry' [-Wunused-variable]
-   string & strOtherCountry = m_strOtherCountry;
-            ^
-/Users/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/lib_bot_x.cpp:33:13: warning: unused variable 'strOtherLang' [-Wunused-variable]
-   string & strOtherLang = m_strOtherLang;
-            ^
-/Users/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/lib_bot_x.cpp:35:13: warning: unused variable 'strOtherTimerZone' [-Wunused-variable]
-   string & strOtherTimerZone = m_strOtherTimeZone;
-            ^
-In file included from /Users/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/xmpp_bot.cpp:103:
+/Users/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/lib_bot_x.cpp:557:36: error: expected expression
+      else if(strGroup == "linux") == 0)
+                                   ^
+In file included from /Users/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/xmpp_bot.cpp:104:
 In file included from /Users/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/xmpp_bot_common.cpp:36:
 /Users/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/lib_pres.cpp:13:13: warning: unused variable 'strTopic' [-Wunused-variable]
    string & strTopic = m_strTopic;
             ^
-682 warnings generated.
+673 warnings and 1 error generated.

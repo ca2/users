@@ -554,7 +554,7 @@ string bot_x()
          str = _t("%name, For Windows Desktop Software Development, ca2 uses Visual Studio 2015 Community Edition, SmartSVN, TortoiseSVN and WinMerge.");
          
       }
-      else if(strGroup == "linux") == 0)
+      else if(strGroup == "linux")
       {
 
          strTopic = "16.04";
