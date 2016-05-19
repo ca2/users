@@ -99,7 +99,7 @@ msgid "%name, For the exclamation mark, if an existing command is not found, an 
 msgtext "%name, para o ponto de exclamação, se um comando existente não é encontrado, um clip de áudio é tocado de !playlist. Se um clip de áudio existente não é encontrado, o texto é narrado como emn !say <text>"
 
 msgid "%name, ca2 is an all-purpose multi-platform framework and set of libraries written in C++ language to help developers create great apps for users."
-msgtext "%name, ca2 é uma framework e conjunto de bibliotecas multi-plataforma para todos os propósitos escrita em linguagem C++ para ajudar desenvolvedores criarem grandes aplicativos para usuários."
+msgtext "%name, ca2 é uma framework e conjunto de bibliotecas multi-plataforma para todos os propósitos escrita em linguagem C++ com a finalidade de ajudar desenvolvedores criarem grandes aplicativos para usuários."
 
 msgid "%name, user info, user thumb, user country and user flag are supplied by xmetrix code, web api and web server and also Livecoding.tv API. Thank you, Vapaamies for Russian translation. Thank you, rootkiller for French translation. Thank you, Catherina Cortega, for dutch translation. Thank you, fuel and andremommert for German translation."
 msgtext "%name, a informação do usuário, a imagem do usuário, o país e a bandeira são fornecidos por código, web api e servidor web de xmetrix e também da API do Livecoding.tv. Obrigado, Vappamies, pela tradução do Russo. Obrigado, rootkiller, pela tradução do Francês. Obrigado, Catherina Cortega, pela tradução do holandês. Obrigado, fuel e andremommert, pela tradução do Alemão."

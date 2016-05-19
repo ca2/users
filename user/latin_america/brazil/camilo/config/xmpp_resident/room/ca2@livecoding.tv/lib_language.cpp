@@ -459,7 +459,7 @@ string  initial_country_lang(string strCountry)
 bool enable_tts(string strLang)
 {
 
-#ifdef LINUX
+#if defined(LINUX) || defined(MACOS)
    return false;
 #endif
    if (strLang == "en")

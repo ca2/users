@@ -10,7 +10,7 @@ string rr(string strName, string strLang, bool bForce = false)
 
       now = ::datetime::time::get_current_time();
 
-      last_rr.m_time = get_user_data("global", "last_rr");
+      last_rr.m_time = get_user_data("global", "last_rr").int64();
 
       if (now.m_time - last_rr.m_time < 1 * 60)
       {
@@ -57,7 +57,7 @@ string rr(string strLang, bool bForce = false)
 
       now = ::datetime::time::get_current_time();
 
-      last_rr.m_time = get_user_data("global", "last_rr");
+      last_rr.m_time = get_user_data("global", "last_rr").int64();
 
       if (now.m_time - last_rr.m_time < 1 * 60)
       {

@@ -1,4 +1,4 @@
-﻿
+
 
 
 bool is_exclamation(string str)
@@ -300,6 +300,13 @@ void audio_announce(string strParam)
 
 #ifdef WINDOWS
 call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", strParam +  " : dont_add_to_playlist", "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
+
+#elif defined(MACOS)
+
+//string strPath = file_as_string_dup(::file::path(“HOME”) / “.ca2/mypath/app-core/Waven”);
+
+::system("/Applications/Waven.app/Contents/MacOS/Waven \""+strParam+"\" : dont_add_to_playlist");
+
 #else
 call_async("/xcore/stage/x86/app", strParam + " :  app=app-veriwell/waven build_number=basis locale=_std schema=_std dont_add_to_playlist", "/xcore/stage/x86", SW_SHOW, false);
 #endif
