@@ -1,0 +1,4 @@
+cp /Users/carlos/Library/Developer/Xcode/DerivedData/resident-aifqqzjyfnumicdbgqfdreqcffpo/Build/Products/Debug/resident.app/Contents/MacOS/libxmpp_bot.dylib /Users/carlos/Library/Developer/Xcode/DerivedData/resident-aifqqzjyfnumicdbgqfdreqcffpo/Build/Products/Debug/libxmpp_bot.dylib
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /Users/carlos/Library/Developer/Xcode/DerivedData/resident-aifqqzjyfnumicdbgqfdreqcffpo/Build/Products/Debug/resident.app/Contents/MacOS/libxmpp_bot.dylib -o /Users/carlos/Library/Developer/Xcode/DerivedData/resident-aifqqzjyfnumicdbgqfdreqcffpo/Build/Products/Debug/libxmpp_bot.dylib.dSYM
+
+
