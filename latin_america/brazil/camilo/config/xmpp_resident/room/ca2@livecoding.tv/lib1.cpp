@@ -658,7 +658,7 @@ bool about_user(string strQuery)
 }
 
 
-bool target_info(string strQuery)
+bool target_info(string strQuery, bool bPrefix = true)
 {
 
    string strText = m_strText;
@@ -668,11 +668,13 @@ bool target_info(string strQuery)
    string strQuery2 = "?" + strQuery;
 
    if (strText.CompareNoCase(strQuery1) == 0 || ::str::begins_eat_ci(strText, strQuery1 + " ")
-      || strText.CompareNoCase(strQuery2) == 0 || ::str::begins_eat_ci(strText, strQuery2 + " "))
+      || strText.CompareNoCase(strQuery2) == 0 || ::str::begins_eat_ci(strText, strQuery2 + " ")
+      || (!bPrefix && (strText.CompareNoCase(strQuery) == 0 || ::str::begins_eat_ci(strText, strQuery + " "))))
    {
 
       if (strText.CompareNoCase(strQuery1) == 0
-         || strText.CompareNoCase(strQuery2) == 0)
+         || strText.CompareNoCase(strQuery2) == 0
+         || (!bPrefix && strText.CompareNoCase(strQuery) == 0))
       {
 
          strText.Empty();
@@ -704,6 +706,10 @@ bool target_info(string strQuery)
          }
          else if(m_strOther.has_char())
          {
+
+            m_strOtherLang = get_user_lang(m_strOther);
+
+            m_strOtherName = username(m_strOther, m_strOtherLang);
 
             m_epersonVocative = ::vericard::person_other;
 

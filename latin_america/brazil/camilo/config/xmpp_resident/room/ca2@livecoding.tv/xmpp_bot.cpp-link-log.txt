@@ -1,1 +1,1 @@
-﻿g++: error: /home/camilo/.ca2/appdata/system/config/xmpp_resident/room/ca2@livecoding.tv/xmpp_bot.o: No such file or directory
+﻿LINK : fatal error LNK1181: cannot open input file 'aura.lib'

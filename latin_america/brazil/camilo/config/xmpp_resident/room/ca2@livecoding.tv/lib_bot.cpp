@@ -19,28 +19,30 @@ string on_bot(string strUser,string strText)
       if (pitem.is_set())
       {
 
-         //m_bSpeak = pitem->m_bSpeak;
-         
          m_bSpeak = true;
 
          m_pcomm->add_chat(this);
 
-         m_epersonTopic = pitem->m_epersonTopic;
-         m_epersonVocative = pitem->m_epersonVocative;
+         if (pitem->m_epersonVocative == ::vericard::person_user)
+         {
 
-         m_strUser = pitem->m_strUser;
-         m_strName = pitem->m_strName;
-         m_strLang = pitem->m_strLang;
+            m_strLang = pitem->m_strLang;
 
-         m_strOther = pitem->m_strOther;
-         m_strOtherName = pitem->m_strOtherName;
-         m_strOtherLang = pitem->m_strOtherLang;
+         }
+         else
+         {
+
+            m_strLang = pitem->m_strOtherLang;
+
+         }
+
+         string strItemUser = pitem->m_strUser;
 
          //pitem->m_bSpeak = false;
 
          pitem.release();
 
-         lspeak(strUser, strLang, strText);
+         lspeak(strItemUser, m_strLang, strText);
 
          return "";
 
@@ -48,7 +50,7 @@ string on_bot(string strUser,string strText)
 
    }
    
-   if (!strText.begins_ci("!") && !strText.begins_ci("?") && !m_straSpecialCommand.contains_ci(strText))
+   if (!strText.begins_ci("!") && !strText.begins_ci("?") && !m_straSpecialCommand.str_begins_ci(strText))
    {
       
       m_pcomm->add_chat(this);
