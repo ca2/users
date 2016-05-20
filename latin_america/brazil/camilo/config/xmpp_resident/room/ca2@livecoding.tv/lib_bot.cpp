@@ -19,7 +19,9 @@ string on_bot(string strUser,string strText)
       if (pitem.is_set())
       {
 
-         m_bSpeak = pitem->m_bSpeak;
+         //m_bSpeak = pitem->m_bSpeak;
+         
+         m_bSpeak = true;
 
          m_pcomm->add_chat(this);
 
@@ -34,7 +36,7 @@ string on_bot(string strUser,string strText)
          m_strOtherName = pitem->m_strOtherName;
          m_strOtherLang = pitem->m_strOtherLang;
 
-         pitem->m_bSpeak = false;
+         //pitem->m_bSpeak = false;
 
          pitem.release();
 
