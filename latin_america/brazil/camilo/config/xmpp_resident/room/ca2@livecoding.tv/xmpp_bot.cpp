@@ -50,9 +50,6 @@ public:
 
 
 
-
-
-
    
 
 
@@ -75,6 +72,13 @@ public:
 
 
    
+
+
+
+
+
+
+
 
 
 
@@ -107,6 +111,7 @@ public:
 #include "xmpp_bot_common.cpp"
 
 };
+
 
 
 
