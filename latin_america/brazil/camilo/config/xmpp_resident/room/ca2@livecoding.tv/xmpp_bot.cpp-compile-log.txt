@@ -1,8 +1,0 @@
-﻿xmpp_bot.cpp
-C:\core\app\appseed\aura/primitive/datetime/datetime_file_time.h(103): warning C4018: '>': signed/unsigned mismatch
-c:\core\app\appseed\aura\aura\aura\aura__c.h(10): warning C4018: '<': signed/unsigned mismatch
-c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib1.cpp(74): warning C4566: character represented by universal-character-name '\u0119' cannot be represented in the current code page (1252)
-c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib1.cpp(76): warning C4566: character represented by universal-character-name '\u0119' cannot be represented in the current code page (1252)
-c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib1.cpp(78): warning C4566: character represented by universal-character-name '\u0105' cannot be represented in the current code page (1252)
-c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib1.cpp(93): warning C4566: character represented by universal-character-name '\u0144' cannot be represented in the current code page (1252)
-c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib_language.cpp(569): warning C4566: character represented by universal-character-name '\u0438' cannot be represented in the current code page (1252)
