@@ -930,7 +930,7 @@ string bot_x()
 
    }
 
-   if (bSpeakable)
+   if (!str.has_char() && strSpeakText.has_char())
    {
 
       m_bSpeak = true;
@@ -949,9 +949,9 @@ string bot_x()
       Application.veripack().schedule_speech(strUser, m_strLang, strSpeakText, this);
 
    }
-   else
+   else if(strSpeakText.has_char())
    {
-
+      
       if (!lspeak(strUser, m_strLang, strSpeakText))
       {
 
