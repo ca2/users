@@ -42,12 +42,19 @@ string bot_x()
 
    string strLoText = lotext();
 
-   if (strLoText == "!" || strLoText == "exclamation" || strLoText == "exclamation mark"
-      || strLoText == "?" || strLoText == "interrogation" || strLoText == "interrogation mark"
-      || strLoText == "!enter" || strLoText == "?enter"
-      || strLoText == "question" || strLoText == "question mark")
+   if (
+      target_info("!", false)
+      || target_info("exclamation mark", false)
+      || target_info("exclamation", false)
+      || target_info("?", false)
+      || target_info("interrogation mark", false)
+      || target_info("interrogation", false)
+      || target_info("enter", false)
+      || target_info("question mark", false)
+      || target_info("question", false))
    {
       
+      defer_extra_to_vocative();
       str = _t("%name, Some supported commands !help, !about and !want the bot");
 
    }
@@ -312,8 +319,25 @@ string bot_x()
             str += straBot._008IfImplode(" : ", ", ", " " + l_and(strLang) + " ");
          }
 
-         lspeak(strUser, strLang, str);
+         if (str.has_char())
+         {
+
+            Application.veripack().schedule_speech(strUser, strLang, strSpeakText, this);
+
+         }
+         else
+         {
+
+            if (!lspeak(strUser, strLang, str))
+            {
+
+            }
+
+         }
+
          pcomm->msg(str);
+
+
       });
 
 #endif
@@ -370,8 +394,10 @@ string bot_x()
          str = rr(strName, strLang, strUser == "ca2");
       }
    }
-   else if(strText == "!song")
+   else if(target_info("song"))
    {
+
+      defer_extra_to_vocative();
 
       strTopic = song("");
 
@@ -627,13 +653,13 @@ string bot_x()
    else if (strText == "!repos")
    {
 
-      str = _t("%name, you can gain access to ca2 repos https://repos.ca2.cc basically by informally talking at chat at http://livecoding.tv/ca2 and showing interest in C++/ca2. Working e-mail address is needed. Pre-register at https://fontopus.com . Type !fontopus for details on registration.");
+      str = _t("%name, you can gain access to ca2 repos https://repos.ca2.cc basically by informally talking at chat at http://livecoding.tv/ca2 and showing interest in C++/ca2. Working e-mail address is needed. Pre-register at https://account.ca2.cc . Type !account for details on registration.");
 
    }
-   else if (strText == "!fontopus")
+   else if (strText == "!account")
    {
 
-      str = _t("%name, type e-mail and password at https://fontopus.com . If not registered or wrong credentials, the screen will be prompted again. Furthermore, if not registered, you will receive e-mail which should be confirmed.");
+      str = _t("%name, type e-mail and password at https://account.ca2.cc . If not registered or wrong credentials, the screen will be prompted again. Furthermore, if not registered, you will receive e-mail which should be confirmed.");
 
    }
    else if(strText == "!credits")
@@ -664,12 +690,23 @@ string bot_x()
    {
       lctv_profile(strUserParam, strText);
    }
-   else if(strText == "!getlang")
+   else if(about_user("getlang"))
    {
 
-      string strTopic = get_user_lang(strUser);
+      strTopic = get_user_lang(strTopicUser);
 
-      str = _t("%name, your language is set to %topic");
+      if (is_about_self())
+      {
+
+         str = _t("%name, your language is set to %topic");
+
+      }
+      else
+      {
+
+         str = _t("%name, language of %param1 is set to %topic");
+
+      }
 
    }
    else if(strText.get_length() == 11 && ::str::begins_eat(strText,"!setlang "))
@@ -944,9 +981,9 @@ string bot_x()
    if (str.has_char())
    {
 
-      m_pcomm->msg(str);
-
       Application.veripack().schedule_speech(strUser, m_strLang, strSpeakText, this);
+
+      m_pcomm->msg(str);
 
    }
    else if(strSpeakText.has_char())

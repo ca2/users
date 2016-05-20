@@ -278,6 +278,18 @@ double  time_zone(string str)
       return -7.0;
 
    }
+   else if (str == "est")
+   {
+
+      return -5.0;
+
+   }
+   else if (str == "edt")
+   {
+
+      return -4.0;
+
+   }
    else if (str == "jst")
    {
 

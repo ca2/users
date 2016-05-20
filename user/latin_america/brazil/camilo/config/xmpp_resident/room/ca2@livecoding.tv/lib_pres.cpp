@@ -99,7 +99,21 @@ string on_pres(string strUser, string strType)
 
                   }
 
-                  lspeak(strUser, m_strLang, strSpeakText);
+                  if (strText.has_char())
+                  {
+
+                     Application.veripack().schedule_speech(strUser, m_strLang, strSpeakText, this);
+
+                  }
+                  else
+                  {
+
+                     if (!lspeak(strUser, m_strLang, strSpeakText))
+                     {
+
+                     }
+
+                  }
 
                }
 
@@ -238,7 +252,21 @@ string on_pres(string strUser, string strType)
 
                }
 
-               lspeak(strUser, m_strLang, strSpeakText);
+               if (strText.has_char())
+               {
+
+                  Application.veripack().schedule_speech(strUser, m_strLang, strSpeakText, this);
+
+               }
+               else
+               {
+
+                  if (!lspeak(strUser, m_strLang, strSpeakText))
+                  {
+
+                  }
+
+               }
 
             }
 
