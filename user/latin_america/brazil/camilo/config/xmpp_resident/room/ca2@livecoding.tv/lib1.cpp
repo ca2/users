@@ -472,102 +472,6 @@ void lctv_profile(string strUser, string strProfile)
 
 
 
-string username(string strUser, string strLang)
-{
-   var strName = get_user_data(strUser, "name." + strLang);
-   if (strName.is_empty())
-   {
-      strName = get_user_data(strUser, "name");
-      if (strName.is_empty())
-      {
-         strName = strUser;
-      }
-   }
-   return strName;
-}
-
-
-
-string param(index i, string str)
-{
-   
-   ASSERT(i >= 1); // One-Based-Index on input
-
-   m_straParam.set_at_grow(i-1, str);
-
-   return param(i);
-
-}
-
-
-string param(index i)
-{
-
-   ASSERT(i >= 1); // One-Based-Index on input
-
-   return m_straParam[i - 1];
-
-}
-
-
-
-string param1_topic_username()
-{
-   
-   return param1(username(m_strTopicUser, m_strLang));
-
-}
-
-
-void defer_vocative(stringa & stra, int iParamCount)
-{
-
-   string str;
-
-   str = stra.implode(" ", iParamCount);
-
-   if (str.has_char())
-   {
-
-      m_strOther = str;
-
-      m_strOtherLang = get_user_lang(str);
-
-      m_strOtherName = username(m_strOther, m_strOtherLang);
-
-      m_epersonVocative = ::vericard::person_other;
-
-   }
-
-}
-
-
-void defer_extra_to_vocative()
-{
-
-   if (m_strExtra.has_char())
-   {
-
-      m_strOther = m_strExtra;
-
-      m_strOtherLang = get_user_lang(m_strExtra);
-
-      m_strOtherName = username(m_strOther, m_strOtherLang);
-
-      m_epersonVocative = ::vericard::person_other;
-
-   }
-
-}
-
-
-string param1(string str)
-{
-
-   return param(1, str);
-
-}
-
 
 string lotext(string strText)
 {
@@ -581,13 +485,5 @@ string lotext()
 {
 
    return lotext(m_strText);
-
-}
-
-
-string name()
-{
-   
-   return m_epersonVocative == ::vericard::person_user ? m_strName : m_strOtherName;
 
 }
