@@ -1,9 +1,100 @@
 ﻿
+string  initial_locality_time_zone(string strCountry, string strLocality, double & dZone)
+{
 
+   string str;
+
+   if (strLocality.is_empty())
+   {
+
+      str = initial_country_time_zone(strCountry);
+
+      dZone = time_zone(str);
+
+      return str;
+
+   }
+
+   string strQ;
+
+   strQ = strLocality;
+
+   if (strCountry.has_char())
+   {
+
+      strQ += ", ";
+
+      strQ += strCountry;
+
+   }
+
+
+   int64_t iId;
+
+   double dLat;
+
+   double dLon;
+
+   index iFind = System.find_city(strQ, strQ, iId, dLat, dLon);
+
+   if (iFind >= 0)
+   {
+
+      property_set set;
+
+      string strLat = ::str::from(dLat);
+
+      string strLng = ::str::from(dLon);
+
+      str = Application.http().get(
+         "http://api.timezonedb.com/?key=" + file_as_string_dup("C:\\sensitive\\sensitive\\seed\\timezonedb.txt")
+         + "&format=json&lat=" + strLat + "&lng=" + strLng,
+         set);
+
+      if (str.has_char())
+      {
+
+         const char * pszJson = str;
+
+         var v;
+
+         v.parse_json(pszJson);
+
+         str = v["abbreviation"].get_string().lowered();
+         
+         dZone = v["gmtoffset"].get_double() / 3600.0;
+
+      }
+      else
+      {
+
+         str = "utc";
+
+         dZone = 0.0;
+
+      }
+
+   }
+   else
+   {
+
+      str = "utc";
+
+      dZone = 0.0;
+
+   }
+
+
+   return str;
+
+}
 
 // remark: initial does mean "official default" is certainly a rough guess
-string  initial_locality_time_zone(string strCountry, string strLocality)
+string  initial_country_time_zone(string strCountry)
 {
+
+
+
 
    if (strCountry == "br")
    {

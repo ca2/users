@@ -127,11 +127,11 @@ msgtext "%name, klev in!! (Delmängd av kommandon aktiverad)."
 msgid "%name you are connected!";
 msgtext "%name du är nu ansluten!";
  
-msgid "Welcome %name! :) You can type exclamation mark and then press enter to get some help."
-msgtext "Välkommen %name! :) Du kan skriva ett utropstecken och tryck enter för hjälp."
+msgid "Welcome %name! :) %param1 You can type exclamation mark and then press enter to get some help."
+msgtext "Välkommen %name! :) %param1 Du kan skriva ett utropstecken och tryck enter för hjälp."
  
-msgid "Hi %name! Welcome! What brings you here today?"
-msgtext "Hej %name! Välkommen! Vad ger äran till ditt besök idag?"
+msgid "Hi %name! Welcome! %param1 What brings you here today?"
+msgtext "Hej %name! Välkommen! %param1 Vad ger äran till ditt besök idag?"
  
 msgid "%name is back! :)"
 msgtext "%name är tillbaka! :)"
