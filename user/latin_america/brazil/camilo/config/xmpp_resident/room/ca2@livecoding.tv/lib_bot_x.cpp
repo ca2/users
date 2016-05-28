@@ -42,7 +42,212 @@ string bot_x()
 
    string strLoText = lotext();
 
-   if (
+   string strQuery = strText;
+
+   if (::str::begins_eat_ci(strQuery, "!ss "))
+   {
+
+      //property_set setUserString(get_app());
+
+      string strUrl = "https://api.spotify.com/v1/search?q=" + System.url().url_encode(strQuery) + "&type=track&limit=8";
+
+      //string strSetUrl = "https://api.ca2.cc/account/set_user_string?sessid=" + Session.fontopus()->get_user()->get_sessid("api.ca2.cc")
+      //   + "&key=" + System.url().url_encode(m_strUser) + "." + System.url().url_encode(strUrl)
+      //   + "&value=";
+
+      //Application.http().get(strSetUrl, str, setUserString);
+
+#ifdef WINDOWS
+
+      call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", "\"" + strUrl + "\" : for_resident=" + m_strUser,  "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
+
+#else
+
+      call_async("/xcore/stage/x86/app", "\""+strUrl+"\" : for_resident="+m_strUser +" app=app-veriwell/waven build_number=basis version=basis locale=_std schema=_std ", "/xcore/stage/x86/", SW_SHOW, false);
+
+#endif
+
+      //property_set set(get_app());
+
+      int iWait = 0;
+
+      //string strGetUrl = "https://api.ca2.cc/account/get_user_string?sessid=" + Session.fontopus()->get_user()->get_sessid("api.ca2.cc")
+      //   + "&key=" + System.url().url_encode(m_strUser) + "." + System.url().url_encode(strUrl);
+
+      var_array vara;
+
+      while (true)
+      {
+
+         {
+            
+            single_lock sl(Application.veripack().m_pmutex);
+
+            for (index i = 0; i < Application.veripack().m_vaResponse.get_size(); i++)
+            {
+
+               if (Application.veripack().m_vaResponse[i][0].get_string() == strUrl)
+               {
+                  vara = Application.veripack().m_vaResponse[i];
+                  Application.veripack().m_vaResponse.remove_at(i);
+                  break;
+               }
+
+            }
+
+         }
+
+         if (vara.get_count() > 0)
+         {
+
+            break;
+
+         }
+         else if (iWait > 120)
+         {
+
+            break;
+
+         }
+         else
+         {
+
+            Sleep(484);
+
+            iWait++;
+
+         }
+
+      }
+
+      stringa stra;
+
+      if (vara.get_size() > 1)
+      {
+
+         stra.add_lines(vara[1]);
+
+      }
+
+      string strNew;
+
+      stringa straNew;
+
+      index iIndex = 1;
+
+      for (index i = 0; i < stra.get_size(); i++)
+      {
+
+         string strLine = stra[i];
+
+         if (strLine.is_empty())
+         {
+
+            continue;
+
+         }
+
+         stringa straLine;
+
+         straLine.explode("|", strLine);
+
+         if (straLine.get_size() != 4)
+         {
+
+            continue;
+
+         }
+
+         straNew.add(straLine[3]);
+
+         strNew += ::str::from(iIndex);
+
+         strNew += " - ";
+
+         strNew += straLine[1];
+
+         strNew += " - ";
+
+         strNew += straLine[2];
+
+         strNew += "\n";
+
+         iIndex++;
+
+      }
+
+      set_user_data(m_strUser, "ss", straNew);
+
+      str = strNew;
+
+      if (str.is_empty())
+      {
+         
+         str = "(no results)";
+
+      }
+
+   }
+   else if (::str::begins_eat_ci(strQuery, "!s "))
+   {
+      
+      if (strQuery.get_length() == 1)
+      {
+
+         if (isdigit_dup(strQuery[0]))
+         {
+
+            int i = atoi(strQuery);
+
+            stringa stra;
+
+            stra = get_user_data(m_strUser, "ss").stra();
+
+            if (i <= 0 || i > stra.get_size())
+            {
+            
+               str = "no such song";
+
+            }
+            else
+            {
+
+               str = stra[i-1];
+
+#ifdef WINDOWS
+
+               call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", str, "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
+
+#else
+
+               call_async("/xcore/stage/x86/app", "\"" + str + "\" : app=app-veriwell/waven build_number=basis version=basis locale=_std schema=_std ", "/xcore/stage/x86/", SW_SHOW, false);
+
+#endif
+
+            }
+
+         }
+
+      }
+
+   }
+   else if(::str::begins_ci(strText, "!spotify:track:"))
+   {
+
+      
+
+#ifdef WINDOWS
+
+      call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", strText.substr(1), "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
+
+#else
+
+      call_async("/xcore/stage/x86/app", "\"" + strText.substr(1) + "\" : app=app-veriwell/waven build_number=basis version=basis locale=_std schema=_std ", "/xcore/stage/x86/", SW_SHOW, false);
+
+#endif
+
+   }
+   else if (
       target_info("!", false)
       || target_info("exclamation mark", false)
       || target_info("exclamation", false)
@@ -136,6 +341,47 @@ string bot_x()
          {
 
             str = _t("%name, country of %param1 is \"%topic\"");
+
+         }
+
+      }
+
+   }
+   else if (about_user("city"))
+   {
+
+      strTopic = get_user_info(strTopicUser, "city");
+
+      if (is_about_self())
+      {
+
+         if (strTopic.is_empty())
+         {
+
+            str = _t("%name, your city is unknown");
+
+         }
+         else
+         {
+
+            str = _t("%name, your city is set to \"%topic\"");
+
+         }
+
+      }
+      else
+      {
+
+         if (strTopic.is_empty())
+         {
+
+            str = _t("%name, city of %param1 is unknown");
+
+         }
+         else
+         {
+
+            str = _t("%name, city of %param1 is \"%topic\"");
 
          }
 
@@ -322,7 +568,7 @@ string bot_x()
          if (str.has_char())
          {
 
-            Application.veripack().schedule_speech(strUser, strLang, strSpeakText, this);
+            Application.veripack().schedule_speech(strUser, strLang, str, strSpeakText, this);
 
          }
          else
@@ -726,14 +972,345 @@ string bot_x()
          stra.insert_at(0, "timer");
       set_user_timer(strName, stra[0], stra[1], strLang);
    }
-   else if (::str::begins_eat(strText, "!weather"))
+   else if (third_info("defzone"))
    {
+
+      string strCurrentUser = m_strExtra;
+
+      if (strCurrentUser.is_empty())
+      {
+
+         if (m_strOther.CompareNoCase(m_strUser) != 0 && m_strOther.has_char())
+         {
+
+            strCurrentUser = m_strOther;
+
+         }
+         else
+         {
+
+            strCurrentUser = m_strUser;
+
+         }
+
+      }
+
+      string cc = get_user_info(strCurrentUser, "country");
+
+      string ci = get_user_info(strCurrentUser, "city");
+
+      string strQ;
+
+      bool bLocation = false;
+
+      if (ci.has_char())
+      {
+
+         strQ = ci;
+
+         if (cc.has_char())
+         {
+
+            strQ += ", ";
+
+            strQ += cc;
+
+         }
+
+      }
+      else
+      {
+
+         bLocation = true;
+
+         strQ = m_strExtra;
+
+      }
+
+      int64_t iId;
+
+      double dLat;
+
+      double dLon;
+
+      index iFind = System.find_city(strQ, strQ, iId, dLat, dLon);
+      
+      if (iFind >= 0)
+      {
+         
+         property_set set;
+
+         string strLat = ::str::from(dLat);
+
+         string strLng = ::str::from(dLon);
+         
+         str = Application.http().get(
+            "http://api.timezonedb.com/?key=" + file_as_string_dup("C:\\sensitive\\sensitive\\seed\\timezonedb.txt")
+            + "&format=json&lat="+strLat+"&lng="+strLng,
+            set);
+
+         if (str.has_char())
+         {
+
+            const char * pszJson = str;
+
+            var v;
+
+            v.parse_json(pszJson);
+
+            param(1, v["countrycode"]);
+            param(2, v["zonename"]);
+            param(3, v["abbreviation"]);
+            param(4, ::str::from(v["gmtoffset"].get_double() / 3600.0));
+            param(5, v["dst"].get_bool() ? "true" : "false");
+
+            str = _t("country code: %param1, zone name: %param2, abbreviation: %param3, UTC: %param4, daylight saving: %param5");
+
+         }
+         else
+         {
+
+            str = _t("(No results)");
+
+         }
+
+      }
+      else
+      {
+         
+         str = _t("(No results)");
+
+      }
+
+   }
+   else if (third_info("sky") || third_info("weather"))
+   {
+
+      string strCurrentUser = m_strExtra;
+
+      if (strCurrentUser.is_empty())
+      {
+
+         if (m_strOther.CompareNoCase(m_strUser) != 0 && m_strOther.has_char())
+         {
+
+            strCurrentUser = m_strOther;
+
+         }
+         else
+         {
+
+            strCurrentUser = m_strUser;
+
+         }
+
+      }
+      
+      string cc = get_user_info(strCurrentUser, "country");
+
+      string ci = get_user_info(strCurrentUser, "city");
+
+      string strQ;
+
+      bool bLocation = false;
+
+      if (ci.has_char())
+      {
+
+         strQ = ci;
+
+         if (cc.has_char())
+         {
+
+            strQ += ", ";
+
+            strQ += cc;
+
+         }
+
+      }
+      else
+      {
+
+         bLocation = true;
+
+         strQ = m_strExtra;
+
+      }
+
+      //property_set setUserString(get_app());
+
+      //string strSetUrl = "https://api.ca2.cc/account/set_user_string?sessid=" + Session.fontopus()->get_user()->get_sessid("api.ca2.cc")
+      //   + "&key=" + System.url().url_encode(m_strUser) + ".weather." + System.url().url_encode(strQ)
+      //   + "&value=";
+
+      //Application.http().get(strSetUrl, setUserString);
+
 #ifdef WINDOWS
+
+      call_async("C:\\core\\time\\x64\\basis\\app_core_weather.exe", "\"" + strQ + "\" : for_resident=" + m_strUser, "C:\\core\\time\\x64\\basis\\", SW_SHOW, false);
+
+#else
+
+      call_async("/xcore/stage/x86/app", "\"" + strUrl + "\" : for_resident=" + m_strUser + " app=app-veriwell/waven build_number=basis version=basis locale=_std schema=_std ", "/xcore/stage/x86/", SW_SHOW, false);
+
+#endif
+
+#if 0
 #include "C:\\sensitive\\sensitive\\seed\\openweather.txt"
       property_set set;
       set["raw_http"] = true;
       str = Application.http().get("http://api.openweathermap.org/data/2.5/weather?q=Curitiba,br&APPID=" + string(pszId), set);
 #endif
+
+      //property_set set(get_app());
+
+      //int iWait = 0;
+
+      //string strGetUrl = "https://api.ca2.cc/account/get_user_string?sessid=" + Session.fontopus()->get_user()->get_sessid("api.ca2.cc")
+      //   + "&key=" + System.url().url_encode(m_strUser) + ".weather." + System.url().url_encode(strQ);
+
+      //while (true)
+      //{
+
+      //   str.Empty();
+
+      //   Application.http().get(strGetUrl, str, setUserString);
+
+      //   if (setUserString["get_status"] == ::http::status_ok && str.has_char())
+      //   {
+
+      //      break;
+
+      //   }
+      //   else if (iWait > 6)
+      //   {
+
+      //      break;
+
+      //   }
+      //   else
+      //   {
+
+      //      Sleep(1984);
+
+      //      iWait++;
+
+      //   }
+
+      //}
+
+      //property_set set(get_app());
+
+      string strQuery = strQ + "@" + m_strUser;
+
+      int iWait = 0;
+
+      //string strGetUrl = "https://api.ca2.cc/account/get_user_string?sessid=" + Session.fontopus()->get_user()->get_sessid("api.ca2.cc")
+      //   + "&key=" + System.url().url_encode(m_strUser) + "." + System.url().url_encode(strUrl);
+
+      var_array vara;
+
+      while (true)
+      {
+
+         {
+
+            single_lock sl(Application.veripack().m_pmutex);
+
+            for (index i = 0; i < Application.veripack().m_vaResponse.get_size(); i++)
+            {
+
+               if (Application.veripack().m_vaResponse[i][0].get_string() == strQuery)
+               {
+                  
+                  vara = Application.veripack().m_vaResponse[i];
+
+                  Application.veripack().m_vaResponse.remove_at(i);
+
+                  break;
+
+               }
+
+            }
+
+         }
+
+         if (vara.get_count() > 0)
+         {
+
+            break;
+
+         }
+         else if (iWait > 120)
+         {
+
+            break;
+
+         }
+         else
+         {
+
+            Sleep(484);
+
+            iWait++;
+
+         }
+
+      }
+
+      stringa stra;
+
+      if (vara.get_size() > 1)
+      {
+
+         stra.explode("|", vara[1]);
+
+      }
+
+      if (stra.get_size() != 2)
+      {
+
+         str = _t("(No Results)");
+
+      }
+      else
+      {
+
+         strTopic = stra[0] + " " + stra[1];
+
+         if (bLocation)
+         {
+
+            param1(strQ);
+
+            str = _t("%name, the weather at %param1 is %topic.");
+
+         }
+         else
+         {
+
+            if (strCurrentUser.CompareNoCase(m_strUser) == 0)
+            {
+
+               str = _t("%name, your current weather is %topic.");
+
+            }
+            else
+            {
+
+               param1(strQ);
+
+               param(2, username(strCurrentUser, m_strLang));
+
+               str = _t("%name, the weather for %param2 at %param1 is %topic.");
+
+            }
+
+         }
+
+      }
+      
    }
    else if (about_user("time"))
    {
@@ -841,9 +1418,10 @@ string bot_x()
       set_user_data(strUser,"lang","");
 
    }
-   else if(strText == "!want the bot") // question by julienb16 //2015-10-09 sexta-feira 23:23
+   else if(target_info("want the bot")) // question by julienb16 //2015-10-09 sexta-feira 23:23
    {
 
+      defer_extra_to_vocative();
       str = _t("%name, you will need Visual Studio 2015 (at least Community Edition), a SVN (Subversion) client and repository access (working e-mail address needed). Talk to Camilo for details.");
 
    }
@@ -981,7 +1559,7 @@ string bot_x()
    if (str.has_char())
    {
 
-      Application.veripack().schedule_speech(strUser, m_strLang, strSpeakText, this);
+      Application.veripack().schedule_speech(strUser, m_strLang, str, strSpeakText, this);
 
       m_pcomm->msg(str);
 

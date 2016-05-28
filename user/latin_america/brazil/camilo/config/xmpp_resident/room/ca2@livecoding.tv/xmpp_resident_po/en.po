@@ -140,10 +140,10 @@ msgtext ""
 msgid "%name you are connected!";
 msgtext ""
 
-msgid "Welcome %name! :) You can type exclamation mark and then press enter to get some help."
+msgid "Welcome %name! :) %param1 You can type exclamation mark and then press enter to get some help."
 msgtext ""
 
-msgid "Hi %name! Welcome! What brings you here today?"
+msgid "Hi %name! Welcome! %param1 What brings you here today?"
 msgtext ""
 
 msgid "%name is back! :)"

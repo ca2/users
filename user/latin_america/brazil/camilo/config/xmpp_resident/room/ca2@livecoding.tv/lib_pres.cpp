@@ -102,7 +102,7 @@ string on_pres(string strUser, string strType)
                   if (strText.has_char())
                   {
 
-                     Application.veripack().schedule_speech(strUser, m_strLang, strSpeakText, this);
+                     Application.veripack().schedule_speech(strUser, m_strLang, strText, strSpeakText, this);
 
                   }
                   else
@@ -255,7 +255,7 @@ string on_pres(string strUser, string strType)
                if (strText.has_char())
                {
 
-                  Application.veripack().schedule_speech(strUser, m_strLang, strSpeakText, this);
+                  Application.veripack().schedule_speech(strUser, m_strLang, strText, strSpeakText, this);
 
                }
                else

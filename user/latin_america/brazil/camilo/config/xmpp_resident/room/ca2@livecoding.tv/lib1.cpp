@@ -487,3 +487,82 @@ string lotext()
    return lotext(m_strText);
 
 }
+
+
+
+bool third_info(string strQuery, bool bPrefix = true)
+{
+
+   string strText = m_strText;
+
+   string strQuery1 = "!" + strQuery;
+
+   string strQuery2 = "!" + strQuery;
+
+   if (strText.CompareNoCase(strQuery1) == 0 || ::str::begins_eat_ci(strText, strQuery1 + " ")
+      || strText.CompareNoCase(strQuery2) == 0 || ::str::begins_eat_ci(strText, strQuery2 + " ")
+      || (!bPrefix && (strText.CompareNoCase(strQuery) == 0 || ::str::begins_eat_ci(strText, strQuery + " "))))
+   {
+
+      if (strText.CompareNoCase(strQuery1) == 0
+         || strText.CompareNoCase(strQuery2) == 0
+         || (!bPrefix && strText.CompareNoCase(strQuery) == 0))
+      {
+
+         strText.Empty();
+
+      }
+
+      m_strExtra = strText;
+
+      if (strText == m_strUser || m_strUser == m_strOther || (m_strOther.is_empty() && strText.is_empty()))
+      {
+
+         m_epersonVocative = ::vericard::person_user;
+
+         //m_strTopicUser = m_strUser;
+
+      }
+      else
+      {
+
+
+
+         if (strText.has_char())
+         {
+
+            //m_strTopicUser = strText;
+
+            m_strOtherName = strText;
+
+         }
+         else if (m_strOther.has_char())
+         {
+
+            m_strOtherLang = get_user_lang(m_strOther);
+
+            m_strOtherName = username(m_strOther, m_strOtherLang);
+
+            //   m_strTopicUser = m_strOther;
+
+         }
+
+         //param1_topic_username();
+
+      }
+
+      return true;
+
+   }
+   else
+   {
+
+      return false;
+
+   }
+
+}
+
+
+
+

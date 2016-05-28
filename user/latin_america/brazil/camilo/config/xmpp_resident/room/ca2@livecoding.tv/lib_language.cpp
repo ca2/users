@@ -68,6 +68,10 @@
    {
       return "cn";
    }
+   else if (strLang == "si" || strLang == "sl")
+   {
+      return "sl";
+   }
    else
    {
       stringa stra;
@@ -285,6 +289,14 @@ string  trans_lang(string strLang)
    else if (strLang == "dk" || strLang == "da")
    {
       return "da";
+   }
+   else if (strLang == "si" || strLang == "sl")
+   {
+      return "sl";
+   }
+   else if (strLang == "sk")
+   {
+      return "sk";
    }
    else
    {

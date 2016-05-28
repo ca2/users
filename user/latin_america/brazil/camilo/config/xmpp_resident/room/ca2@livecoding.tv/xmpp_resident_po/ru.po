@@ -132,11 +132,11 @@ msgtext ""
 msgid "%name you are connected!";
 msgtext ""
 
-msgid "Welcome %name! :) You can type exclamation mark and then press enter to get some help."
-msgtext "Добро пожаловать %name! :) Введите восклицательный знак и нажмите клавишу ВВОД, чтобы получить список доступных команд."
+msgid "Welcome %name! :) %param1 You can type exclamation mark and then press enter to get some help."
+msgtext "Добро пожаловать %name! :) %param1 Введите восклицательный знак и нажмите клавишу ВВОД, чтобы получить список доступных команд."
 
-msgid "Hi %name! Welcome! What brings you here today??";
-msgtext "Привет, %name! Добро пожаловать! Что привело тебя сюда сегодня?"
+msgid "Hi %name! Welcome! %param1 What brings you here today??";
+msgtext "Привет, %name! Добро пожаловать! %param1 Что привело тебя сюда сегодня?"
 
 msgid "%name is back! :)"
 msgtext "%name вернулся! :)"

@@ -127,11 +127,11 @@ msgtext "%name, is binnen!! (Subset of commands enabled)."
 msgid "%name you are connected!";
 msgtext "%name դու կապի մեջ ես";
 
-msgid "Welcome %name! :) You can type exclamation mark and then press enter to get some help."
-msgtext "Ողջյուն %name! :) Դու կարող ես գրել բացականչական նշան, հետո սեղմել \"Enter\" որոշակի օգնություն ստանալու համար"
+msgid "Welcome %name! :) %param1 You can type exclamation mark and then press enter to get some help."
+msgtext "Ողջյուն %name! :) %param1 Դու կարող ես գրել բացականչական նշան, հետո սեղմել \"Enter\" որոշակի օգնություն ստանալու համար"
 
-msgid "Hi %name! Welcome! What brings you here today?"
-msgtext "Բարեւ %name! Ինչ է բերել քեզ այսօր այստեղ?"
+msgid "Hi %name! Welcome! %param1 What brings you here today?"
+msgtext "Բարեւ %name! %param1 Ինչ է բերել քեզ այսօր այստեղ?"
 
 msgid "%name is back! :)"
 msgtext "%name -ը վերադարձավ! :)"

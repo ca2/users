@@ -1,6 +1,7 @@
 
 string on_bot(string strUser,string strText)
 {
+
    m_strText = strText;
    m_strUser = strUser;
    m_strTopicUser = strUser;
@@ -12,9 +13,11 @@ string on_bot(string strUser,string strText)
 
    {
 
+      string strSpeakText;
+
       string strLang;
 
-      sp(chat_item) pitem = Application.veripack().get_scheduled_speech(strUser, strText, strLang);
+      sp(chat_item) pitem = Application.veripack().get_scheduled_speech(strUser, strText, strSpeakText, strLang);
 
       if (pitem.is_set())
       {
@@ -42,7 +45,7 @@ string on_bot(string strUser,string strText)
 
          pitem.release();
 
-         lspeak(strItemUser, m_strLang, strText);
+         lspeak(strItemUser, m_strLang, strSpeakText);
 
          return "";
 
@@ -76,7 +79,7 @@ string on_bot(string strUser,string strText)
          str = _t("It is not considered reasonably speakable text.");
       }
 
-      lspeak(strUser,m_strLang,str);
+      lspeak(strUser,m_strLang, str);
       return str;
    }
    else if(strText.get_length() > 5 && ::str::begins(strText,"!say "))
@@ -200,9 +203,10 @@ string on_bot(string strUser,string strText)
 
             if (m_strOtherCountry.has_char())
             {
-               m_strOtherTimeZone = initial_locality_time_zone(m_strOtherCountry, get_lctv_info(m_strOther, "city"));
+               double dTimeZone;
+               m_strOtherTimeZone = initial_locality_time_zone(m_strOtherCountry, get_lctv_info(m_strOther, "city"), dTimeZone);
                set_user_data(m_strOther, "time_zone_text", m_strOtherTimeZone);
-               set_user_data(m_strOther, "time_zone", time_zone(m_strOtherTimeZone));
+               set_user_data(m_strOther, "time_zone", dTimeZone);
             }
          }
 
