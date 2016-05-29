@@ -315,7 +315,7 @@ string  initial_country_lang(string strCountry)
 
       return "pt";
 
-}
+   }
    else if (strCountry == "do")
    {
 
@@ -440,6 +440,36 @@ string  initial_country_lang(string strCountry)
    {
 
       return "dk";
+
+   }
+   else if (strCountry == "pt")
+   {
+
+      return "pt";
+
+   }
+   else if (strCountry == "es")
+   {
+
+      return "es";
+
+   }
+   else if (strCountry == "fr")
+   {
+
+      return "fr";
+
+   }
+   else if (strCountry == "it")
+   {
+
+      return "it";
+
+   }
+   else if (strCountry == "si")
+   {
+
+      return "sl";
 
    }
    else
