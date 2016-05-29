@@ -112,6 +112,8 @@ stringa wsa(string strUser)
 void ws(string strUser, bool bDoorBel) // welcome sound
 {
 
+   get_user_country_code(strUser);
+
    strUser.make_lower();
 
    stringa stra = wsa(strUser);

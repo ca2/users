@@ -2,7 +2,11 @@
 {
    if (strLang == "br")
    {
-      return "pt";
+      return "pt-br";
+   }
+   else if (strLang == "pt")
+   {
+      return "pt-pt";
    }
    else if (strLang == "do")
    {
@@ -62,11 +66,11 @@
    }
    else if (strLang == "zh-tw")
    {
-      return "tw";
+      return "zh-tw";
    }
    else if (strLang == "zh-cn")
    {
-      return "cn";
+      return "zh-cn";
    }
    else if (strLang == "si" || strLang == "sl")
    {
@@ -74,13 +78,13 @@
    }
    else
    {
-      stringa stra;
-      stra.explode("-", strLang);
-      if (stra.get_count() == 2)
-      {
-         return lang(stra[0]);
-      }
-      else
+//      stringa stra;
+//      stra.explode("-", strLang);
+//      if (stra.get_count() == 2)
+//      {
+//         return lang(stra[0]);
+//      }
+//      else
       {
          return strLang;
       }
@@ -313,7 +317,7 @@ string  initial_country_lang(string strCountry)
    if (strCountry == "br")
    {
 
-      return "pt";
+      return "pt-br";
 
    }
    else if (strCountry == "do")
@@ -382,12 +386,6 @@ string  initial_country_lang(string strCountry)
       return "en";
 
    }
-   else if (strCountry == "ja" || strCountry == "jp")
-   {
-
-      return "jp";
-
-   }
    else if (strCountry == "uk")
    {
 
@@ -404,18 +402,6 @@ string  initial_country_lang(string strCountry)
    {
 
       return "de";
-
-   }
-   else if (strCountry == "cn")
-   {
-
-      return "cn";
-
-   }
-   else if (strCountry == "tw")
-   {
-
-      return "tw";
 
    }
    else if (strCountry == "ru")
@@ -445,7 +431,7 @@ string  initial_country_lang(string strCountry)
    else if (strCountry == "pt")
    {
 
-      return "pt";
+      return "pt-pt";
 
    }
    else if (strCountry == "es")
@@ -470,6 +456,24 @@ string  initial_country_lang(string strCountry)
    {
 
       return "sl";
+
+   }
+   else if (strCountry == "cn")
+   {
+
+      return "zh-cn";
+
+   }
+   else if (strCountry == "tw")
+   {
+
+      return "zh-tw";
+
+   }
+   else if (strCountry == "ja" || strCountry == "jp")
+   {
+
+      return "jp";
 
    }
    else
