@@ -299,7 +299,7 @@ void audio_announce(string strParam)
 {
 
 #ifdef WINDOWS
-call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", strParam +  " : dont_add_to_playlist", "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
+call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", "\""+ strParam +  "\" : dont_add_to_playlist", "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
 
 #elif defined(MACOS)
 
@@ -308,7 +308,7 @@ call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", strParam +  "
 ::system("/Applications/Waven.app/Contents/MacOS/Waven \""+strParam+"\" : dont_add_to_playlist");
 
 #else
-call_async("/xcore/stage/x86/app", strParam + " :  app=app-veriwell/waven build_number=basis locale=_std schema=_std dont_add_to_playlist", "/xcore/stage/x86", SW_SHOW, false);
+call_async("/xcore/stage/x86/app", "\""+ strParam + "\" :  app=app-veriwell/waven build_number=basis locale=_std schema=_std dont_add_to_playlist", "/xcore/stage/x86", SW_SHOW, false);
 #endif
 
 }
@@ -475,7 +475,7 @@ void lctv_profile(string strUser, string strProfile)
 
 string lotext(string strText)
 {
-   
+
    return strText.lower();
 
 }

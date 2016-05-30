@@ -16,6 +16,17 @@ class this_plugin:
 public:  
    
 
+
+
+
+
+
+
+
+
+
+
+
    this_plugin(::aura::application * papp, object * p) :
       object(papp),
       ::vericard::chat_item(papp),

@@ -100,7 +100,7 @@ stringa wsa(string strUser)
 
    index iIndex = 0;
 
-   while (Application.file().exists(path = m_pcomm->get_base_path() / "audio/hidden/welcome" + ::str::from(iIndex++) / strUser + ".wav"))
+   while (Application.file().exists(path = ::dir::system() / ("audio/hidden/welcome" + ::str::from(iIndex++)) / (strUser + ".wav")))
    {
       stra.add(path);
    }
@@ -121,7 +121,7 @@ void ws(string strUser, bool bDoorBel) // welcome sound
    if (stra.get_size() > 0)
    {
 
-      index iIndex = atoi(file_as_string_dup(m_pcomm->get_base_path() / "audio/hidden/welcome0" / strUser + ".txt"));
+      index iIndex = atoi(file_as_string_dup(::dir::system() / "audio/hidden/welcome0" / strUser + ".txt"));
 
       if (iIndex >= stra.get_size())
       {
@@ -134,7 +134,7 @@ void ws(string strUser, bool bDoorBel) // welcome sound
 
       iIndex++;
 
-      file_put_contents_dup(m_pcomm->get_base_path() / "audio/hidden/welcome0" / strUser + ".txt", ::str::from(iIndex));
+      file_put_contents_dup(::dir::system() / "audio/hidden/welcome0" / strUser + ".txt", ::str::from(iIndex));
 
    }
    else if (bDoorBel)
@@ -146,7 +146,7 @@ void ws(string strUser, bool bDoorBel) // welcome sound
    else
    {
 
-      Application.play_audio(m_pcomm->get_base_path() / "audio/hidden/welcome.wav");
+      Application.play_audio(::dir::system() / "audio/hidden/welcome.wav");
 
    }
 
@@ -156,16 +156,16 @@ void ws(string strUser, bool bDoorBel) // welcome sound
 void doorbell() // welcome sound
 {
 
-   Application.play_audio(m_pcomm->get_base_path() / "audio/hidden/doorbell.mp3");
+   Application.play_audio(::dir::system() / "audio/hidden/doorbell.mp3");
 
 }
 
 
 void bye() // welcome sound
 {
-   Application.play_audio(m_pcomm->get_base_path() / "audio/hidden/youlater.wav");
+   Application.play_audio(::dir::system() / "audio/hidden/youlater.wav");
 }
 void sound_for_follower() // welcome sound
 {
-   Application.play_audio(m_pcomm->get_base_path() / "audio/hidden/follower.wav");
+   Application.play_audio(::dir::system() / "audio/hidden/follower.wav");
 }
