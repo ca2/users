@@ -183,6 +183,14 @@ string  tts_lang(string strLang)
    {
       return "pt";
    }
+   else if (strLang == "pt-br")
+   {
+      return "pt";
+   }
+   else if (strLang == "pt-pt")
+   {
+      return "pt";
+   }
    else if (strLang == "ru")
    {
       return "ru";
@@ -246,6 +254,14 @@ string  trans_lang(string strLang)
    {
       return "pt";
    }
+   else if (strLang == "pt-br")
+   {
+      return "pt";
+   }
+   else if (strLang == "pt-pt")
+   {
+      return "pt";
+   }
    else if (strLang == "ru")
    {
       return "ru";
@@ -274,11 +290,11 @@ string  trans_lang(string strLang)
    {
       return "hy";
    }
-   else if (strLang == "cn")
+   else if (strLang == "cn" || strLang == "zh-cn")
    {
       return "zh-cn";
    }
-   else if (strLang == "tw")
+   else if (strLang == "tw" || strLang == "zh-tw")
    {
       return "zh-tw";
    }
@@ -730,7 +746,7 @@ string get_country(string strLang, string strCountry)
 
    strCountry.make_upper();
 
-   ::file::path path = ::dir::system() / "config/xmpp_resident/room/ca2@livecoding.tv/xmpp_resident_country" / strLang + ".json";
+   ::file::path path = ::dir::system() / "config/xmpp_resident/room/ca2@livecoding.tv/xmpp_resident_country" / (strLang + ".json");
 
    ::file_time ft = get_file_time(path);
 
@@ -975,6 +991,15 @@ bool lspeak(string strUser, string strLang, string strText)
 string get_country(string strCountryCode)
 {
 
-   return get_country(m_epersonVocative == ::vericard::person_user ? m_strLang : m_strOtherLang, strCountryCode);
+   string strCountry = get_country(m_epersonVocative == ::vericard::person_user ? m_strLang : m_strOtherLang, strCountryCode);
+
+   if(strCountry.is_empty())
+   {
+
+      strCountry = get_country("en", strCountryCode);
+
+   }
+
+   return strCountry;
 
 }

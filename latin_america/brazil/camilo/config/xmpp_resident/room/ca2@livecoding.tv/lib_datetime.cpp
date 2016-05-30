@@ -46,10 +46,19 @@ string  initial_locality_time_zone(string strCountry, string strLocality, double
 
       string strLng = ::str::from(dLon);
 
-      str = Application.http().get(
-         "http://api.timezonedb.com/?key=" + file_as_string_dup("C:\\sensitive\\sensitive\\seed\\timezonedb.txt")
-         + "&format=json&lat=" + strLat + "&lng=" + strLng,
-         set);
+      string strKey;
+
+#ifdef WINDOWS
+
+      strKey = file_as_string_dup("C:\\sensitive\\sensitive\\seed\\timezonedb.txt");
+
+#else
+
+      strKey = file_as_string_dup("/sensitive/sensitive/seed/timezonedb.txt");
+
+#endif
+
+      str = Application.http().get("http://api.timezonedb.com/?key=" + strKey + "&format=json&lat=" + strLat + "&lng=" + strLng, set);
 
       if (str.has_char())
       {
