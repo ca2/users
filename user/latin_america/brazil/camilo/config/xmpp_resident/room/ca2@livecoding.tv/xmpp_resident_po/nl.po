@@ -176,16 +176,16 @@ msgid "Opening Rick Astley - Never Gonna Give You Up!"
 msgtext "Afspelen Rick Astley - Never Gonna Give You Up!"
 
 msgid "%name, your country is unknown"
-msgtext "%name, your country is unknown"
+msgtext "%name, je land is onbekend"
 
 msgid "%name, your country is set to \"%topic\""
-msgtext "%name, your country is set to \"%topic\""
+msgtext "%name, je land is ingesteld op \"%topic\""
 
 msgid "%name, country of %name is unknown"
-msgtext "%name, Land van %name is onbekend."
+msgtext "%name, land van %name is onbekend."
 
 msgid "%name, country of %name is \"%topic\""
-msgtext "%name, Land van %name is %topic"
+msgtext "%name, land van %name is %topic"
 
 msgid "%name, you will need Visual Studio 2015 (at least Community Edition), a SVN (Subversion) client and repository access (working e-mail address needed). Talk to Camilo for details."
 msgtext "%name, hiervoor heb je minimaal nodig: Visual Studio 2015 (ten minste Community Edition), een SVN (Subversion) client en toegang tot de ca2 repository (met een geldig e-mail adress). Praat met Camilo voor verdere details."
@@ -205,8 +205,8 @@ msgtext "uur:minuten:seconden"
 
 
 msgid "%name, your country code is set to \"%topic\""
-msgtext "%name, your country code is set to \"%topic\""
+msgtext "%name, je land is ingesteld op \"%topic\""
 
 msgid "%name, country code of %param1 is \"%topic\""
-msgtext "%name, country code of %param1 is \"%topic\""
+msgtext "%name, land code van %param1 is \"%topic\""
 
