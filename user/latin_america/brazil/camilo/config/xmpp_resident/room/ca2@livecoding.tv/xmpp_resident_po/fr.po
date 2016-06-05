@@ -1,27 +1,26 @@
 msgid "Good Morning!"
-msgtext "Good Morning!"
+msgtext "Bonjour!"
 
 msgid "Good Afternoon!"
-msgtext "Good Afternoon!"
+msgtext "Bonjour!"
 
 msgid "Good Evening!"
-msgtext "Good Evening!"
+msgtext "Bonsoir!"
 
 msgid "Good Night!"
-msgtext "Good Night!"
+msgtext "Bonne nuit!"
 
 msgid "%name, Good Morning!"
-msgtext "%name, Good Morning!"
+msgtext "%name, Bonjour!"
 
 msgid "%name, Good Afternoon!"
-msgtext "%name, Good Afternoon!"
+msgtext "%name, Bonjour!"
 
 msgid "%name, Good Evening!"
-msgtext "%name, Good Evening!"
+msgtext "%name, Bonsoir!"
 
 msgid "%name, Good Night!"
-msgtext "%name, Good Night!"
-
+msgtext "%name, Bonne nuit!"
 
 msgid "%name, Some supported commands !help, !about and !vaimepassarobot?"
 msgtext "%name, quelques commandes disponibles !help, !about et !vaimepassarobot?"

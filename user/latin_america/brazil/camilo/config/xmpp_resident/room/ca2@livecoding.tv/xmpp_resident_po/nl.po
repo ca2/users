@@ -210,3 +210,16 @@ msgtext "%name, je land is ingesteld op \"%topic\""
 msgid "%name, country code of %param1 is \"%topic\""
 msgtext "%name, land code van %param1 is \"%topic\""
 
+msgid "(No Results)"
+msgtext "(No Results)"
+
+msgid "%name, the weather at %param1 is %topic."
+msgtext "%name, the weather at %param1 is %topic."
+
+msgid "%name, your current weather is %topic."
+msgtext "%name, your current weather is %topic."
+
+msgid "%name, the weather for %param2 at %param1 is %topic."
+msgtext "%name, the weather for %param2 at %param1 is %topic."
+
+

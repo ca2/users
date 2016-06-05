@@ -1,4 +1,2 @@
 ﻿irc_bot.cpp
-C:\core\app\appseed\aura/primitive/datetime/datetime_file_time.h(103): warning C4018: '>': signed/unsigned mismatch
-c:\core\app\appseed\aura\aura\aura\aura__c.h(10): warning C4018: '<': signed/unsigned mismatch
 C:/Users/camilo/AppData/Roaming/ca2/system/config/irc_resident/room/camilosasuke@irc.twitch.tv/irc_bot.cpp(22): fatal error C1083: Cannot open include file: 'C:\ca2\config\xmpp_resident\room\ca2@livecoding.tv\xmpp_bot_common.cpp': No such file or directory
