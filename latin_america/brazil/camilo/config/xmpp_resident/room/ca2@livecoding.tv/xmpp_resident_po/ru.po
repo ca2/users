@@ -228,3 +228,6 @@ msgid "%name, the weather for %param2 at %param1 is %topic."
 msgtext "%name, погода %param2 погода %param1: %topic."
 
 
+
+
+
