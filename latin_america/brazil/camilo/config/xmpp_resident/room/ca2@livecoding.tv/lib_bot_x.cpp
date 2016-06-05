@@ -1522,6 +1522,7 @@ string bot_x()
             {
                str = _t("I am not going to say that phrase");
             }
+            strSpeakText = strText;
             if (!lspeak(strUser, m_strLang, strSpeakText))
             {
                return str;
