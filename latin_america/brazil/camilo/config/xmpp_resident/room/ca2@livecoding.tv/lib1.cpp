@@ -295,20 +295,34 @@ bool consider_speakable_text(string strText)
 }
 
 
-void audio_announce(string strParam)
+void audio_announce(string strParam, string strTitle = "", string strAlbumArt = "")
 {
 
+   if (strTitle.has_char())
+   {
+
+      strTitle = " call_title=\"" + strTitle + "\"";
+
+   }
+
+   if (strAlbumArt.has_char())
+   {
+
+      strAlbumArt = " call_albumart=\"" + strAlbumArt + "\"";
+
+   }
+
 #ifdef WINDOWS
-call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", "\""+ strParam +  "\" : dont_add_to_playlist", "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
+call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", "\""+ strParam +  "\" : dont_add_to_playlist" + strTitle + strAlbumArt, "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
 
 #elif defined(MACOS)
 
 //string strPath = file_as_string_dup(::file::path(“HOME”) / “.ca2/mypath/app-core/Waven”);
 
-::system("/Applications/Waven.app/Contents/MacOS/Waven \""+strParam+"\" : dont_add_to_playlist");
+::system("/Applications/Waven.app/Contents/MacOS/Waven \""+strParam+"\" : dont_add_to_playlist" + strTitle + strAlbumArt);
 
 #else
-call_async("/xcore/stage/x86/app", "\""+ strParam + "\" :  app=app-veriwell/waven build_number=basis locale=_std schema=_std dont_add_to_playlist", "/xcore/stage/x86", SW_SHOW, false);
+call_async("/xcore/stage/x86/app", "\""+ strParam + "\" :  app=app-veriwell/waven build_number=basis locale=_std schema=_std dont_add_to_playlist" + strTitle + strAlbumArt, "/xcore/stage/x86", SW_SHOW, false);
 #endif
 
 }

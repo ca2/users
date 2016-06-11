@@ -188,7 +188,7 @@ string bot_x()
       }
 
    }
-   else if (::str::begins_eat_ci(strQuery, "!s "))
+   else if (::str::begins_eat_ci(strQuery, "!p "))
    {
       
       if (strQuery.get_length() == 1)
@@ -216,7 +216,50 @@ string bot_x()
 
 #ifdef WINDOWS
 
-               call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", str, "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
+               call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", "\"" + str + "\" : play_now", "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
+
+#else
+
+               call_async("/xcore/stage/x86/app", "\"" + str + "\" : play_now app=app-veriwell/waven build_number=basis locale=_std schema=_std ", "/xcore/stage/x86/", SW_SHOW, false);
+
+#endif
+
+            }
+
+         }
+
+      }
+
+   }
+   else if (::str::begins_eat_ci(strQuery, "!q "))
+   {
+
+      if (strQuery.get_length() == 1)
+      {
+
+         if (isdigit_dup(strQuery[0]))
+         {
+
+            int i = atoi(strQuery);
+
+            stringa stra;
+
+            stra = get_user_data(m_strUser, "ss").stra();
+
+            if (i <= 0 || i > stra.get_size())
+            {
+
+               str = "no such song";
+
+            }
+            else
+            {
+
+               str = stra[i - 1];
+
+#ifdef WINDOWS
+
+               call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", "\"" + str + "\"", "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
 
 #else
 
@@ -231,14 +274,30 @@ string bot_x()
       }
 
    }
-   else if(::str::begins_ci(strText, "!spotify:track:"))
+   else if (::str::begins_ci(strText, "!p spotify:track:"))
+   {
+
+
+
+#ifdef WINDOWS
+
+      call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", "\"" + strText.substr(1) + "\" : play_now", "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
+
+#else
+
+      call_async("/xcore/stage/x86/app", "\"" + strText.substr(1) + "\" : play_now app=app-veriwell/waven build_number=basis locale=_std schema=_std ", "/xcore/stage/x86/", SW_SHOW, false);
+
+#endif
+
+   }
+   else if(::str::begins_ci(strText, "!q spotify:track:"))
    {
 
       
 
 #ifdef WINDOWS
 
-      call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", strText.substr(1), "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
+      call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", "\"" + strText.substr(1) + "\"", "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
 
 #else
 

@@ -130,7 +130,9 @@ void ws(string strUser, bool bDoorBel) // welcome sound
 
       }
 
-      audio_announce(stra[iIndex]);
+      auto puser = Application.veripack().get_user(strUser, "xmpp", true);
+
+      audio_announce(stra[iIndex], username(strUser, m_epersonVocative == ::vericard::person_user ? m_strLang : m_strOtherLang), puser != NULL ? puser->m_strImage : "");
 
       iIndex++;
 
