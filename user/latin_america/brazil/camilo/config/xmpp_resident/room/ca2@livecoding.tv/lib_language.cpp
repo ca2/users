@@ -576,7 +576,7 @@ bool enable_tts(string strLang)
    {
       return true;
    }
-   else if (strLang == "jp")
+   else if (strLang == "jp" || strLang == "ja")
    {
       return true;
    }
