@@ -32,16 +32,15 @@ msgid "!urbd \"urban dictionary query\"\n!at \"google auto translate\"\n and\n!t
 msgtext "!urbd \"어반 사전 쿼리\"\n!at \"구글 자동 검색\"\n 그리고\n!t \"언어\" \"텍스트를 언어로 번역합니다\""
 
 msgid "%name, !rr or !rickroll plays 80s hit Never Gonna Give You Up performed by Rick Astley with ASCII animation."
-msgtext "%name, !rr of !rickroll speelt de jaren tachtig hit Never Gonna Give You Up uitgevoerd door Rick Astley met ASCII animatie."
-
+msgtext "%name, !rr 또는 ASCII 애니메이션과 함께 Rick Astley 에 공연된 "Never Gonna Give You Up"이 실행됩니다.""
 msgid "%name, Use this command to get special tips"
-msgtext "%name, gebruik deze opdracht om speciale tips te krijgen."
+msgtext "%name, 특별한 팁을 얻기 위해 이 커맨드를 사용하세요"
 
 msgid "%name, say uses Windows Narrator to speak the supplied text."
-msgtext "%name, say gebruikt Windows Verteller om gegeven tekst voor te lezen."
+msgtext "%name, 제공된 텍스트를 말하기 위해서 윈도우 나레이터를 사용하라고 말하세요"
 
 msgid "%name, ide \"platform\" display information about tools used for development of ca2 framework and apps at the specified platform. \"platform\" may be: windows (Desktop), linux, macos, ios, android and winrt."
-msgtext "%name, ide \"platform\" laat informatie zien over de programma's die gebruikt zijn voor de ontwikkeling van het ca2 framework en de applicaties op dat platform. \"platform\" kan zijn: Windows (Desktop), Linux, MacOS, iOS, Android and WinRT."
+msgtext "%name, ide \"platform\"은 ca2 프레임워크와 특수한 플랫폼에 사용된 앱 \"platform\"은 아마도: Windows (Desktop), Linux, MacOS, iOS, Android and WinRT. 에 대해 보여줍니다ㄴ"
           
 msgid "%name, setlang \"language code and/or two-letter country code\" sets user preferred language. The bot speaks to you in selected language, as much as possible."
 msgtext "%name, setlang \"taal- of landcode\" stelt de voorkeurtaal in van de gebruiker. Voor zover het mogelijk is zal de bot u toespreken in de opgegeven taal."
