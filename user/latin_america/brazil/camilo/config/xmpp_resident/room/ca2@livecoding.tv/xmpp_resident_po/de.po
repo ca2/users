@@ -156,8 +156,8 @@ msgtext "%name, ist beigetreten!! (das setzen von Befehlen ist aktiviert)."
 msgid "%name you are connected!";
 msgtext "%name du bist nun verbunden!"
 
-msgid "Welcome %name! :) %param1 You can type exclamation mark and then press enter to get some help."
-msgtext "Willkommen %name! :) %param1 Gebe ein Ausrufezeichen ein und drücke Enter um ein wenig Hilfe zu bekommen."
+msgid "<emph>Welcome %name! :) %param1</emph> Please, use exclamation mark to get help.."
+msgtext "<emph>Willkommen %name! :) %param1</emph> Gebe ein Ausrufezeichen ein und drücke Enter um ein wenig Hilfe zu bekommen."
 
 msgid "Hi %name! Welcome! %param1 What brings you here today?"
 msgtext "Hi %name! Willkommen! %param1 Was bringt dich heute hierher?"

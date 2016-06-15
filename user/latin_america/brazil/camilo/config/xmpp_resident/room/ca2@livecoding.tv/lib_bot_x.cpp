@@ -350,9 +350,7 @@ string bot_x()
    else if (about_user("land"))
    {
 
-      string strCountryCode = get_user_country_code(strTopicUser, true);
-
-      strCountryCode.make_upper();
+      string strCountryCode = get_user_country_code(strTopicUser, true).uppered();
 
       strTopic = get_country(strCountryCode);
 
@@ -409,7 +407,7 @@ string bot_x()
    else if (about_user("city"))
    {
 
-      strTopic = get_user_info(strTopicUser, "city");
+      strTopic = get_user_city(strTopicUser, true);
 
       if (is_about_self())
       {
@@ -1018,7 +1016,8 @@ string bot_x()
    else if(strText.get_length() == 11 && ::str::begins_eat(strText,"!setlang "))
    {
       strLang = lang(strText);
-      set_user_data(strUser,"lang",strLang);
+      set_user_data(strUser, "lang", strLang);
+      set_user_data(strUser, "lang_set", "set");
       strLang = get_user_lang(strUser);
       strTopic = strLang;
       strName = username(strUser, m_strLang);
@@ -1055,9 +1054,9 @@ string bot_x()
 
       }
 
-      string cc = get_user_info(strCurrentUser, "country");
+      string cc = get_user_country_code(strCurrentUser).uppered();
 
-      string ci = get_user_info(strCurrentUser, "city");
+      string ci = get_user_city(strCurrentUser);
 
       string strQ;
 
@@ -1166,9 +1165,9 @@ string bot_x()
 
       }
       
-      string cc = get_user_info(strCurrentUser, "country");
+      string cc = get_user_country_code(strCurrentUser).uppered();
 
-      string ci = get_user_info(strCurrentUser, "city");
+      string ci = get_user_city(strCurrentUser);
 
       string strQ;
 
@@ -1281,7 +1280,7 @@ string bot_x()
             for (index i = 0; i < Application.veripack().m_vaResponse.get_size(); i++)
             {
 
-               if (Application.veripack().m_vaResponse[i][0].get_string() == strQuery)
+               if (Application.veripack().m_vaResponse[i][0].get_string().CompareNoCase(strQuery) == 0)
                {
                   
                   vara = Application.veripack().m_vaResponse[i];

@@ -22,8 +22,8 @@ msgtext "%name, Добрый вечер!"
 msgid "%name, Good Night!"
 msgtext "%name, Спокойной ночи!"
 
-msgid "%name, Some supported commands !hlp, !about and !want the bot"
-msgtext "%name, поддерживаются следующие команды !hlp, !about и !want the bot"
+msgid "%name, Some supported commands !help, !about and !want the bot"
+msgtext "%name, поддерживаются следующие команды !help, !about и !want the bot"
 
 msgid "%name, song not playing or not in record."
 msgtext "%name, ничего не проигрывается или песня не имеет названия."
@@ -156,7 +156,7 @@ msgtext ""
 msgid "%name you are connected!";
 msgtext ""
 
-msgid "Welcome %name! :) %param1 You can type exclamation mark and then press enter to get some help."
+msgid "Welcome %name! :) %param1 Please, use exclamation mark to get help.."
 msgtext "Добро пожаловать %name! :) %param1 Введите восклицательный знак и нажмите клавишу ВВОД, чтобы получить список доступных команд."
 
 msgid "Hi %name! Welcome! %param1 What brings you here today?"

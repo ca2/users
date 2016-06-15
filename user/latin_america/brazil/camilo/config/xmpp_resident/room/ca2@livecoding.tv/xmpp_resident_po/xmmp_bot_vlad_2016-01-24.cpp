@@ -857,7 +857,7 @@ class this_plugin :
                }
                else
                {
-                  strText = "Welcome " + strName + "! :) You can type exclamation mark and then press enter to get some help.";
+                  strText = "Welcome " + strName + "! :) Please, use exclamation mark to get help..";
                   if(strCountry == "be")
                   {
                      strText += " Choose between \"Français\" and \"Deustch\" using \"!setlang de\" or \"!setlang fr\"";
