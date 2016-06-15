@@ -66,3 +66,5 @@ https://www.livecoding.tv/static/candy-chat/img/emoticons_hd/Greedy.png
 https://www.livecoding.tv/static/candy-chat/img/emoticons_hd/59_Tears.png
 \:victory\:
 https://www.livecoding.tv/static/candy-chat/img/emoticons_hd/35_Victory.png
+\:stop\:
+https://www.livecoding.tv/static/candy-chat/img/emoticons_hd/30_Stop.png
