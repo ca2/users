@@ -129,7 +129,7 @@ msgtext "%name, 進入!! (部分的指令(commands)啟用)."
 msgid "%name you are connected!";
 msgtext "%name 你正在連線!";
 
-msgid "Welcome %name! :) %param1 You can type exclamation mark and then press enter to get some help."
+msgid "Welcome %name! :) %param1 Please, use exclamation mark to get help.."
 msgtext "歡迎 %name! :) %param1 你可以透過輸入驚嘆號得到一些幫助."
 
 msgid "Hi %name! Welcome! %param1 What brings you here today?"

@@ -161,8 +161,8 @@ msgtext "%name, entrou!! (Sub-conjunto de comandos habilitados)."
 msgid "%name you are connected!";
 msgtext "%name você está conectado!"
 
-msgid "Welcome %name! :) %param1 You can type exclamation mark and then press enter to get some help."
-msgtext "Boas vindas %name! :) %param1 Você pode digitar o ponto de exclamação seguido de Enter para obter ajuda."
+msgid "<emph>Welcome %name! :) %param1</emph> Please, use exclamation mark to get help.."
+msgtext "<emph>Boas vindas %name! :) %param1</emph> Você pode digitar o ponto de exclamação seguido de Enter para obter ajuda."
 
 msgid "Hi %name! Welcome! %param1 What brings you here today?";
 msgtext "Olá %name! Boas vindas! %param1 O que te traz aqui hoje?";
@@ -229,3 +229,17 @@ msgtext "%name, seu código de país está configurado para \"%topic\""
 
 msgid "%name, country code of %param1 is \"%topic\""
 msgtext "%name, o código de país de %param1 é \"%topic\""
+
+
+msgid "(No Results)"
+msgtext "(Nenhum Resultado)"
+
+msgid "%name, the weather at %param1 is %topic."
+msgtext "%name, o tempo em %param1 é %topic."
+
+msgid "%name, your current weather is %topic."
+msgtext "%name, seu tempo agora é %topic."
+
+msgid "%name, the weather for %param2 at %param1 is %topic."
+msgtext "%name, o tempo para %param2 em %param1 é %topic."
+

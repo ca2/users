@@ -14,6 +14,8 @@ string on_pres(string strUser, string strType)
 
    m_strCountry = get_user_country_code(strUser, true);
 
+   get_user_city(strUser, true);
+
    m_strLang = get_user_lang(strUser);
 
    string strTimeZone = get_user_time_zone(strUser);
@@ -192,7 +194,7 @@ string on_pres(string strUser, string strType)
 
                   set_user_data(strUser, "last_welcome_time", _trans1(welcome_time));
 
-                  strText = _t("Welcome %name! :) %param1 You can type exclamation mark and then press enter to get some help.");
+                  strText = _t("<emph>Welcome %name! :) %param1</emph> Please, use exclamation mark to get help..");
 
                   if (m_strCountry == "be")
                   {
@@ -216,7 +218,7 @@ string on_pres(string strUser, string strType)
 
                   set_user_data(strUser, "last_welcome_time", _trans1(welcome_time));
 
-                  strText = _t("Hi %name! Welcome! %param1 What brings you here today?");
+                  strText = _t("<emph>Hi %name! Welcome!</emph> %param1 What brings you here today?");
 
                }
                else if (get_user_data(strUser, "last_visit") > 60 * 60 * 3 || get_user_data(strUser, "last_welcome_time") != _trans1(welcome_time))
@@ -235,7 +237,7 @@ string on_pres(string strUser, string strType)
                {
 
 
-                  strText = _t("%name is back! :)");
+                  strText = _t("<emph>%name is back! :)</emph>");
 
                   if (now.m_time - last_see_you.m_time > 8 * 60)  // 8 (infinite standing up) minutes
                   {

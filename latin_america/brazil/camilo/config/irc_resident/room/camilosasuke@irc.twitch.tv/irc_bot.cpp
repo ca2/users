@@ -16,10 +16,13 @@ class this_plugin :
 	
       this_plugin(::aura::application * papp, object * p) :
 		object(papp),
+      ::vericard::chat_item(papp),
       ::vericard::plugin(papp,dynamic_cast <::vericard::comm * > (p)),
 		::irc_resident::plugin(papp, dynamic_cast <::vericard::comm * > (p))
 
-#include "C:\ca2\config\xmpp_resident\room\ca2@livecoding.tv\xmpp_bot_common.cpp"
+
+		#include "C:\Users\camilo\AppData\Roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\xmpp_bot_common.cpp"
+
 
 };
 

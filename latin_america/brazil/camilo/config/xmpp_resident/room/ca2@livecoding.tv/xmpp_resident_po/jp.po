@@ -153,7 +153,7 @@ msgtext "%name, is binnen!! (Subset of commands enabled)."
 msgid "%name you are connected!";
 msgtext "%name u bent nu verbonden!";
 
-msgid "Welcome %name! :) %param1 You can type exclamation mark and then press enter to get some help."
+msgid "Welcome %name! :) %param1 Please, use exclamation mark to get help.."
 msgtext "%nameようこそ！:)%param1 Type voor instructies een uitroepteken gevolgd door enter."
 
 msgid "Hi %name! Welcome! %param1 What brings you here today?"

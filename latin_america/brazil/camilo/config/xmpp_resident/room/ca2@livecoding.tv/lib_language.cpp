@@ -837,6 +837,9 @@ string get_text(string & strSpeakText, string strId)
 
    strNewSpeakText = strText;
 
+   strNewSpeakText.replace("<emph>", "");
+   strNewSpeakText.replace("</emph>", "");
+
    strNewSpeakText.replace("($name)", "");
    strNewSpeakText.replace("$name", "");
    strNewSpeakText = process_text(strNewSpeakText, strName, strTopic, straParam);
