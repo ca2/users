@@ -295,8 +295,17 @@ bool consider_speakable_text(string strText)
 }
 
 
-void audio_announce(string strParam, string strTitle = "", string strAlbumArt = "")
+void audio_announce(string strParam, string strTitle = "", string strAlbumArt = "", bool bIgnorePlaybackNotification = true)
 {
+
+   if (bIgnorePlaybackNotification)
+   {
+
+      ::file::path pathOrigin(strParam);
+
+      Application.veripack().m_pathaIgnorePlaybackNotification.add(pathOrigin);
+
+   }
 
    if (strTitle.has_char())
    {

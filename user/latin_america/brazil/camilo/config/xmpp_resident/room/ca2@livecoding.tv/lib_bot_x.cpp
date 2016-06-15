@@ -346,6 +346,10 @@ string bot_x()
 
       ws(strTopicUser, false);
 
+      strText = "";
+
+      strSpeakText = "";
+
    }
    else if (about_user("land"))
    {

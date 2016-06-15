@@ -1,2 +1,17 @@
 ﻿irc_bot.cpp
 c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib_language.cpp(631): warning C4566: character represented by universal-character-name '\u0438' cannot be represented in the current code page (1252)
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib1.cpp(304): error C2668: 'string_array<file::path,string>::add': ambiguous call to overloaded function
+c:\core\app\appseed\aura\primitive\collection\collection_string_array.h(80): note: could be 'count string_array<file::path,string>::add(const string_array<file::path,string> &)'
+c:\core\app\appseed\aura\primitive\collection\collection_string_array.h(76): note: or       'file::path &string_array<file::path,string>::add(const Type &)'
+        with
+        [
+            Type=file::path
+        ]
+c:\core\app\appseed\aura\primitive\collection\collection_string_array.h(74): note: or       'void string_array<file::path,string>::add(const id &)'
+c:\core\app\appseed\aura\primitive\collection\collection_string_array.h(72): note: or       'void string_array<file::path,string>::add(const property &)'
+c:\core\app\appseed\aura\primitive\collection\collection_string_array.h(70): note: or       'void string_array<file::path,string>::add(const var &)'
+c:\core\app\appseed\aura\primitive\collection\collection_string_array.h(68): note: or       'index string_array<file::path,string>::add(unichar)'
+c:\core\app\appseed\aura\primitive\collection\collection_string_array.h(66): note: or       'index string_array<file::path,string>::add(char)'
+c:\core\app\appseed\aura\primitive\collection\collection_string_array.h(64): note: or       'index string_array<file::path,string>::add(const unichar *)'
+c:\core\app\appseed\aura\primitive\collection\collection_string_array.h(62): note: or       'index string_array<file::path,string>::add(const char *)'
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib1.cpp(304): note: while trying to match the argument list '(string)'

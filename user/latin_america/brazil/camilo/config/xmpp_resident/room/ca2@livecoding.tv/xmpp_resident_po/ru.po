@@ -156,7 +156,7 @@ msgtext ""
 msgid "%name you are connected!";
 msgtext ""
 
-msgid "Welcome %name! :) %param1 Please, use exclamation mark to get help.."
+msgid "Welcome %name! :) %param1 Please, use exclamation mark to get help."
 msgtext "Добро пожаловать %name! :) %param1 Введите восклицательный знак и нажмите клавишу ВВОД, чтобы получить список доступных команд."
 
 msgid "Hi %name! Welcome! %param1 What brings you here today?"
