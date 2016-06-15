@@ -151,7 +151,7 @@ msgtext "%name, jest zalogowany!! (Subset of commands enabled)."
 msgid "%name you are connected!";
 msgtext "%name jesteś połączony!";
 
-msgid "Welcome %name! :) %param1 Please, use exclamation mark to get help.."
+msgid "Welcome %name! :) %param1 Please, use exclamation mark to get help."
 msgtext "Witaj %name! :) %param1 Możesz postawić wykrzyknik i nacisnąć enter, by uzyskać pomoc."
 
 msgid "Hi %name! Welcome! %param1 What brings you here today?"

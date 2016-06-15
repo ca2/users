@@ -194,7 +194,7 @@ string on_pres(string strUser, string strType)
 
                   set_user_data(strUser, "last_welcome_time", _trans1(welcome_time));
 
-                  strText = _t("<emph>Welcome %name! :) %param1</emph> Please, use exclamation mark to get help..");
+                  strText = _t("<emph>Welcome %name! :) %param1</emph> Please, use exclamation mark to get help.");
 
                   if (m_strCountry == "be")
                   {
@@ -218,7 +218,7 @@ string on_pres(string strUser, string strType)
 
                   set_user_data(strUser, "last_welcome_time", _trans1(welcome_time));
 
-                  strText = _t("<emph>Hi %name! Welcome!</emph> %param1 What brings you here today?");
+                  strText = _t("<emph>Hi %name! Welcome! %param1</emph> What brings you here today?");
 
                }
                else if (get_user_data(strUser, "last_visit") > 60 * 60 * 3 || get_user_data(strUser, "last_welcome_time") != _trans1(welcome_time))
@@ -237,8 +237,6 @@ string on_pres(string strUser, string strType)
                {
 
 
-                  strText = _t("<emph>%name is back! :)</emph>");
-
                   if (now.m_time - last_see_you.m_time > 8 * 60)  // 8 (infinite standing up) minutes
                   {
 
@@ -251,6 +249,8 @@ string on_pres(string strUser, string strType)
                      doorbell();
 
                   }
+
+                  strText = _t("<emph>%name is back! :)</emph>");
 
                }
 
@@ -274,6 +274,22 @@ string on_pres(string strUser, string strType)
 
             if (strText.has_char())
             {
+
+               auto puser = Application.veripack().get_user(strUser, m_pcomm->m_strProtocol, true);
+
+               if (puser->m_dib.is_set() && puser->m_dib->area() > 0)
+               {
+
+                  if (puser->m_dibCircle->area() <= 0)
+                  {
+
+                     puser->m_dibCircle->create_circle(puser->m_dib, 72);
+
+                  }
+
+                  Application.veripack().m_d2[strText] = puser->m_dibCircle;
+
+               }
 
                m_pcomm->msg(strText);
 

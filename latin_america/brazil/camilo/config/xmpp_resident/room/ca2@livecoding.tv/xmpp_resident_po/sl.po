@@ -148,7 +148,7 @@ msgtext "%name, je vstopil/a!! (Subset of commands enabled)."
 msgid "%name you are connected!";
 msgtext "%name si povezan/a!";
 
-msgid "Welcome %name! :) %param1 Please, use exclamation mark to get help.."
+msgid "Welcome %name! :) %param1 Please, use exclamation mark to get help."
 msgtext "Dobrodošel/a %name! :) %param1 Vtipkaj klicaj in pritisni "enter" za pomoč."
 
 msgid "Hi %name! Welcome! %param1 What brings you here today?"
