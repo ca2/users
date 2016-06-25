@@ -367,25 +367,8 @@ call_async("/xcore/stage/x86/app", "\""+ strParam + "\" :  app=app-veriwell/wave
 
 
 
-double user_time_zone(string strUser)
-{
 
-   var time_zone_text = get_user_data(strUser, "time_zone_text");
 
-   if (time_zone_text.has_char())
-   {
-
-      return time_zone(time_zone_text);
-
-   }
-   else
-   {
-
-      return get_user_time_zone(strUser);
-
-   }
-
-}
 
 
 
@@ -415,61 +398,6 @@ void olink(string strUser, string strUrl)
 
 
 
-string str_signed(double d)
-{
-
-   if (d > 0.0)
-   {
-
-      return "+" + ::str::from(d);
-
-   }
-   else if (d < 0.0)
-   {
-
-      return ::str::from(d);
-
-   }
-   else
-   {
-
-      return "0.0";
-
-   }
-
-}
-
-string str_signed_int(int i)
-{
-
-   if (i > 0)
-   {
-
-      return "+" + ::str::from(i);
-
-   }
-   else if (i < 0)
-   {
-
-      return ::str::from(i);
-
-   }
-   else
-   {
-
-      return "0";
-
-   }
-
-}
-
-
-bool utc_offset_invalid(double dUTCOffset)
-{
-
-   return dUTCOffset < -12.0 || dUTCOffset > 14.0;  // don't know (is invalid?)
-
-}
 
 
 
@@ -562,7 +490,7 @@ bool third_info(string strQuery, bool bPrefix = true)
          else if (m_strOther.has_char())
          {
 
-            m_strOtherLang = get_user_lang(m_strOther);
+            m_strOtherLang = get_user(m_strOther)->get_user_lang();
 
             m_strOtherName = username(m_strOther, m_strOtherLang);
 

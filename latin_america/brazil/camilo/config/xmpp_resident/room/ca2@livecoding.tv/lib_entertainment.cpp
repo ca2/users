@@ -112,7 +112,7 @@ stringa wsa(string strUser)
 void ws(string strUser, bool bDoorBel) // welcome sound
 {
 
-   get_user_country_code(strUser);
+   get_user(strUser)->get_user_country_code();
 
    strUser.make_lower();
 
@@ -130,7 +130,7 @@ void ws(string strUser, bool bDoorBel) // welcome sound
 
       }
 
-      auto puser = Application.veripack().get_user(strUser, "xmpp", true);
+      auto puser = get_user(strUser);
 
       audio_announce(stra[iIndex], username(strUser, m_epersonVocative == ::vericard::person_user ? m_strLang : m_strOtherLang), puser != NULL ? puser->m_strImage : "");
 
