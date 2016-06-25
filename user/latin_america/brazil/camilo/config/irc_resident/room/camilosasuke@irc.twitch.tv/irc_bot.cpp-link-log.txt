@@ -1,1 +1,1 @@
-﻿g++: error: /home/camilo/.ca2/appdata/system/config/irc_resident/room/camilosasuke@irc.twitch.tv/irc_bot.o: No such file or directory
+﻿   Creating library C:\core\time\x64\basis\C_.Users.camilo.AppData.Roaming.ca2.system.config.irc_resident.room.camilosasuke@irc.twitch.tv.irc_bot-mc38bc77x9fr5t9seb6tk7oa4caa96csqokhc0m2h1zzy6v2ipa087lhjxkha7sj.lib and object C:\core\time\x64\basis\C_.Users.camilo.AppData.Roaming.ca2.system.config.irc_resident.room.camilosasuke@irc.twitch.tv.irc_bot-mc38bc77x9fr5t9seb6tk7oa4caa96csqokhc0m2h1zzy6v2ipa087lhjxkha7sj.exp

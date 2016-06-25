@@ -25,17 +25,19 @@ string on_new_followers(stringa & straNew)
    for(auto strUser : straNew)
    {
 
-      string strLang = lang(get_user_data(strUser,"lang").get_string().lower());
+      auto puser = get_user(strUser);
+
+      string strLang = Application.lang(puser->get_user_data("lang").get_string().lower());
       if(strLang.is_empty())
       {
-         string strCountry = get_user_data(strUser, "country_code").get_string().lower();
+         string strCountry = puser->get_user_data("country_code").get_string().lower();
          if(strCountry.is_empty())
          {
-            strCountry = get_lctv_info(strUser,"country_code").get_string().lower();
-            set_user_data(strUser, "country_code",strCountry);
+            strCountry = puser->get_user_info("country_code").get_string().lower();
+            puser->set_user_data("country_code",strCountry);
          }
-         strLang = initial_country_lang(strCountry);
-         set_user_data(strUser,"lang",strLang);
+         strLang = Application.initial_country_lang(strCountry);
+         puser->set_user_data("lang",strLang);
       }
 
       if(strLastLang.is_empty())

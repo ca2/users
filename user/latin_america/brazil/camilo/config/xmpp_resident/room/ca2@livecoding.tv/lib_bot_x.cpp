@@ -325,7 +325,7 @@ string bot_x()
    else if (about_user("cc"))
    {
 
-      strTopic = get_user_country_code(strTopicUser);
+      strTopic = get_user(strTopicUser)->get_user_country_code();
 
       if (is_about_self())
       {
@@ -354,7 +354,7 @@ string bot_x()
    else if (about_user("land"))
    {
 
-      string strCountryCode = get_user_country_code(strTopicUser, true).uppered();
+      string strCountryCode = get_user(strTopicUser)->get_user_country_code(true).uppered();
 
       strTopic = get_country(strCountryCode);
 
@@ -411,7 +411,7 @@ string bot_x()
    else if (about_user("city"))
    {
 
-      strTopic = get_user_city(strTopicUser, true);
+      strTopic = get_user(strTopicUser)->get_user_city(true);
 
       if (is_about_self())
       {
@@ -454,11 +454,9 @@ string bot_x()
 
       if (strUser == "ca2")
       {
-#ifdef __XMPP
-         ::xmpp::comm * pcomm = dynamic_cast <::xmpp::comm *>(m_pcomm);
 
-         pcomm->defer_set_subject(strText);
-#endif
+         m_pcomm->defer_set_subject(strText);
+
       }
 
    }
@@ -466,7 +464,7 @@ string bot_x()
    {
 
 #ifdef __XMPP
-      ::xmpp::comm * pcomm = dynamic_cast <::xmpp::comm *>(m_pcomm);
+      ::xmpp::comm * pcomm = m_pcomm.cast <::xmpp::comm>();
 
       pcomm->defer_request_roster();
       ::fork(get_app(), [=]()
@@ -1001,7 +999,7 @@ string bot_x()
    else if(about_user("getlang"))
    {
 
-      strTopic = get_user_lang(strTopicUser);
+      strTopic = get_user(strTopicUser)->get_user_lang();
 
       if (is_about_self())
       {
@@ -1019,10 +1017,10 @@ string bot_x()
    }
    else if(strText.get_length() == 11 && ::str::begins_eat(strText,"!setlang "))
    {
-      strLang = lang(strText);
+      strLang = Application.lang(strText);
       set_user_data(strUser, "lang", strLang);
       set_user_data(strUser, "lang_set", "set");
-      strLang = get_user_lang(strUser);
+      strLang = get_user(strUser)->get_user_lang();
       strTopic = strLang;
       strName = username(strUser, m_strLang);
       str = _t("%name, your language was set to \"%topic\"");
@@ -1058,9 +1056,9 @@ string bot_x()
 
       }
 
-      string cc = get_user_country_code(strCurrentUser).uppered();
+      string cc = get_user(strCurrentUser)->get_user_country_code().uppered();
 
-      string ci = get_user_city(strCurrentUser);
+      string ci = get_user(strCurrentUser)->get_user_city();
 
       string strQ;
 
@@ -1169,9 +1167,9 @@ string bot_x()
 
       }
       
-      string cc = get_user_country_code(strCurrentUser).uppered();
+      string cc = get_user(strCurrentUser)->get_user_country_code().uppered();
 
-      string ci = get_user_city(strCurrentUser);
+      string ci = get_user(strCurrentUser)->get_user_city();
 
       string strQ;
 
@@ -1418,7 +1416,7 @@ string bot_x()
       else
       {
          
-         dUTCOffset = time_zone(strText);
+         dUTCOffset = Application.time_zone(strText);
 
          set_user_data(strUser, "time_zone", dUTCOffset);
 
@@ -1443,11 +1441,11 @@ string bot_x()
    else if(about_user("getzone"))
    {
 
-      double dUTCOffset = user_time_zone(strTopicUser);
+      double dUTCOffset = get_user(strTopicUser)->user_time_zone();
 
-      strTopic = utc_offset_string(dUTCOffset);
+      strTopic = Application.utc_offset_string(dUTCOffset);
 
-      if(get_user_data(strUser,"time_zone_text").has_char() && get_user_data(strTopicUser, "time_zone_text").get_string().upper().CompareNoCase(strTopic) != 0)
+      if(get_user(strUser)->get_user_data("time_zone_text").has_char() && get_user(strTopicUser)->get_user_data("time_zone_text").get_string().upper().CompareNoCase(strTopic) != 0)
       {
 
          strTopic = get_user_data(strTopicUser, "time_zone_text").get_string().upper() + " " + strTopic;

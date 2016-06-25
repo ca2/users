@@ -1,97 +1,4 @@
-﻿string  lang(string strLang)
-{
-   if (strLang == "br")
-   {
-      return "pt-br";
-   }
-   else if (strLang == "pt")
-   {
-      return "pt-pt";
-   }
-   else if (strLang == "do")
-   {
-      return "es";
-   }
-   else if (strLang == "co")
-   {
-      return "es";
-   }
-   else if (strLang == "pe")
-   {
-      return "es";
-   }
-   else if (strLang == "ec")
-   {
-      return "es";
-   }
-   else if (strLang == "mx")
-   {
-      return "es";
-   }
-   else if (strLang == "pa")
-   {
-      return "es";
-   }
-   else if (strLang == "py")
-   {
-      return "es";
-   }
-   else if (strLang == "uy")
-   {
-      return "es";
-   }
-   else if (strLang == "ar")
-   {
-      return "es";
-   }
-   else if (strLang == "cl")
-   {
-      return "es";
-   }
-   else if (strLang == "us")
-   {
-      return "en";
-   }
-   else if (strLang == "ja")
-   {
-      return "jp";
-   }
-   else if (strLang == "uk")
-   {
-      return "en-uk";
-   }
-   else if (strLang == "en-uk")
-   {
-      return "en-uk";
-   }
-   else if (strLang == "zh-tw")
-   {
-      return "zh-tw";
-   }
-   else if (strLang == "zh-cn")
-   {
-      return "zh-cn";
-   }
-   else if (strLang == "si" || strLang == "sl")
-   {
-      return "sl";
-   }
-   else
-   {
-//      stringa stra;
-//      stra.explode("-", strLang);
-//      if (stra.get_count() == 2)
-//      {
-//         return lang(stra[0]);
-//      }
-//      else
-      {
-         return strLang;
-      }
-   }
-}
-
-
+﻿
 
 bool _load_text(string strLang)
 {
@@ -168,511 +75,199 @@ bool _load_text(string strLang)
 
 
 
-string  tts_lang(string strLang)
+
+
+bool lspeak(string strUser, string strLang, string strText)
 {
 
-   if (strLang == "en")
-   {
-      return "en";
-   }
-   else if (strLang == "es")
-   {
-      return "es";
-   }
-   else if (strLang == "pt")
-   {
-      return "pt";
-   }
-   else if (strLang == "pt-br")
-   {
-      return "pt";
-   }
-   else if (strLang == "pt-pt")
-   {
-      return "pt";
-   }
-   else if (strLang == "ru")
-   {
-      return "ru";
-   }
-   else if (strLang == "fr")
-   {
-      return "fr";
-   }
-   else if (strLang == "it")
-   {
-      return "it";
-   }
-   else if (strLang == "de")
-   {
-      return "de";
-   }
-   else if (strLang == "jp")
-   {
-      return "jp";
-   }
-   else if (strLang == "ja")
-   {
-      return "jp";
-   }
-   else if (strLang == "pl")
-   {
-      return "pl";
-   }
-   else if (strLang == "tw")
-   {
-      return "tw";
-   }
-   else if (strLang == "cn")
-   {
-      return "cn";
-   }
-   else if (strLang == "kr")
-   {
-      return "kr";
-   }
-   else
-   {
-      return "en";
-   }
-
-
-}
-
-string  trans_lang(string strLang)
-{
-
-   if (strLang == "en")
-   {
-      return "en";
-   }
-   else if (strLang == "es")
-   {
-      return "es";
-   }
-   else if (strLang == "pt")
-   {
-      return "pt";
-   }
-   else if (strLang == "pt-br")
-   {
-      return "pt";
-   }
-   else if (strLang == "pt-pt")
-   {
-      return "pt";
-   }
-   else if (strLang == "ru")
-   {
-      return "ru";
-   }
-   else if (strLang == "fr")
-   {
-      return "fr";
-   }
-   else if (strLang == "it")
-   {
-      return "it";
-   }
-   else if (strLang == "de")
-   {
-      return "de";
-   }
-   else if (strLang == "nl")
-   {
-      return "nl";
-   }
-   else if (strLang == "ca") // catalan - (catalunha)
-   {
-      return "ca";
-   }
-   else if (strLang == "hy") // modern armenian
-   {
-      return "hy";
-   }
-   else if (strLang == "cn" || strLang == "zh-cn")
-   {
-      return "zh-cn";
-   }
-   else if (strLang == "tw" || strLang == "zh-tw")
-   {
-      return "zh-tw";
-   }
-   else if (strLang == "jp" || strLang == "ja")
-   {
-      return "ja";
-   }
-   else if (strLang == "se" || strLang == "sv")
-   {
-      return "sv";
-   }
-   else if (strLang == "dk" || strLang == "da")
-   {
-      return "da";
-   }
-   else if (strLang == "si" || strLang == "sl")
-   {
-      return "sl";
-   }
-   else if (strLang == "sk")
-   {
-      return "sk";
-   }
-   else
-   {
-      return "en";
-   }
-
-
-}
-
-
-string  initial_country_lang(string strCountry)
-{
-
-   if (strCountry == "br")
+   if (!consider_speakable_text(strText))
    {
 
-      return "pt-br";
+      return false;
 
    }
-   else if (strCountry == "do")
+
+   strText = " " + strText + " ";
+   int iFind = 0;
+   while (true)
    {
-
-      return "es";
-
-   }
-   else if (strCountry == "co")
-   {
-
-      return "es";
-
-   }
-   else if (strCountry == "pe")
-   {
-
-      return "es";
-
-   }
-   else if (strCountry == "ec")
-   {
-
-      return "es";
-
-   }
-   else if (strCountry == "mx")
-   {
-
-      return "es";
-
-   }
-   else if (strCountry == "pa")
-   {
-
-      return "es";
-
-   }
-   else if (strCountry == "py")
-   {
-
-      return "es";
-
-   }
-   else if (strCountry == "uy")
-   {
-
-      return "es";
-
-   }
-   else if (strCountry == "ar")
-   {
-
-      return "es";
-
-   }
-   else if (strCountry == "cl")
-   {
-
-      return "es";
-
-   }
-   else if (strCountry == "us")
-   {
-
-      return "en";
-
-   }
-   else if (strCountry == "uk")
-   {
-
-      return "en";
-
-   }
-   else if (strCountry == "nl")
-   {
-
-      return "nl";
-
-   }
-   else if (strCountry == "de")
-   {
-
-      return "de";
-
-   }
-   else if (strCountry == "ru")
-   {
-
-      return "ru";
-
-   }
-   else if (strCountry == "pl")
-   {
-
-      return "pl";
-
-   }
-   else if (strCountry == "am")
-   {
-
-      return "hy";
-
-   }
-   else if (strCountry == "dk")
-   {
-
-      return "dk";
-
-   }
-   else if (strCountry == "pt")
-   {
-
-      return "pt-pt";
-
-   }
-   else if (strCountry == "es")
-   {
-
-      return "es";
-
-   }
-   else if (strCountry == "fr")
-   {
-
-      return "fr";
-
-   }
-   else if (strCountry == "it")
-   {
-
-      return "it";
-
-   }
-   else if (strCountry == "si")
-   {
-
-      return "sl";
-
-   }
-   else if (strCountry == "cn")
-   {
-
-      return "zh-cn";
-
-   }
-   else if (strCountry == "tw")
-   {
-
-      return "zh-tw";
-
-   }
-   else if (strCountry == "ja" || strCountry == "jp")
-   {
-
-      return "jp";
-
-   }
-   else
-   {
-
-      stringa stra;
-
-      stra.explode("-", strCountry);
-
-      if (stra.get_count() == 2)
+      iFind = strText.find_ci("ca2", iFind);
+      if (iFind < 0)
+         break;
+      if (!isalnum(strText[iFind - 1]) && !isalnum(strText[iFind + 3]))
       {
-
-         return stra[0];
-
+         strText = strText.Left(iFind) + " c a 2 " + strText.Mid(iFind + 3);
       }
-      else
-      {
-
-         return "en";
-
-      }
-
+      iFind += 3;
    }
-
-}
-
-
-
-bool enable_tts(string strLang)
-{
-
-#if defined(LINUX) || defined(MACOS)
-   return false;
-#endif
-   if (strLang == "en")
-   {
-      return true;
-   }
-   else if (strLang == "fr")
-   {
-      return true;
-   }
-   else if (strLang == "de")
-   {
-      return true;
-   }
-   else if (strLang == "pl")
-   {
-      return true;
-   }
-   else if (strLang == "zh")
-   {
-      return true;
-   }
-   else if (strLang == "cn")
-   {
-      return true;
-   }
-   else if (strLang == "tw")
-   {
-      return true;
-   }
-   else if (strLang == "pt")
-   {
-      return true;
-   }
-   else if (strLang == "br")
-   {
-      return true;
-   }
-   else if (strLang == "es")
-   {
-      return true;
-   }
-   else if (strLang == "it")
-   {
-      return true;
-   }
-   else if (strLang == "kr")
-   {
-      return true;
-   }
-   else if (strLang == "ru")
-   {
-      return true;
-   }
-   else if (strLang == "jp" || strLang == "ja")
-   {
-      return true;
-   }
-   else if (strLang == "pl")
-   {
-      return true;
-   }
-   else if (strLang.is_empty())
-   {
-      return true;
-   }
-   else
+   if (spam(strUser))
    {
       return false;
    }
-
-}
-
-
-string glang(string strLang)
-{
-   if (strLang == "en")
+   else if (m_epersonVocative == ::vericard::person_user)
    {
-      return "en";
-   }
-   else if (strLang == "jp")
-   {
-      return "ja";
+
+      if (!Application.enable_tts(strLang))
+      {
+         m_strLang = Application.trans_lang(strLang);
+         m_strSpeak = strText;
+         Application.trans_speak(this);
+      }
+      else
+      {
+         m_strLang = Application.tts_lang(strLang);
+         m_strSpeak = strText;
+         Application.lang_speak(this);
+      }
    }
    else
    {
-      return lang(strLang);
+      if (!Application.enable_tts(m_strOtherLang))
+      {
+         m_strOtherLang = Application.trans_lang(m_strOtherLang);
+         m_strSpeak = strText;
+         Application.trans_speak(this);
+      }
+      else
+      {
+         m_strOtherLang = Application.tts_lang(m_strOtherLang);
+         m_strSpeak = strText;
+         Application.lang_speak(this);
+      }
    }
-}
-
-string l_and(string strLang)
-{
-   if (strLang == "de")
-   {
-      return "und";
-   }
-   if (strLang == "pt")
-   {
-      return "e";
-   }
-   if (strLang == "fr")
-   {
-      return "et";
-   }
-   if (strLang == "ru")
-   {
-      return "и";
-   }
-   return "and";
+   return true;
 }
 
 
-string welcome_time(string & strSpeakText)
+
+
+
+
+string get_text(string & strSpeakText, string strId)
 {
 
-   string & strTopic = m_strTopic;
-   stringa & straParam = m_straParam;
-   string strUser = m_epersonVocative == ::vericard::person_user ? m_strUser : m_strUser;
+   stringa straParam = m_straParam;
+   string strTopic = m_strTopic;
    string strLang = m_epersonVocative == ::vericard::person_user ? m_strLang : m_strOtherLang;
    string strName = m_epersonVocative == ::vericard::person_user ? m_strName : m_strOtherName;
 
+   string strText = _get_text(strLang, strId);
 
+   string strNewSpeakText;
 
-   ::datetime::time now = user_time(strUser);
-      
-   if (now.GetGmtHour() >= 6 && now.GetGmtHour() < 12)
+   strNewSpeakText = strText;
+
+   strNewSpeakText.replace("<emph>", "");
+   strNewSpeakText.replace("</emph>", "");
+
+   strNewSpeakText.replace("($name)", "");
+   strNewSpeakText.replace("$name", "");
+   strNewSpeakText = process_text(strNewSpeakText, strName, strTopic, straParam);
+
+   if (strLang == "en" || strLang == "pt" || strLang == "de" || strLang == "nl")
    {
-
-      return _t("Good Morning!");
-
-   }
-   else if (now.GetGmtHour() >= 12 && now.GetGmtHour() < 18)
-   {
-
-      return _t("Good Afternoon!");
-
-   }
-   else
-   {
-
-      return _t("Good Evening!");
-
+      strNewSpeakText.replace(":)", "");
+      strNewSpeakText.replace(":(", "");
    }
 
+   strSpeakText = strNewSpeakText;
 
-
-
+   strText.replace("($name)", "(%name)");
+   strText.replace("$name", "%name");
+   return process_text(strText, strName, strTopic, straParam);
 
 }
 
-string name_welcome_time( string & strSpeakText)
+
+
+
+string _get_text(string strLang, string strId)
+{
+
+   _load_text(strLang);
+
+   auto p = m_text.PLookup(strLang);
+
+   if (p == NULL)
+   {
+
+      //         _load_text(strLang);
+
+      //       p = m_text.PLookup(strLang);
+
+      //     if (p == NULL)
+      //   {
+
+      //    return strId;
+
+      //}
+
+      return strId;
+
+   }
+
+   if (p->m_element2[strId].is_empty())
+      return strId;
+   else
+      return p->m_element2[strId];
+
+}
+
+
+
+string get_country(string strLang, string strCountry)
+{
+
+   strLang.make_upper();
+
+   strCountry.make_upper();
+
+   ::file::path path = ::dir::system() / "config/xmpp_resident/room/ca2@livecoding.tv/xmpp_resident_country" / (strLang + ".json");
+
+   ::file_time ft = get_file_time(path);
+
+   if (m_ftimeCountry[strLang] == ft)
+   {
+
+      return m_country[strLang][strCountry];
+
+   }
+
+   m_ftimeCountry[strLang] = ft;
+
+   string strJson = Application.file().as_string(path);
+
+   try
+   {
+
+      const char * psz = strJson;
+
+      var v;
+
+      v.parse_json(psz);
+
+      for (auto & item : v.vara())
+      {
+
+         m_country[strLang][item["code"].get_string().upper()] = item["name"];
+
+      }
+
+   }
+   catch (...)
+   {
+
+
+   }
+
+   return m_country[strLang][strCountry];
+
+}
+
+
+
+
+string name_welcome_time(string & strSpeakText)
 {
 
 
@@ -739,124 +334,84 @@ string name_welcome_time( string & strSpeakText)
 
 }
 
-string get_country(string strLang, string strCountry)
+
+string welcome_time(string & strSpeakText)
 {
 
-   strLang.make_upper();
-
-   strCountry.make_upper();
-
-   ::file::path path = ::dir::system() / "config/xmpp_resident/room/ca2@livecoding.tv/xmpp_resident_country" / (strLang + ".json");
-
-   ::file_time ft = get_file_time(path);
-
-   if (m_ftimeCountry[strLang] == ft)
-   {
-
-      return m_country[strLang][strCountry];
-
-   }
-
-   m_ftimeCountry[strLang] = ft;
-
-   string strJson = Application.file().as_string(path);
-
-   try
-   {
-
-      const char * psz = strJson;
-
-      var v;
-
-      v.parse_json(psz);
-
-      for (auto & item : v.vara())
-      {
-
-         m_country[strLang][item["code"].get_string().upper()] = item["name"];
-
-      }
-
-   }
-   catch (...)
-   {
-
-
-   }
-
-   return m_country[strLang][strCountry];
-
-}
-
-
-
-
-string _get_text(string strLang, string strId)
-{
-
-   _load_text(strLang);
-
-   auto p = m_text.PLookup(strLang);
-
-   if (p == NULL)
-   {
-
-      //         _load_text(strLang);
-
-      //       p = m_text.PLookup(strLang);
-
-      //     if (p == NULL)
-      //   {
-
-      //    return strId;
-
-      //}
-
-      return strId;
-
-   }
-
-   if (p->m_element2[strId].is_empty())
-      return strId;
-   else
-      return p->m_element2[strId];
-
-}
-
-string get_text(string & strSpeakText, string strId)
-{
-
-   stringa straParam = m_straParam;
-   string strTopic = m_strTopic;
+   string & strTopic = m_strTopic;
+   stringa & straParam = m_straParam;
+   string strUser = m_epersonVocative == ::vericard::person_user ? m_strUser : m_strUser;
    string strLang = m_epersonVocative == ::vericard::person_user ? m_strLang : m_strOtherLang;
    string strName = m_epersonVocative == ::vericard::person_user ? m_strName : m_strOtherName;
 
-   string strText = _get_text(strLang, strId);
 
-   string strNewSpeakText;
 
-   strNewSpeakText = strText;
+   ::datetime::time now = get_user(strUser)->user_time();
 
-   strNewSpeakText.replace("<emph>", "");
-   strNewSpeakText.replace("</emph>", "");
-
-   strNewSpeakText.replace("($name)", "");
-   strNewSpeakText.replace("$name", "");
-   strNewSpeakText = process_text(strNewSpeakText, strName, strTopic, straParam);
-
-   if (strLang == "en" || strLang == "pt" || strLang == "de" || strLang == "nl")
+   if (now.GetGmtHour() >= 6 && now.GetGmtHour() < 12)
    {
-      strNewSpeakText.replace(":)", "");
-      strNewSpeakText.replace(":(", "");
+
+      return _t("Good Morning!");
+
+   }
+   else if (now.GetGmtHour() >= 12 && now.GetGmtHour() < 18)
+   {
+
+      return _t("Good Afternoon!");
+
+   }
+   else
+   {
+
+      return _t("Good Evening!");
+
    }
 
-   strSpeakText = strNewSpeakText;
 
-   strText.replace("($name)", "(%name)");
-   strText.replace("$name", "%name");
-   return process_text(strText, strName, strTopic, straParam);
+
+
 
 }
+
+
+string glang(string strLang)
+{
+   if (strLang == "en")
+   {
+      return "en";
+   }
+   else if (strLang == "jp")
+   {
+      return "ja";
+   }
+   else
+   {
+      return Application.lang(strLang);
+   }
+}
+
+string l_and(string strLang)
+{
+   if (strLang == "de")
+   {
+      return "und";
+   }
+   if (strLang == "pt")
+   {
+      return "e";
+   }
+   if (strLang == "fr")
+   {
+      return "et";
+   }
+   if (strLang == "ru")
+   {
+      return "и";
+   }
+   return "and";
+}
+
+
 
 string process_text(string strText, string strName, string strTopic, stringa straParam)
 {
@@ -929,74 +484,13 @@ string process_text(string strText, string strName, string strTopic, stringa str
 
 
 
-bool lspeak(string strUser, string strLang, string strText)
-{
-
-   if (!consider_speakable_text(strText))
-   {
-
-      return false;
-
-   }
-
-   strText = " " + strText + " ";
-   int iFind = 0;
-   while (true)
-   {
-      iFind = strText.find_ci("ca2", iFind);
-      if (iFind < 0)
-         break;
-      if (!isalnum(strText[iFind - 1]) && !isalnum(strText[iFind + 3]))
-      {
-         strText = strText.Left(iFind) + " c a 2 " + strText.Mid(iFind + 3);
-      }
-      iFind += 3;
-   }
-   if (spam(strUser))
-   {
-      return false;
-   }
-   else if (m_epersonVocative == ::vericard::person_user)
-   {
-
-      if (!enable_tts(strLang))
-      {
-         m_strLang = trans_lang(strLang);
-         m_strSpeak = strText;
-         Application.trans_speak(this);
-      }
-      else
-      {
-         m_strLang = tts_lang(strLang);
-         m_strSpeak = strText;
-         Application.lang_speak(this);
-      }
-   }
-   else
-   {
-      if (!enable_tts(m_strOtherLang))
-      {
-         m_strOtherLang = trans_lang(m_strOtherLang);
-         m_strSpeak = strText;
-         Application.trans_speak(this);
-      }
-      else
-      {
-         m_strOtherLang = tts_lang(m_strOtherLang);
-         m_strSpeak = strText;
-         Application.lang_speak(this);
-      }
-   }
-   return true;
-}
-
 
 string get_country(string strCountryCode)
 {
 
    string strCountry = get_country(m_epersonVocative == ::vericard::person_user ? m_strLang : m_strOtherLang, strCountryCode);
 
-   if(strCountry.is_empty())
+   if (strCountry.is_empty())
    {
 
       strCountry = get_country("en", strCountryCode);
@@ -1006,3 +500,42 @@ string get_country(string strCountryCode)
    return strCountry;
 
 }
+
+
+
+
+string user_time_text(string strUser, string strLang, bool bTimeZone = false)
+{
+
+   auto puser = get_user(strUser);
+
+   ::datetime::time now = puser->user_time();
+
+   string strZone;
+
+   if (bTimeZone)
+   {
+
+      strZone = puser->get_user_data("time_zone_text");
+
+      if (strZone.has_char())
+      {
+
+         strZone.make_upper();
+
+         strZone += " ";
+
+      }
+
+      strZone += puser->user_time_span_text();
+
+      strZone = " " + strZone;
+
+   }
+
+   string strSpeakText;
+
+   return System.datetime().international().get_gmt_date_time(now, _t("%Y-%m-%d %H:%M:%S")) + strZone;
+
+}
+

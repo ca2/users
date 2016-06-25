@@ -12,13 +12,15 @@ string on_pres(string strUser, string strType)
 
    string & strTopic = m_strTopic;
 
-   m_strCountry = get_user_country_code(strUser, true);
+   auto puser = get_user(strUser, true);
 
-   get_user_city(strUser, true);
+   m_strCountry = puser->get_user_country_code(true);
 
-   m_strLang = get_user_lang(strUser);
+   puser->get_user_city(true);
 
-   string strTimeZone = get_user_time_zone(strUser);
+   m_strLang = puser->get_user_lang();
+
+   string strTimeZone = puser->get_user_time_zone();
 
    m_strName = username(strUser, m_strLang);
 
@@ -275,7 +277,7 @@ string on_pres(string strUser, string strType)
             if (strText.has_char())
             {
 
-               auto puser = Application.veripack().get_user(strUser, m_pcomm->m_strProtocol, true);
+               auto puser = get_user(strUser);
 
                if (puser->m_dib.is_set() && puser->m_dib->area() > 0)
                {

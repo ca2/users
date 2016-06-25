@@ -62,17 +62,19 @@ string on_bot(string strUser,string strText)
 
    }
 
-   m_strCountry = get_user_country_code(m_strUser);
-   m_strLang = get_user_lang(m_strUser);
-   m_strTimeZone = get_user_time_zone(strText);
+   auto puser = get_user(m_strUser);
+
+   m_strCountry = puser->get_user_country_code();
+   m_strLang = puser->get_user_lang();
+   m_strTimeZone = puser->get_user_time_zone();
    m_strName = username(strUser, m_strLang);
    if(strText.get_length() > 9 && ::str::begins(strText,"!setname "))
    {
       var str = strText.substr(9);
       if (consider_speakable_text(str))
       {
-         set_user_data(strUser, "name", str);
-         set_user_data(strUser, "name." + m_strLang, str);
+         puser->set_user_data("name", str);
+         puser->set_user_data("name." + m_strLang, str);
       }
       else
       {
@@ -195,18 +197,20 @@ string on_bot(string strUser,string strText)
          }
          strText = str;
 
-         m_strOtherCountry = get_user_country_code(m_strOther);
-         m_strOtherLang = get_user_lang(m_strOther);
-         m_strOtherTimeZone = get_user_time_zone(m_strOther);
+         auto puserOther = get_user(m_strOther);
+
+         m_strOtherCountry = puserOther->get_user_country_code();
+         m_strOtherLang = puserOther->get_user_lang();
+         m_strOtherTimeZone = puserOther->get_user_time_zone();
          if (m_strOtherTimeZone.is_empty())
          {
 
             if (m_strOtherCountry.has_char())
             {
                double dTimeZone;
-               m_strOtherTimeZone = initial_locality_time_zone(m_strOtherCountry, get_lctv_info(m_strOther, "city"), dTimeZone);
-               set_user_data(m_strOther, "time_zone_text", m_strOtherTimeZone);
-               set_user_data(m_strOther, "time_zone", dTimeZone);
+               m_strOtherTimeZone = Application.initial_locality_time_zone(m_strOtherCountry, puserOther->get_user_info( "city"), dTimeZone);
+               puserOther->set_user_data("time_zone_text", m_strOtherTimeZone);
+               puserOther->set_user_data("time_zone", dTimeZone);
             }
          }
 
