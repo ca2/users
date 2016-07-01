@@ -74,27 +74,25 @@ msgid "%name, for Windows Store App development, ca2 uses Windows, Visual Studio
 msgtext "%name, 윈도우 스토어 앱개발, ca2는 Windows, Visual Studio 2015 Community Edition, SmartSVN, TortoiseSVN 와 WinMerge 를 사용합니다."
 
 msgid "%name, For the exclamation mark, if an existing command is not found, an audio clip is played from !playlist. If a corresponding audio clip is not found, the text is played like in !say <text>"
-msgtext "%name, een uitroepteken gevolgd door een onbekende instructie resulteert in een audio clip die afgespeeld wordt vanuit !playlist. Als een corresponderende audio clip niet is gevonden wordt de tekst weergegeven zoals !say <text>."
+msgtext "%name, 느낌표, 만약에 존재하는 커맨드를 찾을 수 없다면, 오디오 클립이 !playlist에 실행되고 있습니다. 일치하는 오디오 클립을 찾을 수 없다면, 텍스트는 !say <text>와 같이 텍스트로 실행됩니다."
 
 msgid "%name, ca2 is an all-purpose multi-platform framework and set of libraries written in C++ language to help developers create great apps for users."
 msgtext "%name, ca2는 접근성이 좋은 멀티 플랫폼 프래임 워크와 개발자가 사용자를 위해 좋은 앱을 만들 수 있는 C++ 언어로 된 라이브러리 설정이 됩니다."
 
-is een multiplatform framework voor allerlei doeleinden. ca2 is een collectie van bibliotheken geschreven in de C++ programmeertaal speciaal bijeengebracht om ontwikkelaars te helpen in het creëren van uitstekende applicaties voor gebruikers."
-
 msgid "%name presence and interest.\nxmetrix xmxstudio API.\nLivecoding.TV API and web site.\nVapaamies Russian translation.\nr00tkiller French translation.\nCatherina Cortega Dutch translation.\nfuel and andremommert German translation.\nPawel Kulesza Polish translation.\nha10word Traditional Chinese translation."
-msgtext "%name, gebruikersinformatie, afbeelding, land en vlag van de gebruiker zijn afkomstig van xmetrix code, web api en web server. Met dank aan Vapaamies voor de Russische vertaling. Met dank aan r00tkiller voor Franse vertaling. Met dank aan catherinacortega voor de Nederlandse vertaling. Met dank aan andremommert voor enkele Duitse vertalingen. Veel overige vertalingen zijn afkomstig van Google."
+msgtext "%name 존재와 관심. \nxmeterix xmxstudio API.\nLivecoding.TV API 그리고 웹사이트.\n\nVapaamies 러시아 번역.\nr00tkiller 프랑스 번역.\nCatherina Cortega 네덜란드 번역.\nfuel and andremommert 독일어 번역.\nPawel Kulesza 폴란드어 번역.\nha10word 번체 중국어 번역"
 
 msgid "%name, your language is set to %topic"  
-msgtext "%name, uw taal is nu ingesteld op %topic"
+msgtext "%name, 당신의 언어는 %topic로 설정되었다."
 
 msgid "%name, your language was set to \"%topic\""
-msgtext "%name, uw taal is nu ingesteld op \"%topic\""
+msgtext "%name, 당신의 언어는 \"%topic\로 설정되었다.""
 
 msgid "%name, your time zone was set to UTC %topic"
-msgtext "%name, uw tijdzone is ingesteld op UTC %topic" 
+msgtext "%name, 당신의 시간은 UTC %topic로 설정되었다." 
 
 msgid "%name, your time zone was set to \"%topic\"."
-msgtext "%name, uw tijdzone is ingesteld op \"%topic\"."
+msgtext "%name, 당신의 시간은 \"%topic\로 설정되었다"."
 
 msgid " Actually, it is currently \"Unknown Time Zone\". Yell ca2 on this (or not)."
 msgtext "Echter het is op dit moment \"Unknown Time Zone\". Roep maar even naar ca2 (of niet)."
