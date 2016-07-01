@@ -342,7 +342,7 @@ call_async("/xcore/stage/x86/app", "\""+ strParam + "\" :  app=app-veriwell/wave
 #ifdef WINDOWS
    return "C:\\bergedge";
 #else
-   return "/bergedge";
+   return "/a/bergedge";
 #endif
 
 }
