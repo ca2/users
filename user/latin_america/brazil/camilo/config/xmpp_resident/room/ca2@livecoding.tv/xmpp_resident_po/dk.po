@@ -1,4 +1,28 @@
-﻿msgid "%name, Some supported commands !help, !about and !want the bot"
+﻿msgid "Good Morning!"
+msgtext "God morgen!"
+
+msgid "Good Afternoon!"
+msgtext "God eftermiddag!"
+
+msgid "Good Evening!"
+msgtext "God aften!"
+
+msgid "Good Night!"
+msgtext "Godnat!"
+
+msgid "%name, Good Morning!"
+msgtext "%name, god morgen!"
+
+msgid "%name, Good Afternoon!"
+msgtext "%name, god eftermiddag!"
+
+msgid "%name, Good Evening!"
+msgtext "%name, god aften!"
+
+msgid "%name, Good Night!"
+msgtext "%name, godnat!"
+
+msgid "%name, Some supported commands !help, !about and !want the bot"
 msgtext "%name, Nogle understøttede kommandoer: !help, !about og !want the bot"
 
 msgid "%name, song not playing or not in record."
@@ -127,11 +151,11 @@ msgtext "%name, is binnen!! (Subset of commands enabled)."
 msgid "%name you are connected!";
 msgtext "%name u bent nu verbonden!";
 
-msgid "Welcome %name! :)  %param1 Please, use exclamation mark to get help."
-msgtext "Welkom %name! :)  %param1 Type voor instructies een uitroepteken gevolgd door enter."
+msgid "<emph>Welcome %name! :) %param1</emph> Please, use exclamation mark to get help."
+msgtext "<emph>Welkom %name! :) %param1</emph> Type voor instructies een uitroepteken gevolgd door enter."
 
-msgid "Hi %name! Welcome! %param1 What brings you here today?"
-msgtext "Hoi %name! Welkom!  %param1 Wat brengt u hier vandaag?"
+msgid "<emph>Hi %name! Welcome! %param1</emph> What brings you here today?"
+msgtext "<emph>Hoi %name! Welkom!  %param1</emph> Wat brengt u hier vandaag?"
 
 msgid "%name is back! :)"
 msgtext "%name is terug! :)"
