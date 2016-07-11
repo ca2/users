@@ -223,3 +223,16 @@ msgid "%name, the weather for %param2 at %param1 is %topic."
 msgtext "%name, the weather for %param2 at %param1 is %topic."
 
 
+
+msgid "%name, your city is unknown"
+msgtext "%name, your city is unknown"
+
+msgid "%name, your city is set to \"%topic\""
+msgtext "%name, your city is set to \"%topic\""
+
+msgid "%name, city of %param1 is unknown"
+msgtext "%name, city of %param1 is unknown"
+
+msgid "%name, city of %param1 is \"%topic\""
+msgtext "%name, city of %param1 is \"%topic\""
+
