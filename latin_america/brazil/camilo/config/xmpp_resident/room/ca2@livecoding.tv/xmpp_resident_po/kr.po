@@ -95,68 +95,101 @@ msgid "%name, your time zone was set to \"%topic\"."
 msgtext "%name, 당신의 시간은 \"%topic\로 설정되었다"."
 
 msgid " Actually, it is currently \"Unknown Time Zone\". Yell ca2 on this (or not)."
-msgtext "Echter het is op dit moment \"Unknown Time Zone\". Roep maar even naar ca2 (of niet)."
+msgtext "사실은, 현재\"잘모르는 시간구역\". ca2에게 이것을 말하거나 (하지 않기)."
 
 msgid "%name, your time zone is set to %topic"
-msgtext "%name, uw tijdzone is ingesteld op %topic"
+msgtext "%name,당신의 시간구역은 %topic로 설정되었다."
 
 msgid "%name, your language was set to %topic"
 msgtext "%name, uw taal is ingesteld op %topic"
 
 msgid "and your country was set to %topic"
-msgtext "uw land is ingesteld op %topic"
+msgtext "그리고 당신의 국가는 %topic로 설정되었다."
 
 msgid "%name , Currently only the client will be made available."
-msgtext "%name, op dit moment kan alleen de client beschikbaar gesteld worden."
+msgtext "%name, 현재 클라이언트만이 사용할 수 있도록 만들어졌습니다."
 
 msgid "No files in the playlist"
-msgtext "Geen bestanden in de afspeellijst."
+msgtext "이 재생목록에 파일이 없습니다."
 
 msgid " gone, uff..."
-msgtext "weg, oeff..."
+msgtext "떠났네요, 에효..."
          
 msgid "Bye %name! :("
-msgtext "Dag %name! :("
+msgtext "잘가요 %name! :("
 
 msgid "See you %name! :("
-msgtext "Tot later %name! :("
+msgtext "나중에 봐요 %name! :("
       
 msgid "%name, entered!! (Subset of commands enabled)."
-msgtext "%name, is binnen!! (Subset of commands enabled)."
+msgtext "%name, is 들어왔습니다.!! (사용가능한 커맨드 서브셋)."
 
 msgid "%name you are connected!";
-msgtext "%name u bent nu verbonden!";
+msgtext "%name 당신은 접속 되었습니다!";
 
 msgid "<emph>Welcome %name! :) %param1</emph> Please, use exclamation mark to get help."
-msgtext "<emph>Welkom %name! :) %param1</emph> Type voor instructies een uitroepteken gevolgd door enter."
+msgtext "<emph>환영합니다 %name! :) %param1</emph> 도움을 얻고 싶으면 느낌표를 사용하세요."
 
 msgid "Hi %name! Welcome! %param1 What brings you here today?"
-msgtext "Hoi %name! Welkom! %param1 Wat brengt u hier vandaag?"
+msgtext "안녕하세요 %name! 환영합니다! %param1 오늘 여기에 무엇을 얻고자 하나요?"
 
 msgid "%name is back! :)"
-msgtext "%name is terug! :)"
+msgtext "%name이 돌아왔습니다! :)"
 
 msgid "You're welcome, %name! Thank you for following!"
-msgtext "Graag gedaan, %name! Bedankt voor het volgen!"
+msgtext "당신을 환영합니다, %name! 팔로우 해주셔서 감사합니다!"
             
 msgid "Opening Rick Roll for you all new followers!!"
-msgtext "Voor alle nieuwe volgers wordt Rick Roll gespeeld!!"
+msgtext "새로운 팔로워를 위한 Rick Roll 오프닝 노래!!"
 
 msgid "Opening Rick Roll for you!!"
-msgtext "Rick Roll wordt voor jou gespeeld!"
+msgtext "당신을 위한 Rick Roll 오프닝 노래!!"
 
 msgid "%name , Opening Rick Astley - Never Gonna Give You Up!"
-msgtext "%name, aan het afspelen Rick Astley - Never Gonna Give You Up!"
+msgtext "%name, 오프닝 노래 Rick Astley - Never Gonna Give You Up!"
 
 msgid "Opening Rick Astley - Never Gonna Give You Up!"
-msgtext "Afspelen Rick Astley - Never Gonna Give You Up!"
+msgtext "오프닝 노래 Rick Astley - Never Gonna Give You Up!"
 
 msgid "The country of %name is unknown"
-msgtext "Land van %name is onbekend."
+msgtext "잘 모르는 %name 국가 이름"
 
 msgid "The country of %name is \"%topic\""
-msgtext "Land van %name is %topic"
+msgtext "\"%topic\ 이름의 국가"
 
 msgid "%name, you will need Visual Studio 2015 (at least Community Edition), a SVN (Subversion) client and repository access (working e-mail address needed). Talk to Camilo for details."
 msgid ""
+
+msgid "%name, it is \"%topic\""
+msgtext "%name, het is \"%topic\""
+
+msgid "%name, it is \"%topic\" for %param1."
+msgtext "%name, het is \"%topic\" voor %param1."
+
+msgid "%Y-%m-%d %H:%M:%S"
+msgtext "%d/%m/%Y %H:%M:%S"
+
+msgid "hour/minutes/seconds"
+msgtext "uur:minuten:seconden"
+
+msgid "%name, your country code is set to \"%topic\""
+msgtext "%name, je land is ingesteld op \"%topic\""
+
+msgid "%name, country code of %param1 is \"%topic\""
+msgtext "%name, land code van %param1 is \"%topic\""
+
+msgid "(No Results)"
+msgtext "(No Results)"
+
+msgid "%name, the weather at %param1 is %topic."
+msgtext "%name, the weather at %param1 is %topic."
+
+msgid "%name, your current weather is %topic."
+msgtext "%name, your current weather is %topic."
+
+msgid "%name, the weather for %param2 at %param1 is %topic."
+msgtext "%name, погода %param2 погода %param1: %topic."
+
+
+
 
