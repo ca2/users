@@ -120,7 +120,9 @@ string on_new_followers(stringa & straNew)
 
       str += rr("en", true);
 
-      lspeak("","en",str);
+      m_pcomm->msg(str);
+
+      lspeak("","en",str, true);
 
    }
    else
@@ -128,11 +130,13 @@ string on_new_followers(stringa & straNew)
 
       str += rr(strLastLang, true);
 
-      lspeak("",strLastLang,str);
+      m_pcomm->msg(str);
+
+      lspeak("",strLastLang,str, true);
 
    }
 
-   return str;
+   return "";
 
 }
 

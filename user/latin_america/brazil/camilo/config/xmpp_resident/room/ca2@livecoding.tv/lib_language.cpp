@@ -77,68 +77,6 @@ bool _load_text(string strLang)
 
 
 
-bool lspeak(string strUser, string strLang, string strText)
-{
-
-   if (!consider_speakable_text(strText))
-   {
-
-      return false;
-
-   }
-
-   strText = " " + strText + " ";
-   int iFind = 0;
-   while (true)
-   {
-      iFind = strText.find_ci("ca2", iFind);
-      if (iFind < 0)
-         break;
-      if (!isalnum(strText[iFind - 1]) && !isalnum(strText[iFind + 3]))
-      {
-         strText = strText.Left(iFind) + " c a 2 " + strText.Mid(iFind + 3);
-      }
-      iFind += 3;
-   }
-   if (spam(strUser))
-   {
-      return false;
-   }
-   else if (m_epersonVocative == ::vericard::person_user)
-   {
-
-      if (!Application.enable_tts(strLang))
-      {
-         m_strLang = Application.trans_lang(strLang);
-         m_strSpeak = strText;
-         Application.trans_speak(this);
-      }
-      else
-      {
-         m_strLang = Application.tts_lang(strLang);
-         m_strSpeak = strText;
-         Application.lang_speak(this);
-      }
-   }
-   else
-   {
-      if (!Application.enable_tts(m_strOtherLang))
-      {
-         m_strOtherLang = Application.trans_lang(m_strOtherLang);
-         m_strSpeak = strText;
-         Application.trans_speak(this);
-      }
-      else
-      {
-         m_strOtherLang = Application.tts_lang(m_strOtherLang);
-         m_strSpeak = strText;
-         Application.lang_speak(this);
-      }
-   }
-   return true;
-}
-
-
 
 
 
@@ -169,6 +107,13 @@ string get_text(string & strSpeakText, string strId)
       strNewSpeakText.replace(":)", "");
       strNewSpeakText.replace(":(", "");
    }
+   if (strLang == "ja" || strLang == "jp")
+   {
+      strNewSpeakText.replace("{!}", unitext("エクスクラメーションマーク"));
+   }
+
+   strNewSpeakText.replace("\"", " ");
+
 
    strSpeakText = strNewSpeakText;
 
@@ -507,7 +452,7 @@ string get_country(string strCountryCode)
 string user_time_text(string strUser, string strLang, bool bTimeZone = false)
 {
 
-   auto puser = get_user(strUser);
+   auto puser = get_user(strUser, true);
 
    ::datetime::time now = puser->user_time();
 

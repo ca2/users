@@ -151,10 +151,10 @@ msgid "%name, entered!! (Subset of commands enabled)."
 msgtext "%name, is binnen!! (Subset of commands enabled)."
 
 msgid "%name you are connected!";
-msgtext "%name u bent nu verbonden!";
+msgtext "%name u bent nu verbonden!"
 
-msgid "Welcome %name! :) %param1 Please, use exclamation mark to get help."
-msgtext "%nameようこそ！:)%param1 Type voor instructies een uitroepteken gevolgd door enter."
+msgid "<emph>Welcome %name! :) %param1</emph> Please, use exclamation mark to get help."
+msgtext "<emph>%nameようこそ！:) %param1</emph>ヘルプに{!}を押してください。"
 
 msgid "Hi %name! Welcome! %param1 What brings you here today?"
 msgtext "%nameこんにちは！ようこそ！%param1何今日ここに連れて来ますか？"

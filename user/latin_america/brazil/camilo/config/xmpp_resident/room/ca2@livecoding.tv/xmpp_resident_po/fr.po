@@ -151,11 +151,11 @@ msgtext "%name a rejoint!! (Sous-ensemble de commandes activé)."
 msgid "%name you are connected!"
 msgtext "%name tu es connecté!"
 
-msgid "Welcome %name! :) %param1 Please, use exclamation mark to get help."
-msgtext "Bienvenue %name! :) %param1 Tu peux écrire un point d'interrogation puis pressé Entrer pour recevoir de l'aide."
+msgid "<emph>Welcome %name! :) %param1</emph> Please, use exclamation mark to get help."
+msgtext "<emph>Bienvenue %name! :) %param1</emph> Tu peux écrire un point d'interrogation puis pressé Entrer pour recevoir de l'aide."
 
-msgid "Hi %name! Welcome! %param1 What brings you here today?"
-msgtext "Hey %name! Bienvenue! %param1 Qu'est ce qui t'amène ici aujourd'hui?"
+msgid "<emph>Hi %name! Welcome! %param1</emph> What brings you here today?"
+msgtext "<emph>Hey %name! Bienvenue! %param1</emph> Qu'est ce qui t'amène ici aujourd'hui?"
 
 msgid "%name is back! :)"
 msgtext "%name est de retour! :)"
