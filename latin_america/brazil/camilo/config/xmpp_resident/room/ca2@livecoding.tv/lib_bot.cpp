@@ -45,7 +45,7 @@ string on_bot(string strUser,string strText)
 
          pitem.release();
 
-         lspeak(strItemUser, m_strLang, strSpeakText);
+         lspeak(strItemUser, m_strLang, strSpeakText, true);
 
          return "";
 
@@ -81,7 +81,7 @@ string on_bot(string strUser,string strText)
          str = _t("It is not considered reasonably speakable text.");
       }
 
-      lspeak(strUser,m_strLang, str);
+      lspeak(strUser,m_strLang, str, true);
       return str;
    }
    else if(strText.get_length() > 5 && ::str::begins(strText,"!say "))
@@ -91,7 +91,7 @@ string on_bot(string strUser,string strText)
       {
          str = _t("I am not going to say that phrase");
       }
-      if (!lspeak(strUser, m_strLang, str))
+      if (!lspeak(strUser, m_strLang, str, true))
       {
          return str;
       }

@@ -354,7 +354,7 @@ string bot_x()
    else if (about_user("land"))
    {
 
-      string strCountryCode = get_user(strTopicUser)->get_user_country_code(true).uppered();
+      string strCountryCode = get_user(strTopicUser)->get_user_country_code(true).get_string().uppered();
 
       strTopic = get_country(strCountryCode);
 
@@ -633,7 +633,7 @@ string bot_x()
          else
          {
 
-            if (!lspeak(strUser, strLang, str))
+            if (!lspeak(strUser, strLang, str, true))
             {
 
             }
@@ -682,11 +682,20 @@ string bot_x()
    }
    else if(strText == "!reset!")
    {
-      set_user_data(strUser,"country_code","");
-      set_user_data(strUser,"lang","");
-      set_user_data(strUser,"visit_count","");
-      set_user_data(strUser,"last_visit","");
-      set_user_data(strUser,"last_visit_time","");
+      auto puser = get_user(strUser, true);
+      m_strCountry = puser->get_user_country_code(true);
+      puser->get_user_city(true);
+      m_strLang = puser->get_user_lang();
+      set_user_data(strUser, "visit_count","");
+      set_user_data(strUser, "last_visit","");
+      set_user_data(strUser, "last_visit_time","");
+      set_user_data(strUser, "last_presence", "");
+      set_user_data(strUser, "last_see_you", "");
+      set_user_data(strUser, "back", "");
+      set_user_data(strUser, "official_back", "");
+      set_user_data(strUser, "last_welcome_time", "");
+      set_user_data(strUser, "today_visit_count", "");
+
    }
    else if(strText == "!rickroll" || strText == "!rr" || strText == "!rick") // xmetrix commanded !rickroll (me: probably he is referring to Rick Astley hit...)
    {
@@ -1056,7 +1065,7 @@ string bot_x()
 
       }
 
-      string cc = get_user(strCurrentUser)->get_user_country_code().uppered();
+      string cc = get_user(strCurrentUser)->get_user_country_code().get_string().uppered();
 
       string ci = get_user(strCurrentUser)->get_user_city();
 
@@ -1167,7 +1176,7 @@ string bot_x()
 
       }
       
-      string cc = get_user(strCurrentUser)->get_user_country_code().uppered();
+      string cc = get_user(strCurrentUser)->get_user_country_code().get_string().uppered();
 
       string ci = get_user(strCurrentUser)->get_user_city();
 
@@ -1416,7 +1425,7 @@ string bot_x()
       else
       {
          
-         dUTCOffset = Application.time_zone(strText);
+         dUTCOffset = Application.time_zone(strText, get_user(strUser)->get_user_country_code(false, true));
 
          set_user_data(strUser, "time_zone", dUTCOffset);
 
@@ -1583,7 +1592,7 @@ string bot_x()
                str = _t("I am not going to say that phrase");
             }
             strSpeakText = strText;
-            if (!lspeak(strUser, m_strLang, strSpeakText))
+            if (!lspeak(strUser, m_strLang, strSpeakText, true))
             {
                return str;
             }
@@ -1629,7 +1638,7 @@ string bot_x()
    else if(strSpeakText.has_char())
    {
       
-      if (!lspeak(strUser, m_strLang, strSpeakText))
+      if (!lspeak(strUser, m_strLang, strSpeakText, true))
       {
 
       }

@@ -1,26 +1,26 @@
 ﻿msgid "Good Morning!"
-msgtext "Goedemorgen!"
+msgtext "Dzień dobry!"
 
 msgid "Good Afternoon!"
-msgtext "Goedemiddag!"
+msgtext "Dzień dobry!"
 
 msgid "Good Evening!"
-msgtext "Goede avond!"
+msgtext "Dobry wieczór!"
 
 msgid "Good Night!"
-msgtext "Goede nacht!"
+msgtext "Dobranoc!"
 
 msgid "%name, Good Morning!"
-msgtext "%name, goedemorgen!"
+msgtext "%name, Dzień dobry!"
 
 msgid "%name, Good Afternoon!"
-msgtext "%name, goedemiddag!"
+msgtext "%name, Dzień dobry!"
 
 msgid "%name, Good Evening!"
-msgtext "%name, goede avond!"
+msgtext "%name, Dobry wieczór!"
 
 msgid "%name, Good Night!"
-msgtext "%name, goede nacht!"
+msgtext "%name, Dobranoc!"
 
 msgid "%name, Some supported commands !help, !about and !want the bot"
 msgtext "%name, Veribot korzysta z następujących poleceń : !help, !about i !want the bot"
@@ -151,11 +151,11 @@ msgtext "%name, jest zalogowany!! (Subset of commands enabled)."
 msgid "%name you are connected!";
 msgtext "%name jesteś połączony!";
 
-msgid "Welcome %name! :) %param1 Please, use exclamation mark to get help."
-msgtext "Witaj %name! :) %param1 Możesz postawić wykrzyknik i nacisnąć enter, by uzyskać pomoc."
+msgid "<emph>Welcome %name! :) %param1</emph> Please, use exclamation mark to get help."
+msgtext "<emph>Witaj %name! :) %param1</emph> Możesz postawić wykrzyknik i nacisnąć enter, by uzyskać pomoc."
 
-msgid "Hi %name! Welcome! %param1 What brings you here today?"
-msgtext "Cześć %name! Witaj! %param1 Co cię tu sprowadza?"
+msgid "<emph>Hi %name! Welcome! %param1</emph> What brings you here today?"
+msgtext "<emph>Cześć %name! Witaj! %param1</emph> Co cię tu sprowadza?"
 
 msgid "%name is back! :)"
 msgtext "%name wrócił! :)"

@@ -162,10 +162,10 @@ msgid "%name you are connected!";
 msgtext "%name você está conectado!"
 
 msgid "<emph>Welcome %name! :) %param1</emph> Please, use exclamation mark to get help."
-msgtext "<emph>Boas vindas %name! :) %param1</emph> Você pode digitar o ponto de exclamação seguido de Enter para obter ajuda."
+msgtext "<emph>Boas vindas %name! :) %param1</emph> Por favor, use o ponto de exclamação para obter ajuda."
 
-msgid "Hi %name! Welcome! %param1 What brings you here today?";
-msgtext "Olá %name! Boas vindas! %param1 O que te traz aqui hoje?";
+msgid "<emph>Hi %name! Welcome! %param1</emph> What brings you here today?"
+msgtext "<emph>Olá %name! Boas vindas! %param1</emph> O que te traz aqui hoje?";
 
 msgid "%name is back! :)";
 msgtext "%name está de volta! :)";
@@ -243,3 +243,17 @@ msgtext "%name, seu tempo agora é %topic."
 msgid "%name, the weather for %param2 at %param1 is %topic."
 msgtext "%name, o tempo para %param2 em %param1 é %topic."
 
+
+
+
+msgid "%name, your city is unknown"
+msgtext "%name, sua cidade é desconhecida"
+
+msgid "%name, your city is set to \"%topic\""
+msgtext "%name, sua cidade está configurada como \"%topic\""
+
+msgid "%name, city of %param1 is unknown"
+msgtext "%name, a cidade de %param1 é desconhecida"
+
+msgid "%name, city of %param1 is \"%topic\""
+msgtext "%name, a cidade de %param1 é \"%topic\""

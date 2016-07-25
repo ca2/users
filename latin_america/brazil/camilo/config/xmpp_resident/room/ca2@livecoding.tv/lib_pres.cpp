@@ -112,7 +112,7 @@ string on_pres(string strUser, string strType)
                   else
                   {
 
-                     if (!lspeak(strUser, m_strLang, strSpeakText))
+                     if (!lspeak(strUser, m_strLang, strSpeakText, false))
                      {
 
                      }
@@ -265,7 +265,7 @@ string on_pres(string strUser, string strType)
                else
                {
 
-                  if (!lspeak(strUser, m_strLang, strSpeakText))
+                  if (!lspeak(strUser, m_strLang, strSpeakText, false))
                   {
 
                   }
