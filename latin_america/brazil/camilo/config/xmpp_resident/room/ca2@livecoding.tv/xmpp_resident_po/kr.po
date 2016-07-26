@@ -155,40 +155,40 @@ msgid "The country of %name is unknown"
 msgtext "잘 모르는 %name 국가 이름"
 
 msgid "The country of %name is \"%topic\""
-msgtext "\"%topic\ 이름의 국가"
+msgtext "%name의 국가는 \"%topic\ 입니다"
 
 msgid "%name, you will need Visual Studio 2015 (at least Community Edition), a SVN (Subversion) client and repository access (working e-mail address needed). Talk to Camilo for details."
-msgid ""
+msgid "%name 당신은 Visual Studio 2015(커뮤니티 버전) 이 필요합니다. SVN(서브버전) 클라이언트와 저장소 접근(이메일 주소 필요) 세부사항은 Camilo에게 문의하세요"
 
 msgid "%name, it is \"%topic\""
-msgtext "%name, het is \"%topic\""
+msgtext "%name, 그것은 \"%topic\" 입니다."
 
 msgid "%name, it is \"%topic\" for %param1."
-msgtext "%name, het is \"%topic\" voor %param1."
+msgtext "%name, %param1 의 \"%topic\"은 입니다."
 
 msgid "%Y-%m-%d %H:%M:%S"
 msgtext "%d/%m/%Y %H:%M:%S"
 
 msgid "hour/minutes/seconds"
-msgtext "uur:minuten:seconden"
+msgtext "시/분/초"
 
 msgid "%name, your country code is set to \"%topic\""
-msgtext "%name, je land is ingesteld op \"%topic\""
+msgtext "%name, 당신의 국가 코드는 \"%topic\" 입니다."
 
 msgid "%name, country code of %param1 is \"%topic\""
-msgtext "%name, land code van %param1 is \"%topic\""
+msgtext "%name, %param1 의 국가코드는 \"%topic\" 입니다."
 
 msgid "(No Results)"
-msgtext "(No Results)"
+msgtext "(결과 없음)"
 
 msgid "%name, the weather at %param1 is %topic."
-msgtext "%name, the weather at %param1 is %topic."
+msgtext "%name,%param1의 날씨는 %topic 입니다."
 
 msgid "%name, your current weather is %topic."
-msgtext "%name, your current weather is %topic."
+msgtext "%name,당신의 현재 날씨는 %topic 입니다."
 
 msgid "%name, the weather for %param2 at %param1 is %topic."
-msgtext "%name, погода %param2 погода %param1: %topic."
+msgtext "%name,%param2의 날씨 %param1: %topic."
 
 
 
