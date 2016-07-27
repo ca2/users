@@ -21,7 +21,7 @@ class this_plugin :
 		::irc_resident::plugin(papp, dynamic_cast <::vericard::comm * > (p))
 
 
-		#include "C:\Users\camilo\AppData\Roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\xmpp_bot_common.cpp"
+		#include "../../../xmpp_resident/room/ca2@livecoding.tv/xmpp_bot_common.cpp"
 
 
 };

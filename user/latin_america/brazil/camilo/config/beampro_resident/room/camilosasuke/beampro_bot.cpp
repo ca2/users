@@ -20,8 +20,8 @@ class this_plugin :
       ::vericard::plugin(papp,dynamic_cast <::vericard::comm * > (p)),
 		::beampro_resident::plugin(papp, dynamic_cast <::vericard::comm * > (p))
 
+		#include "../../../xmpp_resident/room/ca2@livecoding.tv/xmpp_bot_common.cpp"
 
-		#include "C:\Users\camilo\AppData\Roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\xmpp_bot_common.cpp"
 
 
 };
