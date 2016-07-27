@@ -1,2 +1,0 @@
-﻿irc_bot.cpp
-c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib_language.cpp(354): warning C4566: character represented by universal-character-name '\u0438' cannot be represented in the current code page (1252)
