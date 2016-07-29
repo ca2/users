@@ -94,3 +94,5 @@ https://www.livecoding.tv/static/candy-chat/img/emoticons-white/surprised.gif
 https://www.livecoding.tv/static/candy-chat/img/emoticons-white/cat.gif
 :thumbsup:
 https://www.livecoding.tv/static/candy-chat/img/emoticons-white/thumbsup.gif
+:lol:
+https://www.livecoding.tv/static/candy-chat/img/emoticons-dark/lol.gif
