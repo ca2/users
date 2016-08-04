@@ -1534,7 +1534,7 @@ string bot_x()
 
          }
       }
-      return str;
+      // return str;
    }
    else
    {
