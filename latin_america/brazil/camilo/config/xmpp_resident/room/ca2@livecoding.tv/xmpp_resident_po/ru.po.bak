@@ -129,7 +129,6 @@ msgtext " Actually, it is currently \"Unknown Time Zone\". Yell ca2 on this (or 
 
 msgid "%name, your time zone is set to %topic"
 msgtext "%name, your time zone is set to %topic"
-
 msgid "%name, your language was set to %topic"
 msgtext "%name, your language was set to %topic"
 
