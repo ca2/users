@@ -205,13 +205,13 @@ msgtext "hodin:minut:sekund"
 
 
 msgid "%name, your country code is set to \"%topic\""
-msgtext "%name, je land is ingesteld op \"%topic\""
+msgtext "%name, tvůj kód země je nastaven na \"%topic\""
 
 msgid "%name, country code of %param1 is \"%topic\""
-msgtext "%name, land code van %param1 is \"%topic\""
+msgtext "%name, kód země %param1 je \"%topic\""
 
 msgid "(No Results)"
-msgtext "(No Results)"
+msgtext "(Žádné výsledky)"
 
 msgid "%name, the weather at %param1 is %topic."
 msgtext "%name, the weather at %param1 is %topic."
@@ -225,14 +225,14 @@ msgtext "%name, the weather for %param2 at %param1 is %topic."
 
 
 msgid "%name, your city is unknown"
-msgtext "%name, your city is unknown"
+msgtext "%name, tvoje město je neznámé"
 
 msgid "%name, your city is set to \"%topic\""
-msgtext "%name, your city is set to \"%topic\""
+msgtext "%name, tvoje město je nastavené na \"%topic\""
 
 msgid "%name, city of %param1 is unknown"
-msgtext "%name, city of %param1 is unknown"
+msgtext "%name, měst %param1 je neznámé"
 
 msgid "%name, city of %param1 is \"%topic\""
-msgtext "%name, city of %param1 is \"%topic\""
+msgtext "%name, město %param1 je\"%topic\""
 
