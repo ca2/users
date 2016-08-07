@@ -771,7 +771,7 @@ string bot_x()
          defer_vocative(stra, iParamCount);
          strGroup = _t(" multimedia commands are:");
          strSpeakGroup = strSpeakText;
-         str = _t("!rr\n!rickroll\n!say \"text\"\n!playlist\n and\n!play \"sound\"");
+         str = _t("!rr\n!rickroll\n!say \"text\"\n!playlist\n!playlist next\n!playlist previous\n!play \"sound\"\n!play\n!stop\n!next\n!previous\n!ss \"song search\"\n!p \"play song by number\"\n!q \"queue song by number\"");
 
       }
       else if(strGroup == "util")
@@ -963,6 +963,514 @@ string bot_x()
       defer_extra_to_vocative();
 
       str = _t("%name, ca2 is an all-purpose multi-platform framework and set of libraries written in C++ language to help developers create great apps for users.");
+
+   }
+   else if (strText == "!next")
+   {
+
+#ifdef WINDOWS
+      
+      call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", " : mediaplay:execute_next", "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
+
+#elif defined(MACOS)
+      
+      ::system("/Applications/Waven.app/Contents/MacOS/Waven : mediaplay:execute_next" + strTitle + strAlbumArt);
+
+#else
+
+      call_async("/xcore/stage/x86/app", " : app=app-veriwell/waven build_number=basis locale=_std schema=_std mediaplay:execute_next", "/xcore/stage/x86", SW_SHOW, false);
+
+#endif
+
+   }
+   else if (strText == "!previous")
+   {
+
+#ifdef WINDOWS
+
+      call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", " : mediaplay:execute_previous", "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
+
+#elif defined(MACOS)
+
+      ::system("/Applications/Waven.app/Contents/MacOS/Waven : mediaplay:execute_previous" + strTitle + strAlbumArt);
+
+#else
+
+      call_async("/xcore/stage/x86/app", " : app=app-veriwell/waven build_number=basis locale=_std schema=_std mediaplay:execute_previous", "/xcore/stage/x86", SW_SHOW, false);
+
+#endif
+
+   }
+   else if (strText == "!stop")
+   {
+
+#ifdef WINDOWS
+
+      call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", " : mediaplay:execute_stop", "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
+
+#elif defined(MACOS)
+
+      ::system("/Applications/Waven.app/Contents/MacOS/Waven : mediaplay:execute_stop" + strTitle + strAlbumArt);
+
+#else
+
+      call_async("/xcore/stage/x86/app", " : app=app-veriwell/waven build_number=basis locale=_std schema=_std mediaplay:execute_stop", "/xcore/stage/x86", SW_SHOW, false);
+
+#endif
+
+   }
+   else if (strText == "!play")
+   {
+
+#ifdef WINDOWS
+
+      call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", " : mediaplay:execute_play", "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
+
+#elif defined(MACOS)
+
+      ::system("/Applications/Waven.app/Contents/MacOS/Waven : mediaplay:execute_play" + strTitle + strAlbumArt);
+
+#else
+
+      call_async("/xcore/stage/x86/app", " : app=app-veriwell/waven build_number=basis locale=_std schema=_std mediaplay:execute_play", "/xcore/stage/x86", SW_SHOW, false);
+
+#endif
+
+   }
+   else if (strText == "!play")
+   {
+
+#ifdef WINDOWS
+
+      call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", " : mediaplay:execute_play", "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
+
+#elif defined(MACOS)
+
+      ::system("/Applications/Waven.app/Contents/MacOS/Waven : mediaplay:execute_play" + strTitle + strAlbumArt);
+
+#else
+
+      call_async("/xcore/stage/x86/app", " : app=app-veriwell/waven build_number=basis locale=_std schema=_std mediaplay:execute_play", "/xcore/stage/x86", SW_SHOW, false);
+
+#endif
+
+   }
+   else if (::str::begins_eat_ci(strText, "!playlist "))
+   {
+
+      string strNew;
+
+      int iWait = 0;
+
+      string strLo = strText;
+
+      strLo.make_lower();
+
+      if (strLo == "next" || strLo == "previous")
+      {
+
+#ifdef WINDOWS
+
+         call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", " : mediaplay:playlist_" + strLo, "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
+
+#elif defined(MACOS)
+
+         ::system("/Applications/Waven.app/Contents/MacOS/Waven : mediaplay:playlist_" + strLo);
+
+#else
+
+         call_async("/xcore/stage/x86/app", " : app=app-veriwell/waven build_number=basis locale=_std schema=_std mediaplay:playlist_" + strLo, "/xcore/stage/x86", SW_SHOW, false);
+
+#endif
+
+
+         var_array vara;
+
+         while (true)
+         {
+
+            {
+
+               single_lock sl(Application.veripack().m_pmutex);
+
+               for (index i = 0; i < Application.veripack().m_vaResponse.get_size(); i++)
+               {
+
+                  if (Application.veripack().m_vaResponse[i][0].get_string() == "mediaplay:playlist_next"
+                     || Application.veripack().m_vaResponse[i][0].get_string() == "mediaplay:playlist_previous")
+                  {
+                     vara = Application.veripack().m_vaResponse[i];
+                     Application.veripack().m_vaResponse.remove_at(i);
+                     break;
+                  }
+
+               }
+
+            }
+
+            if (vara.get_count() > 0)
+            {
+
+               break;
+
+            }
+            else if (iWait > 120)
+            {
+
+               break;
+
+            }
+            else
+            {
+
+               Sleep(484);
+
+               iWait++;
+
+            }
+
+         }
+
+         if (vara.get_size() > 1)
+         {
+
+            str = vara[1];
+
+         }
+         else
+         {
+
+            str = "(no results)";
+
+         }
+
+
+      }
+      else if (strLo == "list")
+      {
+
+         //property_set setUserString(get_app());
+
+         string strUrl = "https://api.spotify.com/v1/search?q=" + System.url().url_encode(strQuery) + "&type=track&limit=8";
+
+         //string strSetUrl = "https://api.ca2.cc/account/set_user_string?sessid=" + Session.fontopus()->get_user()->get_sessid("api.ca2.cc")
+         //   + "&key=" + System.url().url_encode(m_strUser) + "." + System.url().url_encode(strUrl)
+         //   + "&value=";
+
+         //Application.http().get(strSetUrl, str, setUserString);
+
+#ifdef WINDOWS
+
+         call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", " : mediaplay:playlist_list", "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
+
+#else
+
+         call_async("/xcore/stage/x86/app", " : mediaplay:playlist_list app=app-veriwell/waven build_number=basis locale=_std schema=_std ", "/xcore/stage/x86/", SW_SHOW, false);
+
+#endif
+
+         //property_set set(get_app());
+
+         int iWait = 0;
+
+         //string strGetUrl = "https://api.ca2.cc/account/get_user_string?sessid=" + Session.fontopus()->get_user()->get_sessid("api.ca2.cc")
+         //   + "&key=" + System.url().url_encode(m_strUser) + "." + System.url().url_encode(strUrl);
+
+         var_array vara;
+
+         while (true)
+         {
+
+            {
+
+               single_lock sl(Application.veripack().m_pmutex);
+
+               for (index i = 0; i < Application.veripack().m_vaResponse.get_size(); i++)
+               {
+
+                  if (Application.veripack().m_vaResponse[i][0].get_string() == "mediaplay:playlist_list")
+                  {
+                     vara = Application.veripack().m_vaResponse[i];
+                     Application.veripack().m_vaResponse.remove_at(i);
+                     break;
+                  }
+
+               }
+
+            }
+
+            if (vara.get_count() > 0)
+            {
+
+               break;
+
+            }
+            else if (iWait > 120)
+            {
+
+               break;
+
+            }
+            else
+            {
+
+               Sleep(484);
+
+               iWait++;
+
+            }
+
+         }
+
+         stringa stra;
+
+         if (vara.get_size() > 1)
+         {
+
+            stra = vara[1].stra();
+
+         }
+
+         string strNew;
+
+         stringa straNew;
+
+         index iIndex = 1;
+
+         for (index i = 0; i < stra.get_size(); i++)
+         {
+
+            string strLine = stra[i];
+
+            strNew += ::str::from(iIndex);
+
+            strNew += " - ";
+
+            strNew += strLine;
+
+            strNew += "\n";
+
+            iIndex++;
+
+         }
+
+         str = strNew;
+
+         if (str.is_empty())
+         {
+
+            str = "(no results)";
+
+         }
+
+      }
+      else if(atoi(strText) > 0)
+      {
+
+         int iPlus = atoi(strText);
+
+         strText = ::str::from(iPlus - 1);
+
+         string strCommand = "mediaplay:playlist_play=" + strText;
+
+#ifdef WINDOWS
+
+      call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", " : " + strCommand, "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
+
+#elif defined(MACOS)
+
+      ::system("/Applications/Waven.app/Contents/MacOS/Waven : " + strCommand);
+
+#else
+
+      call_async("/xcore/stage/x86/app", " : app=app-veriwell/waven build_number=basis locale=_std schema=_std " + strCommand, "/xcore/stage/x86", SW_SHOW, false);
+
+#endif
+
+
+      var_array vara;
+
+      while (true)
+      {
+
+         {
+
+            single_lock sl(Application.veripack().m_pmutex);
+
+            for (index i = 0; i < Application.veripack().m_vaResponse.get_size(); i++)
+            {
+
+               if (Application.veripack().m_vaResponse[i][0].get_string() == strCommand)
+               {
+                  vara = Application.veripack().m_vaResponse[i];
+                  Application.veripack().m_vaResponse.remove_at(i);
+                  break;
+               }
+
+            }
+
+         }
+
+         if (vara.get_count() > 0)
+         {
+
+            break;
+
+         }
+         else if (iWait > 120)
+         {
+
+            break;
+
+         }
+         else
+         {
+
+            Sleep(484);
+
+            iWait++;
+
+         }
+
+      }
+
+      if (vara.get_size() > 1)
+      {
+
+         str = vara[1];
+
+      }
+      else
+      {
+
+         str = "(no results)";
+
+      }
+
+
+      }
+      else
+      {
+
+         string strCommand = "mediaplay:playlist_splay=\"" + strText + "\"";
+
+#ifdef WINDOWS
+
+         call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", " : " + strCommand, "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
+
+#elif defined(MACOS)
+
+         ::system("/Applications/Waven.app/Contents/MacOS/Waven : " + strCommand);
+
+#else
+
+         call_async("/xcore/stage/x86/app", " : app=app-veriwell/waven build_number=basis locale=_std schema=_std " + strCommand, "/xcore/stage/x86", SW_SHOW, false);
+
+#endif
+
+         var_array vara;
+
+         while (true)
+         {
+
+            {
+
+               single_lock sl(Application.veripack().m_pmutex);
+
+               for (index i = 0; i < Application.veripack().m_vaResponse.get_size(); i++)
+               {
+
+                  if (Application.veripack().m_vaResponse[i][0].get_string() == strCommand)
+                  {
+                     vara = Application.veripack().m_vaResponse[i];
+                     Application.veripack().m_vaResponse.remove_at(i);
+                     break;
+                  }
+
+               }
+
+            }
+
+            if (vara.get_count() > 0)
+            {
+
+               break;
+
+            }
+            else if (iWait > 120)
+            {
+
+               break;
+
+            }
+            else
+            {
+
+               Sleep(484);
+
+               iWait++;
+
+            }
+
+         }
+
+         if (vara.get_size() > 1)
+         {
+
+            if (vara.get_size() > 2)
+            {
+
+               stringa stra = vara[1].stra();
+
+               int_array ia = vara[2].inta();
+
+               if (stra.get_count() == ia.get_count())
+               {
+
+                  for (index i = 0; i < stra.get_size(); i++)
+                  {
+
+                     string strLine = stra[i];
+
+                     strNew += ::str::from(ia[i] + 1);
+
+                     strNew += " - ";
+
+                     strNew += strLine;
+
+                     strNew += "\n";
+
+                  }
+
+                  str = strNew;
+
+               }
+               else
+               {
+
+                  str = "(no results)";
+
+               }
+
+            }
+            else
+            {
+
+               str = vara[1];
+
+            }
+
+
+         }
+         else
+         {
+
+            str = "(no results)";
+
+         }
+
+
+      }
 
    }
    else if (strText == "!repos")
