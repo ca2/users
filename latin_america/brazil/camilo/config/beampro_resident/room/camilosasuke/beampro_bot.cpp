@@ -5,7 +5,7 @@
 #pragma comment (lib,"app_core_beampro_bot.lib" )
 #pragma comment (lib,"app_core_beampro_client.lib" )
 #pragma comment (lib,"app_core_beampro_resident.lib" )
-
+#pragma comment (lib,"app_core_resident.lib" )
 
 class this_plugin :
 	virtual public ::beampro_resident::plugin

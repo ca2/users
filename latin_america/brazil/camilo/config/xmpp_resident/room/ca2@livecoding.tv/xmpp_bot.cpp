@@ -7,6 +7,7 @@
 #pragma comment (lib,"app_core_xmpp_bot.lib" )
 #pragma comment (lib,"app_core_xmpp_client.lib" )
 #pragma comment (lib,"app_core_xmpp_resident.lib" )
+#pragma comment (lib,"app_core_resident.lib" )
 
 #define __XMPP
 
@@ -14,20 +15,20 @@ class this_plugin:
    virtual public ::xmpp_resident::plugin
 {
 public:  
+
+
+
+
+
    
 
 
 
 
+  
 
 
-
-
-
-
-
-
-
+      
    this_plugin(::aura::application * papp, object * p) :
       object(papp),
       ::vericard::chat_item(papp),
