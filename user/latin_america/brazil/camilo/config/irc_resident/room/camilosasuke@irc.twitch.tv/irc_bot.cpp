@@ -1,16 +1,19 @@
 #include "framework.h"
 #include "app-core/appseed/irc_resident/irc_resident.h"
+
 #pragma comment (lib,"vericard.lib" )
 #pragma comment (lib,"irc.lib" )
 #pragma comment (lib,"app_core_irc_bot.lib" )
 #pragma comment (lib,"app_core_irc_client.lib" )
 #pragma comment (lib,"app_core_irc_resident.lib" )
+#pragma comment (lib,"app_core_resident.lib" )
 
 
 class this_plugin :
 	virtual public ::irc_resident::plugin
 {
-	
+
+
 	public:
 	
 	
