@@ -1719,19 +1719,19 @@ string bot_x()
 
             v.parse_json(pszJson);
             
-            double dUTCOffset = ::str::from(v["gmtoffset"].get_double() / 3600.0);
+            double dUTCOffset = v["gmtoffset"].get_double() / 3600.0;
             
             string strTimeZoneText = v["abbreviation"];
 
             param(1, v["countrycode"]);
             param(2, v["zonename"]);
             param(3, strTimeZoneText);
-            param(4, dUTCOffset);
+            param(4, ::str::from(dUTCOffset));
             param(5, v["dst"].get_bool() ? "true" : "false");
 
             str = _t("country code: %param1, zone name: %param2, abbreviation: %param3, UTC: %param4, daylight saving: %param5");
             
-            if(strLoTest == "!resetzone")
+            if(strLoText == "!resetzone")
             {
                
                set_user_data(strUser,"time_zone", dUTCOffset);
