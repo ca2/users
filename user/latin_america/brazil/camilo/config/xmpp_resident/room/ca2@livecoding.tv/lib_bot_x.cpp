@@ -1621,7 +1621,7 @@ string bot_x()
          stra.insert_at(0, "timer");
       set_user_timer(strName, stra[0], stra[1], strLang);
    }
-   else if (third_info("defzone"))
+   else if (third_info("defzone") || strLoText == "!resetzone")
    {
 
       string strCurrentUser = m_strExtra;
@@ -1693,8 +1693,20 @@ string bot_x()
 
          string strLng = ::str::from(dLon);
          
+         string strPath;
+         
+#ifdef WINDOWS
+         
+         strPath = "C:\\sensitive\\sensitive\\seed\\timezonedb.txt";
+         
+#else
+         
+         strPath = "/sensitive/sensitive/seed/timezonedb.txt";
+         
+#endif
+         
          str = Application.http().get(
-            "http://api.timezonedb.com/?key=" + file_as_string_dup("C:\\sensitive\\sensitive\\seed\\timezonedb.txt")
+            "http://api.timezonedb.com/?key=" + file_as_string_dup(strPath)
             + "&format=json&lat="+strLat+"&lng="+strLng,
             set);
 
@@ -1706,14 +1718,27 @@ string bot_x()
             var v;
 
             v.parse_json(pszJson);
+            
+            double dUTCOffset = ::str::from(v["gmtoffset"].get_double() / 3600.0);
+            
+            string strTimeZoneText = v["abbreviation"];
 
             param(1, v["countrycode"]);
             param(2, v["zonename"]);
-            param(3, v["abbreviation"]);
-            param(4, ::str::from(v["gmtoffset"].get_double() / 3600.0));
+            param(3, strTimeZoneText);
+            param(4, dUTCOffset);
             param(5, v["dst"].get_bool() ? "true" : "false");
 
             str = _t("country code: %param1, zone name: %param2, abbreviation: %param3, UTC: %param4, daylight saving: %param5");
+            
+            if(strLoTest == "!resetzone")
+            {
+               
+               set_user_data(strUser,"time_zone", dUTCOffset);
+               
+               set_user_data(strUser,"time_zone_text", strTimeZoneText);
+               
+            }
 
          }
          else
