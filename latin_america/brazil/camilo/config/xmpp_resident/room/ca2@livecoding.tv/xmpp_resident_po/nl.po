@@ -1,4 +1,4 @@
-﻿msgid "Good Morning!"
+msgid "Good Morning!"
 msgtext "Goedemorgen!"
 
 msgid "Good Afternoon!"
@@ -23,7 +23,9 @@ msgid "%name, Good Night!"
 msgtext "%name, goede nacht!"
 
 msgid "%name, Some supported commands !help, !about and !want the bot"
-msgtext "%name, de bot ondersteund de volgende instructies (help, over, beschikbaarheid): !help, !about en !want the bot"
+msgtext "%name, de bot ondersteunt de volgende instructies (help, over, beschikbaarheid): !help, !about en !want the bot"
+msgremark "%name, de bot ondersteund de volgende instructies (help, over, beschikbaarheid): !help, !about en !want the bot"
+
 
 msgid "%name, song not playing or not in record."
 msgtext "%name, nummer wordt niet afgespeeld of is helaas niet beschikbaar."
