@@ -1,7 +1,5 @@
 #include "framework.h"
-
-#include "app-core/appseed/xmpp_resident/xmpp_resident.h"
-
+#include "app-core/appseed/resident/resident.h"
 #pragma comment (lib,"vericard.lib" )
 #pragma comment (lib,"xmpp.lib" )
 #pragma comment (lib,"app_core_xmpp_bot.lib" )
