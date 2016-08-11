@@ -1,6 +1,5 @@
 #include "framework.h"
-#include "app-core/appseed/irc_resident/irc_resident.h"
-
+#include "app-core/appseed/resident/resident.h"
 #pragma comment (lib,"vericard.lib" )
 #pragma comment (lib,"irc.lib" )
 #pragma comment (lib,"app_core_irc_bot.lib" )
