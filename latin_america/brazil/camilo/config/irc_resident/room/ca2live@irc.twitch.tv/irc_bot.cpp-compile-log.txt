@@ -1,0 +1,16 @@
+﻿irc_bot.cpp
+c:\core\app\appseed\aura\primitive\geometry\geometry_size.inl(344): warning C4244: 'argument': conversion from 'double' to 'int64_t', possible loss of data
+c:\core\app\appseed\aura\primitive\geometry\geometry_size.inl(347): warning C4244: 'argument': conversion from 'double' to 'int64_t', possible loss of data
+c:\core\app\appseed\aura\primitive\geometry\geometry_size.inl(350): warning C4244: 'argument': conversion from 'double' to 'int64_t', possible loss of data
+c:\core\app\appseed\aura\primitive\geometry\geometry_size.inl(353): warning C4244: 'argument': conversion from 'double' to 'int64_t', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib_language.cpp(356): warning C4566: character represented by universal-character-name '\u0438' cannot be represented in the current code page (1252)
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib1.cpp(149): warning C4244: '=': conversion from 'strsize' to 'int', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib1.cpp(178): warning C4244: '=': conversion from 'strsize' to 'int', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib1.cpp(202): warning C4244: '+=': conversion from 'strsize' to 'int', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib_language.cpp(373): warning C4244: '=': conversion from 'strsize' to 'int', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib_language.cpp(387): warning C4244: '+=': conversion from 'strsize' to 'int', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib_language.cpp(393): warning C4244: '=': conversion from 'strsize' to 'int', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib_language.cpp(407): warning C4244: '+=': conversion from 'strsize' to 'int', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib_language.cpp(412): warning C4244: '=': conversion from 'strsize' to 'int', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib_language.cpp(426): warning C4244: '+=': conversion from 'strsize' to 'int', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib_followers.cpp(5): warning C4244: 'initializing': conversion from 'count' to 'int', possible loss of data
