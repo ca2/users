@@ -44,8 +44,12 @@ string bot_x()
 
    string strQuery = strText;
 
+   bool bPlay = false;
+
    if (::str::begins_eat_ci(strQuery, "!ss "))
    {
+
+      set_user_data(m_strUser, "ss", var::type_empty);
 
       //property_set setUserString(get_app());
 
@@ -180,7 +184,7 @@ string bot_x()
 
       str = strNew;
 
-      if (str.is_empty())
+      if(str.is_empty())
       {
          
          str = "(no results)";
@@ -188,7 +192,7 @@ string bot_x()
       }
 
    }
-   else if (::str::begins_eat_ci(strQuery, "!p "))
+   else if ((bPlay = ::str::begins_eat_ci(strQuery, "!p ")) || ::str::begins_eat_ci(strQuery, "!q "))
    {
       
       if (strQuery.get_length() == 1)
@@ -214,13 +218,22 @@ string bot_x()
 
                str = stra[i-1];
 
+               string strAddUp;
+
+               if (bPlay)
+               {
+                  
+                  strAddUp = "play_now";
+
+               }
+
 #ifdef WINDOWS
 
-               call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", "\"" + str + "\" : play_now", "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
+               call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", "\"" + str + "\" : "+ strAddUp +" for_resident=" + m_strUser + "", "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
 
 #else
 
-               call_async("/xcore/stage/x86/app", "\"" + str + "\" : play_now app=app-veriwell/waven build_number=basis locale=_std schema=_std ", "/xcore/stage/x86/", SW_SHOW, false);
+               call_async("/xcore/stage/x86/app", "\"" + str + "\" : play_now for_resident=" + m_strUser + " " + strAddUp + " app=app-veriwell/waven build_number=basis locale=_std schema=_std ", "/xcore/stage/x86/", SW_SHOW, false);
 
 #endif
 
@@ -230,44 +243,138 @@ string bot_x()
 
       }
 
-   }
-   else if (::str::begins_eat_ci(strQuery, "!q "))
-   {
-
-      if (strQuery.get_length() == 1)
+      if (str != "no such song")
       {
 
-         if (isdigit_dup(strQuery[0]))
+         //property_set set(get_app());
+
+         int iWait = 0;
+
+         //string strGetUrl = "https://api.ca2.cc/account/get_user_string?sessid=" + Session.fontopus()->get_user()->get_sessid("api.ca2.cc")
+         //   + "&key=" + System.url().url_encode(m_strUser) + "." + System.url().url_encode(strUrl);
+
+         var_array vara;
+
+         while (true)
          {
 
-            int i = atoi(strQuery);
-
-            stringa stra;
-
-            stra = get_user_data(m_strUser, "ss").stra();
-
-            if (i <= 0 || i > stra.get_size())
             {
 
-               str = "no such song";
+               single_lock sl(Application.veripack().m_pmutex);
+
+               for (index i = 0; i < Application.veripack().m_vaResponse.get_size(); i++)
+               {
+
+                  if (Application.veripack().m_vaResponse[i][0].get_string() == str)
+                  {
+                     vara = Application.veripack().m_vaResponse[i];
+                     Application.veripack().m_vaResponse.remove_at(i);
+                     break;
+                  }
+
+               }
+
+            }
+
+            if (vara.get_count() > 0)
+            {
+
+               break;
+
+            }
+            else if (iWait > 120)
+            {
+
+               break;
 
             }
             else
             {
 
-               str = stra[i - 1];
+               Sleep(484);
 
-#ifdef WINDOWS
-
-               call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", "\"" + str + "\"", "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
-
-#else
-
-               call_async("/xcore/stage/x86/app", "\"" + str + "\" : app=app-veriwell/waven build_number=basis locale=_std schema=_std ", "/xcore/stage/x86/", SW_SHOW, false);
-
-#endif
+               iWait++;
 
             }
+
+         }
+
+         stringa stra;
+
+         if (vara.get_size() > 1)
+         {
+
+            stra.add_lines(vara[1]);
+
+         }
+
+         string strNew;
+
+         stringa straNew;
+
+         index iIndex = 1;
+
+         for (index i = 0; i < stra.get_size(); i++)
+         {
+
+            if (i >= 2)
+            {
+
+               strNew += "\n";
+
+            }
+
+            string strLine = stra[i];
+
+            if (strLine.is_empty())
+            {
+
+               continue;
+
+            }
+
+            stringa straLine;
+
+            straLine.explode("|", strLine);
+
+            if (straLine.get_size() != 3)
+            {
+
+               continue;
+
+            }
+
+            straNew.add(straLine[2]);
+
+            strNew += straLine[0];
+
+            strNew += " - ";
+
+            strNew += straLine[1];
+
+            iIndex++;
+
+         }
+
+         str = strNew;
+
+         if (str.has_char())
+         {
+
+            if (bPlay)
+            {
+               str = "Going to play \"" + str + "\"";
+            }
+            else
+            {
+               str = "\"" + str + "\" queued.";
+            }
+
+         }
+         else
+         {
+
+            str = "(no results)";
 
          }
 

@@ -27,6 +27,8 @@ bool _load_text(string strLang)
    string strMsgId;
    string strText;
 
+   avoid_parsing_exception avoidParsingException;
+
    for (index i = 0; i < stra.get_count(); i++)
    {
       string strLine = stra[i];
