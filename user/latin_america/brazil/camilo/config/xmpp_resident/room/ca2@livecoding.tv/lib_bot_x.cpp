@@ -489,7 +489,7 @@ string bot_x()
 
       string strTime = user_time_text(puser, m_strLang, true, false);
 
-      string strTopScope = puser->get_user_data("favorite_programming");
+      string strTopScope = puser->get_user_info("favorite_programming", false);
 
       string strNewSpeak;
 
@@ -502,14 +502,14 @@ string bot_x()
 
       }
 
-      str += _t2("name: %topic\n");
+      str += _t2("name: %topic");
 
       str += "\n";
       strSpeakText += "\n";
 
       if (strCountryCode.is_empty())
       {
-
+         string strSpeakText;
          strCountryCode = _t("(unknown)");
          strNewSpeak = strCountryCode;
 
@@ -528,7 +528,9 @@ string bot_x()
       }
 
       str += _t2("country code:");
+      str += " ";
       str += strCountryCode;
+      strSpeakText += " ";
       strSpeakText += strNewSpeak;
 
       str += "\n";
@@ -539,6 +541,7 @@ string bot_x()
       if (strTopic.is_empty())
       {
 
+         string strSpeakText;
          strTopic = _t("(unknown)");
 
       }
@@ -553,6 +556,7 @@ string bot_x()
       if (strTopic.is_empty())
       {
 
+         string strSpeakText;
          strTopic = _t("(unknown)");
 
       }
@@ -560,17 +564,23 @@ string bot_x()
       str += _t2("city: %topic");
 
 
+      str += "\n";
+      strSpeakText += "\n";
+
       strTopic = strTime;
       
       if (strTopic.is_empty())
       {
 
+         string strSpeakText;
          strTopic = _t("(unknown)");
 
       }
 
       str += _t2("time:");
+      str += " ";
       str += strTime;
+      strSpeakText += " ";
       strSpeakText += strTime;
 
 
@@ -578,16 +588,36 @@ string bot_x()
       strSpeakText += "\n";
 
 
+      if (strWeather.is_empty())
+      {
+
+         string strSpeakText;
+         strWeather = _t("(unknown)");
+
+      }
+
       str += _t2("weather:");
+      strWeather.replace("/", " ");
+      str += " ";
       str += strWeather;
+      strSpeakText += " ";
       strSpeakText += strWeather;
 
       str += "\n";
       strSpeakText += "\n";
  
+      if (strTopScope.is_empty())
+      {
+
+         string strSpeakText;
+         strTopScope = _t("(unknown)");
+
+      }
 
       str += _t2("top scope:");
+      str += " ";
       str += strTopScope;
+      strSpeakText += " ";
       strSpeakText += strTopScope;
 
       str += "\n";

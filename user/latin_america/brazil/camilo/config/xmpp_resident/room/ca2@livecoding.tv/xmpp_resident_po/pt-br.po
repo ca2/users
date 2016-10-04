@@ -257,3 +257,38 @@ msgtext "%name, a cidade de %param1 é desconhecida"
 
 msgid "%name, city of %param1 is \"%topic\""
 msgtext "%name, a cidade de %param1 é \"%topic\""
+
+
+
+msgid "%name, your user information is:"
+msgtext "%name, suas informações de usuário são:"
+
+
+msgid "%name, user information about %param1 is:"
+msgtext "%name, as informações de usuário de %param1 são:"
+
+
+msgid "name: %topic"
+msgtext "nome: %topic"
+
+msgid "country code:"
+msgtext "código de país:"
+
+
+msgid "country: %topic"
+msgtext "país: %topic"
+
+msgid "city: %topic"
+msgtext "cidade: %topic"
+
+msgid "time:"
+msgtext "data e hora:"
+
+msgid "weather:"
+msgtext "clima:"
+
+msgid "top scope:"
+msgtext "principal interesse:"
+
+msgid "(unknown)"
+msgtext "(desconhecido)"
