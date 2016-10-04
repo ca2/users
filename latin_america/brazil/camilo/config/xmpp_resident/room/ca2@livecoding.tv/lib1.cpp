@@ -598,7 +598,7 @@ string user_weather(::vericard::user * puser, string & strQuery, string & strCou
          break;
 
       }
-      else if (iWait > 120)
+      else if (iWait > 30)
       {
 
          break;
