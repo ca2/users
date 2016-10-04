@@ -516,4 +516,125 @@ bool third_info(string strQuery, bool bPrefix = true)
 
 
 
+string user_weather(::vericard::user * puser, string & strQuery, string & strCountryCode, string & strCity, bool & bLocation)
+{
+
+   string strWeather;
+
+   strCountryCode = puser->get_user_country_code(false, false).get_string().uppered();
+
+   strCity = puser->get_user_city(false, false);
+
+   bLocation = false;
+
+   if (strCity.has_char())
+   {
+
+      strQuery = strCity;
+
+      if (strCountryCode.has_char())
+      {
+
+         strQuery += ", ";
+
+         strQuery += strCountryCode;
+
+      }
+
+   }
+   else
+   {
+
+      bLocation = true;
+
+      strQuery = m_strExtra;
+
+   }
+
+#ifdef WINDOWS
+
+   call_async("C:\\core\\time\\x64\\basis\\app_core_weather.exe", "\"" + strQuery + "\" : for_resident=" + m_strUser, "C:\\core\\time\\x64\\basis\\", SW_SHOW, false);
+
+#else
+
+   call_async("/xcore/stage/x86/app", "\"" + strQuery + "\" : for_resident=" + m_strUser + " app=app-core/weather build_number=basis version=basis locale=_std schema=_std ", "/xcore/stage/x86/", SW_SHOW, false);
+
+#endif
+
+   string strResponse = strQuery + "@" + m_strUser;
+
+   int iWait = 0;
+
+   var_array vara;
+
+   while (true)
+   {
+
+      {
+
+         single_lock sl(Application.veripack().m_pmutex);
+
+         for (index i = 0; i < Application.veripack().m_vaResponse.get_size(); i++)
+         {
+
+            if (Application.veripack().m_vaResponse[i][0].get_string().CompareNoCase(strResponse) == 0)
+            {
+
+               vara = Application.veripack().m_vaResponse[i];
+
+               Application.veripack().m_vaResponse.remove_at(i);
+
+               break;
+
+            }
+
+         }
+
+      }
+
+      if (vara.get_count() > 0)
+      {
+
+         break;
+
+      }
+      else if (iWait > 120)
+      {
+
+         break;
+
+      }
+      else
+      {
+
+         Sleep(484);
+
+         iWait++;
+
+      }
+
+   }
+
+   stringa stra;
+
+   if (vara.get_size() > 1)
+   {
+
+      stra.explode("|", vara[1]);
+
+   }
+
+   if (stra.get_size() == 2)
+   {
+
+      strWeather = stra[0] + " " + stra[1];
+
+   }
+
+   return strWeather;
+
+}
+
+
+
 

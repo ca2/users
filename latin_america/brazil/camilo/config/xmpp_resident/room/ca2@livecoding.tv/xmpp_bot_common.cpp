@@ -12,6 +12,7 @@
 stringa m_straSpecialCommand;
 
 #define _t(strText) get_text(strSpeakText,  strText)
+#define _t2(strText) get_text(strSpeakText,  strText, true)
 #define _trans1(function) function(strSpeakText)
 
 string_map < string_to_string > m_text;
