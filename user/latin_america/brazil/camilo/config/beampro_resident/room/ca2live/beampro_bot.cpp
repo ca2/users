@@ -1,5 +1,4 @@
 #include "framework.h"
-#include "app-core/appseed/resident/resident.h"
 #pragma comment (lib,"vericard.lib" )
 #pragma comment (lib,"beampro.lib" )
 #pragma comment (lib,"app_core_beampro_bot.lib" )

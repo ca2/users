@@ -448,6 +448,153 @@ string bot_x()
       }
 
    }
+   else if (about_user("userinfo"))
+   {
+
+      if (is_about_self())
+      {
+
+         str = _t("%name, your user information is:");
+
+      }
+      else
+      {
+
+         str = _t2("%name, user information about %param1 is:");
+
+      }
+      
+      str += "\n";
+      str += "\n";
+      strSpeakText += "\n";
+      strSpeakText += "\n";
+
+      ws(strTopicUser, false);
+
+      ::vericard::user * puser = get_user(strTopicUser, true);
+
+      string strUsername = username(strTopicUser, strLang);
+
+      string strWeatherQuery;
+
+      string strCountryCode;
+
+      string strCity;
+
+      bool bLocation = false;
+
+      string strWeather = user_weather(puser, strWeatherQuery, strCountryCode, strCity, bLocation);
+
+      string strCountry = get_country(strCountryCode);
+
+      string strTime = user_time_text(puser, m_strLang, true, false);
+
+      string strTopScope = puser->get_user_data("favorite_programming");
+
+      string strNewSpeak;
+
+      strTopic = strUsername;
+
+      if (strTopic.is_empty())
+      {
+
+         strTopic = strTopicUser;
+
+      }
+
+      str += _t2("name: %topic\n");
+
+      str += "\n";
+      strSpeakText += "\n";
+
+      if (strCountryCode.is_empty())
+      {
+
+         strCountryCode = _t("(unknown)");
+         strNewSpeak = strCountryCode;
+
+      }
+      else if(strCountryCode.get_length() == 2)
+      {
+
+         strNewSpeak = string(strCountryCode[0]) + "." + string(strCountryCode[1]) + ".";
+          
+      }
+      else
+      {
+
+         strNewSpeak = strCountryCode;
+
+      }
+
+      str += _t2("country code:");
+      str += strCountryCode;
+      strSpeakText += strNewSpeak;
+
+      str += "\n";
+      strSpeakText += "\n";
+
+      strTopic = strCountry;
+
+      if (strTopic.is_empty())
+      {
+
+         strTopic = _t("(unknown)");
+
+      }
+
+      str += _t2("country: %topic");
+
+      str += "\n";
+      strSpeakText += "\n";
+
+      strTopic = strCity;
+
+      if (strTopic.is_empty())
+      {
+
+         strTopic = _t("(unknown)");
+
+      }
+
+      str += _t2("city: %topic");
+
+
+      strTopic = strTime;
+      
+      if (strTopic.is_empty())
+      {
+
+         strTopic = _t("(unknown)");
+
+      }
+
+      str += _t2("time:");
+      str += strTime;
+      strSpeakText += strTime;
+
+
+      str += "\n";
+      strSpeakText += "\n";
+
+
+      str += _t2("weather:");
+      str += strWeather;
+      strSpeakText += strWeather;
+
+      str += "\n";
+      strSpeakText += "\n";
+ 
+
+      str += _t2("top scope:");
+      str += strTopScope;
+      strSpeakText += strTopScope;
+
+      str += "\n";
+      strSpeakText += "\n";
+
+
+   }
    else if (about_user("ws"))
    {
 
@@ -571,7 +718,7 @@ string bot_x()
    {
 
 #ifdef __XMPP
-      ::xmpp::comm * pcomm = m_pcomm.cast <::xmpp::comm>();
+      sp(::xmpp::comm) pcomm = m_pcomm;
 
       pcomm->defer_request_roster();
       ::fork(get_app(), [=]()
@@ -1789,16 +1936,16 @@ string bot_x()
 
       double dLon;
 
-      index iFind = System.find_city(strQ, strQ, iId, dLat, dLon);
+      auto pcity = System.find_city(strQ);
       
-      if (iFind >= 0)
+      if (pcity->m_iIndex >= 0)
       {
          
          property_set set;
 
-         string strLat = ::str::from(dLat);
+         string strLat = ::str::from(pcity->m_dLat);
 
-         string strLng = ::str::from(dLon);
+         string strLng = ::str::from(pcity->m_dLon);
          
          string strPath;
          
@@ -1886,170 +2033,20 @@ string bot_x()
          }
 
       }
+
+      ::vericard::user * puser = get_user(strCurrentUser, true);
+
+      string strWeatherQuery;
+
+      string strCountryCode;
       
-      string cc = get_user(strCurrentUser)->get_user_country_code().get_string().uppered();
-
-      string ci = get_user(strCurrentUser)->get_user_city();
-
-      string strQ;
+      string strCity;
 
       bool bLocation = false;
 
-      if (ci.has_char())
-      {
+      string strTopic = user_weather(puser, strWeatherQuery, strCountryCode, strCity, bLocation);
 
-         strQ = ci;
-
-         if (cc.has_char())
-         {
-
-            strQ += ", ";
-
-            strQ += cc;
-
-         }
-
-      }
-      else
-      {
-
-         bLocation = true;
-
-         strQ = m_strExtra;
-
-      }
-
-      //property_set setUserString(get_app());
-
-      //string strSetUrl = "https://api.ca2.cc/account/set_user_string?sessid=" + Session.fontopus()->get_user()->get_sessid("api.ca2.cc")
-      //   + "&key=" + System.url().url_encode(m_strUser) + ".weather." + System.url().url_encode(strQ)
-      //   + "&value=";
-
-      //Application.http().get(strSetUrl, setUserString);
-
-#ifdef WINDOWS
-
-      call_async("C:\\core\\time\\x64\\basis\\app_core_weather.exe", "\"" + strQ + "\" : for_resident=" + m_strUser, "C:\\core\\time\\x64\\basis\\", SW_SHOW, false);
-
-#else
-
-      call_async("/xcore/stage/x86/app", "\"" + strQ + "\" : for_resident=" + m_strUser + " app=app-core/weather build_number=basis version=basis locale=_std schema=_std ", "/xcore/stage/x86/", SW_SHOW, false);
-
-#endif
-
-#if 0
-#include "C:\\sensitive\\sensitive\\seed\\openweather.txt"
-      property_set set;
-      set["raw_http"] = true;
-      str = Application.http().get("http://api.openweathermap.org/data/2.5/weather?q=Curitiba,br&APPID=" + string(pszId), set);
-#endif
-
-      //property_set set(get_app());
-
-      //int iWait = 0;
-
-      //string strGetUrl = "https://api.ca2.cc/account/get_user_string?sessid=" + Session.fontopus()->get_user()->get_sessid("api.ca2.cc")
-      //   + "&key=" + System.url().url_encode(m_strUser) + ".weather." + System.url().url_encode(strQ);
-
-      //while (true)
-      //{
-
-      //   str.Empty();
-
-      //   Application.http().get(strGetUrl, str, setUserString);
-
-      //   if (setUserString["get_status"] == ::http::status_ok && str.has_char())
-      //   {
-
-      //      break;
-
-      //   }
-      //   else if (iWait > 6)
-      //   {
-
-      //      break;
-
-      //   }
-      //   else
-      //   {
-
-      //      Sleep(1984);
-
-      //      iWait++;
-
-      //   }
-
-      //}
-
-      //property_set set(get_app());
-
-      string strQuery = strQ + "@" + m_strUser;
-
-      int iWait = 0;
-
-      //string strGetUrl = "https://api.ca2.cc/account/get_user_string?sessid=" + Session.fontopus()->get_user()->get_sessid("api.ca2.cc")
-      //   + "&key=" + System.url().url_encode(m_strUser) + "." + System.url().url_encode(strUrl);
-
-      var_array vara;
-
-      while (true)
-      {
-
-         {
-
-            single_lock sl(Application.veripack().m_pmutex);
-
-            for (index i = 0; i < Application.veripack().m_vaResponse.get_size(); i++)
-            {
-
-               if (Application.veripack().m_vaResponse[i][0].get_string().CompareNoCase(strQuery) == 0)
-               {
-                  
-                  vara = Application.veripack().m_vaResponse[i];
-
-                  Application.veripack().m_vaResponse.remove_at(i);
-
-                  break;
-
-               }
-
-            }
-
-         }
-
-         if (vara.get_count() > 0)
-         {
-
-            break;
-
-         }
-         else if (iWait > 120)
-         {
-
-            break;
-
-         }
-         else
-         {
-
-            Sleep(484);
-
-            iWait++;
-
-         }
-
-      }
-
-      stringa stra;
-
-      if (vara.get_size() > 1)
-      {
-
-         stra.explode("|", vara[1]);
-
-      }
-
-      if (stra.get_size() != 2)
+      if (strTopic.is_empty())
       {
 
          str = _t("(No Results)");
@@ -2058,12 +2055,10 @@ string bot_x()
       else
       {
 
-         strTopic = stra[0] + " " + stra[1];
-
          if (bLocation)
          {
 
-            param1(strQ);
+            param1(strWeatherQuery);
 
             str = _t("%name, the weather at %param1 is %topic.");
 
@@ -2080,7 +2075,7 @@ string bot_x()
             else
             {
 
-               param1(strQ);
+               param1(strWeatherQuery);
 
                param(2, username(strCurrentUser, m_strLang));
 
@@ -2091,7 +2086,7 @@ string bot_x()
          }
 
       }
-      
+
    }
    else if (about_user("time"))
    {

@@ -83,7 +83,7 @@ bool _load_text(string strLang)
 
 
 
-string get_text(string & strSpeakText, string strId)
+string get_text(string & strSpeakText, string strId, bool bAppendSpeakText = false)
 {
 
    stringa straParam = m_straParam;
@@ -116,8 +116,18 @@ string get_text(string & strSpeakText, string strId)
 
    strNewSpeakText.replace("\"", " ");
 
+   if (bAppendSpeakText)
+   {
+      
+      strSpeakText += " " + strNewSpeakText;
 
-   strSpeakText = strNewSpeakText;
+   }
+   else
+   {
+
+      strSpeakText = strNewSpeakText;
+
+   }
 
    strText.replace("($name)", "(%name)");
    strText.replace("$name", "%name");
@@ -450,13 +460,21 @@ string get_country(string strCountryCode)
 
 
 
-
-string user_time_text(string strUser, string strLang, bool bTimeZone = false)
+string user_time_text(string strUser, string strLang, bool bTimeZone = false, bool bSynch = true)
 {
 
-   auto puser = get_user(strUser, true);
+   auto puser = get_user(strUser, bSynch);
 
-   ::datetime::time now = puser->user_time();
+   return user_time_text(puser, strLang, bTimeZone, bSynch);
+
+}
+
+
+
+string user_time_text(::vericard::user * puser, string strLang, bool bTimeZone = false, bool bSynch = true)
+{
+
+   ::datetime::time now = puser->user_time(bSynch);
 
    string strZone;
 
@@ -474,7 +492,7 @@ string user_time_text(string strUser, string strLang, bool bTimeZone = false)
 
       }
 
-      strZone += puser->user_time_span_text();
+      strZone += puser->user_time_span_text(bSynch);
 
       strZone = " " + strZone;
 
