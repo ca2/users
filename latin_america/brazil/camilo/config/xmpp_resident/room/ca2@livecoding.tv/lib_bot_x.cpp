@@ -2041,6 +2041,16 @@ string bot_x()
       }
 
    }
+   else if (strText == "!contact")
+   {
+      str.Empty();
+      str += "ca2 Contact:\n";
+      str += "Facebook: https://www.facebook.com/camilocc\n";
+      str += "Twitter: https://twitter.com/qamilox\n";
+      
+      strSpeakText = str;
+
+   }
    else if (third_info("sky") || third_info("weather"))
    {
 
@@ -2074,7 +2084,7 @@ string bot_x()
 
       bool bLocation = false;
 
-      string strTopic = user_weather(puser, strWeatherQuery, strCountryCode, strCity, bLocation);
+      strTopic = user_weather(puser, strWeatherQuery, strCountryCode, strCity, bLocation);
 
       if (strTopic.is_empty())
       {
@@ -2085,6 +2095,8 @@ string bot_x()
       else
       {
 
+         strTopic.replace("/", " ");
+         
          if (bLocation)
          {
 
