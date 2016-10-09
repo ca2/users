@@ -1,1 +1,1 @@
-﻿   Creating library C:\core\time\x64\basis\C_.Users.camilo.AppData.Roaming.ca2.system.config.irc_resident.room.ca2live@irc.twitch.tv.irc_bot-3dk7wrapdhh384821g0p9kcsar0sdxc74g2ns8w3jbzwr3zutj61zj1e3u1xou29.lib and object C:\core\time\x64\basis\C_.Users.camilo.AppData.Roaming.ca2.system.config.irc_resident.room.ca2live@irc.twitch.tv.irc_bot-3dk7wrapdhh384821g0p9kcsar0sdxc74g2ns8w3jbzwr3zutj61zj1e3u1xou29.exp
+﻿g++: error: /home/camilo/.ca2/appdata/system/config/irc_resident/room/ca2live@irc.twitch.tv/irc_bot.o: No such file or directory
