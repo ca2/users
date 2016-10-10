@@ -1,4 +1,4 @@
-#include "framework.h"
+#include "resident.h"
 #pragma comment (lib,"vericard.lib" )
 #pragma comment (lib,"xmpp.lib" )
 #pragma comment (lib,"app_core_xmpp_bot.lib" )
