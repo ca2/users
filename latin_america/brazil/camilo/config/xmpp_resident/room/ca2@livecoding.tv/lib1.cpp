@@ -376,8 +376,16 @@ bool set_user_timer(string strName, string strTitle, string strSpec, string strL
 {
 #ifdef WINDOWS
    call_async("C:\\core\\time\\x64\\basis\\app_core_timer.exe", "\"timer://device/"+strSpec+"?user="+System.url().url_encode(strName)+"&title="+System.url().url_encode(strTitle)+"&lang="+System.url().url_encode(strLang)+"&autoclose=1\"", "C:\\core\\time\\x64\\basis\\", SW_SHOW, false);
+   
+#elif defined(MACOS)
+   
+   //string strPath = file_as_string_dup(::file::path(“HOME”) / “.ca2/mypath/app-core/Waven”);
+   
+   ::system("/Applications/timer.app/Contents/MacOS/timer \"timer://device/"+strSpec+"?user="+System.url().url_encode(strName)+"&title="+System.url().url_encode(strTitle)+"&lang="+System.url().url_encode(strLang)+"&autoclose=1\" : app=app-core/timer build_number=basis locale=_std schema=_std");
+   
+   
 #else
-   call_async("/xcore/stage/x86/app", "\"timer://device/"+strSpec+"?user="+System.url().url_encode(strName)+"&title="+System.url().url_encode(strTitle)+"&lang="+System.url().url_encode(strLang)+"&autoclose=1\" : app=app-core/timer build_number=basis locale=_std schema=_std", "/xcore/stage/x86", SW_SHOW, false);
+   call_async("/xcore/stage/x86/app", c\"timer://device/"+strSpec+"?user="+System.url().url_encode(strName)+"&title="+System.url().url_encode(strTitle)+"&lang="+System.url().url_encode(strLang)+"&autoclose=1\" : app=app-core/timer build_number=basis locale=_std schema=_std", "/xcore/stage/x86", SW_SHOW, false);
 #endif
    return true;
 }
@@ -555,6 +563,15 @@ string user_weather(::vericard::user * puser, string & strQuery, string & strCou
 
    call_async("C:\\core\\time\\x64\\basis\\app_core_weather.exe", "\"" + strQuery + "\" : for_resident=" + m_strUser, "C:\\core\\time\\x64\\basis\\", SW_SHOW, false);
 
+#elif defined(MACOS)
+   
+   //string strPath = file_as_string_dup(::file::path(“HOME”) / “.ca2/mypath/app-core/Waven”);
+   
+   //::system(" \"" + strQuery + "\" : for_resident=" + m_strUser + " app=app-core/weather build_number=basis version=basis locale=_std schema=_std ");
+   
+   call_async("/Applications/Weather!!.app/Contents/MacOS/Weather!!", "\"" + strQuery + "\" : for_resident=" + m_strUser, "/Applications/Weather!!.app/Contents/MacOS", SW_SHOW, false);
+   
+   
 #else
 
    call_async("/xcore/stage/x86/app", "\"" + strQuery + "\" : for_resident=" + m_strUser + " app=app-core/weather build_number=basis version=basis locale=_std schema=_std ", "/xcore/stage/x86/", SW_SHOW, false);
@@ -577,7 +594,9 @@ string user_weather(::vericard::user * puser, string & strQuery, string & strCou
          for (index i = 0; i < Application.veripack().m_vaResponse.get_size(); i++)
          {
 
-            if (Application.veripack().m_vaResponse[i][0].get_string().CompareNoCase(strResponse) == 0)
+            string str = Application.veripack().m_vaResponse[i][0].get_string();
+            
+            if (str.CompareNoCase(strResponse) == 0)
             {
 
                vara = Application.veripack().m_vaResponse[i];

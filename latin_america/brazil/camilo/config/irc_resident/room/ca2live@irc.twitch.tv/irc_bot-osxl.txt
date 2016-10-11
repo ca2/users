@@ -1,3 +1,1 @@
 ld: warning: directory not found for option '-L@loader_path'
-ld: file not found: /var/tmp/ca2/intermediate/irc_bot.o
-clang: error: linker command failed with exit code 1 (use -v to see invocation)
