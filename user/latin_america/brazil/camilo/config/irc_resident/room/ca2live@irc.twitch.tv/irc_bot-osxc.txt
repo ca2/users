@@ -16840,13 +16840,13 @@ In file included from /Volumes/apple/Users/camilo/.ca2/appdata/system/config/irc
        ~~~~~~   ^~~~~~~~~~~~~~~~~~
 In file included from /Volumes/apple/Users/camilo/.ca2/appdata/system/config/irc_resident/room/ca2live@irc.twitch.tv/irc_bot.cpp:25:
 In file included from /Volumes/apple/Users/camilo/.ca2/appdata/system/config/irc_resident/room/ca2live@irc.twitch.tv/../../../xmpp_resident/room/ca2@livecoding.tv/xmpp_bot_common.cpp:36:
-/Volumes/apple/Users/camilo/.ca2/appdata/system/config/irc_resident/room/ca2live@irc.twitch.tv/../../../xmpp_resident/room/ca2@livecoding.tv/lib_bot_x.cpp:1963:15: warning: unused variable 'iId' [-Wunused-variable]
+/Volumes/apple/Users/camilo/.ca2/appdata/system/config/irc_resident/room/ca2live@irc.twitch.tv/../../../xmpp_resident/room/ca2@livecoding.tv/lib_bot_x.cpp:1983:15: warning: unused variable 'iId' [-Wunused-variable]
       int64_t iId;
               ^
-/Volumes/apple/Users/camilo/.ca2/appdata/system/config/irc_resident/room/ca2live@irc.twitch.tv/../../../xmpp_resident/room/ca2@livecoding.tv/lib_bot_x.cpp:1965:14: warning: unused variable 'dLat' [-Wunused-variable]
+/Volumes/apple/Users/camilo/.ca2/appdata/system/config/irc_resident/room/ca2live@irc.twitch.tv/../../../xmpp_resident/room/ca2@livecoding.tv/lib_bot_x.cpp:1985:14: warning: unused variable 'dLat' [-Wunused-variable]
       double dLat;
              ^
-/Volumes/apple/Users/camilo/.ca2/appdata/system/config/irc_resident/room/ca2live@irc.twitch.tv/../../../xmpp_resident/room/ca2@livecoding.tv/lib_bot_x.cpp:1967:14: warning: unused variable 'dLon' [-Wunused-variable]
+/Volumes/apple/Users/camilo/.ca2/appdata/system/config/irc_resident/room/ca2live@irc.twitch.tv/../../../xmpp_resident/room/ca2@livecoding.tv/lib_bot_x.cpp:1987:14: warning: unused variable 'dLon' [-Wunused-variable]
       double dLon;
              ^
 /Volumes/apple/Users/camilo/.ca2/appdata/system/config/irc_resident/room/ca2live@irc.twitch.tv/../../../xmpp_resident/room/ca2@livecoding.tv/lib_bot_x.cpp:19:13: warning: unused variable 'strNameParam' [-Wunused-variable]
