@@ -65,6 +65,10 @@ string bot_x()
 
       call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", "\"" + strUrl + "\" : for_resident=" + m_strUser,  "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
 
+#elif defined(__APPLE__)
+
+      call_async("/Applications/Waven.app/Contents/MacOS/Waven", "\""+strUrl+"\" : for_resident="+m_strUser, "/Applications/Waven.app/Contents/MacOS", SW_SHOW, false);
+
 #else
 
       call_async("/xcore/stage/x86/app", "\""+strUrl+"\" : for_resident="+m_strUser +" app=app-veriwell/waven build_number=basis locale=_std schema=_std ", "/xcore/stage/x86/", SW_SHOW, false);
@@ -231,6 +235,10 @@ string bot_x()
 
                call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", "\"" + str + "\" : "+ strAddUp +" for_resident=" + m_strUser + "", "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
 
+#elif defined(__APPLE__)
+
+               call_async("/Applications/Waven.app/Contents/MacOS/Waven", "\"" + str + "\" : "+ strAddUp +" for_resident=" + m_strUser, "/Applications/Waven.app/Contents/MacOS", SW_SHOW, false);
+
 #else
 
                call_async("/xcore/stage/x86/app", "\"" + str + "\" : play_now for_resident=" + m_strUser + " " + strAddUp + " app=app-veriwell/waven build_number=basis locale=_std schema=_std ", "/xcore/stage/x86/", SW_SHOW, false);
@@ -389,6 +397,10 @@ string bot_x()
 #ifdef WINDOWS
 
       call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", "\"" + strText.substr(1) + "\" : play_now", "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
+      
+#elif defined(__APPLE__)
+
+      call_async("/Applications/Waven.app/Contents/MacOS/Waven", "\"" + strText.substr(1) + "\" : play_now", "/Applications/Waven.app/Contents/MacOS", SW_SHOW, false);
 
 #else
 
@@ -405,6 +417,10 @@ string bot_x()
 #ifdef WINDOWS
 
       call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", "\"" + strText.substr(1) + "\"", "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
+
+#elif defined(__APPLE__)
+
+      call_async("/Applications/Waven.app/Contents/MacOS/Waven", "\"" + strText.substr(1) + "\" : play_now", "/Applications/Waven.app/Contents/MacOS", SW_SHOW, false);
 
 #else
 
@@ -1317,9 +1333,9 @@ string bot_x()
 
          call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", " : mediaplay:playlist_" + strLo, "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
 
-#elif defined(MACOS)
+#elif defined(__APPLE__)
 
-         ::system("/Applications/Waven.app/Contents/MacOS/Waven : mediaplay:playlist_" + strLo);
+      call_async("/Applications/Waven.app/Contents/MacOS/Waven", " : mediaplay:playlist_" + strLo, "/Applications/Waven.app/Contents/MacOS", SW_SHOW, false);
 
 #else
 
@@ -1432,6 +1448,10 @@ string bot_x()
 #ifdef WINDOWS
 
          call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", " : mediaplay:playlist_list", "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
+
+#elif defined(__APPLE__)
+
+      call_async("/Applications/Waven.app/Contents/MacOS/Waven", " : mediaplay:playlist_list", "/Applications/Waven.app/Contents/MacOS", SW_SHOW, false);
 
 #else
 
@@ -1547,9 +1567,9 @@ string bot_x()
 
       call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", " : " + strCommand, "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
 
-#elif defined(MACOS)
+#elif defined(__APPLE__)
 
-      ::system("/Applications/Waven.app/Contents/MacOS/Waven : " + strCommand);
+      call_async("/Applications/Waven.app/Contents/MacOS/Waven", " : " + strCommand, "/Applications/Waven.app/Contents/MacOS", SW_SHOW, false);
 
 #else
 
@@ -1632,10 +1652,10 @@ string bot_x()
 
          call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", " : " + strCommand, "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
 
-#elif defined(MACOS)
+#elif defined(__APPLE__)
 
-         ::system("/Applications/Waven.app/Contents/MacOS/Waven : " + strCommand);
-
+      call_async("/Applications/Waven.app/Contents/MacOS/Waven", " : " + strCommand, "/Applications/Waven.app/Contents/MacOS", SW_SHOW, false);
+      
 #else
 
          call_async("/xcore/stage/x86/app", " : app=app-veriwell/waven build_number=basis locale=_std schema=_std " + strCommand, "/xcore/stage/x86", SW_SHOW, false);
@@ -1713,10 +1733,10 @@ string bot_x()
 
          call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", " : " + strCommand, "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
 
-#elif defined(MACOS)
+#elif defined(__APPLE__)
 
-         ::system("/Applications/Waven.app/Contents/MacOS/Waven : " + strCommand);
-
+      call_async("/Applications/Waven.app/Contents/MacOS/Waven", " : " + strCommand, "/Applications/Waven.app/Contents/MacOS", SW_SHOW, false);
+      
 #else
 
          call_async("/xcore/stage/x86/app", " : app=app-veriwell/waven build_number=basis locale=_std schema=_std " + strCommand, "/xcore/stage/x86", SW_SHOW, false);
@@ -2309,6 +2329,11 @@ string bot_x()
 
          call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", str, "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
 
+
+#elif defined(__APPLE__)
+
+      call_async("/Applications/Waven.app/Contents/MacOS/Waven", str, "/Applications/Waven.app/Contents/MacOS", SW_SHOW, false);
+      
 #else
 
          call_async("/xcore/stage/x86/app", "\"" + str + "\" : app=app-veriwell/waven build_number=basis locale=_std schema=_std ", "/xcore/stage/x86/", SW_SHOW, false);
