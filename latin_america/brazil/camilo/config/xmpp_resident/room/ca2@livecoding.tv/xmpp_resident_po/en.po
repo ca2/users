@@ -1,5 +1,5 @@
-﻿msgid "%name, Some supported commands !hlp, !about and !vaimepassarobot?"
-msgtext "%name, einige unterstützten Befehle: !hlp, !about und !vaimepassarobot?"
+﻿msgid "%name, Some supported commands !help, !about and !want the bot"
+msgtext "%name, Some supported commands !help, !about and !want the bot More: https://ca2.cc/app-core/resident/commands"
 
 msgid "%name, song not playing or not in record."
 msgtext ""
