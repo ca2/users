@@ -7,6 +7,7 @@ bool is_exclamation(string str)
    if (plugin::is_exclamation(str))
       return true;
 
+
    if (::str::find_ci("wtf", str) >= 0)
       return true;
 
@@ -385,7 +386,7 @@ bool set_user_timer(string strName, string strTitle, string strSpec, string strL
    
    
 #else
-   call_async("/xcore/stage/x86/app", c\"timer://device/"+strSpec+"?user="+System.url().url_encode(strName)+"&title="+System.url().url_encode(strTitle)+"&lang="+System.url().url_encode(strLang)+"&autoclose=1\" : app=app-core/timer build_number=basis locale=_std schema=_std", "/xcore/stage/x86", SW_SHOW, false);
+   call_async("/xcore/stage/x86/app", "\"timer://device/"+strSpec+"?user="+System.url().url_encode(strName)+"&title="+System.url().url_encode(strTitle)+"&lang="+System.url().url_encode(strLang)+"&autoclose=1\" : app=app-core/timer build_number=basis locale=_std schema=_std", "/xcore/stage/x86", SW_SHOW, false);
 #endif
    return true;
 }
