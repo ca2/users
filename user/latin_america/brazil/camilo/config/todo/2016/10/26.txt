@@ -1,4 +1,4 @@
-﻿80
+﻿78
 0
 Windows "Homerun"
 C++'n bug fixing
