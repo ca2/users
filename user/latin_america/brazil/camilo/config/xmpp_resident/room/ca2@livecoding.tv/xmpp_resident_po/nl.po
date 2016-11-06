@@ -152,7 +152,7 @@ msgid "%name you are connected!";
 msgtext "%name u bent nu verbonden!";
 
 msgid "<emph>Welcome %name! :) %param1</emph> Please, use exclamation mark to get help."
-msgtext "<emph>Welkom %name! :) %param1</emph> Type voor instructies een uitroepteken gevolgd door enter."
+msgtext "<emph>Welkom %name! :) %param1</emph> Typ voor instructies een uitroepteken gevolgd door enter."
 
 msgid "<emph>Hi %name! Welcome! %param1</emph> What brings you here today?"
 msgtext "<emph>Hoi %name! Welkom! %param1</emph> Wat brengt u hier vandaag?"
@@ -211,28 +211,28 @@ msgid "%name, country code of %param1 is \"%topic\""
 msgtext "%name, land code van %param1 is \"%topic\""
 
 msgid "(No Results)"
-msgtext "(No Results)"
+msgtext "(Geen resultaten)"
 
 msgid "%name, the weather at %param1 is %topic."
-msgtext "%name, the weather at %param1 is %topic."
+msgtext "%name, het weer in %param1 is %topic."
 
 msgid "%name, your current weather is %topic."
-msgtext "%name, your current weather is %topic."
+msgtext "%name, uw weer op dit moment is %topic."
 
 msgid "%name, the weather for %param2 at %param1 is %topic."
-msgtext "%name, the weather for %param2 at %param1 is %topic."
+msgtext "%name, het weer voor %param2 in %param1 is %topic."
 
 
 
 msgid "%name, your city is unknown"
-msgtext "%name, your city is unknown"
+msgtext "%name, uw woonplaats is onbekend"
 
 msgid "%name, your city is set to \"%topic\""
-msgtext "%name, your city is set to \"%topic\""
+msgtext "%name, uw woonplaats is ingesteld op \"%topic\""
 
 msgid "%name, city of %param1 is unknown"
-msgtext "%name, city of %param1 is unknown"
+msgtext "%name, woonplaats van %param1 is onbekend"
 
 msgid "%name, city of %param1 is \"%topic\""
-msgtext "%name, city of %param1 is \"%topic\""
+msgtext "%name, woonplaats van %param1 is \"%topic\""
 
