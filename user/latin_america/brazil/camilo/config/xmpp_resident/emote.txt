@@ -26,7 +26,7 @@ https://www.livecoding.tv/static/candy-chat/img/emoticons_hd/Huh.png
 https://www.livecoding.tv/static/candy-chat/img/emoticons_hd/Grinning_Winking.png
 \:thumbsup\:
 https://www.livecoding.tv/static/candy-chat/img/emoticons_hd/69_Thumbs_Up.png
-\:\/
+\:\/(?=(\s|$))
 https://www.livecoding.tv/static/candy-chat/img/emoticons_hd/Uncertain.png
 \<3(?=(\s|$))
 https://www.livecoding.tv/static/candy-chat/img/emoticons_hd/Heart.png

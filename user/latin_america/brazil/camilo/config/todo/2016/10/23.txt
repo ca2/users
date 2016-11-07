@@ -1,4 +1,4 @@
-﻿51
+﻿61
 0
 Windows "Homerun"
 C++'n bug fixing
@@ -49,6 +49,22 @@ C++'n bug fixing
 ---verilux
 ---verifile
 ---veriedit
+-Ubuntu Round
+--Core Applications
+---Todo
+---Auraclick
+---Auratype
+---Timer
+---Resident
+---Weather
+---Waven
+--Basic Applications
+---Hellomultiverse
+Waiting SSD delivery
+Install Windows 10!! (again...)
+Install Ubuntu!!
+Install macOS!!
+2nd XPlat Round InARow
 -Ubuntu Round
 --Core Applications
 ---Todo
