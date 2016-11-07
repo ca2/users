@@ -5,7 +5,7 @@ bool _load_text(string strLang)
 
    auto & m = m_text[strLang];
 
-   ::file::path path = ::dir::system() / "config/xmpp_resident/room/ca2@livecoding.tv/xmpp_resident_po" / strLang + ".po";
+   ::file::path path = ::dir::system() / "config/xmpp_resident/room/ca2live@livecoding.tv/xmpp_resident_po" / strLang + ".po";
 
    ::file_time ft = get_file_time(path);
 
@@ -179,7 +179,7 @@ string get_country(string strLang, string strCountry)
 
    strCountry.make_upper();
 
-   ::file::path path = ::dir::system() / "config/xmpp_resident/room/ca2@livecoding.tv/xmpp_resident_country" / (strLang + ".json");
+   ::file::path path = ::dir::system() / "config/xmpp_resident/room/ca2live@livecoding.tv/xmpp_resident_country" / (strLang + ".json");
 
    ::file_time ft = get_file_time(path);
 
