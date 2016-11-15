@@ -11,45 +11,10 @@ string on_bot(string strUser,string strText)
    stringa t_straParam;
    string strSpeakText;
 
+   if (process_scheduled_speech(strUser, strText))
    {
 
-      string strSpeakText;
-
-      string strLang;
-
-      sp(chat_item) pitem = Application.veripack().get_scheduled_speech(strUser, strText, strSpeakText, strLang);
-
-      if (pitem.is_set())
-      {
-
-         m_bSpeak = true;
-
-         m_pcomm->add_chat(this);
-
-         if (pitem->m_epersonVocative == ::vericard::person_user)
-         {
-
-            m_strLang = pitem->m_strLang;
-
-         }
-         else
-         {
-
-            m_strLang = pitem->m_strOtherLang;
-
-         }
-
-         string strItemUser = pitem->m_strUser;
-
-         //pitem->m_bSpeak = false;
-
-         pitem.release();
-
-         lspeak(strItemUser, m_strLang, strSpeakText, true);
-
-         return "";
-
-      }
+      return "";
 
    }
    
