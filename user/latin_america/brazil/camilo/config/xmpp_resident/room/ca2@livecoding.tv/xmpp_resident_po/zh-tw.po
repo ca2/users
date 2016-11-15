@@ -1,4 +1,29 @@
-﻿msgid "%name, Some supported commands !help, !about and !want the bot"
+﻿msgid "Good Morning!"
+msgtext "早上好！"
+
+msgid "Good Afternoon!"
+msgtext "下午好！"
+
+msgid "Good Evening!"
+msgtext "晚上好！"
+
+msgid "Good Night!"
+msgtext "晚安！"
+
+msgid "%name, Good Morning!"
+msgtext "%name，晚安!"
+
+msgid "%name, Good Afternoon!"
+msgtext "%name，下午好!"
+
+msgid "%name, Good Evening!"
+msgtext "%name，晚上好!"
+
+msgid "%name, Good Night!"
+msgtext "%name，晚安!"
+
+
+msgid "%name, Some supported commands !help, !about and !want the bot"
 msgtext "%name, 輔助指令: !help, !about 和 !want the bot(這個機器人)"
 
 msgid "%name, song not playing or not in record."
@@ -164,3 +189,30 @@ msgtext "%name, 你將會需要 Visual Studio 2015 (至少是 Community Edition)
 
 msgid ""
 msgtext ""
+
+
+
+msgid "name: %topic"
+msgtext "名稱：%topic"
+
+msgid "country code:"
+msgtext "國家代碼："
+
+
+msgid "country: %topic"
+msgtext "國家：%topic"
+
+msgid "city: %topic"
+msgtext "市：%topic"
+
+msgid "time:"
+msgtext "時間："
+
+msgid "weather:"
+msgtext "天氣："
+
+msgid "top scope:"
+msgtext "主要興趣："
+
+msgid "(unknown)"
+msgtext "（未知）"

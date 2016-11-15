@@ -1,7 +1,1 @@
-<html>
-<head><title>504 Gateway Time-out</title></head>
-<body bgcolor="white">
-<center><h1>504 Gateway Time-out</h1></center>
-<hr><center>nginx</center>
-</body>
-</html>
+{"display_name":"Break4coffee","_id":57651587,"name":"break4coffee","type":"user","bio":null,"created_at":"2014-02-24T19:27:21Z","updated_at":"2016-10-29T21:40:57Z","logo":null,"_links":{"self":"https://api.twitch.tv/kraken/users/break4coffee"}}
