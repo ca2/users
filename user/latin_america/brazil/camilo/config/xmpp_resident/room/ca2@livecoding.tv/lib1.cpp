@@ -332,7 +332,7 @@ call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", "\""+ strPara
 ::system("/Applications/Waven.app/Contents/MacOS/Waven \""+strParam+"\" : dont_add_to_playlist" + strTitle + strAlbumArt);
 
 #else
-call_async("/xcore/stage/x86/app", "\""+ strParam + "\" :  app=app-veriwell/waven build_number=basis locale=_std schema=_std dont_add_to_playlist" + strTitle + strAlbumArt, "/xcore/stage/x86", SW_SHOW, false);
+call_async("/xcore/time/x64/basis/app", "\""+ strParam + "\" :  app=app-veriwell/waven build_number=basis locale=_std schema=_std dont_add_to_playlist" + strTitle + strAlbumArt, "/xcore/time/x64/basis", SW_SHOW, false);
 #endif
 
 }
@@ -386,7 +386,7 @@ bool set_user_timer(string strName, string strTitle, string strSpec, string strL
    
    
 #else
-   call_async("/xcore/stage/x86/app", "\"timer://device/"+strSpec+"?user="+System.url().url_encode(strName)+"&title="+System.url().url_encode(strTitle)+"&lang="+System.url().url_encode(strLang)+"&autoclose=1\" : app=app-core/timer build_number=basis locale=_std schema=_std", "/xcore/stage/x86", SW_SHOW, false);
+   call_async("/xcore/time/x64/basis/app", "\"timer://device/"+strSpec+"?user="+System.url().url_encode(strName)+"&title="+System.url().url_encode(strTitle)+"&lang="+System.url().url_encode(strLang)+"&autoclose=1\" : app=app-core/timer build_number=basis locale=_std schema=_std", "/xcore/time/x64/basis", SW_SHOW, false);
 #endif
    return true;
 }
@@ -575,7 +575,7 @@ string user_weather(::vericard::user * puser, string & strQuery, string & strCou
    
 #else
 
-   call_async("/xcore/stage/x86/app", "\"" + strQuery + "\" : for_resident=" + m_strUser + " app=app-core/weather build_number=basis version=basis locale=_std schema=_std ", "/xcore/stage/x86/", SW_SHOW, false);
+   call_async("/xcore/time/x64/basis/app", "\"" + strQuery + "\" : for_resident=" + m_strUser + " app=app-core/weather build_number=basis version=basis locale=_std schema=_std ", "/xcore/time/x64/basis/", SW_SHOW, false);
 
 #endif
 

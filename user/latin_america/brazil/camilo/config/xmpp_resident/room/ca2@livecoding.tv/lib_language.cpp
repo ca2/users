@@ -118,7 +118,7 @@ string get_text(string & strSpeakText, string strId, bool bAppendSpeakText = fal
 
    if (bAppendSpeakText)
    {
-      
+
       strSpeakText += " " + strNewSpeakText;
 
    }
@@ -179,7 +179,11 @@ string get_country(string strLang, string strCountry)
 
    strCountry.make_upper();
 
-   ::file::path path = ::dir::system() / "config/xmpp_resident/room/ca2@livecoding.tv/xmpp_resident_country" / (strLang + ".json");
+   string strFileName = (strLang + ".json");
+
+   strFileName.make_lower();
+
+   ::file::path path = ::dir::system() / "config/xmpp_resident/room/ca2@livecoding.tv/xmpp_resident_country" / strFileName;
 
    ::file_time ft = get_file_time(path);
 

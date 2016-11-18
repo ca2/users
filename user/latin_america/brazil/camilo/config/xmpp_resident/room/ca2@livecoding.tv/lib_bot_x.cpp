@@ -71,7 +71,7 @@ string bot_x()
 
 #else
 
-      call_async("/xcore/stage/x86/app", "\""+strUrl+"\" : for_resident="+m_strUser +" app=app-veriwell/waven build_number=basis locale=_std schema=_std ", "/xcore/stage/x86/", SW_SHOW, false);
+      call_async("/xcore/time/x64/basis/app", "\""+strUrl+"\" : for_resident="+m_strUser +" app=app-veriwell/waven build_number=basis locale=_std schema=_std ", "/xcore/time/x64/basis/", SW_SHOW, false);
 
 #endif
 
@@ -241,7 +241,7 @@ string bot_x()
 
 #else
 
-               call_async("/xcore/stage/x86/app", "\"" + str + "\" : play_now for_resident=" + m_strUser + " " + strAddUp + " app=app-veriwell/waven build_number=basis locale=_std schema=_std ", "/xcore/stage/x86/", SW_SHOW, false);
+               call_async("/xcore/time/x64/basis/app", "\"" + str + "\" : play_now for_resident=" + m_strUser + " " + strAddUp + " app=app-veriwell/waven build_number=basis locale=_std schema=_std ", "/xcore/time/x64/basis/", SW_SHOW, false);
 
 #endif
 
@@ -404,7 +404,7 @@ string bot_x()
 
 #else
 
-      call_async("/xcore/stage/x86/app", "\"" + strText.substr(1) + "\" : play_now app=app-veriwell/waven build_number=basis locale=_std schema=_std ", "/xcore/stage/x86/", SW_SHOW, false);
+      call_async("/xcore/time/x64/basis/app", "\"" + strText.substr(1) + "\" : play_now app=app-veriwell/waven build_number=basis locale=_std schema=_std ", "/xcore/time/x64/basis/", SW_SHOW, false);
 
 #endif
 
@@ -424,7 +424,7 @@ string bot_x()
 
 #else
 
-      call_async("/xcore/stage/x86/app", "\"" + strText.substr(1) + "\" : app=app-veriwell/waven build_number=basis locale=_std schema=_std ", "/xcore/stage/x86/", SW_SHOW, false);
+      call_async("/xcore/time/x64/basis/app", "\"" + strText.substr(1) + "\" : app=app-veriwell/waven build_number=basis locale=_std schema=_std ", "/xcore/time/x64/basis/", SW_SHOW, false);
 
 #endif
 
@@ -1310,7 +1310,7 @@ string bot_x()
 
 #else
 
-      call_async("/xcore/stage/x86/app", " : app=app-veriwell/waven build_number=basis locale=_std schema=_std " + strCommand, "/xcore/stage/x86", SW_SHOW, false);
+      call_async("/xcore/time/x64/basis/app", " : app=app-veriwell/waven build_number=basis locale=_std schema=_std " + strCommand, "/xcore/time/x64/basis", SW_SHOW, false);
 
 #endif
 
@@ -1339,7 +1339,7 @@ string bot_x()
 
 #else
 
-         call_async("/xcore/stage/x86/app", " : app=app-veriwell/waven build_number=basis locale=_std schema=_std mediaplay:playlist_" + strLo, "/xcore/stage/x86", SW_SHOW, false);
+         call_async("/xcore/time/x64/basis/app", " : app=app-veriwell/waven build_number=basis locale=_std schema=_std mediaplay:playlist_" + strLo, "/xcore/time/x64/basis", SW_SHOW, false);
 
 #endif
 
@@ -1455,7 +1455,7 @@ string bot_x()
 
 #else
 
-         call_async("/xcore/stage/x86/app", " : mediaplay:playlist_list app=app-veriwell/waven build_number=basis locale=_std schema=_std ", "/xcore/stage/x86/", SW_SHOW, false);
+         call_async("/xcore/time/x64/basis/app", " : mediaplay:playlist_list app=app-veriwell/waven build_number=basis locale=_std schema=_std ", "/xcore/time/x64/basis/", SW_SHOW, false);
 
 #endif
 
@@ -1573,7 +1573,7 @@ string bot_x()
 
 #else
 
-      call_async("/xcore/stage/x86/app", " : app=app-veriwell/waven build_number=basis locale=_std schema=_std " + strCommand, "/xcore/stage/x86", SW_SHOW, false);
+      call_async("/xcore/time/x64/basis/app", " : app=app-veriwell/waven build_number=basis locale=_std schema=_std " + strCommand, "/xcore/time/x64/basis", SW_SHOW, false);
 
 #endif
 
@@ -1658,7 +1658,7 @@ string bot_x()
       
 #else
 
-         call_async("/xcore/stage/x86/app", " : app=app-veriwell/waven build_number=basis locale=_std schema=_std " + strCommand, "/xcore/stage/x86", SW_SHOW, false);
+         call_async("/xcore/time/x64/basis/app", " : app=app-veriwell/waven build_number=basis locale=_std schema=_std " + strCommand, "/xcore/time/x64/basis", SW_SHOW, false);
 
 #endif
 
@@ -1739,7 +1739,7 @@ string bot_x()
       
 #else
 
-         call_async("/xcore/stage/x86/app", " : app=app-veriwell/waven build_number=basis locale=_std schema=_std " + strCommand, "/xcore/stage/x86", SW_SHOW, false);
+         call_async("/xcore/time/x64/basis/app", " : app=app-veriwell/waven build_number=basis locale=_std schema=_std " + strCommand, "/xcore/time/x64/basis", SW_SHOW, false);
 
 #endif
 
@@ -2336,7 +2336,7 @@ string bot_x()
       
 #else
 
-         call_async("/xcore/stage/x86/app", "\"" + str + "\" : app=app-veriwell/waven build_number=basis locale=_std schema=_std ", "/xcore/stage/x86/", SW_SHOW, false);
+         call_async("/xcore/time/x64/basis/app", "\"" + str + "\" : app=app-veriwell/waven build_number=basis locale=_std schema=_std ", "/xcore/time/x64/basis/", SW_SHOW, false);
 
 #endif
 
