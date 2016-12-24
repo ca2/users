@@ -1,10 +1,23 @@
 #include "framework.h"
+#pragma comment (lib,"announcecom.lib" )
 #pragma comment (lib,"vericard.lib" )
+#pragma comment (lib,"xmpp.lib" )
+#pragma comment (lib,"app_core_xmpp_bot.lib" )
+#pragma comment (lib,"app_core_xmpp_client.lib" )
+#pragma comment (lib,"app_core_xmpp_resident.lib" )
+#pragma comment (lib,"app_core_resident.lib" )
+#pragma comment (lib,"irc.lib" )
+#pragma comment (lib,"app_core_irc_bot.lib" )
+#pragma comment (lib,"app_core_irc_client.lib" )
+#pragma comment (lib,"app_core_irc_resident.lib" )
 #pragma comment (lib,"beampro.lib" )
 #pragma comment (lib,"app_core_beampro_bot.lib" )
 #pragma comment (lib,"app_core_beampro_client.lib" )
 #pragma comment (lib,"app_core_beampro_resident.lib" )
-#pragma comment (lib,"app_core_resident.lib" )
+#pragma comment (lib,"user32.lib" )
+
+
+#define __BEAM
 
 class this_plugin :
 	virtual public ::beampro_resident::plugin
@@ -12,8 +25,13 @@ class this_plugin :
 	
 	public:
 	
+
+
    
    
+
+
+
 	
       this_plugin(::aura::application * papp, object * p) :
 		object(papp),
