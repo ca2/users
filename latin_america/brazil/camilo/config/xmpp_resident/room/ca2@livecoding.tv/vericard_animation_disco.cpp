@@ -262,11 +262,20 @@ namespace vericard
          //pgraphics->StretchBlt(m_rectDisco.left, m_rectDisco.top,
          // m_rectDisco.width(), m_rectDisco.height(),
          //m_dibDiscoBall->get_graphics(), 0, 0, m_dibDiscoBall->m_size.cx, m_dibDiscoBall->m_size.cy);
-         HWND hwnd = ::FindWindow("Shell_TrayWnd", NULL);
-
          ::rect rShell;
 
+
+#ifdef WINDOWSEX
+         HWND hwnd = ::FindWindow("Shell_TrayWnd", NULL);
+
          ::GetWindowRect(hwnd, rShell);
+#else
+
+	rShell = rectClient;
+
+	rShell.top = rShell.bottom;
+
+#endif
 
          for (index i = 0; i < m_llama.get_count(); i++)
          {
