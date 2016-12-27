@@ -343,7 +343,7 @@ call_async("/xcore/time/x64/basis/app", "\""+ strParam + "\" :  app=app-veriwell
 #ifdef WINDOWS
    return "C:\\bergedge";
 #else
-   return "/a/bergedge";
+   return "/bergedge";
 #endif
 
 }
