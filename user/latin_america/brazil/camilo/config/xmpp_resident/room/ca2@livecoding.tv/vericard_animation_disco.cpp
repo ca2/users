@@ -4,6 +4,15 @@
 namespace vericard
 {
 
+	::file::path dir_archive()
+	{
+#ifdef WINDOWSEX
+		return "C:/archive";
+#else
+	return "/mnt/matter/archive";
+#endif
+
+	}	
 
    animation_disco::animation_disco(pack * ppack) :
       ::object(ppack->get_app()),
@@ -26,14 +35,14 @@ namespace vericard
    bool animation_disco::initialize()
    {
 
-      if (!m_dibDiscoBall.load_from_file("C:/archive/disco_ball/starball_w_stardancer.gif"))
+      if (!m_dibDiscoBall.load_from_file(dir_archive() / "disco_ball/starball_w_stardancer.gif"))
       {
 
          return false;
 
       }
 
-      if (!m_dibLlama.load_from_file("C:/archive/disco_ball/llama1.gif"))
+      if (!m_dibLlama.load_from_file(dir_archive() / "disco_ball/llama1.gif"))
       {
 
          return false;
