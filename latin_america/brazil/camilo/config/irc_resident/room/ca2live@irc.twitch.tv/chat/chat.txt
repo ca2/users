@@ -1,4 +1,4 @@
-!ca2bot : Treasure - by Bruno Mars&ca2bot : The Lazy Song - by Bruno Mars$ca2bot : Nightbot you are connected!$ca2bot : RevloBot you are connected!ca2bot : ca2bot de-hosted!!cca2bot : <emph>Welcome Pipenbrok! :) Good Morning!</emph> Please, use exclamation mark to get help.-ca2bot : Locked Out Of Heaven - by Bruno Mars6nightbot : Server commands other than /me are blocked.ca2bot : Camiloca2live : !setcountry Brazil0ca2bot : Camilo, your country was set to Brazil.ca2live : 1setcity Santosca2live : !setzone BRST0ca2bot : Camilo, your time zone was set to BRST.ca2live : !userinfo�ca2bot : Camilo, your user information is:
+ !ca2bot : Treasure - by Bruno Mars&ca2bot : The Lazy Song - by Bruno Mars$ca2bot : Nightbot you are connected!$ca2bot : RevloBot you are connected!ca2bot : ca2bot de-hosted!!cca2bot : <emph>Welcome Pipenbrok! :) Good Morning!</emph> Please, use exclamation mark to get help.-ca2bot : Locked Out Of Heaven - by Bruno Mars6nightbot : Server commands other than /me are blocked.ca2bot : Camiloca2live : !setcountry Brazil0ca2bot : Camilo, your country was set to Brazil.ca2live : 1setcity Santosca2live : !setzone BRST0ca2bot : Camilo, your time zone was set to BRST.ca2live : !userinfo�ca2bot : Camilo, your user information is:
 
 name: Camilo
 country code: BR
@@ -16,9 +16,7 @@ city: Santos
 time: 2017-01-05 04:48:27 BRST UTC -2
 weather: night Clear 24°C
 top scope: C++ and ca2 enthusiast, more at ca2.cc
-(ca2bot : Do Lado De Cá - por Chimarruts&ca2bot : Sexy And I Know It - by LMFAOJca2bot : Lean On (feat. MØ & DJ Snake) - by Major Lazer, MØ and DJ SnakeMca2bot : See You Again (feat. Charlie Puth) - by Wiz Khalifa and Charlie Puth6nightbot : Server commands other than /me are blocked.,ca2bot : The Monster - by Eminem and Rihanna$ca2bot : Am I Wrong - by Nico & Vinz?ca2bot : Like A G6 - by Far East Movement, The Cataracs and DEVca2bot : Bye Pipenbrok! :(6nightbot : Server commands other than /me are blocked.live : !userinfo�ca2bot : Camilo, your user information is:
-
-name: Camilo
+(ca2bot : Do Lado De Cá - por Chimarruts&ca2bot : Sexy And I Know It - by LMFAOJca2bot : Lean On (feat. MØ & DJ Snake) - by Major Lazer, MØ and DJ SnakeMca2bot : See You Again (feat. Charlie Puth) - by Wiz Khalifa and Charlie Puth6nightbot : Server commands other than /me are blocked.,ca2bot : The Monster - by Eminem and Rihanna$ca2bot : Am I Wrong - by Nico & Vinz?ca2bot : Like A G6 - by Far East Movement, The Cataracs and DEVca2bot : Bye Pipenbrok! :(6nightbot : Server commands other than /me are blocked. ca2bot : Hey Brother - by Avicii&ca2bot : Glad You Came - by The Wantedo
 country code: BR
 country: Brazil
 city: Santos
