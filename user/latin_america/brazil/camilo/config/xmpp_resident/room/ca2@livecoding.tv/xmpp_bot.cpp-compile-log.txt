@@ -1,0 +1,27 @@
+﻿xmpp_bot.cpp
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\vericard_animation_disco.cpp(217): warning C4244: '=': conversion from 'int64_t' to 'DWORD', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\vericard_animation_disco.cpp(236): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\vericard_animation_disco.cpp(326): warning C4244: 'argument': conversion from 'double' to 'int32_t', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\vericard_animation_disco.cpp(343): warning C4244: 'argument': conversion from 'double' to 'int32_t', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\vericard_animation_disco.cpp(374): warning C4244: 'argument': conversion from 'double' to 'int32_t', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\vericard_animation_disco.cpp(376): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\vericard_animation_disco.cpp(437): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\vericard_animation_disco.cpp(438): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\vericard_animation_disco.cpp(439): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\vericard_animation_disco.cpp(454): warning C4244: 'argument': conversion from 'double' to 'int64_t', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib_language.cpp(438): warning C4566: character represented by universal-character-name '\u0438' cannot be represented in the current code page (1252)
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib1.cpp(150): warning C4244: '=': conversion from 'strsize' to 'int', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib1.cpp(179): warning C4244: '=': conversion from 'strsize' to 'int', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib1.cpp(203): warning C4244: '+=': conversion from 'strsize' to 'int', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib_language.cpp(455): warning C4244: '=': conversion from 'strsize' to 'int', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib_language.cpp(469): warning C4244: '+=': conversion from 'strsize' to 'int', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib_language.cpp(475): warning C4244: '=': conversion from 'strsize' to 'int', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib_language.cpp(489): warning C4244: '+=': conversion from 'strsize' to 'int', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib_language.cpp(494): warning C4244: '=': conversion from 'strsize' to 'int', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib_language.cpp(508): warning C4244: '+=': conversion from 'strsize' to 'int', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib_bot.cpp(182): error C2039: 'initial_locality_time_zone': is not a member of 'resident::application'
+c:\xcore\app-core\appseed\resident\resident_application.h(13): note: see declaration of 'resident::application'
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib_bot_x.cpp(2290): error C2039: 'time_zone': is not a member of 'resident::application'
+c:\xcore\app-core\appseed\resident\resident_application.h(13): note: see declaration of 'resident::application'
+c:\users\camilo\appdata\roaming\ca2\system\config\xmpp_resident\room\ca2@livecoding.tv\lib_bot_x.cpp(2470): error C2039: 'utc_offset_string': is not a member of 'resident::application'
+c:\xcore\app-core\appseed\resident\resident_application.h(13): note: see declaration of 'resident::application'
