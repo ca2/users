@@ -18,7 +18,7 @@ string on_bot(string strUser,string strText)
 
    }
    
-   if (!strText.begins_ci("!") && !strText.begins_ci("?") && !strText.begins_ci(".") && !m_straSpecialCommand.str_begins_ci(strText) && strUser.CompareNoCase("RevloBot") != 0)
+   if (!strText.begins_ci("!") && !strText.begins_ci("?") && !strText.begins_ci(".") && !m_straSpecialCommand.str_begins_ci(strText) && strUser.CompareNoCase("RevloBot") != 0 && strUser.CompareNoCase("Nightbot") != 0)
    {
       
       m_pcomm->add_chat(this);
