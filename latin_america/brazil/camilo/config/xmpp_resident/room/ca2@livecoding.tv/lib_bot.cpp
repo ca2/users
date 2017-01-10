@@ -179,7 +179,7 @@ string on_bot(string strUser,string strText)
             if (m_strOtherCountry.has_char())
             {
                double dTimeZone;
-               m_strOtherTimeZone = Application.initial_locality_time_zone(m_strOtherCountry, puserOther->get_user_info( "city"), dTimeZone);
+               m_strOtherTimeZone = System.datetime().initial_locality_time_zone(m_strOtherCountry, puserOther->get_user_info( "city"), dTimeZone);
                puserOther->set_user_data("time_zone_text", m_strOtherTimeZone);
                puserOther->set_user_data("time_zone", dTimeZone);
             }

@@ -252,195 +252,225 @@ string bot_x()
          str = "(no results)";
 
       }
+      else
+      {
+
+         var v = get_user_data(m_strUserId, "experience");
+         
+         set_user_data(m_strUserId, "experience", v.int64() + 1);
+
+      }
 
    }
    else if ((bPlay = ::str::begins_eat_ci(strQuery, "!p ")) || ::str::begins_eat_ci(strQuery, "!q "))
    {
-      
-      if (strQuery.get_length() == 1)
+
+      auto puser = get_user(strUser, true);
+
+      if (puser == NULL)
       {
 
-         if (isdigit_dup(strQuery[0]))
-         {
-
-            int i = atoi(strQuery);
-
-            stringa stra;
-
-            stra = get_user_data(m_strUserId, "ss").stra();
-
-            if (i <= 0 || i > stra.get_size())
-            {
-            
-               str = "no such song";
-
-            }
-            else
-            {
-
-               str = stra[i-1];
-
-               string strAddUp;
-
-               if (bPlay)
-               {
-                  
-                  strAddUp = "play_now";
-
-               }
-
-#ifdef WINDOWS
-
-               call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", "\"" + str + "\" : "+ strAddUp +" for_resident=" + m_strUserId + "", "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
-
-#elif defined(__APPLE__)
-
-               call_async("/Applications/Waven.app/Contents/MacOS/Waven", "\"" + str + "\" : "+ strAddUp +" for_resident=" + m_strUserId, "/Applications/Waven.app/Contents/MacOS", SW_SHOW, false);
-
-#else
-
-               call_async("/xcore/time/x64/basis/app", "\"" + str + "\" : play_now for_resident=" + m_strUserId + " " + strAddUp + " app=app-veriwell/waven build_number=basis locale=_std schema=_std ", "/xcore/time/x64/basis/", SW_SHOW, false);
-
-#endif
-
-            }
-
-         }
+         return "";
 
       }
 
-      if (str != "no such song")
+      if (puser->get_points() < 25)
       {
 
-         //property_set set(get_app());
+         str = _("You need at least 25 points to complete song request");
 
-         int iWait = 0;
-
-         //string strGetUrl = "https://api.ca2.cc/account/get_user_string?sessid=" + Session.fontopus()->get_user()->get_sessid("api.ca2.cc")
-         //   + "&key=" + System.url().url_encode(m_strUserId) + "." + System.url().url_encode(strUrl);
-
-         var_array vara;
-
-         while (true)
+      }
+      else
+      {
+      
+         if (strQuery.get_length() == 1)
          {
 
+            if (isdigit_dup(strQuery[0]))
             {
 
-               single_lock sl(Application.veripack().m_pmutex);
+               int i = atoi(strQuery);
 
-               for (index i = 0; i < Application.veripack().m_vaResponse.get_size(); i++)
+               stringa stra;
+
+               stra = get_user_data(m_strUserId, "ss").stra();
+
+               if (i <= 0 || i > stra.get_size())
                {
 
-                  if (Application.veripack().m_vaResponse[i][0].get_string() == str)
+                  str = "no such song";
+
+               }
+               else
+               {
+
+                  str = stra[i - 1];
+
+                  string strAddUp;
+
+                  if (bPlay)
                   {
-                     vara = Application.veripack().m_vaResponse[i];
-                     Application.veripack().m_vaResponse.remove_at(i);
-                     break;
+
+                     strAddUp = "play_now";
+
+                  }
+
+#ifdef WINDOWS
+
+                  call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", "\"" + str + "\" : " + strAddUp + " for_resident=" + m_strUserId + "", "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
+
+#elif defined(__APPLE__)
+
+                  call_async("/Applications/Waven.app/Contents/MacOS/Waven", "\"" + str + "\" : " + strAddUp + " for_resident=" + m_strUserId, "/Applications/Waven.app/Contents/MacOS", SW_SHOW, false);
+
+#else
+
+                  call_async("/xcore/time/x64/basis/app", "\"" + str + "\" : play_now for_resident=" + m_strUserId + " " + strAddUp + " app=app-veriwell/waven build_number=basis locale=_std schema=_std ", "/xcore/time/x64/basis/", SW_SHOW, false);
+
+#endif
+
                   }
 
                }
 
             }
 
-            if (vara.get_count() > 0)
+         if (str != "no such song")
+         {
+
+            //property_set set(get_app());
+
+            int iWait = 0;
+
+            //string strGetUrl = "https://api.ca2.cc/account/get_user_string?sessid=" + Session.fontopus()->get_user()->get_sessid("api.ca2.cc")
+            //   + "&key=" + System.url().url_encode(m_strUserId) + "." + System.url().url_encode(strUrl);
+
+            var_array vara;
+
+            while (true)
             {
 
-               break;
+               {
+
+                  single_lock sl(Application.veripack().m_pmutex);
+
+                  for (index i = 0; i < Application.veripack().m_vaResponse.get_size(); i++)
+                  {
+
+                     if (Application.veripack().m_vaResponse[i][0].get_string() == str)
+                     {
+                        vara = Application.veripack().m_vaResponse[i];
+                        Application.veripack().m_vaResponse.remove_at(i);
+                        break;
+                     }
+
+                  }
+
+               }
+
+               if (vara.get_count() > 0)
+               {
+
+                  break;
+
+               }
+               else if (iWait > 120)
+               {
+
+                  break;
+
+               }
+               else
+               {
+
+                  Sleep(484);
+
+                  iWait++;
+
+               }
 
             }
-            else if (iWait > 120)
+
+            stringa stra;
+
+            if (vara.get_size() > 1)
             {
 
-               break;
+               stra.add_lines(vara[1]);
+
+            }
+
+            string strNew;
+
+            stringa straNew;
+
+            index iIndex = 1;
+
+            for (index i = 0; i < stra.get_size(); i++)
+            {
+
+               if (i >= 2)
+               {
+
+                  strNew += "\n";
+
+               }
+
+               string strLine = stra[i];
+
+               if (strLine.is_empty())
+               {
+
+                  continue;
+
+               }
+
+               stringa straLine;
+
+               straLine.explode("|", strLine);
+
+               if (straLine.get_size() != 3)
+               {
+
+                  continue;
+
+               }
+
+               straNew.add(straLine[2]);
+
+               strNew += straLine[0];
+
+               strNew += " - ";
+
+               strNew += straLine[1];
+
+               iIndex++;
+
+            }
+
+            str = strNew;
+
+            if (str.has_char())
+            {
+
+               if (bPlay)
+               {
+                  str = "Going to play \"" + str + "\"";
+               }
+               else
+               {
+                  str = "\"" + str + "\" queued.";
+               }
+
+               puser->discount_points(25);
 
             }
             else
             {
 
-               Sleep(484);
-
-               iWait++;
+               str = "(no results)";
 
             }
-
-         }
-
-         stringa stra;
-
-         if (vara.get_size() > 1)
-         {
-
-            stra.add_lines(vara[1]);
-
-         }
-
-         string strNew;
-
-         stringa straNew;
-
-         index iIndex = 1;
-
-         for (index i = 0; i < stra.get_size(); i++)
-         {
-
-            if (i >= 2)
-            {
-
-               strNew += "\n";
-
-            }
-
-            string strLine = stra[i];
-
-            if (strLine.is_empty())
-            {
-
-               continue;
-
-            }
-
-            stringa straLine;
-
-            straLine.explode("|", strLine);
-
-            if (straLine.get_size() != 3)
-            {
-
-               continue;
-
-            }
-
-            straNew.add(straLine[2]);
-
-            strNew += straLine[0];
-
-            strNew += " - ";
-
-            strNew += straLine[1];
-
-            iIndex++;
-
-         }
-
-         str = strNew;
-
-         if (str.has_char())
-         {
-
-            if (bPlay)
-            {
-               str = "Going to play \"" + str + "\"";
-            }
-            else
-            {
-               str = "\"" + str + "\" queued.";
-            }
-
-         }
-         else
-         {
-
-            str = "(no results)";
 
          }
 
@@ -828,13 +858,51 @@ string bot_x()
       }
 
    }
+   else if (about_user("points"))
+   {
+
+      strTopic = ::str::from(get_user(strTopicUser, false)->get_points());
+
+      if (is_about_self())
+      {
+
+         str = _t("%name you have %topic points.");
+
+      }
+      else
+      {
+
+         str = _t2("%name, %param1 has %topic points.");
+
+      }
+
+   }
+   else if (about_user("exp"))
+   {
+
+      strTopic = ::str::from(get_user(strTopicUser, false)->get_experience());
+
+      if (is_about_self())
+      {
+
+         str = _t("%name you have %topic experience.");
+
+      }
+      else
+      {
+
+         str = _t2("%name, %param1 has %topic experience.");
+
+      }
+
+   }
    else if (strText == "!pres")
    {
 
 #ifdef __XMPP
       sp(::xmpp::comm) pcomm = m_pcomm;
 
-      pcomm->defer_request_roster();
+      pcomm->defer_get_present_users();
       ::fork(get_app(), [=]()
       {
          string strSpeakText;
@@ -2287,7 +2355,7 @@ string bot_x()
       else
       {
          
-         dUTCOffset = Application.time_zone(strText, get_user(strUser)->get_user_country_code(false, true));
+         dUTCOffset = System.datetime().time_zone(strText, get_user(strUser)->get_user_country_code(false, true));
 
          set_user_data(strUser, "time_zone", dUTCOffset);
 
@@ -2467,7 +2535,7 @@ string bot_x()
 
       double dUTCOffset = get_user(strTopicUser)->user_time_zone();
 
-      strTopic = Application.utc_offset_string(dUTCOffset);
+      strTopic = System.datetime().utc_offset_string(dUTCOffset);
 
       if(get_user(strUser)->get_user_data("time_zone_text").has_char() && get_user(strTopicUser)->get_user_data("time_zone_text").get_string().upper().CompareNoCase(strTopic) != 0)
       {
