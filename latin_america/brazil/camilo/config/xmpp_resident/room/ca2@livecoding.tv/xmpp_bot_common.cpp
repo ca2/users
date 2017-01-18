@@ -35,6 +35,7 @@ string_map < file_time > m_ftimeCountry;
 
 
 #include "lib_defollowers.cpp"
+#include "lib_dehosts.cpp"
 #include "lib_followers.cpp"
 #include "lib_hosts.cpp"
 #include "lib_bot.cpp"
