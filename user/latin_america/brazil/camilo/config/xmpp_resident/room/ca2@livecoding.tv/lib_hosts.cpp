@@ -5,22 +5,9 @@ string on_new_host(const string & strHost, int iViewers)
 
    string strMessage;
 
-   if (iViewers <= 0)
-   {
+   string strSpeakText;
 
-      strMessage = "Thank you for hosting, " + strHost + "!!";
-
-   }
-   else
-   {
-
-      strMessage =  "Thank you " + strHost + " for hosting with" + ::str::from(iViewers) + " viewers!!";
-
-   }
-
-   /*
-
-   auto puser = get_user(strHost);
+   auto puser = get_user(strHost, true);
 
    string strLang = Application.lang(puser->get_user_data("lang").get_string().lower());
 
@@ -44,36 +31,36 @@ string on_new_host(const string & strHost, int iViewers)
 
    }
 
-   if(strLastLang.is_empty())
+   param(1, username(strHost, strLang));
+
+   param(2, ::str::from(iViewers));
+
+   if (iViewers <= 0)
    {
 
-      strLastLang = strLang;
+      strMessage = _t("Thank you for hosting, %param1!!");
 
    }
+   else
+   {
 
-   */
+      strMessage = _t("Thank you %param1 for hosting with %param2 viewers!!");
+
+   }
 
    spa(::vericard::user) usera;
 
-//   for (auto strUser : straNew)
-   {
-
-      auto puser = get_user(strHost);
-
-      usera.add(puser);
-
-   }
+   usera.add(puser);
 
    Application.veripack().add_announce(strMessage, usera, 15000);
-
-   //ws(strHost, false, true);
 
    hostsbell();
 
    m_pcomm->msg(strMessage);
 
-   lspeak("","en",strMessage, true);
+   lspeak(strHost,strLang,strSpeakText, true);
 
+   Sleep(15000);
 
    return "";
 

@@ -2148,7 +2148,7 @@ string bot_x()
 
       double dLon;
 
-      auto pcity = System.find_city(strQ);
+      auto pcity = System.openweather_find_city(strQ);
       
       if (pcity->m_iIndex >= 0)
       {
