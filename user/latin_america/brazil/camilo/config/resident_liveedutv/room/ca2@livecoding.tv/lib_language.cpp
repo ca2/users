@@ -546,7 +546,7 @@ string user_time_text(string strUser, string strLang, bool bTimeZone = false, bo
 string user_time_text(::vericard::user * puser, string strLang, bool bTimeZone = false, bool bSynch = true)
 {
 
-   ::datetime::time now = puser->user_time(bSynch);
+   ::datetime::zone_time now = puser->user_time(bSynch);
 
    string strZone;
 
@@ -572,7 +572,9 @@ string user_time_text(::vericard::user * puser, string strLang, bool bTimeZone =
 
    string strSpeakText;
 
-   return System.datetime().international().get_gmt_date_time(now, _t("%Y-%m-%d %H:%M:%S")) + strZone;
+   string str = now.FormatZone("%Y-%m-%d %H:%M:%S");
+
+   return str + strZone;
 
 }
 
