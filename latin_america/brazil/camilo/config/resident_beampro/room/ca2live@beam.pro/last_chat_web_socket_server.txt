@@ -1,1 +1,1 @@
-wss://chat1-dal.beam.pro:443
+wss://chat3-dal.beam.pro:443

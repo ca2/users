@@ -1,1 +1,7 @@
+<<<<<<< .mine
+﻿   Creating library C:\xcore\time\x64\basis\C_.Users.camilo.AppData.Roaming.ca2.system.config.resident_twitchtv.room.ca2live@irc.twitch.tv.resident_twitchtv_bot-fevv1hqbedf1bsiljfn54mlmp23x2xlakqmet43pqq3w3bh8g62s1e8xy0kkd6in.lib and object C:\xcore\time\x64\basis\C_.Users.camilo.AppData.Roaming.ca2.system.config.resident_twitchtv.room.ca2live@irc.twitch.tv.resident_twitchtv_bot-fevv1hqbedf1bsiljfn54mlmp23x2xlakqmet43pqq3w3bh8g62s1e8xy0kkd6in.exp
+||||||| .r6347
+﻿   Creating library C:\xcore\time\x64\basis\C_.Users.camilo.AppData.Roaming.ca2.system.config.resident_twitchtv.room.ca2live@irc.twitch.tv.resident_twitchtv_bot-z8uc3wvh73coc2okeb7ptu9cm2za25ap1qaag238o2m8dg8qcv3pplokyhuojp00.lib and object C:\xcore\time\x64\basis\C_.Users.camilo.AppData.Roaming.ca2.system.config.resident_twitchtv.room.ca2live@irc.twitch.tv.resident_twitchtv_bot-z8uc3wvh73coc2okeb7ptu9cm2za25ap1qaag238o2m8dg8qcv3pplokyhuojp00.exp
+=======
 ﻿   Creating library C:\xcore\time\x64\basis\C_.Users.camilo.AppData.Roaming.ca2.system.config.resident_twitchtv.room.ca2live@irc.twitch.tv.resident_twitchtv_bot-32d7kburv1uidixbtse4ys3btjyskg8au2ig29ydmxvp4u8qqm76s8uswsvc46z6.lib and object C:\xcore\time\x64\basis\C_.Users.camilo.AppData.Roaming.ca2.system.config.resident_twitchtv.room.ca2live@irc.twitch.tv.resident_twitchtv_bot-32d7kburv1uidixbtse4ys3btjyskg8au2ig29ydmxvp4u8qqm76s8uswsvc46z6.exp
+>>>>>>> .r6437

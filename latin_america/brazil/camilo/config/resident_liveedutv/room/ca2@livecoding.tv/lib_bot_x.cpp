@@ -2313,7 +2313,7 @@ string bot_x()
 
       }
 
-      ::vericard::user * puser = get_user(strCurrentUser, true);
+      ::vericard::user * puser = get_user(strCurrentUser, false);
 
       string strWeatherQuery;
 
@@ -2372,7 +2372,7 @@ string bot_x()
    else if (about_user("time"))
    {
 
-      strTopic = user_time_text(strTopicUser, m_strLang);
+      strTopic = user_time_text(strTopicUser, m_strLang, false, false);
 
       if (is_about_self())
       {
