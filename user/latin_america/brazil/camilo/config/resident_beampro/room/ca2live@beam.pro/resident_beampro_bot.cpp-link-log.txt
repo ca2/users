@@ -1,1 +1,7 @@
+<<<<<<< .mine
+﻿   Creating library C:\xcore\time\x64\basis\C_.Users.camilo.AppData.Roaming.ca2.system.config.resident_beampro.room.ca2live@beam.pro.resident_beampro_bot-u047pds3ojihn48g6k5egrhncl1qct5xq553s35x5fz25t0gk8qgvf05dyjbg1ba.lib and object C:\xcore\time\x64\basis\C_.Users.camilo.AppData.Roaming.ca2.system.config.resident_beampro.room.ca2live@beam.pro.resident_beampro_bot-u047pds3ojihn48g6k5egrhncl1qct5xq553s35x5fz25t0gk8qgvf05dyjbg1ba.exp
+||||||| .r6347
+﻿   Creating library C:\xcore\time\x64\basis\C_.Users.camilo.AppData.Roaming.ca2.system.config.resident_beampro.room.ca2live@beam.pro.resident_beampro_bot-0y3dua1hl7dryj5dt8th4e3yjzm71k2p6zeaepv7k9e0a27a88ap2cuu8nadq6g7.lib and object C:\xcore\time\x64\basis\C_.Users.camilo.AppData.Roaming.ca2.system.config.resident_beampro.room.ca2live@beam.pro.resident_beampro_bot-0y3dua1hl7dryj5dt8th4e3yjzm71k2p6zeaepv7k9e0a27a88ap2cuu8nadq6g7.exp
+=======
 ﻿   Creating library C:\xcore\time\x64\basis\C_.Users.camilo.AppData.Roaming.ca2.system.config.resident_beampro.room.ca2live@beam.pro.resident_beampro_bot-93370xludegii59sczckc83jkpd7ujxs93wrzbq3dojqpumbu6tw5exopdeq9l1e.lib and object C:\xcore\time\x64\basis\C_.Users.camilo.AppData.Roaming.ca2.system.config.resident_beampro.room.ca2live@beam.pro.resident_beampro_bot-93370xludegii59sczckc83jkpd7ujxs93wrzbq3dojqpumbu6tw5exopdeq9l1e.exp
+>>>>>>> .r6437
