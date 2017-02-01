@@ -1,2 +1,0 @@
-﻿resident_liveedutv_bot.cpp
-C:/Users/camilo/AppData/Roaming/ca2/system/config/resident_liveedutv/room/ca2@livecoding.tv/resident_liveedutv_bot.cpp: fatal error C1041: cannot open program database 'C:\xcore\time\intermediate\x64\basis\resident\C\Users\camilo\AppData\Roaming\ca2\system\config\resident_liveedutv\room\ca2@livecoding.tv\resident_liveedutv_bot\vc140.pdb'; if multiple CL.EXE write to the same .PDB file, please use /FS
