@@ -1,0 +1,1 @@
+﻿/home/camilo/.config/ca2/system/config/resident_beampro/room/ca2live@beam.pro/resident_beampro_bot.cpp:1:23: warning: /xcore/app-core/appseed/resident/framework.h.gch: not used because `__cplusplus' defined as ` 201402L' not ` 201103L' [-Winvalid-pch]
