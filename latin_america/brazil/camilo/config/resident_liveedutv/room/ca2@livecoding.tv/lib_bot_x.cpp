@@ -489,7 +489,7 @@ string bot_x()
       
 #elif defined(__APPLE__)
 
-      call_async("/Applications/Waven.app/Contents/MacOS/Waven", "\"spotify:track:" + strText. + "\" : play_now", "/Applications/Waven.app/Contents/MacOS", SW_SHOW, false);
+      call_async("/Applications/Waven.app/Contents/MacOS/Waven", "\"spotify:track:" + strText + "\" : play_now", "/Applications/Waven.app/Contents/MacOS", SW_SHOW, false);
 
 #else
 
