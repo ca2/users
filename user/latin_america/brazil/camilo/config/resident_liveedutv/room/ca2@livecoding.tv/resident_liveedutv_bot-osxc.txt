@@ -118,7 +118,7 @@ In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/met
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.h:36:
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura_policy/aura_policy.h:11:
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura_policy/aura_cpp.h:1176:
-/macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura_application.h:417:20: note: overridden virtual function is here
+/macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura_application.h:423:20: note: overridden virtual function is here
       virtual void on_request(sp(::create) pcreatecontext) override;
                    ^
 In file included from /Users/camilo/Library/ca2/system/config/resident_liveedutv/room/ca2@livecoding.tv/resident_liveedutv_bot.cpp:1:
@@ -257,7 +257,7 @@ In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/met
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.h:36:
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura_policy/aura_policy.h:11:
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura_policy/aura_cpp.h:1176:
-/macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura_application.h:279:20: note: overridden virtual function is here
+/macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura_application.h:285:20: note: overridden virtual function is here
       virtual bool initialize_application();
                    ^
 In file included from /Users/camilo/Library/ca2/system/config/resident_liveedutv/room/ca2@livecoding.tv/resident_liveedutv_bot.cpp:1:
@@ -5502,7 +5502,7 @@ In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/met
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.h:36:
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura_policy/aura_policy.h:11:
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura_policy/aura_cpp.h:1176:
-/macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura_application.h:295:20: note: overridden virtual function is here
+/macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura_application.h:301:20: note: overridden virtual function is here
       virtual bool is_installing();
                    ^
 In file included from /Users/camilo/Library/ca2/system/config/resident_liveedutv/room/ca2@livecoding.tv/resident_liveedutv_bot.cpp:1:
@@ -5521,7 +5521,7 @@ In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/met
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.h:36:
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura_policy/aura_policy.h:11:
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura_policy/aura_cpp.h:1176:
-/macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura_application.h:296:20: note: overridden virtual function is here
+/macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura_application.h:302:20: note: overridden virtual function is here
       virtual bool is_uninstalling();
                    ^
 In file included from /Users/camilo/Library/ca2/system/config/resident_liveedutv/room/ca2@livecoding.tv/resident_liveedutv_bot.cpp:1:
@@ -5839,7 +5839,7 @@ In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/met
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.h:36:
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura_policy/aura_policy.h:11:
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura_policy/aura_cpp.h:1176:
-/macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura_application.h:333:20: note: overridden virtual function is here
+/macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura_application.h:339:20: note: overridden virtual function is here
       virtual bool _001OnDDECommand(const char * lpcsz);
                    ^
 In file included from /Users/camilo/Library/ca2/system/config/resident_liveedutv/room/ca2@livecoding.tv/resident_liveedutv_bot.cpp:1:
@@ -5858,7 +5858,7 @@ In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/met
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.h:36:
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura_policy/aura_policy.h:11:
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura_policy/aura_cpp.h:1176:
-/macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura_application.h:336:20: note: overridden virtual function is here
+/macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura_application.h:342:20: note: overridden virtual function is here
       virtual void _001OnFileNew(signal_details * pobj);
                    ^
 In file included from /Users/camilo/Library/ca2/system/config/resident_liveedutv/room/ca2@livecoding.tv/resident_liveedutv_bot.cpp:1:
@@ -6402,7 +6402,7 @@ In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/met
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.h:36:
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura_policy/aura_policy.h:11:
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura_policy/aura_cpp.h:1176:
-/macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura_application.h:382:20: note: overridden virtual function is here
+/macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura_application.h:388:20: note: overridden virtual function is here
       virtual void on_exclusive_instance_conflict(EExclusiveInstance eexclusive);
                    ^
 In file included from /Users/camilo/Library/ca2/system/config/resident_liveedutv/room/ca2@livecoding.tv/resident_liveedutv_bot.cpp:1:
@@ -6519,7 +6519,7 @@ In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/met
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.h:36:
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura_policy/aura_policy.h:11:
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura_policy/aura_cpp.h:1176:
-/macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura_application.h:364:30: note: overridden virtual function is here
+/macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura_application.h:370:30: note: overridden virtual function is here
       virtual service_base * allocate_new_service();
                              ^
 In file included from /Users/camilo/Library/ca2/system/config/resident_liveedutv/room/ca2@livecoding.tv/resident_liveedutv_bot.cpp:1:
@@ -11586,7 +11586,7 @@ In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/met
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.h:36:
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura_policy/aura_policy.h:11:
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura_policy/aura_cpp.h:1176:
-/macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura_application.h:528:20: note: overridden virtual function is here
+/macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura_application.h:534:20: note: overridden virtual function is here
       virtual void play_audio(var varFile, bool bSynch = false);
                    ^
 In file included from /Users/camilo/Library/ca2/system/config/resident_liveedutv/room/ca2@livecoding.tv/resident_liveedutv_bot.cpp:1:
@@ -11954,7 +11954,7 @@ In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/met
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.h:36:
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura_policy/aura_policy.h:11:
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura_policy/aura_cpp.h:1176:
-/macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura_application.h:514:20: note: overridden virtual function is here
+/macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura_application.h:520:20: note: overridden virtual function is here
       virtual void _001OnFranceExit();
                    ^
 In file included from /Users/camilo/Library/ca2/system/config/resident_liveedutv/room/ca2@livecoding.tv/resident_liveedutv_bot.cpp:1:
@@ -12160,7 +12160,7 @@ In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/met
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.h:36:
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura_policy/aura_policy.h:11:
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura_policy/aura_cpp.h:1176:
-/macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura_application.h:364:30: note: overridden virtual function is here
+/macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura_application.h:370:30: note: overridden virtual function is here
       virtual service_base * allocate_new_service();
                              ^
 In file included from /Users/camilo/Library/ca2/system/config/resident_liveedutv/room/ca2@livecoding.tv/resident_liveedutv_bot.cpp:1:
@@ -12189,7 +12189,7 @@ In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/met
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.h:36:
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura_policy/aura_policy.h:11:
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura_policy/aura_cpp.h:1176:
-/macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura_application.h:261:29: note: overridden virtual function is here
+/macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura_application.h:267:29: note: overridden virtual function is here
       virtual ::aura::ipi * create_ipi();
                             ^
 In file included from /Users/camilo/Library/ca2/system/config/resident_liveedutv/room/ca2@livecoding.tv/resident_liveedutv_bot.cpp:10:
@@ -12211,14 +12211,14 @@ In file included from /Users/camilo/Library/ca2/system/config/resident_liveedutv
 /Users/camilo/Library/ca2/system/config/resident_liveedutv/room/ca2@livecoding.tv/vericard_animation_disco.cpp:437:14: warning: unused variable 'm' [-Wunused-variable]
          int m = x;
              ^
-/Users/camilo/Library/ca2/system/config/resident_liveedutv/room/ca2@livecoding.tv/vericard_animation_disco.cpp:407:11: warning: unused variable 'iM' [-Wunused-variable]
-      int iM = rectClient.width() / 2;
-          ^
 /Users/camilo/Library/ca2/system/config/resident_liveedutv/room/ca2@livecoding.tv/vericard_animation_disco.cpp:405:11: warning: unused variable 'w' [-Wunused-variable]
       int w = rectClient.width();
           ^
 /Users/camilo/Library/ca2/system/config/resident_liveedutv/room/ca2@livecoding.tv/vericard_animation_disco.cpp:406:11: warning: unused variable 'h' [-Wunused-variable]
       int h = rectClient.width();
+          ^
+/Users/camilo/Library/ca2/system/config/resident_liveedutv/room/ca2@livecoding.tv/vericard_animation_disco.cpp:407:11: warning: unused variable 'iM' [-Wunused-variable]
+      int iM = rectClient.width() / 2;
           ^
 In file included from /Users/camilo/Library/ca2/system/config/resident_liveedutv/room/ca2@livecoding.tv/resident_liveedutv_bot.cpp:91:
 In file included from /Users/camilo/Library/ca2/system/config/resident_liveedutv/room/ca2@livecoding.tv/bot_common.cpp:30:
