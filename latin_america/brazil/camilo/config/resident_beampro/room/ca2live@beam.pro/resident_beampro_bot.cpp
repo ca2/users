@@ -25,6 +25,11 @@ class this_plugin :
 		object(papp),
       ::vericard::chat_item(papp),
       ::vericard::plugin(papp,dynamic_cast <::vericard::comm * > (p))
+      {
+
+         construct_this_plugin();
+
+      }
 
 		#include "../../../resident_liveedutv/room/ca2@livecoding.tv/bot_common.cpp"
 
