@@ -87,6 +87,11 @@ public:
       object(papp),
       ::vericard::chat_item(papp),
       ::vericard::plugin(papp, dynamic_cast <::vericard::comm *> (p))
+   {
+
+      construct_this_plugin();
+
+   }
 
 #include "bot_common.cpp"
 

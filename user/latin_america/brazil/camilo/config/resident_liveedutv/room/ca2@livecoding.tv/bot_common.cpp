@@ -1,14 +1,4 @@
-﻿{
-   m_straSpecialCommand.add("exclamation");
-   m_straSpecialCommand.add("exclamation mark");
-   m_straSpecialCommand.add("interrogation");
-   m_straSpecialCommand.add("interrogation mark");
-   m_straSpecialCommand.add("question");
-   m_straSpecialCommand.add("question mark");
-   m_straSpecialCommand.add("spotify:track:");
-   m_straSpecialCommand.add("https://open.spotify.com/track/");
-}
-
+﻿
 
 
 stringa m_straSpecialCommand;
