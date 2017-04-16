@@ -107,7 +107,7 @@ string bot_x()
    else if (::str::begins_eat_ci(strQuery, "!ss "))
    {
 
-      set_user_data(m_strUserId, "ss", var::type_empty);
+      set_user_var(m_strUserId, "ss", var::type_empty);
 
       //property_set setUserString(get_app());
 
@@ -242,7 +242,7 @@ string bot_x()
 
       }
 
-      set_user_data(m_strUserId, "ss", straNew);
+      set_user_var(m_strUserId, "ss", straNew);
 
       str = strNew;
 
@@ -293,7 +293,7 @@ string bot_x()
 
                stringa stra;
 
-               stra = get_user_data(m_strUserId, "ss").stra();
+               stra = get_user_var(m_strUserId, "ss").stra();
 
                if (i <= 0 || i > stra.get_size())
                {
@@ -1118,7 +1118,7 @@ string bot_x()
 
          }
 
-         pcomm->msg(str);
+         pcomm->post_message(str, true);
 
 
       });
@@ -1422,11 +1422,11 @@ string bot_x()
       else if(strGroup == "macos")
       {
 
-         strTopic = "El Capitan";
+         strTopic = "Sierra";
 
          defer_vocative(stra, iParamCount);
       
-         str = _t("%name, At MacOS, ca2 uses Mac OS %topic, XCode and SmartSVN.");
+         str = _t("%name, At MacOS, ca2 uses macOS %topic, XCode and SmartSVN.");
 
       }
       else if(strGroup == "ios")
@@ -2855,7 +2855,7 @@ string bot_x()
 
       Application.veripack().schedule_speech(strUser, m_strLang, strMessage, strSpeakText, this);
 
-      m_pcomm->msg(strMessage);
+      m_pcomm->post_message(strMessage, true);
 
    }
    else if(strSpeakText.has_char())

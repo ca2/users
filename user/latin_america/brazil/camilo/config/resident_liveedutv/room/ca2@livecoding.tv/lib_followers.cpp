@@ -149,7 +149,7 @@ string on_new_followers(stringa & straNew)
    if(!bMsg)
    {
 
-      m_pcomm->msg(str);
+      m_pcomm->post_message(str, true);
 
       lspeak("","en",str, true);
 
@@ -157,7 +157,7 @@ string on_new_followers(stringa & straNew)
    else
    {
 
-      m_pcomm->msg(str);
+      m_pcomm->post_message(str, true);
 
       lspeak("",strLastLang,str, true);
 

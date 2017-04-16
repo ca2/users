@@ -1,3 +1,4 @@
+#include "framework.h"
 #include "resident.h"
 #pragma comment (lib,"announcecom.lib" )
 #pragma comment (lib,"vericard.lib" )
@@ -19,7 +20,6 @@ class this_plugin:
    virtual public ::vericard::plugin
 {
 public:  
-
 
 
 

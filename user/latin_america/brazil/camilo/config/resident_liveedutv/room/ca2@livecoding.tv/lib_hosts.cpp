@@ -74,7 +74,7 @@ string on_new_hosts(stringa & straNew, int_array & iaViewers)
    
    hostsbell();
    
-   m_pcomm->msg(strMessage);
+   m_pcomm->post_message(strMessage, true);
    
    lspeak(strHost,strLang,strSpeakText, true);
    

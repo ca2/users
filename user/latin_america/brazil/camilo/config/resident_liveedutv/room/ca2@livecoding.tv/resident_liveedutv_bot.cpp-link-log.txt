@@ -1,0 +1,2 @@
+﻿LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/PROFILE' specification
+   Creating library C:/xcore/time/intermediate/x64/basis/resident/C/Users/camilo/AppData/Roaming/ca2/system/config/resident_liveedutv/room/ca2@livecoding.tv/resident_liveedutv_bot/resident_liveedutv_bot.lib and object C:/xcore/time/intermediate/x64/basis/resident/C/Users/camilo/AppData/Roaming/ca2/system/config/resident_liveedutv/room/ca2@livecoding.tv/resident_liveedutv_bot/resident_liveedutv_bot.exp

@@ -56,7 +56,7 @@ string on_dehost(const string & strHost, int iViewers)
 
    //hostsbell();
 
-   m_pcomm->msg(strMessage);
+   m_pcomm->post_message(strMessage, true);
 
    Sleep(5000);
 

@@ -56,24 +56,23 @@ msgid "!ide \"platform\"\n!hlp \"command\"\n!cmdtips\n!commands\n!about\n!vaimep
 msgtext ""
 
 msgid "%name, For Windows Desktop Software Development, ca2 uses Visual Studio 2015 Community Edition, SmartSVN, TortoiseSVN and WinMerge."
-msgtext ""
+msgtext "%name, For Windows Desktop Software Development, ca2 uses Visual Studio 2017 Community Edition, SmartSVN, TortoiseSVN and WinMerge."
 
 msgid "%name, For Linux Software Development, ca2 uses latest version of Ubuntu LTS, Code::Blocks and SmartSVN."
 msgtext ""
 
 
-msgid "%name, At MacOS, ca2 uses El Capitan, XCode and SmartSVN."
-msgtext ""
+msgid "%name, At MacOS, ca2 uses macOS %topic, XCode and SmartSVN."
+msgtext "%name, for macOS Software Development, ca2 uses macOS %topic, XCode and SmartSVN."
 
 msgid "%name, for iOS development, ca2 uses Mac OS X El Capitan, XCode, SmartSVN, XCode iOS simulator and trying to convince co-founder to borrow iOS device."
 msgtext ""
 
 msgid "%name, for Android development, ca2 uses Windows with Hyper-V, Visual Studio 2015 Community Edition, SmartSVN, TortoiseSVN, WinMerge, Visual Studio Emulator for Android and Galaxy Tab 3 (Door Prize for co-founder, gift for me, help for ca2 developers and users)."
-msgtext ""
-
+msgtext "%name, for Android development, ca2 uses Windows with Hyper-V, Visual Studio 2017 Community Edition, SmartSVN, TortoiseSVN, WinMerge, Visual Studio Emulator for Android and Galaxy Tab 3 (Door Prize for co-founder, gift for me, help for ca2 developers and users)."
 
 msgid "%name, for Windows Store App development, ca2 uses Windows, Visual Studio 2015 Community Edition, SmartSVN, TortoiseSVN and WinMerge."
-msgtext ""
+msgtext "%name, for Windows Store App development, ca2 uses Windows, Visual Studio 2017 Community Edition, SmartSVN, TortoiseSVN and WinMerge."
 
 
 msgid "%name, For the exclamation mark, if an existing command is not found, an audio clip is played from !playlist. If a corresponding audio clip is not found, the text is played like in !say <text>"

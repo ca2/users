@@ -62,7 +62,7 @@ string on_defollowers(stringa & straNew)
 
    }
 
- 	m_pcomm->msg(str);
+ 	m_pcomm->post_message(str, true);
 
 
    return "";
