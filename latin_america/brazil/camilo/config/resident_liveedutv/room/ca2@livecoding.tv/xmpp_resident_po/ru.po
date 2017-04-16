@@ -77,25 +77,25 @@ msgid "!ide \"platform\"\n!help \"command\"\n!cmdtips\n!about\n!want the bot\nan
 msgtext "!ide \"platform\"\n!help \"command\"\n!cmdtips\n!about\n!want the bot\neи\n!credits" 
 
 msgid "%name, For Windows Desktop Software Development, ca2 uses Visual Studio 2015 Community Edition, SmartSVN, TortoiseSVN and WinMerge."
-msgtext "%name, Для разработки под Windows ca2 использует Visual Studio 2015 Community Edition, SmartSVN, TortoiseSVN и WinMerge."
+msgtext "%name, Для разработки под Windows ca2 использует Visual Studio 2017 Community Edition, SmartSVN, TortoiseSVN и WinMerge."
 
 msgid "%name, For Linux Software Development, ca2 uses Ubuntu %topic, Code::Blocks and SmartSVN."
 msgtext "%name, Для разработки под Linux ca2 использует последнюю версию Ubuntu %topic, Code::Blocks и SmartSVN."
 
 
-msgid "%name, At MacOS, ca2 uses El Capitan, XCode and SmartSVN."
-msgtext "На MacOS ca2 использует Mac OS %topic, XCode и SmartSVN."
+msgid "%name, At MacOS, ca2 uses macOS %topic, XCode and SmartSVN."
+msgtext "%name, На MacOS ca2 использует macOS %topic, XCode и SmartSVN."
 
 msgid "%name, for iOS development, ca2 uses Mac OS X El Capitan, XCode, SmartSVN, XCode iOS simulator and trying to convince co-founder to borrow iOS device."
-msgtext "%name, для разработки под iOS ca2 использует Mac OS X El Capitan, XCode, SmartSVN, симулятор iOS XCode и пытается убедить сооснователя компании дать попользоваться устройством на iOS."
+msgtext "%name, для разработки под iOS ca2 использует macOS Sierra, XCode, SmartSVN, симулятор iOS XCode и пытается убедить сооснователя компании дать попользоваться устройством на iOS."
 
 
 msgid "%name, for Android development, ca2 uses Windows with Hyper-V, Visual Studio 2015 Community Edition, SmartSVN, TortoiseSVN, WinMerge, Visual Studio Emulator for Android and Galaxy Tab 3 (Door Prize for co-founder, gift for me, help for ca2 developers and users)."
-msgtext "%name, для разработки под Android ca2 использует Windows с Hyper-V, Visual Studio 2015 Community Edition, SmartSVN, TortoiseSVN, WinMerge, эмулятор Visual Studio для Android и Galaxy Tab 3 (приз, выигранный сооснователем компании и подаренный мне, чтобы помочь разработчикам и пользователям ca2)."
+msgtext "%name, для разработки под Android ca2 использует Windows с Hyper-V, Visual Studio 2017 Community Edition, SmartSVN, TortoiseSVN, WinMerge, эмулятор Visual Studio для Android и Galaxy Tab 3 (приз, выигранный сооснователем компании и подаренный мне, чтобы помочь разработчикам и пользователям ca2)."
 
 
 msgid "%name, for Windows Store App development, ca2 uses Windows, Visual Studio 2015 Community Edition, SmartSVN, TortoiseSVN and WinMerge."
-msgtext "%name, для разработки приложений Windows Store App ca2 использует ca2 uses Windows, Visual Studio 2015 Community Edition, SmartSVN, TortoiseSVN и WinMerge."
+msgtext "%name, для разработки приложений Windows Store App ca2 использует ca2 uses Windows, Visual Studio 2017 Community Edition, SmartSVN, TortoiseSVN и WinMerge."
 
 
 msgid "%name, For the exclamation mark, if an existing command is not found, an audio clip is played from !playlist. If a corresponding audio clip is not found, the text is played like in !say <text>"
@@ -195,7 +195,7 @@ msgid "%name, country of %param1 is \"%topic\""
 msgtext "Страна %name является %topic"
 
 msgid "%name, you will need Visual Studio 2015 (at least Community Edition), a SVN (Subversion) client and repository access (working e-mail address needed). Talk to Camilo for details."
-msgtext "%name, you will need Visual Studio 2015 (at least Community Edition), a SVN (Subversion) client and repository access (working e-mail address needed). Talk to Camilo for details."
+msgtext "%name, you will need Visual Studio 2017 (at least Community Edition), a SVN (Subversion) client and repository access (working e-mail address needed). Talk to Camilo for details."
 
 msgid "%name, it is \"%topic\""
 msgtext "%name, het is \"%topic\""

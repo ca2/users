@@ -132,7 +132,7 @@ string on_pres(string strUserId, string strType)
             if (strText.has_char())
             {
 
-               m_pcomm->msg(strText);
+               m_pcomm->post_message(strText, true);
 
             }
 
@@ -293,7 +293,7 @@ string on_pres(string strUserId, string strType)
 
                }
 
-               m_pcomm->msg(strText);
+               m_pcomm->post_message(strText, true);
 
             }
 

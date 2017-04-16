@@ -22,7 +22,6 @@ class this_plugin :
 
 
 
-
       
 
       this_plugin(::aura::application * papp, object * p) :

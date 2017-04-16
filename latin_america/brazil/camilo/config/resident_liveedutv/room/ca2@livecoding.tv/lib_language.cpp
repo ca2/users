@@ -171,13 +171,10 @@ string _get_text(string strLang, string strId)
 }
 
 
-
-string get_country(string strLang, string strCountry)
+bool load_lang_countries(string strLang)
 {
 
-   strLang.make_upper();
-
-   strCountry.make_upper();
+   strLang.make_lower();
 
    string strFileName = (strLang + ".json");
 
@@ -190,7 +187,7 @@ string get_country(string strLang, string strCountry)
    if (m_ftimeCountry[strLang] == ft)
    {
 
-      return m_country[strLang][strCountry];
+      return true;
 
    }
 
@@ -201,7 +198,7 @@ string get_country(string strLang, string strCountry)
    if (strJson.is_empty())
    {
 
-      return get_country("en", strCountry);
+      return false;
 
    }
 
@@ -214,13 +211,30 @@ string get_country(string strLang, string strCountry)
 
       v.parse_json(psz);
 
+      string strCode;
+
+      string strName;
+
       for (auto & item : v.vara())
       {
 
-         m_country[strLang][item["code"].get_string().upper()] = item["name"];
-         m_countrycode[strLang][item["name"].get_string().upper()] = item["code"].get_string().upper();
+         strCode = item["Code"];
+
+         strCode.make_lower();
+
+         strName = item["Name"];
+
+         m_country[strLang][strCode] = strName;
+
+         strName.make_lower();
+
+         m_countrycode[strLang][strName] = strCode;
 
       }
+
+      string strFileName = "C:\\archive\\lang\\"+(strLang + ".json");
+
+      file_put_contents_dup(strFileName, v.get_json());
 
    }
    catch (...)
@@ -229,7 +243,25 @@ string get_country(string strLang, string strCountry)
 
    }
 
-   return m_country[strLang][strCountry];
+   return true;
+
+}
+
+
+
+string get_country(string strLang, string strCountryCode)
+{
+
+   if (!load_lang_countries(strLang))
+   {
+
+      return get_country("en", strCountryCode);
+
+   }
+
+   strCountryCode.make_lower();
+
+   return m_country[strLang][strCountryCode];
 
 }
 
@@ -237,63 +269,19 @@ string get_country(string strLang, string strCountry)
 string get_country_code(string strLang, string strCountry)
 {
 
-   strLang.make_upper();
-
-   strCountry.make_upper();
-
-   string strFileName = (strLang + ".json");
-
-   strFileName.make_lower();
-
-   ::file::path path = ::dir::system() / "config/resident_liveedutv/room/ca2@livecoding.tv/xmpp_resident_country" / strFileName;
-
-   ::file_time ft = get_file_time(path);
-
-   if (m_ftimeCountry[strLang] == ft)
-   {
-
-      return m_countrycode[strLang][strCountry];
-
-   }
-
-   m_ftimeCountry[strLang] = ft;
-
-   string strJson = Application.file().as_string(path);
-
-   if (strJson.is_empty())
+   if (!load_lang_countries(strLang))
    {
 
       return get_country_code("en", strCountry);
 
    }
 
-   try
-   {
-
-      const char * psz = strJson;
-
-      var v;
-
-      v.parse_json(psz);
-
-      for (auto & item : v.vara())
-      {
-
-         m_country[strLang][item["code"].get_string().upper()] = item["name"];
-         m_countrycode[strLang][item["name"].get_string().upper()] = item["code"].get_string().upper();
-
-      }
-
-   }
-   catch (...)
-   {
-
-
-   }
+   strCountry.make_lower();
 
    return m_countrycode[strLang][strCountry];
 
 }
+
 
 
 string name_welcome_time(string & strSpeakText)

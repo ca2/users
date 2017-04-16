@@ -1,0 +1,24 @@
+﻿resident_liveedutv_bot.cpp
+c:\users\camilo\appdata\roaming\ca2\system\config\resident_liveedutv\room\ca2@livecoding.tv\vericard_animation_disco.cpp(217): warning C4244: '=': conversion from 'int64_t' to 'DWORD', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\resident_liveedutv\room\ca2@livecoding.tv\vericard_animation_disco.cpp(236): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\resident_liveedutv\room\ca2@livecoding.tv\vericard_animation_disco.cpp(326): warning C4244: 'argument': conversion from 'double' to 'int32_t', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\resident_liveedutv\room\ca2@livecoding.tv\vericard_animation_disco.cpp(343): warning C4244: 'argument': conversion from 'double' to 'int32_t', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\resident_liveedutv\room\ca2@livecoding.tv\vericard_animation_disco.cpp(374): warning C4244: 'argument': conversion from 'double' to 'int32_t', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\resident_liveedutv\room\ca2@livecoding.tv\vericard_animation_disco.cpp(376): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\resident_liveedutv\room\ca2@livecoding.tv\vericard_animation_disco.cpp(437): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\resident_liveedutv\room\ca2@livecoding.tv\vericard_animation_disco.cpp(438): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\resident_liveedutv\room\ca2@livecoding.tv\vericard_animation_disco.cpp(439): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\resident_liveedutv\room\ca2@livecoding.tv\vericard_animation_disco.cpp(454): warning C4244: 'argument': conversion from 'double' to 'int64_t', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\resident_liveedutv\room\ca2@livecoding.tv\lib_language.cpp(426): warning C4566: character represented by universal-character-name '\u0438' cannot be represented in the current code page (1252)
+c:\users\camilo\appdata\roaming\ca2\system\config\resident_liveedutv\room\ca2@livecoding.tv\lib1.cpp(175): warning C4244: '=': conversion from 'strsize' to 'int', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\resident_liveedutv\room\ca2@livecoding.tv\lib1.cpp(204): warning C4244: '=': conversion from 'strsize' to 'int', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\resident_liveedutv\room\ca2@livecoding.tv\lib1.cpp(228): warning C4244: '+=': conversion from 'strsize' to 'int', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\resident_liveedutv\room\ca2@livecoding.tv\lib_language.cpp(443): warning C4244: '=': conversion from 'strsize' to 'int', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\resident_liveedutv\room\ca2@livecoding.tv\lib_language.cpp(457): warning C4244: '+=': conversion from 'strsize' to 'int', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\resident_liveedutv\room\ca2@livecoding.tv\lib_language.cpp(463): warning C4244: '=': conversion from 'strsize' to 'int', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\resident_liveedutv\room\ca2@livecoding.tv\lib_language.cpp(477): warning C4244: '+=': conversion from 'strsize' to 'int', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\resident_liveedutv\room\ca2@livecoding.tv\lib_language.cpp(482): warning C4244: '=': conversion from 'strsize' to 'int', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\resident_liveedutv\room\ca2@livecoding.tv\lib_language.cpp(496): warning C4244: '+=': conversion from 'strsize' to 'int', possible loss of data
+c:\users\camilo\appdata\roaming\ca2\system\config\resident_liveedutv\room\ca2@livecoding.tv\lib_bot_x.cpp(2204): warning C4101: 'dLat': unreferenced local variable
+c:\users\camilo\appdata\roaming\ca2\system\config\resident_liveedutv\room\ca2@livecoding.tv\lib_bot_x.cpp(2202): warning C4101: 'iId': unreferenced local variable
+c:\users\camilo\appdata\roaming\ca2\system\config\resident_liveedutv\room\ca2@livecoding.tv\lib_bot_x.cpp(2206): warning C4101: 'dLon': unreferenced local variable
