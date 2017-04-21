@@ -1,4 +1,4 @@
-﻿80
+﻿84
 0
 2017 April Cross Platform Round
 -Windows Desktop Round
@@ -29,7 +29,7 @@
 ---verilux
 ---verifile
 ---veriedit
--Windows Store Round
+-BLOCK:VS2017 Windows Store Round
 --3rd party libraries
 ---OpenSSL for Windows Store
 ---FFMpeg for Windows Store
@@ -51,7 +51,7 @@
 ---verilux
 ---verifile
 ---veriedit
--Ubuntu Round
+-BLOCK:17.04MirAMDIntelHD: Ubuntu Round
 --Core Applications
 ---Desk
 ---Todo
@@ -79,10 +79,6 @@
 ---verifile
 ---veriedit
 -macOS Round
---Third Party Libraries
----OpenSSL for macOS
----FFMpeg for macOS
----Other Third Party Libraries for macOS
 --Core Applications
 ---Desk
 ---Todo
