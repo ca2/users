@@ -2821,9 +2821,12 @@ string bot_x()
          }
       }
    }
+   
    if(str.is_empty())
    {
+
       return "";
+
    }
    
    bool bSpeakable = true;

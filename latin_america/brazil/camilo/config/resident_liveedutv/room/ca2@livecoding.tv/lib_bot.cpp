@@ -17,15 +17,6 @@ string on_bot(string strUser,string strText)
       return "";
 
    }
-   
-   if (!strText.begins_ci("!") && !strText.begins_ci("?") && !strText.begins_ci(".") && !m_straSpecialCommand.str_begins_ci(strText) && strUser.CompareNoCase("RevloBot") != 0 && strUser.CompareNoCase("Nightbot") != 0)
-   {
-      
-      m_pcomm->add_chat(this);
-   
-      return "";
-
-   }
 
    auto puser = get_user(m_strUserId);
 
@@ -188,5 +179,18 @@ string on_bot(string strUser,string strText)
       }
    }
    m_strText = strText;
-   return bot_x();
+
+   if (!strText.begins_ci("!") && !strText.begins_ci("?") && !strText.begins_ci(".") && !m_straSpecialCommand.str_begins_ci(strText) && strUser.CompareNoCase("RevloBot") != 0 && strUser.CompareNoCase("Nightbot") != 0)
+   {
+      
+      return bot_a();
+
+   }
+   else
+   {
+   
+      return bot_x();
+
+   }
+
 }
