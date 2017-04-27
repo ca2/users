@@ -348,7 +348,7 @@ void audio_announce(string strParam, string strTitle = "", string strAlbumArt = 
    }
 
 #ifdef WINDOWS
-call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", "\""+ strParam +  "\" : dont_add_to_playlist" + strTitle + strAlbumArt, "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
+call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", "\""+ strParam +  "\" : dont_add_to_playlist play_now" + strTitle + strAlbumArt, "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
 
 #elif defined(MACOS)
 

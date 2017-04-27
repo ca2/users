@@ -29,6 +29,7 @@ string_map < file_time > m_ftimeCountry;
 #include "lib_followers.cpp"
 #include "lib_hosts.cpp"
 #include "lib_bot.cpp"
+#include "lib_bot_a.cpp" // catherinahelena contribution!! 26th April 2017
 #include "lib_bot_x.cpp"
 #include "lib_pres.cpp"
 
