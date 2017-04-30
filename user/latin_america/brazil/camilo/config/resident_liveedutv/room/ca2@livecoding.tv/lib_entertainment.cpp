@@ -207,3 +207,47 @@ void sound_for_follower() // welcome sound
 
    
 }
+
+
+
+
+void audio_announce(string strParam, string strTitle = "", string strAlbumArt = "", bool bIgnorePlaybackNotification = true)
+{
+
+   if (bIgnorePlaybackNotification)
+   {
+
+      ::file::path pathOrigin(strParam);
+
+      Application.veripack().m_pathaIgnorePlaybackNotification.add(pathOrigin);
+
+   }
+
+   if (strTitle.has_char())
+   {
+
+      strTitle = " call_title=\"" + strTitle + "\"";
+
+   }
+
+   if (strAlbumArt.has_char())
+   {
+
+      strAlbumArt = " call_albumart=\"" + strAlbumArt + "\"";
+
+   }
+
+#ifdef WINDOWS
+   call_async("C:\\core\\time\\Win32\\basis\\app_veriwell_waven.exe", "\"" + strParam + "\" : dont_add_to_playlist play_now" + strTitle + strAlbumArt, "C:\\core\\time\\Win32\\basis\\", SW_SHOW, false);
+
+#elif defined(MACOS)
+
+   //string strPath = file_as_string_dup(::file::path(“HOME”) / “.ca2/mypath/app-core/Waven”);
+
+   ::system("/Applications/Waven.app/Contents/MacOS/Waven \"" + strParam + "\" : dont_add_to_playlist" + strTitle + strAlbumArt);
+
+#else
+   call_async("/xcore/time/x64/basis/app", "\"" + strParam + "\" :  app=app-veriwell/waven build_number=basis locale=_std schema=_std dont_add_to_playlist" + strTitle + strAlbumArt, "/xcore/time/x64/basis", SW_SHOW, false);
+#endif
+
+}

@@ -2144,7 +2144,7 @@ string bot_x()
          stra.insert_at(0, "timer");
       set_user_timer(strName, stra[0], stra[1], strLang);
    }
-   else if (third_info("defzone") || strLoText == "!resetzone")
+   else if (third_info("defzone") || third_info("resetzone"))
    {
 
       string strCurrentUser = m_strExtra;
@@ -2242,26 +2242,50 @@ string bot_x()
 
             v.parse_json(pszJson);
             
-            double dUTCOffset = v["gmtoffset"].get_double() / 3600.0;
+            double dUTCOffset = v["gmtOffset"].get_double() / 3600.0;
             
             string strTimeZoneText = v["abbreviation"];
 
-            param(1, v["countrycode"]);
-            param(2, v["zonename"]);
+            param(1, v["countryCode"]);
+            param(2, v["zoneName"]);
             param(3, strTimeZoneText);
             param(4, ::str::from(dUTCOffset));
             param(5, v["dst"].get_bool() ? "true" : "false");
 
-            str = _t("country code: %param1, zone name: %param2, abbreviation: %param3, UTC: %param4, daylight saving: %param5");
-            
-            if(strLoText == "!resetzone")
+            bool bReset = false;
+
+            if(::str::begins_ci(strLoText, "!resetzone"))
             {
-               
-               set_user_data(strUser,"time_zone", dUTCOffset);
-               
-               set_user_data(strUser,"time_zone_text", strTimeZoneText);
+
+               if (strCurrentUser.CompareNoCase(strUser) == 0 || bAdmin)
+               {
+
+                  set_user_data(strCurrentUser, "time_zone", dUTCOffset);
+
+                  set_user_data(strCurrentUser, "time_zone_text", strTimeZoneText);
+
+                  bReset = true;
+
+               }
                
             }
+
+            m_strTopic = strCurrentUser;
+
+            if (bReset)
+            {
+
+               str = _t("%name, default time zone for %topic reset to: country code: %param1, zone name: %param2, abbreviation: %param3, UTC: %param4, daylight saving: %param5");
+
+            }
+            else
+            {
+
+               str = _t("%name, default time zone information for %topic is: code: %param1, zone name: %param2, abbreviation: %param3, UTC: %param4, daylight saving: %param5");
+
+            }
+
+
 
          }
          else
