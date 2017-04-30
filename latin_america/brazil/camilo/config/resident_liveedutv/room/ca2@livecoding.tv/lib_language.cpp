@@ -104,17 +104,7 @@ string get_text(string & strSpeakText, string strId, bool bAppendSpeakText = fal
    strNewSpeakText.replace("$name", "");
    strNewSpeakText = process_text(strNewSpeakText, strName, strTopic, straParam);
 
-   if (strLang == "en" || strLang == "pt" || strLang == "de" || strLang == "nl")
-   {
-      strNewSpeakText.replace(":)", "");
-      strNewSpeakText.replace(":(", "");
-   }
-   if (strLang == "ja" || strLang == "jp")
-   {
-      strNewSpeakText.replace("{!}", unitext("エクスクラメーションマーク"));
-   }
-
-   strNewSpeakText.replace("\"", " ");
+   strNewSpeakText = process_text_to_speech(strNewSpeakText, strLang);
 
    if (bAppendSpeakText)
    {
@@ -563,4 +553,210 @@ string user_time_text(::vericard::user * puser, string strLang, bool bTimeZone =
    return now.FormatZone(_t("%Y-%m-%d %H:%M:%S")) + strZone;
 
 }
+
+
+
+
+bool consider_speakable_text(string strText)
+{
+
+   string str;
+   string str1;
+   string str2;
+   string str3;
+   string str4;
+   string str5;
+   string str6;
+   string str7;
+   string str8;
+
+   int iMax4Vowel = 3;
+   int iMax5pVowel = 1;
+   int iMax8Consonant = 1;
+   int iv5p = 0;
+   int iv4 = 0;
+   int ic8 = 0;
+
+   {
+
+      stringa stra;
+      stra.add("vagina");
+      stra.add("penis");
+      stra.add("bitch");
+      int iFind;
+      for (auto str : stra)
+      {
+         iFind = strText.find_ci(str);
+         if (iFind >= 0)
+         {
+            return false;
+         }
+      }
+   }
+
+   {
+
+      stringa stra;
+
+      stra.add("shit");
+      stra.add("cock");
+      stra.add("dick");
+      stra.add("cum");
+      stra.add("anal");
+      stra.add("cum");
+      stra.add("fuck");
+      int iFind;
+      for (auto str : stra)
+      {
+         iFind = 0;
+         if (str.CompareNoCase(strText.trimmed()) == 0)
+         {
+            return false;
+         }
+         while (true)
+         {
+            iFind = strText.find_ci(str, iFind);
+            if (iFind < 0)
+            {
+               break;
+            }
+            if (iFind == 0)
+            {
+               if (!isalpha(strText[iFind + str.get_length()]))
+               {
+                  return false;
+               }
+            }
+            else if (iFind == strText.get_length() - str.get_length())
+            {
+               if (!isalpha(strText[iFind - 1]))
+               {
+                  return false;
+               }
+            }
+            else if (!isalpha(strText[iFind - 1]) && !isalpha(strText[iFind + str.get_length()]))
+            {
+
+               return false;
+            }
+            iFind += str.get_length();
+         }
+      }
+   }
+
+   if (strText.get_length() < 12)
+   {
+      return true;
+   }
+
+
+   int i = 0;
+   const char * psz = strText;
+   while (true)
+   {
+
+      str = ::str::get_utf8_char(psz);
+      if (str.is_empty())
+         break;
+      psz += str.get_length();
+
+      if (i == 0)
+      {
+         str1 = str;
+      }
+      else if (i == 1)
+      {
+         str2 = str;
+      }
+      else if (i == 2)
+      {
+         str3 = str;
+      }
+      else if (i == 3)
+      {
+         str4 = str;
+      }
+      else if (i == 4)
+      {
+         str5 = str;
+      }
+      else if (i == 5)
+      {
+         str6 = str;
+      }
+      else if (i == 6)
+      {
+         str7 = str;
+      }
+      else if (i == 7)
+      {
+         str8 = str;
+      }
+      else
+      {
+
+         if (is_vowel(str1) && is_vowel(str2) && is_vowel(str3) && is_vowel(str4) && is_vowel(str5))
+         {
+            iv5p++;
+            if (iv5p >= iMax5pVowel)
+            {
+               return false;
+            }
+         }
+         else if (is_vowel(str1) && is_vowel(str2) && is_vowel(str3) && is_vowel(str4))
+         {
+            iv4++;
+            if (iv4 >= iMax4Vowel)
+            {
+               return false;
+            }
+         }
+         else if (is_consonant(str1) && is_consonant(str2) && is_consonant(str3) && is_consonant(str4) && is_consonant(str5) && is_consonant(str6) && is_consonant(str7) && is_consonant(str8))
+         {
+            ic8++;
+            if (ic8 >= iMax8Consonant)
+            {
+               return false;
+            }
+         }
+
+
+         str1 = str2;
+         str2 = str3;
+         str3 = str4;
+         str4 = str5;
+         str5 = str6;
+         str6 = str;
+      }
+      i++;
+   }
+
+   return true;
+}
+
+
+string process_text_to_speech(string strNewSpeakText, string strLang)
+{
+
+
+   if (strLang == "en" || strLang == "pt" || strLang == "de" || strLang == "nl")
+   {
+      strNewSpeakText.replace(":)", "");
+      strNewSpeakText.replace(":(", "");
+   }
+   if (strLang == "ja" || strLang == "jp")
+   {
+      strNewSpeakText.replace("{!}", unitext("エクスクラメーションマーク"));
+   }
+
+   strNewSpeakText.replace("\"", " ");
+
+   ::str::x_left_remove(strNewSpeakText, "https://");
+
+   ::str::x_left_remove(strNewSpeakText, "http://");
+
+   return strNewSpeakText;
+
+}
+
 

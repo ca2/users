@@ -74,9 +74,11 @@ string on_pres(string strUserId, string strType)
                   if (get_user_data(strUserId, "visit_count") <= 4)
                   {
 
-                     bye();
+                     //bye();
 
-                     strText = _t("Bye %name! :(");
+                     //strText = _t("Bye %name! :(");
+
+                     strText = _t("%name leaved the room.");
 
                   }
                   else
@@ -85,39 +87,43 @@ string on_pres(string strUserId, string strType)
                      if (now.m_time - last_back.m_time > 8 * 60)  // 1 hour
                      {
 
-                        strText = _t("See you %name! :(");
+                        //strText = _t("See you %name! :(");
 
-                        bye();
+                        //bye();
+
+                        strText = _t("%name leaved the room.");
 
                      }
                      else
                      {
 
-                        strText = _t("See you %name! :(");
+                        //strText = _t("See you %name! :(");
 
-                        strText.replace(":(", "");
+                        //strText.replace(":(", "");
 
-                        bye();
+                        //bye();
 
-                     }
-
-                  }
-
-                  if (strText.has_char())
-                  {
-
-                     Application.veripack().schedule_speech(strUserId, m_strLang, strText, strSpeakText, this);
-
-                  }
-                  else
-                  {
-
-                     if (!lspeak(strUserId, m_strLang, strSpeakText, false))
-                     {
+                        strText = _t("%name leaved the room.");
 
                      }
 
                   }
+
+                  //if (strText.has_char())
+                  //{
+
+                  //   Application.veripack().schedule_speech(strUserId, m_strLang, strText, strSpeakText, this);
+
+                  //}
+                  //else
+                  //{
+
+                  //   if (!lspeak(strUserId, m_strLang, strSpeakText, false))
+                  //   {
+
+                  //   }
+
+                  //}
 
                }
 
@@ -132,7 +138,27 @@ string on_pres(string strUserId, string strType)
             if (strText.has_char())
             {
 
-               m_pcomm->post_message(strText, true);
+               sp(::vericard::chat_item) pitem = canew(chat_item(get_app(), m_pcomm->m_pchatcommBot->m_strUserId, strText, m_pcomm->m_strProtocol, m_pcomm->m_pchatcommBot));
+
+               ::vericard::user * puser = pitem->m_puser;
+
+               if (puser == NULL)
+               {
+
+                  puser = Application.veripack().get_user(pitem->m_strUserId, m_pcomm, false);
+
+                  if (puser == NULL)
+                  {
+
+                     return;
+
+                  }
+
+                  pitem->m_puser = puser;
+
+               }
+
+               m_pcomm->add_chat(pitem);
 
             }
 

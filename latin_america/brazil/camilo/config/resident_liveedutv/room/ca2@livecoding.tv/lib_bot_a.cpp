@@ -60,14 +60,13 @@ string bot_a()
    straGreet.add("welcome");
    straGreet.add("wb");
 
-
-   if (xcontains(strQuery, "resident") || xcontains(strQuery, "bot")  || xcontains(strQuery, "ca2bot"))
+   if (::str::x_contains(strQuery, "resident") || ::str::x_contains(strQuery, "bot")  || ::str::x_contains(strQuery, "ca2bot"))
    {
 
-      if (xfind(straAdj, strQuery))
+      if (::str::x_find(straAdj, strQuery))
       {
 
-         if (xfind(straGreet, strQuery))
+         if (::str::x_find(straGreet, strQuery))
          {
 
             str = _t("Thank you, %name!!");
@@ -76,6 +75,27 @@ string bot_a()
 
       }
 
+
+   }
+
+   if (::str::x_contains(strQuery, "cya") || ::str::x_contains(strQuery, "see you") || ::str::x_contains(strQuery, "bye"))
+   {
+
+      str = _t("See you, %name!!");
+
+   }
+
+   if (::str::x_contains(strQuery, "hi") || ::str::x_contains(strQuery, "hello") || ::str::x_contains(strQuery, "hey"))
+   {
+
+      str = _t("Hi, %name!!");
+
+   }
+
+   if (::str::x_contains(strQuery, "yay") || ::str::x_contains(strQuery, "yey") || ::str::x_contains(strQuery, "wow"))
+   {
+
+      str = _t("Victory!!");
 
    }
 
@@ -137,50 +157,3 @@ string bot_a()
 }
 
 
-bool xcontains(string str, string strFind)
-{
-
-   strsize iFind = 0;
-
-   while((iFind = str.find_ci(strFind, iFind)) >= 0)
-   {
-
-      bool bLowerBound1 = iFind == 0;
-      bool bLowerBound = bLowerBound1 || !isalpha_dup(strFind[iFind-1]);
-      strsize iUpperBound = iFind + strFind.get_length();
-      bool bUpperBound1 = iUpperBound == str.get_length();
-      bool bUpperBound = bUpperBound1 || !isalpha_dup(strFind[iUpperBound]);
-
-      if(bLowerBound && bUpperBound)
-      {
-         
-         return true;
-
-      }
-
-      iFind++;
-
-   }
-
-   return false;
-
-}
-
-bool xfind(stringa & stra, string str)
-{
-
-   for(auto & strFind : stra)
-   {
-
-      if(xcontains(str, strFind))
-      {
-
-         return true;
-
-      }
-
-   }
-
-   return false;
-
-}
