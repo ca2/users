@@ -190,7 +190,7 @@ bool set_user_timer(string strName, string strTitle, string strSpec, string strL
    
    //string strPath = file_as_string_dup(::file::path(“HOME”) / “.ca2/mypath/app-core/Waven”);
    
-   ::system("/Applications/timer.app/Contents/MacOS/timer \"timer://device/"+strSpec+"?user="+System.url().url_encode(strName)+"&title="+System.url().url_encode(strTitle)+"&lang="+System.url().url_encode(strLang)+"&autoclose=1\" : app=app-core/timer build_number=basis locale=_std schema=_std");
+   ::system(macos_app_path("app-core/timer") + "/Contents/MacOS/timer \"timer://device/"+strSpec+"?user="+System.url().url_encode(strName)+"&title="+System.url().url_encode(strTitle)+"&lang="+System.url().url_encode(strLang)+"&autoclose=1\" : app=app-core/timer build_number=basis locale=_std schema=_std");
    
    
 #else
@@ -388,7 +388,7 @@ string user_weather(::vericard::user * puser, string & strQuery, string & strCou
    
    //::system(" \"" + strQuery + "\" : for_resident=" + m_strUserId + " app=app-core/weather build_number=basis version=basis locale=_std schema=_std ");
    
-   call_async("/Applications/Weather!!.app/Contents/MacOS/Weather!!", "\"" + strQuery + "\" : for_resident=" + m_strUserId, "/Applications/Weather!!.app/Contents/MacOS", SW_SHOW, false);
+   call_async(macos_app_path("app-core/weather") + "/Contents/MacOS/Weather!!", "\"" + strQuery + "\" : for_resident=" + m_strUserId, macos_app_path("app-core/weather") +"/Contents/MacOS", SW_SHOW, false);
    
    
 #else
@@ -475,4 +475,18 @@ string user_weather(::vericard::user * puser, string & strQuery, string & strCou
 
 
 
+
+
+::file::path macos_app_path(string strApp)
+{
+
+    ::file::path p = getenv("HOME");
+
+    p /=".ca2/mypath" / strApp;
+    
+    p+=".txt";
+    
+    return file_as_string_dup(p);
+
+}
 

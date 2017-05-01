@@ -1,1 +1,1 @@
-ld: warning: directory not found for option '-L@loader_path'
+clang: error: no such file or directory: '/Volumes/apple/archive/Xcode/DerivedData/Build/Products/Debug/libapp_core_resident.dylib'
