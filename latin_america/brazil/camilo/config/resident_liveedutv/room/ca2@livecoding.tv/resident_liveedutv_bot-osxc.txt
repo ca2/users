@@ -1080,6 +1080,50 @@ In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/met
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/core/core/core/core.h:4:
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/base/base/base/base.h:18:
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/base/base/base_policy/base_policy.h:12:
+In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/base/base/base_policy/base_cpp.h:347:
+/macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/base/base/base/base_application.h:107:32: warning: 'set_icon' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+      virtual ::visual::icon * set_icon(object * pobject, ::visual::icon * picon, bool bBigIcon);
+                               ^
+In file included from /Users/camilo/Library/ca2/system/config/resident_liveedutv/room/ca2@livecoding.tv/resident_liveedutv_bot.cpp:1:
+In file included from /macos/app-core/appseed/resident/framework.h:4:
+In file included from /macos/app-core/appseed/resident/resident.h:4:
+In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app-core/appseed/resident_client/resident_client.h:4:
+In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/core/core/core/core.h:4:
+In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/base/base/base/base.h:4:
+In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/axis/axis/axis/axis.h:39:
+In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/axis/axis/axis/axis_c_cpp.h:229:
+/macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/axis/axis/axis/axis_application.h:231:32: note: overridden virtual function is here
+      virtual ::visual::icon * set_icon(object * pobject, ::visual::icon * picon, bool bBigIcon);
+                               ^
+In file included from /Users/camilo/Library/ca2/system/config/resident_liveedutv/room/ca2@livecoding.tv/resident_liveedutv_bot.cpp:1:
+In file included from /macos/app-core/appseed/resident/framework.h:4:
+In file included from /macos/app-core/appseed/resident/resident.h:4:
+In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app-core/appseed/resident_client/resident_client.h:4:
+In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/core/core/core/core.h:4:
+In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/base/base/base/base.h:18:
+In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/base/base/base_policy/base_policy.h:12:
+In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/base/base/base_policy/base_cpp.h:347:
+/macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/base/base/base/base_application.h:110:32: warning: 'get_icon' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+      virtual ::visual::icon * get_icon(object * pobject, bool bBigIcon) const;
+                               ^
+In file included from /Users/camilo/Library/ca2/system/config/resident_liveedutv/room/ca2@livecoding.tv/resident_liveedutv_bot.cpp:1:
+In file included from /macos/app-core/appseed/resident/framework.h:4:
+In file included from /macos/app-core/appseed/resident/resident.h:4:
+In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app-core/appseed/resident_client/resident_client.h:4:
+In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/core/core/core/core.h:4:
+In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/base/base/base/base.h:4:
+In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/axis/axis/axis/axis.h:39:
+In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/axis/axis/axis/axis_c_cpp.h:229:
+/macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/axis/axis/axis/axis_application.h:233:32: note: overridden virtual function is here
+      virtual ::visual::icon * get_icon(object * pobject, bool bBigIcon) const;
+                               ^
+In file included from /Users/camilo/Library/ca2/system/config/resident_liveedutv/room/ca2@livecoding.tv/resident_liveedutv_bot.cpp:1:
+In file included from /macos/app-core/appseed/resident/framework.h:4:
+In file included from /macos/app-core/appseed/resident/resident.h:4:
+In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app-core/appseed/resident_client/resident_client.h:4:
+In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/core/core/core/core.h:4:
+In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/base/base/base/base.h:18:
+In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/base/base/base_policy/base_policy.h:12:
 In file included from /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/base/base/base_policy/base_cpp.h:353:
 /macos/app-core/appseed/resident/../../../nodeapp/seed/metaseed/../../../app/appseed/base/base/base/base_session.h:61:34: warning: 'get_cursor' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
       virtual ::visual::cursor * get_cursor();
@@ -16094,4 +16138,4 @@ In file included from /Users/camilo/Library/ca2/system/config/resident_liveedutv
 /Users/camilo/Library/ca2/system/config/resident_liveedutv/room/ca2@livecoding.tv/lib_pres.cpp:13:13: warning: unused variable 'strTopic' [-Wunused-variable]
    string & strTopic = m_strTopic;
             ^
-833 warnings generated.
+835 warnings generated.

@@ -1,4 +1,5 @@
 ﻿#include "framework.h"
+#include "app-core/appseed/resident/resident.h"
 #pragma comment (lib,"announcecom.lib" )
 #pragma comment (lib,"vericard.lib" )
 #pragma comment (lib,"app_core_resident.lib" )
