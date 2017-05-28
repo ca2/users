@@ -24,6 +24,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 class this_plugin:
    virtual public ::vericard::plugin
 {
@@ -72,6 +85,9 @@ public:
 
 
 
+
+
+   
 
 
 
@@ -128,6 +144,10 @@ public:
    }
 
 };
+
+
+
+
 
 
 

@@ -99,6 +99,148 @@ string bot_a()
 
    }
 
+   bool bBabylonTheHistoryBookInTheShelfAlwaysRepeatingItself_ItIsTrueEvenIfItDidntHappened = false;
+
+   string strBabylonTopic;
+
+   {
+
+      stringa straBabylon;
+
+      stringa & stra = straBabylon;
+
+      if(!strUser.contains_ci("Catherina"))
+      {
+         stra.add("Java");
+      }
+      if(!strUser.contains_ci("camwhite")
+      && !strUser.contains_ci("scamwhite")
+      && !strUser.contains_ci("xmx")
+      && !strUser.contains_ci("xmetrix")
+      && !strUser.contains_ci("zjrosen")
+      && !strUser.contains_ci("unicorn")
+      && !strUser.contains_ci("phanx"))
+      {
+         stra.add("Nude");
+         stra.add("Nude.js");
+         stra.add("Node");
+         stra.add("Node.js");
+         stra.add("Javascript");
+         stra.add("Jee");
+         stra.add("Js");
+      }
+      if(!strUser.contains_ci("david")
+      && strCountry.CompareNoCase("spain") != 0
+      && strCountry.CompareNoCase("italy") != 0
+      && strCountry.CompareNoCase("france") != 0)
+      {
+         stra.add("Python");
+      }
+      stra.add("Lua");
+      if(strCountry.CompareNoCase("japan") != 0)
+      {
+         stra.add("Ror");
+         stra.add("Ruby-on-Rails");
+      }
+      if(!strUser.contains_ci("foamy"))
+      {
+         stra.add("Lisp"); // Foamy
+      }
+      stra.add("Cobol");
+      stra.add("Prolog");
+      if(!strUser.contains_ci("Jegas") && !strUser.contains_ci("Jason") && !strUser.contains_ci("Sage"))
+      {
+         stra.add("Pascal"); // Jegas
+      }
+      stra.add("F#");
+      stra.add("C#");
+      stra.add("vim");
+      stra.add("e-macs");
+      stra.add("bash");
+      stra.add("DOS");
+      stra.add("scripting");
+      stra.add("Obj-C");
+      stra.add("Objective-C");
+      stra.add("Swift");
+//      stra.add("Go");
+      stra.add("Qt");
+      stra.add("SDL");
+      stra.add("SMFL");
+      stra.add("Unreal");
+      stra.add("unity");
+      stra.add("Angular");
+      stra.add("React");
+      stra.add("Reactive");
+      stra.add("Framework");
+      stra.add("library");
+      stra.add("language");
+      stra.add("programming");
+      if(!strUser.contains_ci("Phanx"))
+      {
+         stra.add("ActionScript"); // PhanxGames
+      }
+      if(!strUser.contains_ci("Thomas"))
+      {
+         stra.add("PHP"); // Thomas
+      }
+
+      stringa straTopics;
+
+      for(auto & str : stra)
+      {
+
+         if(::str::x_contains(strQuery, str))
+         {
+            
+            bBabylonTheHistoryBookInTheShelfAlwaysRepeatingItself_ItIsTrueEvenIfItDidntHappened = true;
+
+            straTopics.add(str);
+
+         }
+
+      }
+
+      strBabylonTopic = straTopics.implode(", ");
+
+   }
+   
+   if (::str::x_contains(strQuery, "Visual Basic") || ::str::x_contains(strQuery, "VB.net") || ::str::x_contains(strQuery, "vb") || ::str::x_contains(strQuery, "basic"))
+   {
+
+      str = _t("Yes!! Learn the Basic of Programming... good to start small, so you grow right to the next level... C.... (and don't go much bigger...)");
+
+   }
+
+   if (bBabylonTheHistoryBookInTheShelfAlwaysRepeatingItself_ItIsTrueEvenIfItDidntHappened)
+   {
+
+      Sleep(8000);
+
+      static int s_iBabylonWar = 0;
+
+      switch(s_iBabylonWar % 3)
+      {
+      case 0:
+         //str = _t("(Language: "+strBabylonTopic+" ...) Viewers, please, prefer C++ or ca2 framework (let's focus :) Thank you for your comprehension...)");
+         str = _t("Hey Everybody! Thanks for your preference. Entropy is increasing... Let's focus :) Thank you for your comprehension...");
+         break;
+         
+      // case 1:
+      //    str = _t("(Language: "+strBabylonTopic+" ...)\" Starting big is not good idea (C#, D, F#, Java...) ... C (see), you may have to (c)ut down a bit...");
+      //    break;
+
+      // case 2:
+      //    str = _t("(Language: "+strBabylonTopic+" ...)\" Why not (c)ut down the language interpretation and inline/runtime translation? Maybe the CPU is hot and the battery is firing...");
+      //    break;
+	  default:
+		break;
+
+      }
+
+      s_iBabylonWar++;
+
+   }
+
    if(str.is_empty())
    {
 
