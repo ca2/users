@@ -1,2 +1,0 @@
-﻿LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/PROFILE' specification
-   Creating library C:/xcore/time/intermediate/x64/basis/resident/C/Users/camilo/AppData/Roaming/ca2/system/config/resident_beampro/room/ca2live@beam.pro/resident_beampro_bot/resident_beampro_bot.lib and object C:/xcore/time/intermediate/x64/basis/resident/C/Users/camilo/AppData/Roaming/ca2/system/config/resident_beampro/room/ca2live@beam.pro/resident_beampro_bot/resident_beampro_bot.exp
