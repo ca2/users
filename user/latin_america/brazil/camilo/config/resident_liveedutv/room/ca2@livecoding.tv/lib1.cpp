@@ -277,14 +277,14 @@ bool third_info(string strQuery, bool bPrefix = true)
 
    string strQuery2 = "!" + strQuery;
 
-   if (strText.CompareNoCase(strQuery1) == 0 || ::str::begins_eat_ci(strText, strQuery1 + " ")
-      || strText.CompareNoCase(strQuery2) == 0 || ::str::begins_eat_ci(strText, strQuery2 + " ")
-      || (!bPrefix && (strText.CompareNoCase(strQuery) == 0 || ::str::begins_eat_ci(strText, strQuery + " "))))
+   if (strText.compare_ci(strQuery1) == 0 || ::str::begins_eat_ci(strText, strQuery1 + " ")
+      || strText.compare_ci(strQuery2) == 0 || ::str::begins_eat_ci(strText, strQuery2 + " ")
+      || (!bPrefix && (strText.compare_ci(strQuery) == 0 || ::str::begins_eat_ci(strText, strQuery + " "))))
    {
 
-      if (strText.CompareNoCase(strQuery1) == 0
-         || strText.CompareNoCase(strQuery2) == 0
-         || (!bPrefix && strText.CompareNoCase(strQuery) == 0))
+      if (strText.compare_ci(strQuery1) == 0
+         || strText.compare_ci(strQuery2) == 0
+         || (!bPrefix && strText.compare_ci(strQuery) == 0))
       {
 
          strText.Empty();
@@ -415,7 +415,7 @@ string user_weather(::vericard::user * puser, string & strQuery, string & strCou
 
             string str = Application.veripack().m_vaResponse[i][0].get_string();
             
-            if (str.CompareNoCase(strResponse) == 0)
+            if (str.compare_ci(strResponse) == 0)
             {
 
                vara = Application.veripack().m_vaResponse[i];

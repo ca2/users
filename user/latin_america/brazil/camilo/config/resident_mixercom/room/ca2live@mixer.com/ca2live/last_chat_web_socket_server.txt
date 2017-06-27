@@ -1,0 +1,1 @@
+wss://chat6-dal.mixer.com:443

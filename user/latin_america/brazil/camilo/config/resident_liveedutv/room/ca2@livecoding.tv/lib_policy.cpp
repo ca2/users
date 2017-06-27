@@ -45,15 +45,15 @@ bool spam(string strUser)
    {
       return true;
    }
-   else if (strUser.CompareNoCase("coldzer0") == 0)
+   else if (strUser.compare_ci("coldzer0") == 0)
    {
       return true;
    }
-   else if (strUser.CompareNoCase("bamberino") == 0 || strUser.CompareNoCase("bamb3rino") == 0)
+   else if (strUser.compare_ci("bamberino") == 0 || strUser.compare_ci("bamb3rino") == 0)
    {
       return true;
    }
-   else if (strUser.CompareNoCase("daratho") == 0)
+   else if (strUser.compare_ci("daratho") == 0)
    {
       return true;
    }

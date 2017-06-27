@@ -88,7 +88,7 @@ string bot_x()
 
       }
 
-      if (strAnimation.CompareNoCase("off") == 0 || strAnimation.CompareNoCase("stop") == 0)
+      if (strAnimation.compare_ci("off") == 0 || strAnimation.compare_ci("stop") == 0)
       {
 
          Application.veripack().m_strAnimationNew.Empty();
@@ -960,7 +960,7 @@ string bot_x()
 
             //string strJid = pcomm->m_straPresenceJid[i];
 
-            if (strRoom.has_char() && strItem.CompareNoCase(strRoom)==0)
+            if (strRoom.has_char() && strItem.compare_ci(strRoom)==0)
             {
 
                string str1 = _t("\"myself\"");
@@ -968,7 +968,7 @@ string bot_x()
                straFiltered.add_unique(str1);
 
             }
-            else if (strBot.has_char() && strItem.CompareNoCase(strBot) == 0)
+            else if (strBot.has_char() && strItem.compare_ci(strBot) == 0)
             {
 
                strName = username(strItem, strLang);
@@ -1034,7 +1034,7 @@ string bot_x()
 
          }
 
-         straFiltered.quick_sort(NULL, NULL, true);
+         straFiltered.sort();
 
          string strTime = straFiltered._008IfImplode(" : ", ", ", " " + l_and(strLang) + " ", cGuest > 0);;
 
@@ -1151,7 +1151,7 @@ string bot_x()
             stra.add(i["user__slug"]);
          }
       }
-      stra.quick_sort(NULL, NULL, true);
+      stra.sort();
 
       strTopic = ::str::from(stra.get_count());
 
@@ -1198,7 +1198,7 @@ string bot_x()
          str = rr(strName, strLang, strUser == "ca2");
       }
    }
-   else if (strText.CompareNoCase("!song url") == 0)
+   else if (strText.compare_ci("!song url") == 0)
    {
 
       str = song_url();
@@ -2099,7 +2099,7 @@ string bot_x()
    {
       translate(strUser,glang(strText.substr(3,2)),glang(strLang),strText.substr(6));
    }
-   else if (strText.CompareNoCase("!lctv") == 0)
+   else if (strText.compare_ci("!lctv") == 0)
    {
       lctv_profile(strUserParam, strUser);
    }
@@ -2152,7 +2152,7 @@ string bot_x()
       if (strCurrentUser.is_empty())
       {
 
-         if (m_strOtherUserId.CompareNoCase(m_strUserId) != 0 && m_strOtherUserId.has_char())
+         if (m_strOtherUserId.compare_ci(m_strUserId) != 0 && m_strOtherUserId.has_char())
          {
 
             strCurrentUser = m_strOtherUserId;
@@ -2257,7 +2257,7 @@ string bot_x()
             if(::str::begins_ci(strLoText, "!resetzone"))
             {
 
-               if (strCurrentUser.CompareNoCase(strUser) == 0 || bAdmin)
+               if (strCurrentUser.compare_ci(strUser) == 0 || bAdmin)
                {
 
                   set_user_data(strCurrentUser, "time_zone", dUTCOffset);
@@ -2322,7 +2322,7 @@ string bot_x()
       if (strCurrentUser.is_empty())
       {
 
-         if (m_strOtherUserId.CompareNoCase(m_strUserId) != 0 && m_strOtherUserId.has_char())
+         if (m_strOtherUserId.compare_ci(m_strUserId) != 0 && m_strOtherUserId.has_char())
          {
 
             strCurrentUser = m_strOtherUserId;
@@ -2371,7 +2371,7 @@ string bot_x()
          else
          {
 
-            if (strCurrentUser.CompareNoCase(m_strUserId) == 0)
+            if (strCurrentUser.compare_ci(m_strUserId) == 0)
             {
 
                str = _t("%name, your current weather is %topic.");
@@ -2618,7 +2618,7 @@ string bot_x()
 
       strTopic = System.datetime().utc_offset_string(dUTCOffset);
 
-      if(get_user(strUser)->get_user_data("time_zone_text").has_char() && get_user(strTopicUser)->get_user_data("time_zone_text").get_string().upper().CompareNoCase(strTopic) != 0)
+      if(get_user(strUser)->get_user_data("time_zone_text").has_char() && get_user(strTopicUser)->get_user_data("time_zone_text").get_string().upper().compare_ci(strTopic) != 0)
       {
 
          strTopic = get_user_data(strTopicUser, "time_zone_text").get_string().upper() + " " + strTopic;
@@ -2753,7 +2753,7 @@ string bot_x()
             play_sound(m_pcomm->get_base_path() / "audio/element" / str + ".wav");
             return "";
          }
-         else if(::str::begins_eat_ci(strText, ".") || strUser.CompareNoCase("RevloBot") == 0 || strUser.CompareNoCase("Nightbot") == 0)
+         else if(::str::begins_eat_ci(strText, ".") || strUser.compare_ci("RevloBot") == 0 || strUser.compare_ci("Nightbot") == 0)
          {
             str = strText;
             {

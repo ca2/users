@@ -130,14 +130,14 @@ string bot_a()
          stra.add("Js");
       }
       if(!strUser.contains_ci("david")
-      && strCountry.CompareNoCase("spain") != 0
-      && strCountry.CompareNoCase("italy") != 0
-      && strCountry.CompareNoCase("france") != 0)
+      && strCountry.compare_ci("spain") != 0
+      && strCountry.compare_ci("italy") != 0
+      && strCountry.compare_ci("france") != 0)
       {
          stra.add("Python");
       }
       stra.add("Lua");
-      if(strCountry.CompareNoCase("japan") != 0)
+      if(strCountry.compare_ci("japan") != 0)
       {
          stra.add("Ror");
          stra.add("Ruby-on-Rails");

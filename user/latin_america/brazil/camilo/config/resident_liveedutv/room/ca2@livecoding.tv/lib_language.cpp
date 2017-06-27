@@ -609,7 +609,7 @@ bool consider_speakable_text(string strText)
       for (auto str : stra)
       {
          iFind = 0;
-         if (str.CompareNoCase(strText.trimmed()) == 0)
+         if (str.compare_ci(strText.trimmed()) == 0)
          {
             return false;
          }

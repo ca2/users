@@ -1,1 +1,0 @@
-ld: warning: directory not found for option '-L@loader_path'
