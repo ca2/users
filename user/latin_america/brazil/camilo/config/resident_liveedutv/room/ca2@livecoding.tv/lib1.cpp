@@ -184,17 +184,17 @@ bool is_consonant(string str)
 bool set_user_timer(string strName, string strTitle, string strSpec, string strLang)
 {
 #ifdef WINDOWS
-   call_async("C:\\core\\time\\x64\\basis\\app_core_timer.exe", "\"timer://device/"+strSpec+"?user="+System.url().url_encode(strName)+"&title="+System.url().url_encode(strTitle)+"&lang="+System.url().url_encode(strLang)+"&autoclose=1\"", "C:\\core\\time\\x64\\basis\\", SW_SHOW, false);
+   call_async("C:\\core\\time\\x64\\basis\\app_core_timer.exe", "\"timer://"+strTitle+"/"+strSpec+"?user="+System.url().url_encode(strName)+"&alias="+System.url().url_encode(strTitle)+"&lang="+System.url().url_encode(strLang)+"&autoclose=1\"", "C:\\core\\time\\x64\\basis\\", SW_SHOW, false);
    
 #elif defined(MACOS)
    
    //string strPath = file_as_string_dup(::file::path(“HOME”) / “.ca2/mypath/app-core/Waven”);
    
-   ::system(macos_app_path("app-core/timer") + "/Contents/MacOS/timer \"timer://device/"+strSpec+"?user="+System.url().url_encode(strName)+"&title="+System.url().url_encode(strTitle)+"&lang="+System.url().url_encode(strLang)+"&autoclose=1\" : app=app-core/timer build_number=basis locale=_std schema=_std");
+   ::system(macos_app_path("app-core/timer") + "/Contents/MacOS/timer \"timer://"+strTitle+"/"+strSpec+"?user="+System.url().url_encode(strName)+"&alias="+System.url().url_encode(strTitle)+"&lang="+System.url().url_encode(strLang)+"&autoclose=1\" : app=app-core/timer build_number=basis locale=_std schema=_std");
    
    
 #else
-   call_async("/xcore/time/x64/basis/app", "\"timer://device/"+strSpec+"?user="+System.url().url_encode(strName)+"&title="+System.url().url_encode(strTitle)+"&lang="+System.url().url_encode(strLang)+"&autoclose=1\" : app=app-core/timer build_number=basis locale=_std schema=_std", "/xcore/time/x64/basis", SW_SHOW, false);
+   call_async("/xcore/time/x64/basis/app", "\"timer://"+strTitle+"/"+strSpec+"?user="+System.url().url_encode(strName)+"&alias="+System.url().url_encode(strTitle)+"&lang="+System.url().url_encode(strLang)+"&autoclose=1\" : app=app-core/timer build_number=basis locale=_std schema=_std", "/xcore/time/x64/basis", SW_SHOW, false);
 #endif
    return true;
 }
