@@ -1,1 +1,1 @@
-wss://chat7-dal.mixer.com:443
+wss://chat5-dal.mixer.com:443
