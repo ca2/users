@@ -180,7 +180,7 @@ string on_bot(string strUser,string strText)
    }
    m_strText = strText;
 
-   if (!strText.begins_ci("!") && !strText.begins_ci("?") && !strText.begins_ci(".") && !m_straSpecialCommand.str_begins_ci(strText) && strUser.compare_ci("RevloBot") != 0 && strUser.compare_ci("Nightbot") != 0)
+   if (!strText.begins_ci("-") && !strText.begins_ci("!") && !strText.begins_ci("?") && !strText.begins_ci(".") && !m_straSpecialCommand.str_begins_ci(strText) && strUser.compare_ci("RevloBot") != 0 && strUser.compare_ci("Nightbot") != 0)
    {
       
       return bot_a();
