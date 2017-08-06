@@ -2753,7 +2753,7 @@ string bot_x()
             play_sound(m_pcomm->get_base_path() / "audio/element" / str + ".wav");
             return "";
          }
-         else if(::str::begins_eat_ci(strText, ".") || strUser.compare_ci("RevloBot") == 0 || strUser.compare_ci("Nightbot") == 0)
+         else if(::str::begins_eat_ci(strText, "-") || strUser.compare_ci("RevloBot") == 0 || strUser.compare_ci("Nightbot") == 0)
          {
             str = strText;
             {
